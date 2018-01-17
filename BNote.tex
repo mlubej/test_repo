@@ -10,6 +10,9 @@
 \newcommand {\e}[1]{\mathrm{~#1}}
 \usepackage{paralist}
 
+%\setlength{\parskip}{1em}%
+\setlength{\parindent}{0cm}
+
 \usepackage{titling}
 \usepackage{amsmath,amssymb,amsfonts,nicefrac}
 \usepackage{graphicx}
@@ -181,6 +184,12 @@ where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame. 
 PLOT
 \end{center}
 
+\section{Rest of event clean-up}
+
+Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side, before calculating the four-momentum of the missing neutrino. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then for each ROE object, a ROE mask is created for tracks and clusters, which consists of boolean values for each track and cluster index in the ROE object, where the boolean value narrates the use of this track or cluster in the final calculations of the missing four-momentum.
+
+A more detailed description of the ROE clean-up can be found in chapter X.
+
 \section{Loose neutrino reconstruction}
 
 As was already mentioned, the neutrinos in the event escape the detector, so we cannot determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the neutrino by summing up all the FSP particles four-momenta in the event. This is known as the \textit{untagged} method.
@@ -226,8 +235,70 @@ Since the final fit will be performed on these two variables, we define two regi
 PLOT
 \end{center}
 
+\section{$q^2$ calculation}
 
-\section{Rest of event clean-up}
+\chapter{Rest of event clean-up}
+
+Continuing from X, the description of the ROE clean-up process is described here. 
+
+\section{Setting up the MVA}
+
+Training the MVA classifiers follows the same recipe for all the steps. For each step we run our $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be dependent on the signal side and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leakage of information from the signal side to the ROE side.
+
+For each cleanup-step a dataset of $2\times N$ was prepared for the training of "signal" against "background". The dataset for each case was split into 5 parts for reasons which are explained later on in the note. The Fast-BDT (FBDT) [] algorithm was used as the MVA method, where the following hyper-parameters were optimized with a grid search
+\begin{itemize}
+\item \texttt{nTrees}: the number of trees in the FBDT forest,
+\item \texttt{nLevels}: the number of levels in each FBDT tree.
+\end{itemize}
+
+Figure X shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and $4$ parts of the dataset are used for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation.
+
+\section{Clusters clean-up}
+
+Generally speaking, most of the photons in $B$-physics should come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of clusters are also created by photons coming from the beam background or interactions with the detector material. These photons add extra energy and momentum which we then measure.
+
+In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ probability, which is used as an additional classifier variable in the next step of the clean-up, where we train an MVA to separate good photon clusters from bad ones.
+
+\subsection{$\pi^0$ MVA training}
+
+The dataset of $\pi^0$ candidates contains
+\begin{itemize}
+\item 387125 signal candidates,
+\item 416019 background candidates,
+\end{itemize}
+where the definition of signal is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual daughters of the particle, based on the MC truth. We use $\pi^0$ candidates from the converted $\pi^0$ particle list from Belle MC with the invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$ and perform a mass-constrained fit on all candidates, keeping only the cases where the fit converged. 
+
+
+The input variables used in this MVA are
+\begin{itemize}
+\item $p$ and $p_{CMS}$ of $\pi^0$ and $\gamma$ daughters,
+\item $chiProb$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
+\item angle between the daughter photons in CMS frame,
+\item cluster quantities for each daughter photon
+	\begin{itemize}
+	\item $E_9/E{25}$,
+	\item theta angle,
+	\item number of hit cells in the ECL,
+	\item highest energy in cell,
+	\item energy error,
+	\item distance to closest track at ECL radius.
+	\end{itemize}
+\end{itemize}
+
+The classifier output variable is shown in Figure X.
+
+\begin{center}
+PLOT
+\end{center}
+
+The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X.
+
+
+\subsection{$\gamma$ MVA training}
+
+
+\section{Tracks clean-up}
+
 
 \section{Selection after clean-up}
 
