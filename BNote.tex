@@ -9,8 +9,9 @@
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \usepackage{paralist}
+\usepackage{caption}
 
-%\setlength{\parskip}{1em}%
+\setlength{\parskip}{1em}%
 \setlength{\parindent}{0cm}
 
 \usepackage{titling}
@@ -85,18 +86,22 @@ It is important to limit our selection of FSP particles in order to cut down the
 
 \subsubsection{Leptons}
 
-The following plots show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the $K/\pi$ PID information for true and fake electrons and muons, where an extra category for true electrons/muons from the signal decay is shown.
+Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake electrons and muons, where an extra category for true electrons/muons from the signal decay is shown.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_e_vars}
-\caption{Caption}
+\includegraphics[scale=0.8]{fig/FSP_e_vars}
+\captionsetup{width=.7\linewidth}
+\caption{Normalized properties of true (blue), fake (red) and true electrons (green) from signal decay}.
+\label{fig:evars}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_mu_vars}
-\caption{Caption}
+\includegraphics[scale=0.8]{fig/FSP_mu_vars}
+\captionsetup{width=.7\linewidth}
+\caption{Normalized properties of true (blue), fake (red) and true muons (green) from signal decay}.
+\label{fig:muvars}
 \end{figure}
 
 Based on the first plots, we can define a set of cuts:
@@ -109,55 +114,68 @@ Based on the first plots, we can define a set of cuts:
 
 where the $p_{LAB}$ momentum cut for the electron case is chosen to discard a region with a sharp jump, which is assumed to come from sources like hard coded values in Belle software.
 
-With this selection we can now determine the optimal PID cuts for electrons and muons, where we optimize with the standard definition of \textit{figure of merit} (FOM)
+With this selection we can now determine the optimal PID cuts for electrons and muons, where we optimize with the standard definition of \textit{figure of merit} (FOM), shown in Figures \ref{fig:efom} and \ref{fig:mufom}. The cuts are optimized in steps of $0.1$, since we will later need to apply the PID correction factors, which are only available for cuts of these values.
+
 \begin{equation}
 \label{eq:fom}
 FOM = \frac{S}{\sqrt{S+B}},
 \end{equation} 
 where $S$ represents number of signal and $B$ the number of background candidates.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_e_fom}
-\caption{Caption}
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.8]{fig/FSP_e_fom}
+\caption{$FOM$ optimizations of the PID probability cuts for true electrons (left) and true electrons from signal decays (right).}
+\label{fig:efom}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_mu_fom}
-\caption{Caption}
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.8]{fig/FSP_mu_fom}
+\caption{$FOM$ optimizations of the PID probability cuts for true muons (left) and true muons from signal decays (right).}
+\label{fig:mufom}
 \end{figure}
 
-We now define the PID cuts for leptons:
+The optimized PID cuts for leptons are
 \begin{itemize}
-\item $eID > 0.9$ for electrons,
-\item $muID > 0.9$ for muons.
+\item $e$ prob. $ > 0.9$ for electrons,
+\item $\mu$ prob. $ > 0.9$ for muons.
 \end{itemize}
+
+The optimal value for the PID cuts is the same for all true leptons, if they are coming from signal decays or not, so this cut can be widely used on leptons coming from either $B$ meson in our analysis.
 
 \subsubsection{Kaons}
 
-For the case of kaons, the cuts are very similar
+For the case of kaons, the procedure is the same and the cuts are very similar. Figure \ref{fig:Kvars} shows the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake kaons, where an extra category for true kaons from the signal decay is shown.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=1]{fig/FSP_kaon_vars}
-\caption{Caption}
+\captionsetup{width=.7\linewidth}
+\caption{Normalized properties of true (blue), fake (red) and true kaons (green) from signal decay}.
+\label{fig:Kvars}
 \end{figure}
 
-In the same manner we can define the cuts for kaons:
+We define the kaon cuts in the same manner as in the case for leptons
 \begin{itemize}
 \item $\vert d_0 \vert < 0.15\e{cm}$,
 \item $\vert z_0 \vert < 1.5\e{cm}$,
 \item $p_{CMS} \in [0,\,2.5]~\e{GeV}/c$.
 \end{itemize}
 
-The PID optimization in this case is taken in two steps. First we optimize the $K / \pi$ PID cut, and after that the $K/p$ PID cut.
+The PID optimization in this case is taken in two steps. First we optimize the cut on $K / \pi$, and after that the $K/p$ separation probability. Figure \ref{fig:Kfom} shows the optimization procedure for PID cuts on kaon candidates.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.8]{fig/FSP_kaon_fom}
+\caption{$FOM$ optimizations of the PID probability cuts for true kaons (top) and true kaons from signal decays (bottom). The plots on the left show the optimization of the first step for the $K / \pi$ probability cut, and the plot on the right the $K/p$ probability cut.}
+\label{fig:Kfom}
+\end{figure}
 
-The resulting PID cuts are then:
+The optimized PID cuts for kaons are
 \begin{itemize}
 \item $K/\pi > 0.7$,
 \item $K/p > 0.3$.
@@ -165,20 +183,36 @@ The resulting PID cuts are then:
 
 \section{Combination of FSP particles}
 
-With the reconstructed kaons and leptons we can now make appropriate combinations. Due to our inability to reconstruct the neutrino, we are only able, at this point, to reconstruct the $B$ mesons in the following two channels
+With the pre-selected kaon and lepton candidates we make appropriate combinations for potential $B^+$ meson candidates. Due to our inability to reconstruct the neutrino, we are only able, at this point, to reconstruct the $B$ mesons in the following two channels
 \begin{align*}
 B^+ &\to K^+ K^- e^+, \\
-B^+ &\to K^+ K^- \mu^+.
+B^+ &\to K^+ K^- \mu^+,
 \end{align*}
 
-In order to further guarantee the proper selection of FSP particles in a arbitrary combination, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay somewhere along the z-axis of the detector, due to the detector boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged apply a cut on the fit probability, which was optimized with the $FOM$ function.
+and similarly for $B^-$. In order to further guarantee the proper combination of FSP particles, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay along the z-axis of the detector in the direction of the boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure X. We perform a $FOM$ cut optimization of this variable, which is shown in Figure X.
 
-The resulting PID cuts are then:
+\begin{figure}[H]
+\centering
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.6]{fig/VTX_var}
+\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale.}
+\label{fig:vtxvar}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.6]{fig/VTX_opt}
+\caption{$FOM$ optimization of the vertex fit probability.}
+\label{fig:vtxopt}
+\end{figure}
+
+The resulting PID cuts are then
 \begin{itemize}
-\item $chiProb > 6\times 10^{-3}$.
+\item $P(\chi^2,NDF) > 1\times 10^{-3}$.
 \end{itemize}
 
-With the neutrino being the only missing particle on the reconstructed side and with some assumptions, we can determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the true $B$, as
+With the neutrino being the only missing particle on the reconstructed side, it is possible to determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the true $B$, as
 \begin{align}
 \mathrm{p}_\nu &= \mathrm{p}_B - \mathrm{p}_{Y}, \\
 \label{eq:massnu}
@@ -187,30 +221,45 @@ With the neutrino being the only missing particle on the reconstructed side and 
 \cos \left(\theta_{BY}\right) &= \frac{2E_BE_Y - m_B^2 - m_Y^2}{2\vert \vec{p}_B \vert \vert \vec{p}_Y\vert},
 \end{align} 
 
-where all the energy and momenta above are calculated in the CMS frame. The mass of the neutrino equals 0 to a very good precision, so we used it in Eq. (\ref{eq:massnu}). In addition, we can substitute the unknown energy and momentum magnitude of the $B$ meson in Eq. (\ref{eq:cosby}), $E_B$ and $\vert \vec{p}_B \vert$, with quantities from the well known initial conditions
+where all the energy and momenta above are calculated in the CMS frame. The mass of the neutrino equals to 0 to a very good precision, so we used it in Eq. (\ref{eq:massnu}). In addition, we can substitute the unknown energy and momentum magnitude, $E_B$ and $\vert \vec{p}_B \vert$, of the $B$ meson in Eq. (\ref{eq:cosby}), with quantities from the well known initial conditions
 \begin{align}
 E_B &= E_{CMS} / 2,\\
 \vert \vec{p}_B \vert = p_B &= \sqrt{E_B^2 - m_B^2},
 \end{align} 
 
-where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame. For the correctly reconstructed candidates, this variable  lies in the $[-1,1]$ region, while for the background candidates the values populate also the non-physical regions. Due to detector resolution effects, we impose the cut to somewhat larger values
+where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame and $m_B$ is the nominal mass of the $B$ meson. 
+
+For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the values populate also the non-physical regions, as is shown in Figure \ref{fig:cosbyvar}. We impose an optimized cut on this variable from Figure \ref{fig:cosbyopt} to discard a large amount of background.
 \begin{itemize}
-\item $\vert \cos \left(\theta_{BY}\right) \vert < 1.2$.
+\item $\vert \cos \left(\theta_{BY}\right) \vert < 1.0$.
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.6]{fig/cosBY_var}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates.}
+\label{fig:cosbyvar}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=.7\linewidth}
+\includegraphics[scale=0.6]{fig/cosBY_opt}
+\caption{$FOM$ optimization of the $\cos \theta_{BY}$ variable.}
+\label{fig:cosbyopt}
+\end{figure}
 
 \section{Rest of event clean-up}
+\label{sc:shortroe}
 
-Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side, before calculating the four-momentum of the missing neutrino. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then for each ROE object, a ROE mask is created for tracks and clusters, which consists of boolean values for each track and cluster index in the ROE object, where the boolean value narrates the use of this track or cluster in the final calculations of the missing four-momentum.
+Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side, before calculating the four-momentum of the missing neutrino. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then, for each ROE object, a ROE mask is created for tracks and clusters, which is used to narrate the use of this track or cluster in the final calculations of the ROE four-momentum.
 
-A more detailed description of the ROE clean-up can be found in chapter X.
+In order to preserve the continuity of this chapter, a more detailed description of the ROE clean-up can be found in Chapter \ref{ch:roe}. From this point on in this chapter the reader can assume the ROE to be clean.
 
 \section{Loose neutrino reconstruction}
 
-As was already mentioned, the neutrinos in the event escape the detector, so we cannot determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the neutrino by summing up all the FSP particles four-momenta in the event. This is known as the \textit{untagged} method.
+The signal-side neutrino escapes detection, so we cannot directly determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the missing neutrino via indirectly reconstructing the other $B$ meson by summing up all the FSP particles four-momenta in the ROE. This is known as the \textit{untagged} method. Here we see the motivation for the ROE clean-up. If we did not depend on the other $B$ meson for our signal candidate reconstruction, this would not have been an issue.
 
 The total missing four-momentum in the event can be determined as
 \begin{align}
@@ -218,14 +267,15 @@ The total missing four-momentum in the event can be determined as
 \mathrm{p}_{miss} &= \mathrm{p}_{\Upsilon(4S)} - \left(\mathrm{p}_{Y} -\sum_i^{\mathrm{Rest~of~event}}\left(E_i,\,\vec{p}_i \right)\right).
 \end{align}
 
-where the summation runs over all charged and neutral particles in the event. We can define a new variable, $m_{miss}^2$, which is the square of the missing mass. If signal side neutrino is the only missing particle in the event, then this variable should be equal to zero
+where the summation runs over all charged and neutral particles in the defined set. We define the square of the missing mass, $m_{miss}^2$, which is zero, if signal side neutrino is the only missing particle in the event, as shown in Equation (\ref{eq:m2def}).
 \begin{align}
 \label{eq:nuold}
 \mathrm{p}_\nu &= \mathrm{p}_{miss} = \left(E_{miss},\,\vec{p}_{miss} \right),\\
+\label{eq:m2def}
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have multiple missing neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure.
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have additional missing particles such as extra missing neutrinos or other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure X shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to discard all candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side.
 
 \begin{center}
 PLOT
@@ -256,8 +306,9 @@ PLOT
 \section{$q^2$ calculation}
 
 \chapter{Rest of event clean-up}
+\label{ch:roe}
 
-Continuing from X, the description of the ROE clean-up process is described here. 
+Continuing from Section \ref{sc:shortroe}, the description of the ROE clean-up process is described here. 
 
 \section{Setting up the MVA}
 
