@@ -87,9 +87,17 @@ It is important to limit our selection of FSP particles in order to cut down the
 
 The following plots show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the $K/\pi$ PID information for true and fake electrons and muons, where an extra category for true electrons/muons from the signal decay is shown.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig/FSP_e_vars}
+\caption{Caption}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig/FSP_mu_vars}
+\caption{Caption}
+\end{figure}
 
 Based on the first plots, we can define a set of cuts:
 \begin{itemize}
@@ -108,9 +116,17 @@ FOM = \frac{S}{\sqrt{S+B}},
 \end{equation} 
 where $S$ represents number of signal and $B$ the number of background candidates.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig/FSP_e_fom}
+\caption{Caption}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig/FSP_mu_fom}
+\caption{Caption}
+\end{figure}
 
 We now define the PID cuts for leptons:
 \begin{itemize}
@@ -122,9 +138,11 @@ We now define the PID cuts for leptons:
 
 For the case of kaons, the cuts are very similar
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig/FSP_kaon_vars}
+\caption{Caption}
+\end{figure}
 
 In the same manner we can define the cuts for kaons:
 \begin{itemize}
@@ -266,13 +284,12 @@ The dataset of $\pi^0$ candidates contains
 \item 387125 signal candidates,
 \item 416019 background candidates,
 \end{itemize}
-where the definition of signal is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual daughters of the particle, based on the MC truth. We use $\pi^0$ candidates from the converted $\pi^0$ particle list from Belle MC with the invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$ and perform a mass-constrained fit on all candidates, keeping only the cases where the fit converged. 
-
+where the definition of signal is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and actual daughters of the particle, based on the MC truth. We use $\pi^0$ candidates from the converted $\pi^0$ particle list from Belle MC with the invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$ and perform a mass-constrained fit on all candidates, keeping only the cases where the fit converged. 
 
 The input variables used in this MVA are
 \begin{itemize}
 \item $p$ and $p_{CMS}$ of $\pi^0$ and $\gamma$ daughters,
-\item $chiProb$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
+\item $P(\chi^2,NDF)$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
 \item angle between the daughter photons in CMS frame,
 \item cluster quantities for each daughter photon
 	\begin{itemize}
@@ -291,11 +308,56 @@ The classifier output variable is shown in Figure X.
 PLOT
 \end{center}
 
-The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X.
+The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X for all steps of the clean-up.
 
 
 \subsection{$\gamma$ MVA training}
 
+The dataset of $\gamma$ candidates contains
+\begin{itemize}
+\item 324781 signal candidates,
+\item 333353 background candidates,
+\end{itemize}
+where the definition of signal is that the photon is an actual photon and that the related ECL cluster is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use $\gamma$ candidates from the converted $\gamma$ particle list from Belle MC. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs, the $\pi^0$ probability is overwritten, if the new value is greater than the existing one, since this points to a greater probability of a correct $\pi^0$ combination.
+
+The input variables used in this MVA are
+\begin{itemize}
+\item $p$ and $p_{CMS}$ of $\gamma$ candidates,
+\item $\pi^0$ probability,
+\item cluster quantities
+	\begin{itemize}
+	\item $E_9/E{25}$,
+	\item theta angle,
+	\item number of hit cells in the ECL,
+	\item highest energy in cell,
+	\item energy error,
+	\item distance to closest track at ECL radius.
+	\end{itemize}
+\end{itemize}
+
+The classifier output variable is shown in Figure X.
+
+\begin{center}
+PLOT
+\end{center}
+
+\subsection{Clusters clean-up optimization}
+
+We now have the final weights for photon classification. We apply these weights to the photon particle list, coming from the generically decaying $B$ mesons with correctly reconstructed signal $B$ mesons on the other side. After applying the weights we optimize the cut based on the standard definition of the $FOM$. The cut optimization is shown in Figure X, with the optimal cut on the $\gamma$ classifier output at $X$.
+
+\begin{center}
+PLOT
+\end{center}
+
+Figure shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this cut are
+\begin{itemize}
+\item Signal efficiency: $\epsilon_{SIG} = X$,
+\item Background rejection: $1-\epsilon_{BKG} = X$.
+\end{itemize}
+
+\begin{center}
+PLOT
+\end{center}
 
 \section{Tracks clean-up}
 
