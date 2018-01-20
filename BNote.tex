@@ -70,9 +70,12 @@
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
 \pagenumbering{arabic}
-\include{chapter0}
-\include{chapter1}
-%\include{chapter2}
+
+\chapter{Introduction}
+
+
+
+\chapter{Data and MC}
 
 \chapter{Event reconstruction}
 
@@ -90,16 +93,16 @@ Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ an
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{fig/FSP_e_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_e_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true electrons (green) from signal decay}.
 \label{fig:evars}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{fig/FSP_mu_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_mu_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true muons (green) from signal decay}.
 \label{fig:muvars}
 \end{figure}
@@ -124,16 +127,16 @@ where $S$ represents number of signal and $B$ the number of background candidate
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_e_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_e_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true electrons (left) and true electrons from signal decays (right).}
 \label{fig:efom}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_mu_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_mu_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true muons (left) and true muons from signal decays (right).}
 \label{fig:mufom}
 \end{figure}
@@ -152,8 +155,8 @@ For the case of kaons, the procedure is the same and the cuts are very similar. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_kaon_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_kaon_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true kaons (green) from signal decay}.
 \label{fig:Kvars}
 \end{figure}
@@ -169,8 +172,8 @@ The PID optimization in this case is taken in two steps. First we optimize the c
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_kaon_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_kaon_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true kaons (top) and true kaons from signal decays (bottom). The plots on the left show the optimization of the first step for the $K / \pi$ probability cut, and the plot on the right the $K/p$ probability cut.}
 \label{fig:Kfom}
 \end{figure}
@@ -189,27 +192,19 @@ B^+ &\to K^+ K^- e^+, \\
 B^+ &\to K^+ K^- \mu^+,
 \end{align*}
 
-and similarly for $B^-$. In order to further guarantee the proper combination of FSP particles, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay along the z-axis of the detector in the direction of the boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure X. We perform a $FOM$ cut optimization of this variable, which is shown in Figure X.
+and similarly for $B^-$. In order to further guarantee the proper combination of FSP particles, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay along the z-axis of the detector in the direction of the boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right).
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/VTX_var}
-\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale.}
-\label{fig:vtxvar}
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/VTX}
+\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale (left) and $FOM$ optimization of the vertex fit probability (right).}
+\label{fig:vtx}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/VTX_opt}
-\caption{$FOM$ optimization of the vertex fit probability.}
-\label{fig:vtxopt}
-\end{figure}
-
-The resulting PID cuts are then
+The resulting vertex fit probability cut is then
 \begin{itemize}
-\item $P(\chi^2,NDF) > 1\times 10^{-3}$.
+\item $P(\chi^2,NDF) > 4\times 10^{-3}$.
 \end{itemize}
 
 With the neutrino being the only missing particle on the reconstructed side, it is possible to determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the true $B$, as
@@ -229,25 +224,17 @@ E_B &= E_{CMS} / 2,\\
 
 where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame and $m_B$ is the nominal mass of the $B$ meson. 
 
-For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the values populate also the non-physical regions, as is shown in Figure \ref{fig:cosbyvar}. We impose an optimized cut on this variable from Figure \ref{fig:cosbyopt} to discard a large amount of background.
+For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the values populate also the non-physical regions, as is shown in Figure \ref{fig:cosby} (left). We impose an optimized cut on this variable from Figure \ref{fig:cosby} (right) to discard a large amount of background.
 \begin{itemize}
 \item $\vert \cos \left(\theta_{BY}\right) \vert < 1.0$.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/cosBY_var}
-\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates.}
-\label{fig:cosbyvar}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/cosBY_opt}
-\caption{$FOM$ optimization of the $\cos \theta_{BY}$ variable.}
-\label{fig:cosbyopt}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/cosBY}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $FOM$ optimization of the $\cos \theta_{BY}$ variable (right).}
+\label{fig:cosby}
 \end{figure}
 
 \section{Rest of event clean-up}
@@ -275,35 +262,108 @@ where the summation runs over all charged and neutral particles in the defined s
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have additional missing particles such as extra missing neutrinos or other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure X shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to discard all candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side.
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have additional missing particles such as extra missing neutrinos or other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure X shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable, as shown in Figure \ref{fig:missm2}. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to discard all candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side, in order to cut away events with a higher probability of a semi-leptonic decay of the other $B$ meson
+\begin{itemize}
+\item $\vert m_{miss}^2 \vert < 7\e{GeV}/c^2$.
+\end{itemize}
+This cut was not optimized, since the optimal case is considered to be too strong at this point in the analysis, since we still may want to attain as much signal candidates as possible, even if they are coming from events with semi-leptonic decays of the other $B$ meson.
 
-\begin{center}
-PLOT
-\end{center}
+For further purposes in this analysis we also define a subset of all signal candidates, which come from events where the other $B$ meson decayed hadronically and all of it's particles were taken into account correctly\footnote{We only allow for missing photons, since all photons are much harder to correctly take into account.}. We denote this subset as \textit{perfect} signal and the rest as \textit{non-perfect} signal.
 
-The main uncertainty in neutrino four-momentum, defined as in Eq. (\ref{eq:nuold}) comes from energy uncertainty. It is a common practice to substitute the missing energy with the magnitude of the missing momentum, since the momentum resolution is much better, thus redefining the neutrino four-momentum to
+\begin{figure}[H]
+\centering
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/missM2}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $FOM$ optimization of the $\cos \theta_{BY}$ variable (right).}
+\label{fig:missm2}
+\end{figure}
+
+The main uncertainty in neutrino four-momentum, defined as in Eq. (\ref{eq:nuold}) comes from energy uncertainty. It is a common practice to substitute the missing energy with the magnitude of the missing momentum, since the momentum resolution from the measurement is much better, thus redefining the neutrino four-momentum to
 \begin{equation}
 \label{eq:nunew}
 \mathrm{p}_\nu = \left(\vert \vec{p}_{miss} \vert,\,\vec{p}_{miss} \right).
 \end{equation}
 
-With our newly defined neutrino four-momentum, we can add it to the four-momentum of the $Y(KK\ell)$ candidate to obtain the full $B$ meson four-momentum and calculate the traditional $M_{BC}$ and $\Delta E$ variables
+The newly defined neutrino four-momentum can be added to the four-momentum of the $Y(KK\ell)$ candidate to obtain the full $B$ meson four-momentum and calculate the traditional $M_{BC}$ and $\Delta E$ variables
 \begin{align}
+\label{eq:de}
 \Delta E &= E_B - E_{CMS}/2,\\
-M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - p_B^2}.
+M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p} \vert^2}.
 \end{align}
 
-Since the final fit will be performed on these two variables, we define two regions that will be used
+Since the final fit will be performed on these two variables, we define two regions
 \begin{itemize}
-\item Fit region: $M_{BC} \in [5.1,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-1,\,1]\e{GeV}$,
-\item Signal enhanced region: $M_{BC} \in [5.X,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-X,\,X]\e{GeV}$.
+\item Fit region: $M_{BC} \in [5.1,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-1.3,\,1,5]\e{GeV}$,
+\item Signal enhanced region: $M_{BC} \in [5.27,\,5.3]\e{GeV}/c^2$ and $\vert \Delta E \vert < 0.166 \e{GeV}$,
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+where the signal enhanced region was defined via a 2D $FOM$ optimization on the perfectly reconstructed signal candidates, shown on Figure X. Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The effects of missing particles are clearly seen on both distributions even for signal candidates.
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/sigWin}
+\caption{2D $FOM$ optimization of the signal window definition, where the signal in the optimization was represented by perfectly reconstructed candidates.}
+\label{fig:sigwin}
+\end{figure}
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/mbc_de_pre}
+\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The perfect signal has a much better resolution in both distributions, since the event is perfectly reconstructed.}
+\label{fig:mbc_de_pre}
+\end{figure}
+
 
 \section{$q^2$ calculation}
+
+Momentum transfer squared, $q^2$, is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson. There are several possible calculations of this variable which offer different resolution. The following describes the calculation of $q^2$ which follows the calculation from [] and yields the best resolution.
+
+For correctly reconstructed events, Eq. (\ref{eq:de}) should satisfy the condition $\Delta E \approx 0$ within precision. It is possible to rescale the neutrino energy in such way that we fix $\Delta E$ to zero, meaning 
+\begin{equation}
+\Delta E' = (E_Y + \alpha E_\nu) - E_{CMS}/2 = 0.
+\end{equation}
+and calculate and adapted version of $M_{BC}$
+\begin{equation}
+M_{BC}' = \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p}_Y + \alpha \vec{p}_\nu \vert^2}.
+\end{equation}
+
+The neutrino momentum resolution dominates the $\Delta E$ uncertainty [], so the correction factor $\alpha$ reduces this source of uncertainty. Additionally, it reduces the correlations between $\Delta E$ and $M_{BC}'$, so the latter variable might be the better choice thank $M_{BC}$ in the final extraction fit. 
+
+A second correction can be applied by rotating the direction of the neutrino momentum by a small angle with respect to the reconstructed one. Such an angle is chosen in order fix the value of $M_{BC}'$ to the nominal mass of the $B$ meson, $m_B$.
+
+The corrected neutrino momentum is then solely used for the $q^2$ calculation, alongside the reconstructed lepton four-momentum, as
+\begin{equation}
+\label{eq:q2}
+q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
+\end{equation}
+
+The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$, with details of the calculation method in the caption.
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/q2}
+\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in [], whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
+\label{fig:q2}
+\end{figure}
+
+However, this says nothing about the correctness of the $q^2$ model which was used (ISGW2). Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
+
+\section{Selection summary}
+
+In this section one can find the summary of all selection cuts in the event reconstruction, from FSP particles up to the $B$ meson.
+
+\begin{itemize}
+\item FSP particles
+	\begin{itemize}
+	\item Electrons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p>0.6\e{GeV}/c,\\p_{CMS}\in[0.4,\,2.6]\e{GeV}/c,\,eID>0.9$
+    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.9$
+    \item Kaons: $\vert d_0 \vert < 0.15\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS} < 2.5\e{GeV}/c,\\K/\pi~ID>0.6$
+	\end{itemize}
+\item $B$ mesons:
+	\begin{itemize}
+	\item $P(\chi^2,\,DOF) > 4\times10^{-3},\,\vert \cos \theta_{BY} \vert < 1,\,\vert m_{miss}^2 \vert < 7\e{GeV}/c^2,\\\Delta E \in [-1.3,1.5]\e{GeV},\,M_{BC} > 5.1\e{GeV}/c^2.$
+	\end{itemize}
+\end{itemize}
 
 \chapter{Rest of event clean-up}
 \label{ch:roe}
@@ -412,8 +472,10 @@ PLOT
 
 \section{Tracks clean-up}
 
+\chapter{Background suppression}
 
-\section{Selection after clean-up}
+
+
 
 \end{document}
 
