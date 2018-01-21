@@ -30,6 +30,8 @@
 \include{definicije}
 \usepackage{enumerate}
 
+\usepackage{subfigure}
+
 %\usepackage[utf8]{inputenc}
 %\usepackage[titles]{tocloft}
 %\usepackage{setspace}
@@ -320,6 +322,7 @@ Since the final fit will be performed on these two variables, we define two regi
 where the signal enhanced region was defined via a 2D $FOM$ optimization on the perfectly reconstructed signal candidates, shown on Figure X. Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The effects of missing particles are clearly seen on both distributions even for signal candidates.
 
 \begin{figure}[H]
+\centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/sigWin}
 \caption{2D $FOM$ optimization of the signal window definition, where the signal in the optimization was represented by perfectly reconstructed candidates.}
@@ -327,6 +330,7 @@ where the signal enhanced region was defined via a 2D $FOM$ optimization on the 
 \end{figure}
 
 \begin{figure}[H]
+\centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/mbc_de_pre}
 \caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The perfect signal has a much better resolution in both distributions, since the event is perfectly reconstructed.}
@@ -360,6 +364,7 @@ q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
 The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$, with details of the calculation method in the caption.
 
 \begin{figure}[H]
+\centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/q2}
 \caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in [], whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
@@ -400,7 +405,15 @@ For each clean-up step a dataset was prepared for the training of "signal" again
 \item \texttt{nLevels}: the number of levels in each FBDT tree.
 \end{itemize}
 
-Figure X shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search method in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation, taken from [].
+Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search method in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation, taken from [].
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[scale=1]{texfig/BDT_forest}
+\caption{A schematic of a BDT forest with \texttt{nTrees}, each tree having a depth of \texttt{nLevels}.}
+\label{fig:BDT}
+\end{figure}
 
 \section{Clusters clean-up}
 
@@ -435,11 +448,15 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier output variable is shown in Figure X.
+The classifier output variable is shown in Figure \ref{fig:ROE_pi0}.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_pi0}
+\caption{Classifier output of the $\pi^0$ training for signal and background $\pi^0$ candidates.}
+\label{fig:ROE_pi0}
+\end{figure}
 
 The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X for all steps of the ROE clean-up.
 
@@ -468,46 +485,67 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier output variable is shown in Figure X.
+The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_gamma}
+\caption{Classifier output of the $\gamma$ training for signal and background $\gamma$ candidates.}
+\label{fig:ROE_gamma}
+\end{figure}
 
 \subsection{Clusters clean-up optimization}
 
-With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure X, with the optimal cut on the $\gamma$ classifier output at
+With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (right), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
-\item $BDT_\gamma > X$.
+\item $BDT_\gamma > 0.519$.
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
-
-Figure X shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
+Figure \ref{fig:ROE_gamma_opt} (left) shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
 \begin{itemize}
-\item Signal efficiency: $\epsilon_{SIG} = X$,
-\item Background rejection: $1-\epsilon_{BKG} = X$.
+\item Signal efficiency: $\epsilon_{SIG} = 82.6~\%$,
+\item Background rejection: $1-\epsilon_{BKG} = 81.7~\%$.
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_gamma_opt}
+\caption{Momentum magnitude in the LAB frame of signal and background photon candidates before and after the optimal cut (left) on the classifier output variable (right).}
+\label{fig:ROE_gamma_opt}
+\end{figure}
 
-The event is now considered to be clean of bad clusters.
+The event is now considered to be clean of extra clusters.
 
 \section{Tracks clean-up}
 
 Charged particles leave hits in the detector, which are then grouped into tracks by advanced tracking algorithms. The track is fitted and the track momentum is measured. With the help of particle ID (PID) information, we are able to make an intelligent decision about the mass hypothesis of the particle and thus reconstruct the charged particle's four-momentum, which is then added in the loop in Eq. (\ref{eq:ROEloop}).
 
 Most of the quality tracks, which come from physics event of interest, come from the IP region, where the collision occurred. Such tracks will from this point on be denoted as \textit{good} tracks. However, cleaning up the tracks is a more complex procedure, due to the following facts which need to be taken into account
-\begin{itemize}
+\begin{enumerate}[(a)]
 \item good tracks can also originate away from the IP region, due to decays of long-lived particles, such as $K_S^0 \to \pi^+ \pi^-$,
 \item charged particles from background sources produce extra tracks,
 \item low momentum charged particles can curl in the magnetic field and produce multiple tracks,
 \item secondary interactions with detector material or decays of particles in flight produce kinks in the flight directory, resulting in multiple tracks.
-\end{itemize}
+\end{enumerate}
+
+Schematics of all the cases mentioned above are shown in Figure \ref{fig:track_cleanup}.
+
+
+\begin{figure}[H]
+\centering
+\subfigure[]{
+\includegraphics[width=0.49\linewidth]{texfig/V0}}%
+\subfigure[]{
+\includegraphics[width=0.49\linewidth]{texfig/background}}\\
+\subfigure[]{
+\includegraphics[width=0.49\linewidth]{texfig/curler}}%
+\subfigure[]{
+\includegraphics[width=0.49\linewidth]{texfig/decay}}%
+\caption{Schematics of all the special cases of tracks in the detector which need to be considered. (a) shows the tracks from long-lived neutral particles, which decay away from the IP region, (b) shows a random track from background which was reconstructed, (c) shows a case of a low-momentum particle which curls in the magnetic field and (d) shows a case of a particle decay in flight, which produced a kink in the trajectory.}
+\label{fig:track_cleanup}
+\end{figure}
 
 It is obvious that tracks from the same momentum source should only be taken into account once, or, in case of background tracks, not at all. Such tracks will from this point on be denoted as \textit{extra} tracks which add extra four-momentum to our final calculationsin Eq. (\ref{eq:ROEloop}). At the same time, we have to take care that we don't discard \textit{good} tracks as \textit{extra} tracks. Both of these cases have negative impacts on the final resolution of all variables which depend on information from ROE.
 
@@ -673,7 +711,7 @@ Finally, we select all duplicate tracks with a cut
 
 and discard this set of duplicate tracks from our ROE. The event is now considered to be clean of duplicate tracks.
 
-\section{Comparison to Belle cleanup}
+\section{Clean-up results}
 
 \section{ROE clean-up validation}
 
