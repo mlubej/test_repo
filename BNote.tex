@@ -111,7 +111,7 @@ Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ an
 \label{fig:muvars}
 \end{figure}
 
-Based on the first plots, we can define a set of cuts:
+Based on the first plots, we can define a set of cuts
 \begin{itemize}
 \item $\vert d_0 \vert < 0.1\e{cm}$,
 \item $\vert z_0 \vert < 1.5\e{cm}$,
@@ -184,9 +184,11 @@ The PID optimization in this case is taken in two steps. First we optimize the c
 
 The optimized PID cuts for kaons are
 \begin{itemize}
-\item $K/\pi > 0.7$,
-\item $K/p > 0.3$.
+\item $K/\pi > 0.6$,
+\item $K/p > 0.1$,
 \end{itemize}
+
+where we chose a cut of $0.6$ even for the signal kaons, because there is a small difference and since we can always make a tighter cut later in the analysis.
 
 \section{Combination of FSP particles}
 
@@ -206,10 +208,12 @@ and similarly for $B^-$. In order to further guarantee the proper combination of
 \label{fig:vtx}
 \end{figure}
 
-The resulting vertex fit probability cut is then
+Even though that the vertex fit probability cut was optimized here, we choose a standard cut of
 \begin{itemize}
-\item $P(\chi^2,NDF) > 4\times 10^{-3}$.
+\item $P(\chi^2,NDF) > 1.0\times 10^{-3}$,
 \end{itemize}
+
+since it's on the lower side.
 
 With the neutrino being the only missing particle on the reconstructed side, it is possible to determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the true $B$, as
 \begin{align}
@@ -259,7 +263,18 @@ The total missing four-momentum in the event can be determined as
 \mathrm{p}_{miss} &= \mathrm{p}_{\Upsilon(4S)} - \left(\mathrm{p}_{Y} -\sum_i^{\mathrm{Rest~of~event}}\left(E_i,\,\vec{p}_i \right)\right).
 \end{align}
 
-where the summation runs over all charged and neutral particles in the defined set. We define the square of the missing mass, $m_{miss}^2$, which is zero, if signal side neutrino is the only missing particle in the event, as shown in Equation (\ref{eq:m2def}).
+where the summation runs over all charged and neutral particles in the defined set with
+\begin{equation}
+\mathrm{p}^{neutral}_i = \left(p_i,\, \vec{p}_i \right) \quad \mathrm{and} \quad \mathrm{p}^{charged}_i = \left(\sqrt{m_i^2 + p_i^2},\, \vec{p}_i \right).
+\end{equation}
+For charged tracks in the ROE a mass hypothesis needs to be defined in order to determine the track's energy. After the ROE clean-up we make the following procedure of choosing the mass hypothesis
+\begin{enumerate}
+\item $e$, if $e$ prob. $> \mu$ prob. and $e$ prob. $> 0.9$,
+\item otherwise $\mu$, if $\mu$ prob. $> e$ prob. and $\mu$ prob. $> 0.9$,
+\item otherwise $K$, if $K/\pi$ prob. $> 0.6$,
+\item otherwise $\pi$.
+\end{enumerate} 
+We define the square of the missing mass, $m_{miss}^2$, which is zero, if signal side neutrino is the only missing particle in the event, as shown in Equation (\ref{eq:m2def}).
 \begin{align}
 \label{eq:nuold}
 \mathrm{p}_\nu &= \mathrm{p}_{miss} = \left(E_{miss},\,\vec{p}_{miss} \right),\\
@@ -299,7 +314,7 @@ M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p} \vert^2}.
 Since the final fit will be performed on these two variables, we define two regions
 \begin{itemize}
 \item Fit region: $M_{BC} \in [5.1,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-1.3,\,1,5]\e{GeV}$,
-\item Signal enhanced region: $M_{BC} \in [5.27,\,5.3]\e{GeV}/c^2$ and $\vert \Delta E \vert < 0.166 \e{GeV}$,
+\item Signal enhanced region: $M_{BC} \in [5.27,\,5.3]\e{GeV}/c^2$ and $\vert \Delta E \vert < 0.143 \e{GeV}$,
 \end{itemize}
 
 where the signal enhanced region was defined via a 2D $FOM$ optimization on the perfectly reconstructed signal candidates, shown on Figure X. Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The effects of missing particles are clearly seen on both distributions even for signal candidates.
@@ -358,15 +373,15 @@ However, this says nothing about the correctness of the $q^2$ model which was us
 In this section one can find the summary of all selection cuts in the event reconstruction, from FSP particles up to the $B$ meson.
 
 \begin{itemize}
-\item FSP particles
+\item FSP particles:
 	\begin{itemize}
-	\item Electrons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p>0.6\e{GeV}/c,\\p_{CMS}\in[0.4,\,2.6]\e{GeV}/c,\,eID>0.9$
-    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.9$
-    \item Kaons: $\vert d_0 \vert < 0.15\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS} < 2.5\e{GeV}/c,\\K/\pi~ID>0.6$
+	\item Electrons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p>0.6\e{GeV}/c,\\p_{CMS}\in[0.4,\,2.6]\e{GeV}/c,\,eID>0.9,$
+    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.9,$
+    \item Kaons: $\vert d_0 \vert < 0.15\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS} < 2.5\e{GeV}/c,\\K/\pi~ID>0.6,\,K/p~ID>0.1,$
 	\end{itemize}
 \item $B$ mesons:
 	\begin{itemize}
-	\item $P(\chi^2,\,DOF) > 4\times10^{-3},\,\vert \cos \theta_{BY} \vert < 1,\,\vert m_{miss}^2 \vert < 7\e{GeV}/c^2,\\\Delta E \in [-1.3,1.5]\e{GeV},\,M_{BC} > 5.1\e{GeV}/c^2.$
+	\item $P(\chi^2,\,DOF) > 1\times10^{-3},\,\vert \cos \theta_{BY} \vert < 1,\,\vert m_{miss}^2 \vert < 7\e{GeV}/c^2,\\\Delta E \in [-1.3,1.5]\e{GeV},\,M_{BC} > 5.1\e{GeV}/c^2.$
 	\end{itemize}
 \end{itemize}
 
@@ -660,8 +675,17 @@ and discard this set of duplicate tracks from our ROE. The event is now consider
 
 \section{Comparison to Belle cleanup}
 
+\section{ROE clean-up validation}
+
 \chapter{Background suppression}
 
+\section{Event categorization}
+
+\section{Continuum suppression}
+
+\section{$B\bar B$ suppression}
+
+\section{Selection optimization}
 
 
 
