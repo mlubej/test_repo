@@ -70,9 +70,16 @@
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
 \pagenumbering{arabic}
-\include{chapter0}
-\include{chapter1}
-%\include{chapter2}
+
+\chapter{Introduction}
+
+
+
+\chapter{Data and MC}
+
+\section{MC}
+\subsection{Used for precuts}
+\subsection{Used for MVA training}
 
 \chapter{Event reconstruction}
 
@@ -90,16 +97,16 @@ Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ an
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{fig/FSP_e_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_e_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true electrons (green) from signal decay}.
 \label{fig:evars}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{fig/FSP_mu_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_mu_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true muons (green) from signal decay}.
 \label{fig:muvars}
 \end{figure}
@@ -124,16 +131,16 @@ where $S$ represents number of signal and $B$ the number of background candidate
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_e_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_e_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true electrons (left) and true electrons from signal decays (right).}
 \label{fig:efom}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_mu_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_mu_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true muons (left) and true muons from signal decays (right).}
 \label{fig:mufom}
 \end{figure}
@@ -152,8 +159,8 @@ For the case of kaons, the procedure is the same and the cuts are very similar. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{fig/FSP_kaon_vars}
-\captionsetup{width=.7\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_kaon_vars}
+\captionsetup{width=.8\linewidth}
 \caption{Normalized properties of true (blue), fake (red) and true kaons (green) from signal decay}.
 \label{fig:Kvars}
 \end{figure}
@@ -169,8 +176,8 @@ The PID optimization in this case is taken in two steps. First we optimize the c
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.8]{fig/FSP_kaon_fom}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/FSP_kaon_fom}
 \caption{$FOM$ optimizations of the PID probability cuts for true kaons (top) and true kaons from signal decays (bottom). The plots on the left show the optimization of the first step for the $K / \pi$ probability cut, and the plot on the right the $K/p$ probability cut.}
 \label{fig:Kfom}
 \end{figure}
@@ -189,27 +196,19 @@ B^+ &\to K^+ K^- e^+, \\
 B^+ &\to K^+ K^- \mu^+,
 \end{align*}
 
-and similarly for $B^-$. In order to further guarantee the proper combination of FSP particles, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay along the z-axis of the detector in the direction of the boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure X. We perform a $FOM$ cut optimization of this variable, which is shown in Figure X.
+and similarly for $B^-$. In order to further guarantee the proper combination of FSP particles, we perform a vertex fit of the three tracks. $B$ mesons have a relatively long lifetime, so they travel and decay along the z-axis of the detector in the direction of the boost, so we perform the vertex fit with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right).
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/VTX_var}
-\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale.}
-\label{fig:vtxvar}
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/VTX}
+\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale (left) and $FOM$ optimization of the vertex fit probability (right).}
+\label{fig:vtx}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/VTX_opt}
-\caption{$FOM$ optimization of the vertex fit probability.}
-\label{fig:vtxopt}
-\end{figure}
-
-The resulting PID cuts are then
+The resulting vertex fit probability cut is then
 \begin{itemize}
-\item $P(\chi^2,NDF) > 1\times 10^{-3}$.
+\item $P(\chi^2,NDF) > 4\times 10^{-3}$.
 \end{itemize}
 
 With the neutrino being the only missing particle on the reconstructed side, it is possible to determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the true $B$, as
@@ -229,25 +228,17 @@ E_B &= E_{CMS} / 2,\\
 
 where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame and $m_B$ is the nominal mass of the $B$ meson. 
 
-For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the values populate also the non-physical regions, as is shown in Figure \ref{fig:cosbyvar}. We impose an optimized cut on this variable from Figure \ref{fig:cosbyopt} to discard a large amount of background.
+For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the values populate also the non-physical regions, as is shown in Figure \ref{fig:cosby} (left). We impose an optimized cut on this variable from Figure \ref{fig:cosby} (right) to discard a large amount of background.
 \begin{itemize}
 \item $\vert \cos \left(\theta_{BY}\right) \vert < 1.0$.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/cosBY_var}
-\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates.}
-\label{fig:cosbyvar}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=.7\linewidth}
-\includegraphics[scale=0.6]{fig/cosBY_opt}
-\caption{$FOM$ optimization of the $\cos \theta_{BY}$ variable.}
-\label{fig:cosbyopt}
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/cosBY}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $FOM$ optimization of the $\cos \theta_{BY}$ variable (right).}
+\label{fig:cosby}
 \end{figure}
 
 \section{Rest of event clean-up}
@@ -264,6 +255,7 @@ The signal-side neutrino escapes detection, so we cannot directly determine it's
 The total missing four-momentum in the event can be determined as
 \begin{align}
 \mathrm{p}_{miss} &= \mathrm{p}_{\Upsilon(4S)} - \sum_i^{\mathrm{Event}}\left(E_i,\,\vec{p}_i \right),\\
+\label{eq:ROEloop}
 \mathrm{p}_{miss} &= \mathrm{p}_{\Upsilon(4S)} - \left(\mathrm{p}_{Y} -\sum_i^{\mathrm{Rest~of~event}}\left(E_i,\,\vec{p}_i \right)\right).
 \end{align}
 
@@ -275,35 +267,108 @@ where the summation runs over all charged and neutral particles in the defined s
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have additional missing particles such as extra missing neutrinos or other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure X shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to discard all candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side.
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have additional missing particles such as extra missing neutrinos or other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure X shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable, as shown in Figure \ref{fig:missm2}. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to discard all candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side, in order to cut away events with a higher probability of a semi-leptonic decay of the other $B$ meson
+\begin{itemize}
+\item $\vert m_{miss}^2 \vert < 7\e{GeV}/c^2$.
+\end{itemize}
+This cut was not optimized, since the optimal case is considered to be too strong at this point in the analysis, since we still may want to attain as much signal candidates as possible, even if they are coming from events with semi-leptonic decays of the other $B$ meson.
 
-\begin{center}
-PLOT
-\end{center}
+For further purposes in this analysis we also define a subset of all signal candidates, which come from events where the other $B$ meson decayed hadronically and all of it's particles were taken into account correctly\footnote{We only allow for missing photons, since all photons are much harder to correctly take into account.}. We denote this subset as \textit{perfect} signal and the rest as \textit{non-perfect} signal.
 
-The main uncertainty in neutrino four-momentum, defined as in Eq. (\ref{eq:nuold}) comes from energy uncertainty. It is a common practice to substitute the missing energy with the magnitude of the missing momentum, since the momentum resolution is much better, thus redefining the neutrino four-momentum to
+\begin{figure}[H]
+\centering
+\captionsetup{width=.8\linewidth}
+\includegraphics[width=\linewidth]{fig/missM2}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $FOM$ optimization of the $\cos \theta_{BY}$ variable (right).}
+\label{fig:missm2}
+\end{figure}
+
+The main uncertainty in neutrino four-momentum, defined as in Eq. (\ref{eq:nuold}) comes from energy uncertainty. It is a common practice to substitute the missing energy with the magnitude of the missing momentum, since the momentum resolution from the measurement is much better, thus redefining the neutrino four-momentum to
 \begin{equation}
 \label{eq:nunew}
 \mathrm{p}_\nu = \left(\vert \vec{p}_{miss} \vert,\,\vec{p}_{miss} \right).
 \end{equation}
 
-With our newly defined neutrino four-momentum, we can add it to the four-momentum of the $Y(KK\ell)$ candidate to obtain the full $B$ meson four-momentum and calculate the traditional $M_{BC}$ and $\Delta E$ variables
+The newly defined neutrino four-momentum can be added to the four-momentum of the $Y(KK\ell)$ candidate to obtain the full $B$ meson four-momentum and calculate the traditional $M_{BC}$ and $\Delta E$ variables
 \begin{align}
+\label{eq:de}
 \Delta E &= E_B - E_{CMS}/2,\\
-M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - p_B^2}.
+M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p} \vert^2}.
 \end{align}
 
-Since the final fit will be performed on these two variables, we define two regions that will be used
+Since the final fit will be performed on these two variables, we define two regions
 \begin{itemize}
-\item Fit region: $M_{BC} \in [5.1,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-1,\,1]\e{GeV}$,
-\item Signal enhanced region: $M_{BC} \in [5.X,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-X,\,X]\e{GeV}$.
+\item Fit region: $M_{BC} \in [5.1,\,5.3]\e{GeV}/c^2$ and $\Delta E \in [-1.3,\,1,5]\e{GeV}$,
+\item Signal enhanced region: $M_{BC} \in [5.27,\,5.3]\e{GeV}/c^2$ and $\vert \Delta E \vert < 0.166 \e{GeV}$,
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+where the signal enhanced region was defined via a 2D $FOM$ optimization on the perfectly reconstructed signal candidates, shown on Figure X. Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The effects of missing particles are clearly seen on both distributions even for signal candidates.
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/sigWin}
+\caption{2D $FOM$ optimization of the signal window definition, where the signal in the optimization was represented by perfectly reconstructed candidates.}
+\label{fig:sigwin}
+\end{figure}
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/mbc_de_pre}
+\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the precuts. Both signal components are scaled up with respect to the background components, but are in proper scale one to another. The perfect signal has a much better resolution in both distributions, since the event is perfectly reconstructed.}
+\label{fig:mbc_de_pre}
+\end{figure}
+
 
 \section{$q^2$ calculation}
+
+Momentum transfer squared, $q^2$, is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson. There are several possible calculations of this variable which offer different resolution. The following describes the calculation of $q^2$ which follows the calculation from [] and yields the best resolution.
+
+For correctly reconstructed events, Eq. (\ref{eq:de}) should satisfy the condition $\Delta E \approx 0$ within precision. It is possible to rescale the neutrino energy in such way that we fix $\Delta E$ to zero, meaning 
+\begin{equation}
+\Delta E' = (E_Y + \alpha E_\nu) - E_{CMS}/2 = 0.
+\end{equation}
+and calculate and adapted version of $M_{BC}$
+\begin{equation}
+M_{BC}' = \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p}_Y + \alpha \vec{p}_\nu \vert^2}.
+\end{equation}
+
+The neutrino momentum resolution dominates the $\Delta E$ uncertainty [], so the correction factor $\alpha$ reduces this source of uncertainty. Additionally, it reduces the correlations between $\Delta E$ and $M_{BC}'$, so the latter variable might be the better choice thank $M_{BC}$ in the final extraction fit. 
+
+A second correction can be applied by rotating the direction of the neutrino momentum by a small angle with respect to the reconstructed one. Such an angle is chosen in order fix the value of $M_{BC}'$ to the nominal mass of the $B$ meson, $m_B$.
+
+The corrected neutrino momentum is then solely used for the $q^2$ calculation, alongside the reconstructed lepton four-momentum, as
+\begin{equation}
+\label{eq:q2}
+q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
+\end{equation}
+
+The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$, with details of the calculation method in the caption.
+
+\begin{figure}[H]
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/q2}
+\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in [], whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
+\label{fig:q2}
+\end{figure}
+
+However, this says nothing about the correctness of the $q^2$ model which was used (ISGW2). Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
+
+\section{Selection summary}
+
+In this section one can find the summary of all selection cuts in the event reconstruction, from FSP particles up to the $B$ meson.
+
+\begin{itemize}
+\item FSP particles
+	\begin{itemize}
+	\item Electrons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p>0.6\e{GeV}/c,\\p_{CMS}\in[0.4,\,2.6]\e{GeV}/c,\,eID>0.9$
+    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.9$
+    \item Kaons: $\vert d_0 \vert < 0.15\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS} < 2.5\e{GeV}/c,\\K/\pi~ID>0.6$
+	\end{itemize}
+\item $B$ mesons:
+	\begin{itemize}
+	\item $P(\chi^2,\,DOF) > 4\times10^{-3},\,\vert \cos \theta_{BY} \vert < 1,\,\vert m_{miss}^2 \vert < 7\e{GeV}/c^2,\\\Delta E \in [-1.3,1.5]\e{GeV},\,M_{BC} > 5.1\e{GeV}/c^2.$
+	\end{itemize}
+\end{itemize}
 
 \chapter{Rest of event clean-up}
 \label{ch:roe}
@@ -312,21 +377,23 @@ Continuing from Section \ref{sc:shortroe}, the description of the ROE clean-up p
 
 \section{Setting up the MVA}
 
-Training the MVA classifiers follows the same recipe for all the steps. For each step we run our $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be dependent on the signal side and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leakage of information from the signal side to the ROE side.
+Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step we run our $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be dependent on the signal side and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leakage of information from the signal side to the ROE side.
 
-For each cleanup-step a dataset of $2\times N$ was prepared for the training of "signal" against "background". The dataset for each case was split into 5 parts for reasons which are explained later on in the note. The Fast-BDT (FBDT) [] algorithm was used as the MVA method, where the following hyper-parameters were optimized with a grid search
+For each clean-up step a dataset was prepared for the training of "signal" against "background". The dataset for each case was split into 5 parts for reasons which are explained later in the note. The Fast-BDT (FBDT) [] algorithm was used as the MVA method and the following hyper-parameters were chosen for hyper-parameter optimization
 \begin{itemize}
 \item \texttt{nTrees}: the number of trees in the FBDT forest,
 \item \texttt{nLevels}: the number of levels in each FBDT tree.
 \end{itemize}
 
-Figure X shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and $4$ parts of the dataset are used for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation.
+Figure X shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search method in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation, taken from [].
 
 \section{Clusters clean-up}
 
-Generally speaking, most of the photons in $B$-physics should come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of clusters are also created by photons coming from the beam background or interactions with the detector material. These photons add extra energy and momentum which we then measure.
+Photons originate from the IP region, travel to the ECL part of the detector in a straight line and produce a cluster. The direction of the photon is determined via the location of the cluster in the ECL, and the energy of the cluster is directly measured via the deposited energy. This way the four-momentum of photons is determined an used in Eq. (\ref{eq:ROEloop}).
 
-In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ probability, which is used as an additional classifier variable in the next step of the clean-up, where we train an MVA to separate good photon clusters from bad ones.
+Generally speaking, most of the photons in events with $B$ mesons should come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hist in the ECL are also created by photons coming from the beam background or secondary interactions with the detector material. Such photons add extra energy and momentum which spoils our measured quantities if we don't discard them.
+
+In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ origin probability, which is used as an additional classifier variable in the next step of the clean-up, where we train an MVA to separate good photon clusters from bad ones.
 
 \subsection{$\pi^0$ MVA training}
 
@@ -335,16 +402,16 @@ The dataset of $\pi^0$ candidates contains
 \item 387125 signal candidates,
 \item 416019 background candidates,
 \end{itemize}
-where the definition of signal is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and actual daughters of the particle, based on the MC truth. We use $\pi^0$ candidates from the converted $\pi^0$ particle list from Belle MC with the invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$ and perform a mass-constrained fit on all candidates, keeping only the cases where the fit converged. 
+where the definition of signal is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and actual daughters of the particle, based on MC truth information. We use the converted $\pi^0$ candidates from the existing Belle particle list and select those with invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$. After that we perform a mass-constrained fit on all candidates, keeping only the cases for which the fit converged. 
 
 The input variables used in this MVA are
 \begin{itemize}
 \item $p$ and $p_{CMS}$ of $\pi^0$ and $\gamma$ daughters,
-\item $P(\chi^2,NDF)$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
-\item angle between the daughter photons in CMS frame,
+\item $P(\chi^2,DOF)$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
+\item angle between the photon daughters in the CMS frame,
 \item cluster quantities for each daughter photon
 	\begin{itemize}
-	\item $E_9/E{25}$,
+	\item $E_9/E_{25}$,
 	\item theta angle,
 	\item number of hit cells in the ECL,
 	\item highest energy in cell,
@@ -359,7 +426,7 @@ The classifier output variable is shown in Figure X.
 PLOT
 \end{center}
 
-The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X for all steps of the clean-up.
+The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix X for all steps of the ROE clean-up.
 
 
 \subsection{$\gamma$ MVA training}
@@ -369,7 +436,7 @@ The dataset of $\gamma$ candidates contains
 \item 324781 signal candidates,
 \item 333353 background candidates,
 \end{itemize}
-where the definition of signal is that the photon is an actual photon and that the related ECL cluster is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use $\gamma$ candidates from the converted $\gamma$ particle list from Belle MC. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs, the $\pi^0$ probability is overwritten, if the new value is greater than the existing one, since this points to a greater probability of a correct $\pi^0$ combination.
+where the definition of signal is that the photon is an actual photon which is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use the converted $\gamma$ candidates from the existing Belle particle list. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs of photons, the $\pi^0$ probability is overwritten in the case of a larger value, since this points to a greater probability of a correct photon combination. On the other hand, some photon candidates fail to pass the $\pi^0$ selection, these candidates have a fixed value of $\pi^0$ probability equal to zero.
 
 The input variables used in this MVA are
 \begin{itemize}
@@ -394,13 +461,16 @@ PLOT
 
 \subsection{Clusters clean-up optimization}
 
-We now have the final weights for photon classification. We apply these weights to the photon particle list, coming from the generically decaying $B$ mesons with correctly reconstructed signal $B$ mesons on the other side. After applying the weights we optimize the cut based on the standard definition of the $FOM$. The cut optimization is shown in Figure X, with the optimal cut on the $\gamma$ classifier output at $X$.
+With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure X, with the optimal cut on the $\gamma$ classifier output at
+\begin{itemize}
+\item $BDT_\gamma > X$.
+\end{itemize}
 
 \begin{center}
 PLOT
 \end{center}
 
-Figure shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this cut are
+Figure X shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
 \begin{itemize}
 \item Signal efficiency: $\epsilon_{SIG} = X$,
 \item Background rejection: $1-\epsilon_{BKG} = X$.
@@ -410,10 +480,190 @@ Figure shows the LAB frame momentum of the photons before and after the cut in l
 PLOT
 \end{center}
 
+The event is now considered to be clean of bad clusters.
+
 \section{Tracks clean-up}
 
+Charged particles leave hits in the detector, which are then grouped into tracks by advanced tracking algorithms. The track is fitted and the track momentum is measured. With the help of particle ID (PID) information, we are able to make an intelligent decision about the mass hypothesis of the particle and thus reconstruct the charged particle's four-momentum, which is then added in the loop in Eq. (\ref{eq:ROEloop}).
 
-\section{Selection after clean-up}
+Most of the quality tracks, which come from physics event of interest, come from the IP region, where the collision occurred. Such tracks will from this point on be denoted as \textit{good} tracks. However, cleaning up the tracks is a more complex procedure, due to the following facts which need to be taken into account
+\begin{itemize}
+\item good tracks can also originate away from the IP region, due to decays of long-lived particles, such as $K_S^0 \to \pi^+ \pi^-$,
+\item charged particles from background sources produce extra tracks,
+\item low momentum charged particles can curl in the magnetic field and produce multiple tracks,
+\item secondary interactions with detector material or decays of particles in flight produce kinks in the flight directory, resulting in multiple tracks.
+\end{itemize}
+
+It is obvious that tracks from the same momentum source should only be taken into account once, or, in case of background tracks, not at all. Such tracks will from this point on be denoted as \textit{extra} tracks which add extra four-momentum to our final calculationsin Eq. (\ref{eq:ROEloop}). At the same time, we have to take care that we don't discard \textit{good} tracks as \textit{extra} tracks. Both of these cases have negative impacts on the final resolution of all variables which depend on information from ROE.
+
+\subsection{Tracks from long-lived particles}
+
+The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the charged $\pi$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
+
+We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure X shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
+
+\begin{center}
+PLOT
+\end{center}
+
+The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
+
+\subsection{Duplicate tracks}
+All good tracks at this point should be coming from the IP region, therefore we apply a cut on impact parameters for all the remaining tracks
+\begin{itemize}
+\item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}.$
+\end{itemize} 
+
+\subsubsection{Defining a duplicate pair tracks}
+
+In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure X shows the distribution of the angle between two track pairs for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+
+\begin{center}
+PLOT
+\end{center}
+
+If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure X shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+
+\begin{center}
+PLOT
+\end{center}
+
+We impose a cut of
+\begin{itemize}
+\item $p_T < 0.5\e{GeV}/c$,
+\item $\vert \Delta p_T \vert < 0.1\e{GeV}/c$,
+\end{itemize}
+
+in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure X.
+
+\begin{center}
+PLOT
+\end{center}
+
+\subsubsection{Training the duplicate track pair MVA}
+\label{ss:trackMVA}
+
+This final sample of track pairs is now fed into an MVA, which is trained to recognize duplicate track pairs. The dataset contains
+\begin{itemize}
+\item 215601 signal candidates,
+\item 311124 background candidates,
+\end{itemize}
+where the definition of signal is that the track pair is a duplicate track pair. 
+
+The input variables used in this MVA are
+\begin{itemize}
+\item angle between tracks,
+\item track quantities
+	\begin{itemize}
+	\item impact parameters $d_0$ and $z_0$,
+	\item transverse momentum $p_T$,
+	\item helix parameters and helix parameter errors of the track,
+	\item track fit $p$-value,
+	\item number of hits in the SVD and CDC detectors
+	\end{itemize}
+\end{itemize}
+
+The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure X (left). We optimize the cut and show the $FOM$ function in Figure X (right). The optimal cut for duplicate track selection is
+\begin{itemize}
+\item $BDT_{duplicate} > X.$
+\end{itemize}
+
+\begin{center}
+PLOT
+\end{center}
+
+\subsubsection{Defining duplicate tracks}
+
+What remains now is to decide which track from the duplicate track pairs to keep and which to discard. For this purpose we apply duplicate pair-level information to each track in the pair in the form of
+\begin{equation}
+\Delta f = f_{this} - f_{other},
+\end{equation}
+
+where $f$ is an arbitrary variable from the list of track quantities in Subsection \ref{ss:trackMVA}. We denote that a track is more $duplicate$-like, if the following holds from the point-of-view of \textit{this} track
+\begin{itemize}
+\item $\Delta d_0,\,\Delta z_0 > 0$,
+\item $\Delta p_T,\,\Delta p_Z < 0$,
+\item $\Delta N_{SVD},\,\Delta N_{CDC} < 0$,
+\end{itemize}
+
+
+Additionaly we also define an MC truth variable 
+\begin{equation}
+\Delta \chi^2 = \chi^2_{this} - \chi^2_{other},\quad\chi^2 = \sum_{i=x,y,z}\frac{\left(p_i - p_i^{MC}\right)^2}{\sigma(p_i)^2}.
+\end{equation}
+
+If $\Delta \chi^2 > 0$, then \textit{this} track has a higher probability of being a duplicate track and should be discarded.
+
+One additional complication is that we can have more than one extra track from the same particle, which leads to track pairs which share the same tracks. For example, if we have the following case
+\begin{align*}
+t_1&: \mathrm{good~track},\\
+t_2&: \mathrm{extra~track},\\
+t_3&: \mathrm{extra~track},\\
+\mathrm{pair}_1&:\left(t_1,t_2\right),\\
+\mathrm{pair}_2&:\left(t_1,t_3\right),\\
+\mathrm{pair}_3&:\left(t_2,t_3\right),
+\end{align*}
+where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the impact parameter $d_0$ in six different orders
+\begin{align*}
+1.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right)\quad \to \quad \left(t_2*,t_3*\right),\\ 
+2.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_2*,t_3*\right)\quad \to \quad \left(t_1,t_3*\right),\\ 
+3.&~\left(t_1,t_3*\right)\quad \to \quad \left(t_2,t_3*\right)\quad \to \quad \left(t_1,t_2*\right),\\
+4.&~\left(t_1,t_3*\right)\quad \to \quad \left(t_1,t_2*\right)\quad \to \quad \left(t_2*,t_3*\right),\\
+5.&~\left(t_2,t_3*\right)\quad \to \quad \left(t_1,t_3*\right)\quad \to \quad \left(t_1,t_2*\right),\\
+6.&~\left(t_2,t_3*\right)\quad \to \quad \left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right),
+\end{align*}
+
+where the "*" symbol denotes when a track is recognized as a duplicate track with respect to the other track. We see that no matter the order, this way both $t_2$ and $t_3$ get recognized as duplicate tracks correctly.
+
+\subsubsection{Training the duplicate track MVA}
+
+The training procedure is similar as before. The sample of tracks from duplicate track pairs is now fed into an MVA, which is trained to distinguish duplicate tracks from good tracks. The dataset contains
+\begin{itemize}
+\item 160146 signal candidates,
+\item 128568 background candidates,
+\end{itemize}
+where the definition of signal is that the track a duplicate track. 
+
+The input variables used in this MVA are
+\begin{itemize}
+\item theta angle of the track momentum,
+\item track quantities
+	\begin{itemize}
+	\item impact parameters $d_0$ and $z_0$,
+	\item momentum components $p_T$ and $p_z$
+	\item number of hits in the SVD and CDC detectors
+	\item track fit $p$-value,
+	\end{itemize}
+\item pair-level information
+	\begin{itemize}
+	\item $\Delta d_0$, $\Delta z_0$, $\Delta N_{CDC}$, $\Delta N_{SVD}$, $\Delta p_T$, $\Delta p_z$.  
+	\end{itemize}
+\end{itemize}
+
+The classifier is shown in Figure X. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. However, this is not optimal. We must compare this number to other tracks in duplicate pairs with a new variable
+\begin{equation}
+\Delta BDT_{final} = BDT_{final}^{this} - BDT_{final}^{other},
+\end{equation}
+
+which is again applied to all tracks and overwritten for tracks which are more duplicate-like.
+
+\begin{center}
+PLOT
+\end{center}
+
+Finally, we select all duplicate tracks with a cut 
+\begin{equation}
+\Delta BDT_{final} > 0
+\end{equation}
+
+and discard this set of duplicate tracks from our ROE. The event is now considered to be clean of duplicate tracks.
+
+\section{Comparison to Belle cleanup}
+
+\chapter{Background suppression}
+
+
+
 
 \end{document}
 
