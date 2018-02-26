@@ -73,6 +73,9 @@
 
 \pagenumbering{arabic}
 
+%TODO
+% - scientific scales on plots
+
 \chapter{Introduction}
 
 
@@ -551,13 +554,20 @@ It is obvious that tracks from the same momentum source should only be taken int
 
 \subsection{Tracks from long-lived particles}
 
-The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the charged $\pi$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
+The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
-We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure X shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
+We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
 
-\begin{center}
-PLOT
-\end{center}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_V0}
+\caption{Invariant mass of the $K_S^0$ candidates before (dashed lines) and after (solid lines) the cut on the Neural Network classifier for signal (green) and background candidates (red). Signal peaks at nominal $K_S^0$ mass, while background covers a wider region.}
+\label{fig:ROE_V0}
+\end{figure}
+
+%TODO efficiency and purity for this
 
 The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
@@ -567,19 +577,28 @@ All good tracks at this point should be coming from the IP region, therefore we 
 \item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}.$
 \end{itemize} 
 
-\subsubsection{Defining a duplicate pair tracks}
+\subsubsection{Defining a duplicate track pair}
 
-In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure X shows the distribution of the angle between two track pairs for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two track in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_initial}
+\caption{Distribution of the angle between two track in a single pair for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\label{fig:ROE_dupAngleInit}
+\end{figure}
 
-If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure X shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
 
-\begin{center}
-PLOT
-\end{center}
+If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure \ref{fig:ROE_dupPt} shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_pt}
+\caption{Distribution of transverse momentum $p_T$ (left) and transverse momentum difference $\Delta p_T$ (right) for all tracks coming from random (green) or duplicate track pairs (red). The plot on the right already includes the cut on $p_T$ from the plot on the left.}
+\label{fig:ROE_dupPt}
+\end{figure}
 
 We impose a cut of
 \begin{itemize}
@@ -587,11 +606,15 @@ We impose a cut of
 \item $\vert \Delta p_T \vert < 0.1\e{GeV}/c$,
 \end{itemize}
 
-in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure X.
+in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure \ref{fig:ROE_dupAngleFinal}.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_final}
+\caption{Distribution of the angle between two track in a single pair after applying the selection cuts defined in this subsection. The distributions are shown for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\label{fig:ROE_dupAngleFinal}
+\end{figure}
 
 \subsubsection{Training the duplicate track pair MVA}
 \label{ss:trackMVA}
@@ -656,7 +679,7 @@ t_3&: \mathrm{extra~track},\\
 \mathrm{pair}_2&:\left(t_1,t_3\right),\\
 \mathrm{pair}_3&:\left(t_2,t_3\right),
 \end{align*}
-where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the impact parameter $d_0$ in six different orders
+where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the property $f$ in six different orders
 \begin{align*}
 1.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right)\quad \to \quad \left(t_2*,t_3*\right),\\ 
 2.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_2*,t_3*\right)\quad \to \quad \left(t_1,t_3*\right),\\ 
