@@ -75,6 +75,8 @@
 
 %TODO
 % - scientific scales on plots
+% - difference between BDT and BDT optimal cut in plots
+% - switch FOM opt plots left/right
 
 \chapter{Introduction}
 
@@ -498,8 +500,6 @@ The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 \label{fig:ROE_gamma}
 \end{figure}
 
-\subsection{Clusters clean-up optimization}
-
 With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (right), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
 \item $BDT_\gamma > 0.519$.
@@ -639,9 +639,9 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure X (left). We optimize the cut and show the $FOM$ function in Figure X (right). The optimal cut for duplicate track selection is
+The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure X. The $FOM$ function for optimal cut selection is shown in Figure X (right), along with the angle between the two tracks after the optimal cut (left). The optimal cut for duplicate track selection is
 \begin{itemize}
-\item $BDT_{duplicate} > X.$
+\item $BDT_{duplicate} > 0.99915.$
 \end{itemize}
 
 \begin{center}
