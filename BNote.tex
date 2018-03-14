@@ -73,6 +73,11 @@
 
 \pagenumbering{arabic}
 
+%TODO
+% - scientific scales on plots
+% - difference between BDT and BDT optimal cut in plots
+% - switch FOM opt plots left/right
+
 \chapter{Introduction}
 
 
@@ -268,6 +273,7 @@ The total missing four-momentum in the event can be determined as
 where the summation runs over all charged and neutral particles in the defined set with
 \begin{equation}
 \mathrm{p}^{neutral}_i = \left(p_i,\, \vec{p}_i \right) \quad \mathrm{and} \quad \mathrm{p}^{charged}_i = \left(\sqrt{m_i^2 + p_i^2},\, \vec{p}_i \right).
+\label{eq:pcharged}
 \end{equation}
 For charged tracks in the ROE a mass hypothesis needs to be defined in order to determine the track's energy. After the ROE clean-up we make the following procedure of choosing the mass hypothesis
 \begin{enumerate}
@@ -495,8 +501,6 @@ The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 \label{fig:ROE_gamma}
 \end{figure}
 
-\subsection{Clusters clean-up optimization}
-
 With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (right), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
 \item $BDT_\gamma > 0.519$.
@@ -551,13 +555,24 @@ It is obvious that tracks from the same momentum source should only be taken int
 
 \subsection{Tracks from long-lived particles}
 
-The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the charged $\pi$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
+The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
+<<<<<<< HEAD
 We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result with \textit{nisKsFinder} from [] in order to select only the good $K_S^0$ candidates. Figure X shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
+=======
+We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
+>>>>>>> 74e487472f20575f376125309b5598dd3d401791
 
-\begin{center}
-PLOT
-\end{center}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_V0}
+\caption{Invariant mass of the $K_S^0$ candidates before (dashed lines) and after (solid lines) the cut on the Neural Network classifier for signal (green) and background candidates (red). Signal peaks at nominal $K_S^0$ mass, while background covers a wider region.}
+\label{fig:ROE_V0}
+\end{figure}
+
+%TODO efficiency and purity for this
 
 The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
@@ -567,21 +582,40 @@ All good tracks at this point should be coming from the IP region, therefore we 
 \item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}$
 \end{itemize} 
 
+<<<<<<< HEAD
 and proceed with the clean-up of track duplicates.
 
 \subsubsection{Defining duplicate track pairs}
 
 In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property of such tracks is the angle between them, which is very close to $0^\circ$, since tracks deviate only slightly from the initial direction, or $180^\circ$, since they can also be reconstructed in the opposite way. Figure X shows the distribution of the angle between two track pairs for random tracks and duplicate tracks, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+=======
+\subsubsection{Defining a duplicate track pair}
 
-\begin{center}
-PLOT
-\end{center}
+In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two track in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+>>>>>>> 74e487472f20575f376125309b5598dd3d401791
 
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_initial}
+\caption{Distribution of the angle between two track in a single pair for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\label{fig:ROE_dupAngleInit}
+\end{figure}
+
+<<<<<<< HEAD
 If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum component $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure X shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+=======
+>>>>>>> 74e487472f20575f376125309b5598dd3d401791
 
-\begin{center}
-PLOT
-\end{center}
+If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure \ref{fig:ROE_dupPt} shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_pt}
+\caption{Distribution of transverse momentum $p_T$ (left) and transverse momentum difference $\Delta p_T$ (right) for all tracks coming from random (green) or duplicate track pairs (red). The plot on the right already includes the cut on $p_T$ from the plot on the left.}
+\label{fig:ROE_dupPt}
+\end{figure}
 
 We impose a cut of
 \begin{itemize}
@@ -589,11 +623,15 @@ We impose a cut of
 \item $\vert \Delta p_T \vert < 0.1\e{GeV}/c$,
 \end{itemize}
 
-in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure X.
+in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure \ref{fig:ROE_dupAngleFinal}.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_final}
+\caption{Distribution of the angle between two track in a single pair after applying the selection cuts defined in this subsection. The distributions are shown for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\label{fig:ROE_dupAngleFinal}
+\end{figure}
 
 \subsubsection{Training the duplicate track pair MVA}
 \label{ss:trackMVA}
@@ -618,14 +656,28 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure X (left). We optimize the cut and show the $FOM$ function in Figure X (right). The optimal cut for duplicate track selection is
+The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure \ref{fig:ROE_dupBDT}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup}
+\caption{Classifier output of the track pair training for random track pairs and duplicate track pairs.}
+\label{fig:ROE_dupBDT}
+\end{figure}
+
+The $FOM$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dupOpt} (right), along with the angle between the two tracks after the optimal cut (left). The optimal cut for duplicate track selection is
 \begin{itemize}
-\item $BDT_{duplicate} > X.$
+\item $BDT_{duplicate} > 0.99915.$
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_opt}
+\caption{Distribution of the angle between two tracks (left) in a single pair after before (dashed) and after (solid) applying the optimal cut on the output classifier for random and duplicate track pairs, and the optimization of the FOM for the output classifier cut (right).}
+\label{fig:ROE_dupOpt}
+\end{figure}
 
 \subsubsection{Defining duplicate tracks}
 
@@ -658,7 +710,7 @@ t_3&: \mathrm{extra~track},\\
 \mathrm{pair}_2&:\left(t_1,t_3\right),\\
 \mathrm{pair}_3&:\left(t_2,t_3\right),
 \end{align*}
-where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the impact parameter $d_0$ in six different orders
+where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the property $f$ in six different orders
 \begin{align*}
 1.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right)\quad \to \quad \left(t_2*,t_3*\right),\\ 
 2.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_2*,t_3*\right)\quad \to \quad \left(t_1,t_3*\right),\\ 
@@ -695,25 +747,50 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier is shown in Figure X. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. However, this is not optimal. We must compare this number to other tracks in duplicate pairs with a new variable
+The classifier is shown in Figure \ref{fig:ROE_curl}. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. We now compare these values between both tracks in each track pair as
 \begin{equation}
 \Delta BDT_{final} = BDT_{final}^{this} - BDT_{final}^{other},
 \end{equation}
 
 which is again applied to all tracks and overwritten for tracks which are more duplicate-like.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_curl}
+\caption{Classifier output of the MVA training for curling track recognition.}
+\label{fig:ROE_curl}
+\end{figure}
 
-Finally, we select all duplicate tracks with a cut 
+Finally, we select all duplicate tracks which survive the cut 
 \begin{equation}
 \Delta BDT_{final} > 0
 \end{equation}
 
-and discard this set of duplicate tracks from our ROE. The event is now considered to be clean of duplicate tracks.
+and discard them from our ROE. The event is now considered to be clean of duplicate tracks.
 
 \section{Clean-up results}
+
+In this section the results of the ROE clean-up are shown. It is clear that the clean-up affects the shape of various distribution in the sense that it increases resolution. However, since the reconstruction procedure, which is thoroughly described in chapter X, also uses cuts on variables, which are affected by the clean-up, the ROE clea-up also increases the efficiency of the reconstructed sample. 
+
+Figure X shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups. We see a large increase in efficiency and resolution in both observed variables for the case where the ROE clean-up is performed. Table X shows relative efficiencies and resolutions of $\Delta E$ and $M_{BC}$ based on the "perfect" ROE clean-up, which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from Monte Carlo.
+
+PLOT 
+
+TABLE
+
+It can also be seen that the determination of the masses of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID is quite successfull, since the benefits of using true masses from Monte Carlo are very small.
+
+Another variable which heavily depends on the clean-up is the charge product of the reconstructed $B$ meson and the charge of the ROE, which should for charged $B$ meson pairs be equal to 
+\begin{equation}
+Q_{B^+} Q_{B^-} = -1,
+\end{equation}
+
+but is in fact a distribution around this value due to imperfect event reconstructions, as shown in Figure X. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure X and they show a clear increase in efficiency and resolution for the correct value of the charge product, with a slight efficiency increase also for other values.
+
+PLOT
+
+\subsection{Comparison to Belle clean-up}
 
 \section{ROE clean-up validation}
 
