@@ -553,7 +553,7 @@ It is obvious that tracks from the same momentum source should only be taken int
 
 The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the charged $\pi$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
-We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure X shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
+We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result with \textit{nisKsFinder} from [] in order to select only the good $K_S^0$ candidates. Figure X shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
 
 \begin{center}
 PLOT
@@ -564,18 +564,20 @@ The momentum of selected $K_S^0$ candidates is added to the ROE, while the daugh
 \subsection{Duplicate tracks}
 All good tracks at this point should be coming from the IP region, therefore we apply a cut on impact parameters for all the remaining tracks
 \begin{itemize}
-\item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}.$
+\item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}$
 \end{itemize} 
 
-\subsubsection{Defining a duplicate pair tracks}
+and proceed with the clean-up of track duplicates.
 
-In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure X shows the distribution of the angle between two track pairs for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+\subsubsection{Defining duplicate track pairs}
+
+In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property of such tracks is the angle between them, which is very close to $0^\circ$, since tracks deviate only slightly from the initial direction, or $180^\circ$, since they can also be reconstructed in the opposite way. Figure X shows the distribution of the angle between two track pairs for random tracks and duplicate tracks, where the latter were reconstructed as two same-sign or opposite-sign tracks.
 
 \begin{center}
 PLOT
 \end{center}
 
-If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure X shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum component $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure X shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
 
 \begin{center}
 PLOT
