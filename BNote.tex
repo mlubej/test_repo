@@ -75,6 +75,8 @@
 
 %TODO
 % - scientific scales on plots
+% - difference between BDT and BDT optimal cut in plots
+% - switch FOM opt plots left/right
 
 \chapter{Introduction}
 
@@ -271,6 +273,7 @@ The total missing four-momentum in the event can be determined as
 where the summation runs over all charged and neutral particles in the defined set with
 \begin{equation}
 \mathrm{p}^{neutral}_i = \left(p_i,\, \vec{p}_i \right) \quad \mathrm{and} \quad \mathrm{p}^{charged}_i = \left(\sqrt{m_i^2 + p_i^2},\, \vec{p}_i \right).
+\label{eq:pcharged}
 \end{equation}
 For charged tracks in the ROE a mass hypothesis needs to be defined in order to determine the track's energy. After the ROE clean-up we make the following procedure of choosing the mass hypothesis
 \begin{enumerate}
@@ -498,8 +501,6 @@ The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 \label{fig:ROE_gamma}
 \end{figure}
 
-\subsection{Clusters clean-up optimization}
-
 With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (right), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
 \item $BDT_\gamma > 0.519$.
@@ -639,14 +640,28 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure X (left). We optimize the cut and show the $FOM$ function in Figure X (right). The optimal cut for duplicate track selection is
+The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure \ref{fig:ROE_dupBDT}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup}
+\caption{Classifier output of the track pair training for random track pairs and duplicate track pairs.}
+\label{fig:ROE_dupBDT}
+\end{figure}
+
+The $FOM$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dupOpt} (right), along with the angle between the two tracks after the optimal cut (left). The optimal cut for duplicate track selection is
 \begin{itemize}
-\item $BDT_{duplicate} > X.$
+\item $BDT_{duplicate} > 0.99915.$
 \end{itemize}
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_dup_opt}
+\caption{Distribution of the angle between two tracks (left) in a single pair after before (dashed) and after (solid) applying the optimal cut on the output classifier for random and duplicate track pairs, and the optimization of the FOM for the output classifier cut (right).}
+\label{fig:ROE_dupOpt}
+\end{figure}
 
 \subsubsection{Defining duplicate tracks}
 
@@ -716,25 +731,50 @@ The input variables used in this MVA are
 	\end{itemize}
 \end{itemize}
 
-The classifier is shown in Figure X. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. However, this is not optimal. We must compare this number to other tracks in duplicate pairs with a new variable
+The classifier is shown in Figure \ref{fig:ROE_curl}. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. We now compare these values between both tracks in each track pair as
 \begin{equation}
 \Delta BDT_{final} = BDT_{final}^{this} - BDT_{final}^{other},
 \end{equation}
 
 which is again applied to all tracks and overwritten for tracks which are more duplicate-like.
 
-\begin{center}
-PLOT
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/ROECleanup_curl}
+\caption{Classifier output of the MVA training for curling track recognition.}
+\label{fig:ROE_curl}
+\end{figure}
 
-Finally, we select all duplicate tracks with a cut 
+Finally, we select all duplicate tracks which survive the cut 
 \begin{equation}
 \Delta BDT_{final} > 0
 \end{equation}
 
-and discard this set of duplicate tracks from our ROE. The event is now considered to be clean of duplicate tracks.
+and discard them from our ROE. The event is now considered to be clean of duplicate tracks.
 
 \section{Clean-up results}
+
+In this section the results of the ROE clean-up are shown. It is clear that the clean-up affects the shape of various distribution in the sense that it increases resolution. However, since the reconstruction procedure, which is thoroughly described in chapter X, also uses cuts on variables, which are affected by the clean-up, the ROE clea-up also increases the efficiency of the reconstructed sample. 
+
+Figure X shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups. We see a large increase in efficiency and resolution in both observed variables for the case where the ROE clean-up is performed. Table X shows relative efficiencies and resolutions of $\Delta E$ and $M_{BC}$ based on the "perfect" ROE clean-up, which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from Monte Carlo.
+
+PLOT 
+
+TABLE
+
+It can also be seen that the determination of the masses of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID is quite successfull, since the benefits of using true masses from Monte Carlo are very small.
+
+Another variable which heavily depends on the clean-up is the charge product of the reconstructed $B$ meson and the charge of the ROE, which should for charged $B$ meson pairs be equal to 
+\begin{equation}
+Q_{B^+} Q_{B^-} = -1,
+\end{equation}
+
+but is in fact a distribution around this value due to imperfect event reconstructions, as shown in Figure X. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure X and they show a clear increase in efficiency and resolution for the correct value of the charge product, with a slight efficiency increase also for other values.
+
+PLOT
+
+\subsection{Comparison to Belle clean-up}
 
 \section{ROE clean-up validation}
 
