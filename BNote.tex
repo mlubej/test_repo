@@ -27,7 +27,6 @@
 \usepackage{braket}
 \usepackage{slashed}
 \DeclareMathOperator{\arcsinh}{arcsinh}
-\include{definicije}
 \usepackage{enumerate}
 
 \usepackage{subfigure}
@@ -72,7 +71,7 @@
 
 
 
-%TODO
+%TODO seznam
 % - scientific scales on plots
 % - difference between BDT and BDT optimal cut in plots
 % - switch FOM opt plots left/right
@@ -81,7 +80,7 @@
 
 \chapter{Introduction}
 \pagenumbering{arabic}
-
+Will add more info later
 
 \chapter{Data and MC}
 
@@ -389,7 +388,13 @@ One must bare in mind that even though this calculation yields a precise result,
 
 The missing information due to an escaping neutrino in our reconstructed channel is replaced by information from the companion $B$ meson. Since this is an untagged reconstruction, the quality of the companion $B$ meson affects the properties out signal candidate. Perfect reconstruction of a hadronically decaying companion $B$ meson results in pronounced peaks at $\Delta E \approx 0$, $m_{miss}^2 \approx 0$ and $M_{BC} \approx m_B$, while imperfect reconstruction due to any kind of missing particles produces long tails and/or a shift from the desired value in the mentioned distributions. These effects are undesired, since they make it harder to separate signal from background.
 
-To remedy this, we split our signal candidates into 4 categories and work only with the best category. For categorization we use splitting in two ways. First, we look at the charge product of the reconstructed $B$ meson and the ROE object. For correctly reconstructed events, this should have a value of $$q_{B_{sig}}~q_{B_{comp}} = -1,$$
+To remedy this, we split our signal candidates into 4 categories and work only with the best category. For categorization we use splitting in two ways. First, we look at the charge product of the reconstructed $B$ meson and the ROE object. For correctly reconstructed events, this should have a value of 
+
+\begin{equation}
+\label{eq:chargeprod}
+q_{B_{sig}}~q_{B_{comp}} = -1,
+\end{equation}
+
 however, this value is distributed due to missing charged particles in the reconstruction. Secondly, we train an MVA classifier based on ROE object properties in order to recognize companion $B$ mesons, which decayed hadronically. The details of the training are described in subsection \ref{subs:HDMVA}.
 
 We define the 4 categories in the following way
@@ -432,7 +437,7 @@ The input variables used in this MVA are ROE specific and do not depend on the s
 	\item Charge of the ROE,
 	\item $\cos \theta$ of the ROE momentum in the CMS frame,
 	\item Number of tracks in ROE,
-	\item Number of distant tracks in ROE, which don't pass requirements from section \ref{s:ss}.
+	\item Number of distant tracks in ROE, which don't pass requirements from Section \ref{s:ss}.
 	\end{itemize}
 \end{itemize}
 %
@@ -506,15 +511,15 @@ Continuing from Section \ref{sc:shortroe}, the description of the ROE clean-up p
 
 \section{Setting up the MVA}
 
-Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step we run our $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be dependent on the signal side and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leakage of information from the signal side to the ROE side.
+Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step we run $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be signal-side dependent and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leaks of information from the signal side to the ROE side.
 
-For each clean-up step a dataset was prepared for the training of "signal" against "background". The dataset for each case was split into 5 parts for reasons which are explained later in the note. The Fast-BDT (FBDT) [] algorithm was used as the MVA method and the following hyper-parameters were chosen for hyper-parameter optimization
+For each clean-up step a dataset was prepared for the training of "signal" (target) against "background". The Fast-BDT (FBDT) [] algorithm was used as the MVA classifier and the following hyper-parameters were chosen for optimization
 \begin{itemize}
 \item \texttt{nTrees}: the number of trees in the FBDT forest,
 \item \texttt{nLevels}: the number of levels in each FBDT tree.
 \end{itemize}
 
-Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid search method in the hyper-parameter space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters. Figure X shows a schematic procedure of a $k$-fold cross-validation, taken from [].
+Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid-search method in the hyper-parameter phase-space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters []. Figure X shows a schematic procedure of a $k$-fold cross-validation.
 
 \begin{figure}[H]
 \centering
@@ -524,13 +529,15 @@ Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \t
 \label{fig:BDT}
 \end{figure}
 
+PLOT
+
 \section{Clusters clean-up}
 
-Photons originate from the IP region, travel to the ECL part of the detector in a straight line and produce a cluster. The direction of the photon is determined via the location of the cluster in the ECL, and the energy of the cluster is directly measured via the deposited energy. This way the four-momentum of photons is determined an used in Eq. (\ref{eq:ROEloop}).
+Photons originate from the IP region, travel to the ECL part of the detector in a straight line and produce a cluster. The direction of the photon is determined via the location of the cluster hit in the ECL and the energy of the photon is directly measured via the deposited energy. This way the four-momentum of photons is determined and used in Eq. (\ref{eq:ROEloop}).
 
-Generally speaking, most of the photons in events with $B$ mesons should come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hist in the ECL are also created by photons coming from the beam background or secondary interactions with the detector material. Such photons add extra energy and momentum which spoils our measured quantities if we don't discard them.
+Most of the photons in events with $B$ mesons come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hits in the ECL are also created by photons coming from beam-induced background or secondary interactions with the detector material. Such photons add extra energy and momentum which spoils our measured quantities.
 
-In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ origin probability, which is used as an additional classifier variable in the next step of the clean-up, where we train an MVA to separate good photon clusters from bad ones.
+In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ origin probability, which is used as an additional classifier variable in the next step of the clean-up.
 
 \subsection{$\pi^0$ MVA training}
 
@@ -539,12 +546,12 @@ The dataset of $\pi^0$ candidates contains
 \item 387125 target candidates,
 \item 416019 background candidates,
 \end{itemize}
-where the definition of target is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and actual daughters of the particle, based on MC truth information. We use the converted $\pi^0$ candidates from the existing Belle particle list and select those with invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$. After that we perform a mass-constrained fit on all candidates, keeping only the cases for which the fit converged. 
+where the definition of target is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and real daughters of the $\pi^0$ particle. We use $\pi^0$ candidates from the converted Belle particle list and select those with invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$. After that we perform a mass-constrained fit on all candidates, keeping only the ones for which the fit converged. 
 
 The input variables used in this MVA are
 \begin{itemize}
 \item $p$ and $p_{CMS}$ of $\pi^0$ and $\gamma$ daughters,
-\item $P(\chi^2,DOF)$ of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
+\item fit prob. of the mass-constrained fit, invariant mass and significance of mass before and after the fit,
 \item angle between the photon daughters in the CMS frame,
 \item cluster quantities for each daughter photon
 	\begin{itemize}
@@ -572,12 +579,14 @@ The distributions for all input variables and their correlations for signal and 
 
 \subsection{$\gamma$ MVA training}
 
+In this MVA training we take the $\pi^0$ classifier output of the previous training as an input in order to train a classifier to distinguish between good and bad photons. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs of photons, the $\pi^0$ probability is overwritten in the case of a larger value, since this points to a greater probability of a correct photon combination. On the other hand, some photon candidates fail to pass the $\pi^0$ selection, these candidates have a fixed value of $\pi^0$ probability equal to zero.
+
 The dataset of $\gamma$ candidates contains
 \begin{itemize}
 \item 324781 target candidates,
 \item 333353 background candidates,
 \end{itemize}
-where the definition of target is that the photon is an actual photon which is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use the converted $\gamma$ candidates from the existing Belle particle list. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs of photons, the $\pi^0$ probability is overwritten in the case of a larger value, since this points to a greater probability of a correct photon combination. On the other hand, some photon candidates fail to pass the $\pi^0$ selection, these candidates have a fixed value of $\pi^0$ probability equal to zero.
+where the definition of target is that the photon is an actual photon which is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use the converted $\gamma$ candidates from the existing Belle particle list. 
 
 The input variables used in this MVA are
 \begin{itemize}
@@ -604,12 +613,12 @@ The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 \label{fig:ROE_gamma}
 \end{figure}
 
-With the final weights for photon classification in hand, we apply them to the photon particle list. For the purpose of cut optimization, we use only events with correctly reconstructed signal $B$ mesons. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (right), with the optimal cut on the $\gamma$ classifier output at
+With the final weights for photon classification in hand, we apply them to the photon particle list. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (left), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
 \item $BDT_\gamma > 0.519$.
 \end{itemize}
 
-Figure \ref{fig:ROE_gamma_opt} (left) shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
+Figure \ref{fig:ROE_gamma_opt} (right) shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
 \begin{itemize}
 \item Signal efficiency: $\epsilon_{SIG} = 82.6~\%$,
 \item Background rejection: $1-\epsilon_{BKG} = 81.7~\%$.
@@ -619,7 +628,7 @@ Figure \ref{fig:ROE_gamma_opt} (left) shows the LAB frame momentum of the photon
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/ROECleanup_gamma_opt}
-\caption{Momentum magnitude in the LAB frame of signal and background photon candidates before and after the optimal cut (left) on the classifier output variable (right).}
+\caption{The $FOM$ of the classifier output optimization (left) and  momentum magnitude in the LAB frame of signal and background photon candidates before and after the optimal cut (right).}
 \label{fig:ROE_gamma_opt}
 \end{figure}
 
@@ -627,18 +636,17 @@ The event is now considered to be clean of extra clusters.
 
 \section{Tracks clean-up}
 
-Charged particles leave hits in the detector, which are then grouped into tracks by advanced tracking algorithms. The track is fitted and the track momentum is measured. With the help of particle ID (PID) information, we are able to make an intelligent decision about the mass hypothesis of the particle and thus reconstruct the charged particle's four-momentum, which is then added in the loop in Eq. (\ref{eq:ROEloop}).
+Charged particles leave hits in the detector, which are then grouped into tracks by advanced tracking algorithms. The track is fitted and the track momentum is determined. With the help of particle identification information (PID), we are able to make an intelligent decision about the mass hypothesis of the particle and thus reconstruct the charged particle's four-momentum, which is then added in the loop in Eq. (\ref{eq:ROEloop}).
 
-Most of the quality tracks, which come from physics event of interest, come from the IP region, where the collision occurred. Such tracks will from this point on be denoted as \textit{good} tracks. However, cleaning up the tracks is a more complex procedure, due to the following facts which need to be taken into account
+Most of the quality (good) tracks, which come from physics event of interest, come from the IP region, where the collisions occur. Cleaning up the tracks is a more complex procedure than cleaning up the clusters. The following facts need to be taken into account
 \begin{enumerate}[(a)]
 \item good tracks can also originate away from the IP region, due to decays of long-lived particles, such as $K_S^0 \to \pi^+ \pi^-$,
-\item charged particles from background sources produce extra tracks,
+\item charged particles from background sources produce extra tracks, or duplicates,
 \item low momentum charged particles can curl in the magnetic field and produce multiple tracks,
-\item secondary interactions with detector material or decays of particles in flight produce kinks in the flight directory, resulting in multiple tracks.
+\item secondary interactions with detector material or decays of particles in flight can produce "kinks" in the flight directory, resulting in multiple track fit results per track.
 \end{enumerate}
 
 Schematics of all the cases mentioned above are shown in Figure \ref{fig:track_cleanup}.
-
 
 \begin{figure}[H]
 \centering
@@ -650,18 +658,17 @@ Schematics of all the cases mentioned above are shown in Figure \ref{fig:track_c
 \includegraphics[width=0.49\linewidth]{texfig/curler}}%
 \subfigure[]{
 \includegraphics[width=0.49\linewidth]{texfig/decay}}%
-\caption{Schematics of all the special cases of tracks in the detector which need to be considered. (a) shows the tracks from long-lived neutral particles, which decay away from the IP region, (b) shows a random track from background which was reconstructed, (c) shows a case of a low-momentum particle which curls in the magnetic field and (d) shows a case of a particle decay in flight, which produced a kink in the trajectory.}
+\caption{(a) Tracks from long-lived neutral particles, which decay away from the IP region, (b) Random tracks from background which are reconstructed, (c) Low-momentum particles which curl in the magnetic field, (d) in-flight decays of particles, which produce a kink in the trajectory.}
 \label{fig:track_cleanup}
 \end{figure}
 
-It is obvious that tracks from the same momentum source should only be taken into account once, or, in case of background tracks, not at all. Such tracks will from this point on be denoted as \textit{extra} tracks which add extra four-momentum to our final calculationsin Eq. (\ref{eq:ROEloop}). At the same time, we have to take care that we don't discard \textit{good} tracks as \textit{extra} tracks. Both of these cases have negative impacts on the final resolution of all variables which depend on information from ROE.
+It is obvious that tracks from the same momentum source should only be taken into account once, or, in case of background tracks, not at all. Such tracks will from this point on be denoted as \textit{extra} tracks, because they add extra four-momentum to our final calculations in Eq. (\ref{eq:ROEloop}). At the same time, we have to take care that we don't identify \textit{good} tracks as \textit{extra} tracks. Both of these cases have negative impacts on the final resolution of all variables which depend on information from ROE.
 
 \subsection{Tracks from long-lived particles}
 
 The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
-We use the converted $K_S^0$ candidates from the existing Belle particle list and use an existing Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut.
-
+We use the converted $K_S^0$ candidates from the existing Belle particle list and use a pre-trained Neural Network classifier result in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut. The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
 \begin{figure}[H]
 \centering
@@ -671,12 +678,14 @@ We use the converted $K_S^0$ candidates from the existing Belle particle list an
 \label{fig:ROE_V0}
 \end{figure}
 
-%TODO efficiency and purity for this
-
-The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
+The signal efficiency and background rejection for $K_S^0$ candidates after this cut and on the full range are
+\begin{itemize}
+\item Signal efficiency: $\epsilon_{SIG} = 80.7~\%$,
+\item Background rejection: $1-\epsilon_{BKG} = 99.4~\%$.
+\end{itemize}
 
 \subsection{Duplicate tracks}
-All good tracks at this point should be coming from the IP region, therefore we apply a cut on impact parameters for all the remaining tracks
+All good tracks at this point should be coming from the IP region, since we took care of all the good tracks from long-lived particle decays, therefore we apply a cut on impact parameters for all the remaining tracks
 \begin{itemize}
 \item $\vert d_0 \vert < 10\e{cm}$ and $\vert z_0 \vert < 20\e{cm}$
 \end{itemize} 
@@ -685,17 +694,17 @@ and proceed with the clean-up of track duplicates.
 
 \subsubsection{Defining a duplicate track pair}
 
-In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two track in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+In this step we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two tracks in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_initial}
-\caption{Distribution of the angle between two track in a single pair for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\caption{Distribution of the angle between two tracks in a single pair for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
 \label{fig:ROE_dupAngleInit}
 \end{figure}
 
-If the particle decayed mid-flight, or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low transverse momentum $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure \ref{fig:ROE_dupPt} shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
+If the particle decayed mid-flight or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low momentum in the transverse direction, $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure \ref{fig:ROE_dupPt} shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
 
 \begin{figure}[H]
 \centering
@@ -711,20 +720,20 @@ We impose a cut of
 \item $\vert \Delta p_T \vert < 0.1\e{GeV}/c$,
 \end{itemize}
 
-in order to cut down the number of random track pairs, while retaining a high number of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure \ref{fig:ROE_dupAngleFinal}.
+in order to cut down the number of random track pairs, while retaining a high percentage of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure \ref{fig:ROE_dupAngleFinal}.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_final}
-\caption{Distribution of the angle between two track in a single pair after applying the selection cuts defined in this subsection. The distributions are shown for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
+\caption{Distribution of the angle between two tracks in a single pair after applying the selection cuts defined in this subsection. The distributions are shown for random track pairs (green) and duplicate track pairs, where the latter were reconstructed as two same-sign (blue) or opposite-sign tracks (red).}
 \label{fig:ROE_dupAngleFinal}
 \end{figure}
 
 \subsubsection{Training the duplicate track pair MVA}
 \label{ss:trackMVA}
 
-This final sample of track pairs is now fed into an MVA, which is trained to recognize duplicate track pairs. The dataset contains
+This final sample of track pairs is now fed into an MVA, which is trained to recognize duplicate track pairs over random ones. The dataset contains
 \begin{itemize}
 \item 215601 target candidates,
 \item 311124 background candidates,
@@ -754,7 +763,7 @@ The classifier is able to distinguish between random and duplicate track pairs i
 \label{fig:ROE_dupBDT}
 \end{figure}
 
-The $FOM$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dupOpt} (right), along with the angle between the two tracks after the optimal cut (left). The optimal cut for duplicate track selection is
+The $FOM$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dupOpt} (left), along with the angle between the two tracks before and after the optimal cut (right). The optimal cut for duplicate track selection is
 \begin{itemize}
 \item $BDT_{duplicate} > 0.99915.$
 \end{itemize}
@@ -763,33 +772,32 @@ The $FOM$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dup
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/ROECleanup_dup_opt}
-\caption{Distribution of the angle between two tracks (left) in a single pair after before (dashed) and after (solid) applying the optimal cut on the output classifier for random and duplicate track pairs, and the optimization of the FOM for the output classifier cut (right).}
+\caption{The optimization of the FOM function for the cut on classifier output (left) and distribution of the angle between two tracks in a single pair before (dashed) and after (solid) applying the optimal cut on the output classifier for random and duplicate track pairs (right).}
 \label{fig:ROE_dupOpt}
 \end{figure}
 
 \subsubsection{Defining duplicate tracks}
 
-What remains now is to decide which track from the duplicate track pairs to keep and which to discard. For this purpose we apply duplicate pair-level information to each track in the pair in the form of
+What remains now is to decide which track from the duplicate track pair to keep and which to discard. For this purpose we apply duplicate pair-level information to each track in the pair in the form of
 \begin{equation}
 \Delta f = f_{this} - f_{other},
 \end{equation}
 
-where $f$ is an arbitrary variable from the list of track quantities in Subsection \ref{ss:trackMVA}. We denote that a track is more $duplicate$-like, if the following holds from the point-of-view of \textit{this} track
+where $f$ is an arbitrary variable from the list of track quantities in Subsection \ref{ss:trackMVA}. From the point-of-view of \textit{this} track, a track is more $duplicate$-like if the following is true
 \begin{itemize}
-\item $\Delta d_0,\,\Delta z_0 > 0$,
-\item $\Delta p_T,\,\Delta p_Z < 0$,
-\item $\Delta N_{SVD},\,\Delta N_{CDC} < 0$,
+\item $\Delta d_0,\,\Delta z_0 > 0$ (\textit{this} track further away from the IP region),
+\item $\Delta p_T,\,\Delta p_Z < 0$ (\textit{this} track has lower momentum),
+\item $\Delta N_{SVD},\,\Delta N_{CDC} < 0$ (\textit{this} track has less hits in the SVD and CDC),
 \end{itemize}
 
-
-Additionaly we also define an MC truth variable 
+Additionally we define an MC truth variable 
 \begin{equation}
-\Delta \chi^2 = \chi^2_{this} - \chi^2_{other},\quad\chi^2 = \sum_{i=x,y,z}\frac{\left(p_i - p_i^{MC}\right)^2}{\sigma(p_i)^2}.
+\label{eq:chi2}
+\Delta \chi^2 = \chi^2_{this} - \chi^2_{other},\quad\chi^2 = \sum_{i=x,y,z}\frac{\left(p_i - p_i^{MC}\right)^2}{\sigma(p_i)^2},
 \end{equation}
+where we compare all components of track momentum to the true values. If $\Delta \chi^2 > 0$, then \textit{this} track has a higher probability of being a duplicate track and should be discarded.
 
-If $\Delta \chi^2 > 0$, then \textit{this} track has a higher probability of being a duplicate track and should be discarded.
-
-One additional complication is that we can have more than one extra track from the same particle, which leads to track pairs which share the same tracks. For example, if we have the following case
+However, it turns out that solving this problem is not as simple as discarding one track and keeping the other one. An additional complication here is that we can have more than one extra track from the same initial particle, which leads to track pairs where both tracks are track duplicates. For example, if we have the following case
 \begin{align*}
 t_1&: \mathrm{good~track},\\
 t_2&: \mathrm{extra~track},\\
@@ -798,7 +806,7 @@ t_3&: \mathrm{extra~track},\\
 \mathrm{pair}_2&:\left(t_1,t_3\right),\\
 \mathrm{pair}_3&:\left(t_2,t_3\right),
 \end{align*}
-where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the property $f$ in six different orders
+where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_3$ being even more duplicate-like with respect to $t_2$. Here tracks $t_2$ and $t_3$ should be discarded while $t_1$ should be kept. We can achieve this if we overwrite existing pair-level information in the tracks for cases where the variable difference $\Delta f$ is more duplicate-like. If we follow the same example, we could fill information about the property $f$ in six different orders. 
 \begin{align*}
 1.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right)\quad \to \quad \left(t_2*,t_3*\right),\\ 
 2.&~\left(t_1,t_2*\right)\quad \to \quad \left(t_2*,t_3*\right)\quad \to \quad \left(t_1,t_3*\right),\\ 
@@ -808,7 +816,7 @@ where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_
 6.&~\left(t_2,t_3*\right)\quad \to \quad \left(t_1,t_2*\right)\quad \to \quad \left(t_1,t_3*\right),
 \end{align*}
 
-where the "*" symbol denotes when a track is recognized as a duplicate track with respect to the other track. We see that no matter the order, this way both $t_2$ and $t_3$ get recognized as duplicate tracks correctly.
+where the "*" symbol denotes when a track is recognized as a duplicate track with respect to the other track. We see that no matter the order, both $t_2$ and $t_3$ get recognized as duplicate tracks correctly.
 
 \subsubsection{Training the duplicate track MVA}
 
@@ -817,7 +825,7 @@ The training procedure is similar as before. The sample of tracks from duplicate
 \item 160146 target candidates,
 \item 128568 background candidates,
 \end{itemize}
-where the definition of target is that the track a duplicate track. 
+where the definition of target is that the track is a duplicate track. 
 
 The input variables used in this MVA are
 \begin{itemize}
@@ -855,28 +863,22 @@ Finally, we select all duplicate tracks which survive the cut
 \Delta BDT_{final} > 0
 \end{equation}
 
-and discard them from our ROE. The event is now considered to be clean of duplicate tracks.
+and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a sample of duplicate track pairs and comparing the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table X shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
+
+TABLE
 
 \section{Clean-up results}
 
-In this section the results of the ROE clean-up are shown. It is clear that the clean-up affects the shape of various distribution in the sense that it increases resolution. However, since the reconstruction procedure, which is thoroughly described in this chapter, also uses cuts on variables, which are affected by the clean-up, the ROE clean-up also increases the efficiency of the reconstructed sample. 
+In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially $\Delta E$ and $M_{BC}$, which we are most interested in. Since the reconstruction procedure also applies cuts on these cleaned-up variables, clean-up procedure consequentially also increases the efficiency of the reconstructed sample. 
 
-We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a case where no clean-up was applied at all
-
-Figure X shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups. We see a large increase in efficiency and resolution in both observed variables for the case where the ROE clean-up is performed. Table X shows relative efficiencies and resolutions of $\Delta E$ and $M_{BC}$ based on the "perfect" ROE clean-up, which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from Monte Carlo.
+We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a case where no clean-up was applied at all. Figure X shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups. We see a large increase in efficiency and resolution in both observed variables for the case where the ROE clean-up is performed. Table X shows relative efficiencies and resolutions of $\Delta E$ and $M_{BC}$ based on the "perfect" ROE clean-up, which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
 
 PLOT 
 
 TABLE
 
-It can also be seen that the determination of the masses of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information is quite successful, since the benefits of using true masses from Monte Carlo are very small.
-
-Another variable which heavily depends on the clean-up is the product of the reconstructed $B$ meson charge and the total charge of the ROE, which should, for charged $B$ meson pairs, be equal to 
-\begin{equation}
-Q_{B^+} Q_{B^-} = -1,
-\end{equation}
-
-but is in fact a distributed property due to imperfect event reconstructions, as shown in Figure X. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure X and they show a clear increase in efficiency and resolution for the correct value of the charge product, with a slight efficiency increase also for other values.
+Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure X (left) for various clean-up procedures. Figure X (right) shows the same distribution for the optimal ROE clean-up, but split into two groups. The first group are all the candidates which are present in the sample if no clean-up is applied, and the second group are all the new entries which enter our sample due to increased clean-up efficiency. This enables us to see the effects of the clean-up on already existing entries. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure X and they show a clear increase in efficiency and resolution for the correct value of the charge product, with a slight efficiency increase also for other values.
+%TODO: omeni se zakljucek za Belle cleanup/
 
 PLOT
 
@@ -1035,14 +1037,32 @@ Instead of two separate $q \bar q$ and $B \bar B$ $FOM$ optimizations, it is mor
 
 PLOT
 
-We can compare signal and major background distributions of $\Delta E$ and $M_{BC}$ after the 2D $FOM$ optimization for both classifiers. Figure X shows major components in the background in arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure X shows similarly for the final sample optimized with uBoost classifier. We can see that there is considerably more background in the latter case, however, also shapes ob background and signal distributions differ greatly. The biggest improvement seems to be with the background components in the $M_{BC}$ picture, where the background is much more signal like in the final sample optimized with the standard BDT classifier than in the one optimized with the uBoost classifier. The total number of expected signal candidates and the signal-to-noise ratios for both classifiers are:
+We can compare signal and major background distributions of $\Delta E$ and $M_{BC}$ after the 2D $FOM$ optimization for both classifiers. Figure X shows major components in the background in arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure X shows similarly for the final sample optimized with uBoost classifier. We can see that there is considerably more background in the latter case, however, also shapes ob background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution for the background components, where the background is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
 \item Standard BDT: $N_{sig} = 152.82,\quad N_{sig}/N_{bkg} = 3.70~\%$,
 \item uBoost: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
 \end{itemize}
 
+PLOT 
+
+PLOT
+
+\section{Data and MC agreement}
+
+With the final selection in place, we can check the data and MC agreement by checking the control decay region in on- and off- resonance data. Off-resonance samples provide the ability to check the agreement of the $q\bar q$ background component, while on-resonance samples can be used to check the validity of the control MC sample and, consequentially, the signal MC sample.
+
+The off-resonance sample were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure X shows $\Delta E$, $M_{BC}$ and $BDT_{q\bar q}$ for off-resonance data and MC, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due having $6$ streams of MC. Figures show a consistent overestimation of MC, which indicated that the $\Delta E$, $M_{BC}$ templates would in principle need to be fixed for the signal extraction with the template fit. However, looking at the ratios of MC and data for these variables before and after the $q\bar q$ MVA cut, shown in Figure X, one can conclude that, based on the flatness of the ratio function, the only difference is the normalization factor, so the distribution shapes can be left as they are, since the normalization will be automatically set in the template fit.
+
+PLOT
+
+PLOT
+
+We can repeat the check on on-resonance data. Figure X shows the $q \bar q$ classifier output, $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. One can then make the same conclusion about overestimation of the $q \bar q$ MC component, as was seen on the off-resonance sample.
+
+Overall, data and MC seem to agree very well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of the control decay.
+
 \chapter{Signal extraction}
-\section{Fit setup}
+\section{Fit templates}
 \section{Adaptive binning algorithm}
 \section{Signal MC fit results}
 \section{Control fit results}
