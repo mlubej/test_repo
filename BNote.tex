@@ -309,6 +309,7 @@ Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable
 This cut was not optimized, since the optimal case would result in a too strong threshold at this point in the analysis, since we still may want to retain as much signal candidates as possible, even if they are coming from events with semi-leptonic decays of the other $B$ meson.
 
 For further purposes in this analysis we also define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of it's particles were taken into account correctly\footnote{We only allow for missing photons, since all photons are much harder to correctly take into account.}. We denote this subset as \textit{perfect} signal.
+%TODO: lose the footnote
 
 \begin{figure}[H]
 \centering
@@ -938,8 +939,8 @@ T = \frac{\sum_{i}\vert T \cdot p_i\vert}{\sum_{i}\vert p_i\vert}.
 \end{equation}
 In this case, a related variable is $\vert \cos\theta_T\vert$, where $\theta_T$ is the angle between the thrust axis of the momenta from $B$ meson decay particles, and the thrust axis of all particles in the ROE. Since both $B$ mesons in $B \bar B$ events are produced at rest, their decay particles, and consequentially their thrust axes, are uniformly distributed in the range $[0,~1]$. On the other hand, decay particles from continuum events follow the direction of the jets in the event. As a consequence, the thrusts of both the $B$ meson and the ROE are strongly directional and collimated, which results in a large peak at $\vert \cos\theta_T\vert \approx 1$. Additionally, one can also use the variable $\vert \cos\theta_{TB}\vert $, which is the thrust axis between the $B$ candidate and the beam axis. For $B$ candidates from $B \bar B$, this distributions is again uniformly distributed, while for candidates from continuum events this distribution follows the distribution of the jets with the function $1+\cos^2\theta_{T,B}$. Figure X shows the distributions of $\vert \cos\theta_T\vert$ (left) and $\vert \cos\theta_{T,B}\vert$ (right) for different $B$ meson candidates.
 
-\subsubsection{Cleo cones}
-CLEO cones have been introduced by the CLEO collaboration [] is an additional specific tool to provide optimal background discrimination. They are nine variables corresponding to the momentum flow around the thrust  axis of the $B$ meson candidate, binned in nine cones of $10^\circ$ around the thrust axis, as illustrated in Figure X. 
+\subsubsection{CLEO cones}
+CLEO cones have been introduced by the CLEO collaboration [] and are an additional specific tool to provide optimal background discrimination. They are nine variables corresponding to the momentum flow around the thrust  axis of the $B$ meson candidate, binned in nine cones of $10^\circ$ around the thrust axis, as illustrated in Figure X. 
 
 \subsubsection{KSFW moments}
 Fox-Wolfram moments are another useful parametrization of phase-space distribution of energy flow and momentum in an event []. For a collection of $N$ momenta $p_i$, the $k$-th order normalized Fox-Wolfram moment $R_k$ is defined as
@@ -948,7 +949,7 @@ R_k = \frac{H_k}{H_0} = \frac{1}{H_0} \sum_{i,j} \vert p_i \vert \vert p_j \vert
 \end{equation}
 where $\theta_{ij}$ is the angle between $p_i$ and $p_j$, and $P_k$ is the $k$-th order Legendre polynomial. For events with two strongly collimated jets, $R_k$ takes values close to 0 (1) for odd (even) values of $k$, so these moments provide a convenient discrimination between $B \bar B$ and continuum events.
 
-Belle developed a refined generation of Fox-Wolfram moments, called Kakuno-Super-Fox-Wolfram (KSWFW) moments to further suppress the continuum background. There are $17$  different KSFW moments which are grouped into $R^{so}_k$, $R^{oo}_k$ and $R^{ss}_k$ []. The latter ones are excluded due to correlations with $B$ meson specific variables.
+Belle developed a refined generation of Fox-Wolfram moments, called Kakuno-Super-Fox-Wolfram (KSFW) moments to further suppress the continuum background. There are $17$  different KSFW moments which are grouped into $R^{so}_k$, $R^{oo}_k$ and $R^{ss}_k$ []. The latter ones are excluded due to correlations with $B$ meson specific variables.
 
 \subsection{MVA training}
 \label{ss:qqmva}
@@ -960,12 +961,12 @@ The training variable set consisted of
 \begin{itemize}
 \item $B$ meson direction and thrust related variables
 	\begin{itemize}
-	\item Magnitude of thrust axes of $B$ and $ROE$
-	\item Cosine of angle between thrust axis of $B$ and thrust axis of ROE
-	\item Cosine of angle between thrust axis of $B$ and beam direction
-	\item Reduced Fox-Wolfram moment $R_2$	
+	\item magnitude of thrust axes of $B$ and $ROE$,
+	\item bosine of angle between thrust axis of $B$ and thrust axis of ROE,
+	\item bosine of angle between thrust axis of $B$ and beam direction,
+	\item reduced Fox-Wolfram moment $R_2$	,
 	\end{itemize}
-\item All $9$ CLEO Cones
+\item all $9$ CLEO Cones
 \item KSFW Moments
 	\begin{itemize}
 	\item $R^{so}_{01}$, $R^{so}_{02}$, $R^{so}_{03}$, $R^{so}_{04}$,
@@ -977,12 +978,12 @@ The training variable set consisted of
 	\begin{itemize}
 	\item $qp$ of $e,~\mu,~\ell$,
     \item $qp$ of intermediate $e,~\mu,~\ell$,
-	\item $qp$ of $K$, $K/\pi$, slow pion, fast hadron
-	\item $qp$ of maximum $P^*$, $\Lambda$, fast-slow-correlated (FSC)
+	\item $qp$ of $K$, $K/\pi$, slow pion, fast hadron,
+	\item $qp$ of maximum $P^*$, $\Lambda$, fast-slow-correlated (FSC),
 	\end{itemize}
 \item Other
 	\begin{itemize}
-	\item $\Delta z$, $\Delta t$
+	\item $\Delta z$, $\Delta t$.
 	\end{itemize}
 \end{itemize}
 
