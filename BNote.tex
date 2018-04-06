@@ -385,7 +385,7 @@ The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, alon
 
 One must bare in mind that even though this calculation yields a precise result, this says nothing about the correctness of the $q^2$ model which was used (ISGW2) []. Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
 
-\section{Event categorization}
+\section{Event categorization}\label{sec:event-categorization}
 
 The missing information due to an escaping neutrino in our reconstructed channel is replaced by information from the companion $B$ meson. Since this is an untagged reconstruction, the quality of the companion $B$ meson affects the properties out signal candidate. Perfect reconstruction of a hadronically decaying companion $B$ meson results in pronounced peaks at $\Delta E \approx 0$, $m_{miss}^2 \approx 0$ and $M_{BC} \approx m_B$, while imperfect reconstruction due to any kind of missing particles produces long tails and/or a shift from the desired value in the mentioned distributions. These effects are undesired, since they make it harder to separate signal from background.
 
@@ -520,7 +520,7 @@ For each clean-up step a dataset was prepared for the training of "signal" (targ
 \item \texttt{nLevels}: the number of levels in each FBDT tree.
 \end{itemize}
 
-Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid-search method in the hyper-parameter phase-space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters []. Figure X shows a schematic procedure of a $k$-fold cross-validation.
+Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid-search method in the hyper-parameter phase-space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters [].
 
 \begin{figure}[H]
 \centering
@@ -529,8 +529,6 @@ Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \t
 \caption{A schematic of a BDT forest with \texttt{nTrees}, each tree having a depth of \texttt{nLevels}.}
 \label{fig:BDT}
 \end{figure}
-
-PLOT
 
 \section{Clusters clean-up}
 
@@ -864,24 +862,121 @@ Finally, we select all duplicate tracks which survive the cut
 \Delta BDT_{final} > 0
 \end{equation}
 
-and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a sample of duplicate track pairs and comparing the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table X shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
+and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a sample of duplicate track pairs and comparing the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table \ref{tab:rat} shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
 
-TABLE
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ & Predicted duplicate track & Predicted good track \\
+ \hline 
+ Duplicate track & $84.63~\%$  & $20.95~\%$  \\
+ \hline
+ Good track & $15.37~\%$ & $79.05~\%$ \\
+ \hline
+\end{tabular}
+\caption{Ratios of correctly classified and misclassified tracks.}
+\label{tab:rat}
+\end{table}
+
+\section{Belle clean-up}
+
+The clean-up, used standardly at Belle, is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. In case of photons, a single cut on photon energy is applied, depending on the region where the photon hit the relevant part of the detector. The photon cuts are summarized in Table \ref{tab:bellegamma}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $17^\circ < \theta < 32^\circ$ & $32^\circ < \theta < 130^\circ$ & $130^\circ < \theta < 150^\circ$ \\
+ \hline 
+ $E_\gamma$ & $> 100\e{MeV}$  & $> 50\e{MeV}$ & $> 150\e{MeV}$  \\
+ \hline
+\end{tabular}
+\caption{Photon selection for the Belle clean-up procedure. Different cuts are applied on photons in different parts of the detector}
+\label{tab:bellegamma}
+\end{table}
+
+In case of tracks, pairs are selected which satisfy the following criteria:
+\begin{itemize}
+\item $p_T < 275\e{MeV}/c$,
+\item $\Delta p = \vert \textbf{p}_1 - \textbf{p}_2\vert  < 100\e{MeV}/c$,
+\item $\cos \theta (\textbf{p}_1,\textbf{p}_2) < 15^\circ$ for same sign,
+\item $\cos\theta(\textbf{p}_1,\textbf{p}_2) > 165^\circ$ for opposite sign.
+\end{itemize}
+
+Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:belleformula} is discarded. The remaining tracks in the event then need to satisfy the conditions described in Table \ref{tab:belletrack}.
+\begin{equation}
+\label{eq:belleformula}
+\left(\gamma\vert d_0 \vert \right)^2 + \vert z_0 \vert^2, \quad \gamma = 5.
+\end{equation}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $p_T < 250\e{MeV}/c$ & $250\e{MeV}/c < p_T < 500\e{MeV}/c$ & $p_T > 500\e{MeV}/c$ \\
+ \hline 
+ $\vert d_0 \vert$ & $< 20\e{cm}$  & $< 15\e{cm}$ & $< 10\e{cm}$  \\
+ \hline
+  $\vert z_0 \vert$ & $< 100\e{cm}$  & $< 50\e{cm}$ & $< 20\e{cm}$  \\
+  \hline
+ 
+\end{tabular}
+\caption{Photon selection for the Belle clean-up procedure. Different cuts are applied on photons in different parts of the detector}
+\label{tab:belletrack}
+\end{table}
+
+%TODO: preveri vektorje ce so vedno bold
 
 \section{Clean-up results}
 
-In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially $\Delta E$ and $M_{BC}$, which we are most interested in. Since the reconstruction procedure also applies cuts on these cleaned-up variables, clean-up procedure consequentially also increases the efficiency of the reconstructed sample. 
+In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially $\Delta E$ and $M_{BC}$, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, this also results in an efficiency increase of the reconstructed sample. 
 
-We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a case where no clean-up was applied at all. Figure X shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups. We see a large increase in efficiency and resolution in both observed variables for the case where the ROE clean-up is performed. Table X shows relative efficiencies and resolutions of $\Delta E$ and $M_{BC}$ based on the "perfect" ROE clean-up, which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
+We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roe_opt} shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups after applying all pre-cuts up to the point in Section \ref{sc:shortroe}. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
 
-PLOT 
+%which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
 
-TABLE
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_opt}
+\caption{$\Delta E$ and $M_{BC}$ distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
+\label{fig:roe_opt}
+\end{figure}
 
-Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure X (left) for various clean-up procedures. Figure X (right) shows the same distribution for the optimal ROE clean-up, but split into two groups. The first group are all the candidates which are present in the sample if no clean-up is applied, and the second group are all the new entries which enter our sample due to increased clean-up efficiency. This enables us to see the effects of the clean-up on already existing entries. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure X and they show a clear increase in efficiency and resolution for the correct value of the charge product, with a slight efficiency increase also for other values.
-%TODO: omeni se zakljucek za Belle cleanup/
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ & Efficiency ratio & FWHM ratio \\
+ \hline 
+ Belle clean-up & $121.90~\%$  & $102.60~\%$  \\
+ \hline
+ ROE clean-up & $123.40~\%$ & $77.92~\%$ \\
+ \hline
+\end{tabular}
+\caption{Comparison of efficiencies and $FWHM$'s of ROE and Belle clean-up setups with respect to the default case (no clean-up).}
+\label{tab:roeeff}
+\end{table}
 
-PLOT
+Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
+%TODO: Belle cleanup setup
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_chargeprod}
+\caption{Distribution of $B_{sig}$ and $B_{comp}$ charge product for various types of clean-up procedures. Fore ROE clean-up, the procedure seems to increase the number of candidates with the correct value of the product.}
+\label{fig:roe_chargeproduct}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_split}
+\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom)for various types of clean-up procedures, split by specific values of the charge product. While there seems to be an increase in efficiency for both clean-up procedures in general, ROE-cleanup makes the most improvement to resolution and efficiency for the correct value of the charge product.}
+\label{fig:roe_split}
+\end{figure}
 
 \section{ROE clean-up validation}
 
@@ -929,8 +1024,8 @@ where $q = u,~d,~s$ or $c$, and are a sizable contribution to $B \bar B$ events.
 \label{ss:charvar}
 Information on the phase-space distribution of decay particles is obtained in a number of different ways. In this subsection different characteristic variables are presented which are used in the MVA training. They all focus on kinematic and shape differences between the two processes, which we want to discriminate. 
 
-\subsubsection{$B$ meson direction}
-Two $B$ mesons, coming from a spin-1 $\Upsilon(4S)$ meson, both have 0 spin, which results in a $\sin^2\theta_B$ angular distribution of the $B$ meson direction with respect to the beam axis. On the other hand, $q \bar q$ final states are represented by two half-spin fermions, which results in two jets, following a $1+\cos^2\theta_B$ distribution. The variable $\vert \cos \theta_B \vert$ allows one to discriminate between $B$ candidates from $B \bar B$ decays and continuum background. Figure X shows the distribution of $\vert \cos \theta_B \vert$ for different $B$ meson candidates.
+%\subsubsection{$B$ meson direction}
+%Two $B$ mesons, coming from a spin-1 $\Upsilon(4S)$ meson, both have 0 spin, which results in a $\sin^2\theta_B$ angular distribution of the $B$ meson direction with respect to the beam axis. On the other hand, $q \bar q$ final states are represented by two half-spin fermions, which results in two jets, following a $1+\cos^2\theta_B$ distribution. The variable $\vert \cos \theta_B \vert$ allows one to discriminate between $B$ candidates from $B \bar B$ decays and continuum background. Figure X shows the distribution of $\vert \cos \theta_B \vert$ for different $B$ meson candidates.
 
 \subsubsection{Thrust and related variables}
 It is possible to define a thrust axis $T$ for a collection of $N$ momenta $p_i$ as a unit vector along which their total projection is maximal. Thrust axis $T$ can be obtained by maximizing the expression
@@ -962,8 +1057,8 @@ The training variable set consisted of
 \item $B$ meson direction and thrust related variables
 	\begin{itemize}
 	\item magnitude of thrust axes of $B$ and $ROE$,
-	\item bosine of angle between thrust axis of $B$ and thrust axis of ROE,
-	\item bosine of angle between thrust axis of $B$ and beam direction,
+	\item cosine of angle between thrust axis of $B$ and thrust axis of ROE,
+	\item cosine of angle between thrust axis of $B$ and beam direction,
 	\item reduced Fox-Wolfram moment $R_2$	,
 	\end{itemize}
 \item all $9$ CLEO Cones
@@ -1017,18 +1112,16 @@ The training variable set consisted of
 \item $m_{miss}^2$ from Eq. (\ref{eq:m2def}),
 \item $B \to D^* \ell \nu$ veto variables,
 \end{itemize}
-where distant tracks are all tracks in ROE which satisfy the condition of $\vert d_0 \vert  > 10.0\e{cm}$ or $\vert z_0 \vert > 20.0\e{cm}$. The last entry, $B \to D^* \ell \nu$ veto variables, are a set of variables where we partially reconstruct the $D^*$ candidate 4-momentum via a linear combination of the $\pi^\pm_s$ 4-momentum in the $D^* \to D \pi_s^\pm$ decay. It helps discard the most dominant $B \to D^* \ell \nu$ background. It is most efficient in the $B^0 \to D^{*-} \ell^+ \nu$ decay, where $D^{*-}$ further decays via $D^{*-} \to \bar D {}^0 \pi^-_s$. Other decays do not contain a charged $\pi_s$ particle and are harder to reconstruct with good precision. This results in larger suppression of the neutral $B \bar B$ background only. Figures X shows the two veto variables with a partial reconstruction of a charged (left) and a neutral (right) $\pi_s$.
+where distant tracks are all tracks in ROE which satisfy the condition of $\vert d_0 \vert  > 10.0\e{cm}$ or $\vert z_0 \vert > 20.0\e{cm}$. The last entry, $B \to D^* \ell \nu$ veto variables, are a set of variables where we partially reconstruct the $D^*$ candidate 4-momentum via a linear combination of the $\pi^\pm_s$ 4-momentum in the $D^* \to D \pi_s^\pm$ decay. It helps discard the most dominant $B \to D^* \ell \nu$ background. It is most efficient in the $B^0 \to D^{*-} \ell^+ \nu$ decay, where $D^{*-}$ further decays via $D^{*-} \to \bar D {}^0 \pi^-_s$. Other decays do not contain a charged $\pi_s$ particle and are harder to reconstruct with good precision. This results in larger suppression of the neutral $B \bar B$ background only. Figures X shows the veto variable with a partial reconstruction of a charged $\pi_s^\pm$.
 
 PLOT
 
-When the training is finished and hyper-parameters of the classifier are optimized, the classifier output, shown in Figure X, can be used for background suppression. $B$ meson candidates from $B \bar B$ background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values. Since the differences between signal and background $B \bar B$ events are smaller than $B \bar B$ and $q \bar q$ events, the resulting classifier has a smaller separation power than in previous section.
-
-PLOT
+When the training is finished and hyper-parameters of the classifier are optimized, the classifier output, shown in Figure X (left), can be used for background suppression. $B$ meson candidates from $B \bar B$ background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values. Since the differences between signal and background $B \bar B$ events are smaller than $B \bar B$ and $q \bar q$ events, the resulting classifier has a smaller separation power than in previous section.
 
 \subsection{Boosting to uniformity}
 The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case $\Delta E$ and $M_{BC}$), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated FOM under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection [].
 
-The training set used in this training is the same as described in the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBoost classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates. The resulting classifier output is shown in Figure X. The range of the classifier is more restrained with respect to the standard classifier, and separation between signal and background seems worse, however, the final conclusion will be shown after the signal extraction.
+The training set used in this training is the same as described in the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBoost classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates. The resulting classifier output is shown in Figure X (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds can differ and the final conclusion will be shown only after the signal extraction.
 
 PLOT
 
@@ -1038,7 +1131,7 @@ Instead of two separate $q \bar q$ and $B \bar B$ $FOM$ optimizations, it is mor
 
 PLOT
 
-We can compare signal and major background distributions of $\Delta E$ and $M_{BC}$ after the 2D $FOM$ optimization for both classifiers. Figure X shows major components in the background in arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure X shows similarly for the final sample optimized with uBoost classifier. We can see that there is considerably more background in the latter case, however, also shapes ob background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution for the background components, where the background is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
+We can compare signal and major background distributions of $\Delta E$ and $M_{BC}$ after the 2D $FOM$ optimization for both classifiers. Figure X shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure X shows similarly for the final sample optimized with uBoost classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
 \item Standard BDT: $N_{sig} = 152.82,\quad N_{sig}/N_{bkg} = 3.70~\%$,
 \item uBoost: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
@@ -1052,15 +1145,14 @@ PLOT
 
 With the final selection in place, we can check the data and MC agreement by checking the control decay region in on- and off- resonance data. Off-resonance samples provide the ability to check the agreement of the $q\bar q$ background component, while on-resonance samples can be used to check the validity of the control MC sample and, consequentially, the signal MC sample.
 
-The off-resonance sample were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure X shows $\Delta E$, $M_{BC}$ and $BDT_{q\bar q}$ for off-resonance data and MC, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due having $6$ streams of MC. Figures show a consistent overestimation of MC, which indicated that the $\Delta E$, $M_{BC}$ templates would in principle need to be fixed for the signal extraction with the template fit. However, looking at the ratios of MC and data for these variables before and after the $q\bar q$ MVA cut, shown in Figure X, one can conclude that, based on the flatness of the ratio function, the only difference is the normalization factor, so the distribution shapes can be left as they are, since the normalization will be automatically set in the template fit.
+The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure X shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to having more streams of MC. Figures show a slight and a consistent overestimation of $q\bar q$ MC. However, looking at the shapes of the distributions, the only difference seems to be the normalization factor, so the distribution shapes can be left as they are, since the normalization will be automatically set in the template fit. There also seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
+
+%ratios of MC and data for these variables before and after the $q\bar q$ MVA cut, shown in Figure X, one can conclude that, based on the flatness of the function,
+%PLOT
+
+We can repeat the check on on-resonance data. Figure X shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant, which confirms our statement about data and MC differences in continuum background being negligible from before. Overall, data and MC seem to agree very well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
 
 PLOT
-
-PLOT
-
-We can repeat the check on on-resonance data. Figure X shows the $q \bar q$ classifier output, $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. One can then make the same conclusion about overestimation of the $q \bar q$ MC component, as was seen on the off-resonance sample.
-
-Overall, data and MC seem to agree very well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of the control decay.
 
 \chapter{Signal extraction}
 \section{Fit templates}
