@@ -24,7 +24,7 @@
 \usepackage{mathtools}
 \allowdisplaybreaks
 \usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
-\usepackage{pifont}
+%\usepackage{pifont}
 \usepackage{dictsym}
 \usepackage{braket}
 \usepackage{slashed}
@@ -399,10 +399,10 @@ however, this value is distributed due to missing charged particles in the recon
 We define the 4 categories in the following way
 %TODO check
 \begin{enumerate} 
-\item[I)] $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} > 0.57$,
-\item[II)] $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} > 0.57$,
-\item[III)] $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} \leq 0.57$,
-\item[IV)] $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} \leq 0.57$.
+\item([I] $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} > 0.57$,
+\item([II] $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} > 0.57$,
+\item([III] $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} \leq 0.57$,
+\item([IV] $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} \leq 0.57$.
 \end{enumerate}
 
 Different categories for all signal candidates after the pre-cuts are shown in Figure \ref{fig:sig_categ}. Category I has the best resolution, so we use it in our analysis from this point on.
@@ -1220,7 +1220,7 @@ We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} sho
 \end{figure}
 
 \chapter{Signal extraction}
-In this chapter we present the procedure for signal yield extraction, using the framework of RooFit. We define 2D histogram templates in $\Delta E$ and $M_{BC}$, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with a binned maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible.
+In this chapter we present the procedure for signal yield extraction, using the framework of RooFit. We define 2D histogram templates in $\Delta E$ and $M_{BC}$, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with a binned maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. For each fit, asymmetric errors are calculated using MINOS [].
 
 
 %TODO: Add description of ML fit.
@@ -1275,9 +1275,9 @@ We have devised an algorithm, which compares the templates and the fitted sample
 
 PLOT
 
-An additional problem seems to be the plotting of the fitted templates and the sample with variable binning. It would seem that Roofit does not take the bin widths into account when plotting, while everything works as expected for the fit itself. This was bypassed by extracting the fitted yields and applying them to templates and samples with uniform binning, which were then used for drawing.
+An additional problem seems to be the plotting of the fitted templates and the sample with variable binning. It would seem that RooFit does not take the bin widths into account when plotting, while everything works as expected for the fit itself. This was bypassed by extracting the fitted yields and applying them to templates and samples with uniform binning, which were then used for drawing.
 
-\section{Signal MC fit results}
+\section{Signal MC fit results}\label{sec:signal-mc-fit-results}
 
 The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBoost). The choice of the initial uniform binning is not obvious, so we perform 10 fits for each initial binning choice and plot to compare fitted and expected yield difference, pulls and significance for both final samples, shown in Figure X. Fits to final sample, obtained with the uBoost classifier, generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance that the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of X bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
 
@@ -1289,15 +1289,38 @@ PLOT
 
 PLOT
 
-\subsection{Toy MC fits}
+\subsection{Toy MC experiment}
 
-Will add Toy MC fits for the final selection
+Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way. In order to test the fit behavior, a toy MC study is performed where all available MC was used for template creation. We constructed X pseudo datasets, where each dataset was generated according to the expected size of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of XxX bins in $\Delta E$ and $M_{BC}$.
+
+Figure X shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, as the pulls follow a normal distribution with a mean of X and standard deviation of X.
 
 \subsection{Toy MC linearity test}
+Linearity test is used for determining sensitivity of the fit to the amount of signal in the fitted sample. Since this is a first measurement of this decay channel, MC could be very different from data, so we need to perform this test in order to determine our sensitivity to smaller, as well as larger amounts of signal candidates, relative to the expected amount.
 
-Will add linearity test for the final selection
+The pseudo datasets are generated in the same way as in the previous subsection. X steps from $[0.1,~10]$ in the logarithmic scale are taken for factors of signal amount and for each factor X pseudo datasets are generated according to Poisson statistics.
+
+Figure X shows the average fit yield, standard error and the (TODO check) pulls for X fits at each signal fraction value. The expected MC result is shown at fraction value $1$. The plots show no bias with regard to the signal fraction, while the pulls seems to be described by the normal distributions throughout the fraction range. At expected value we are just below $3\sigma$ significance, as already pointed out at the beginning of this section.
 
 \section{Control fit results}
+
+The same fit procedure as in Section \ref{sec:signal-mc-fit-results} can be applied for the control decay. This enables us to compare the fit behavior on MC as well as data, and see if the former describes the latter in a precise enough manner. For control decay, data and MC are compared at various selection stages to compare yield ratios and cut efficiencies on data and MC in the form of double ratios. The fits were made for the following cut scenarios
+\begin{itemize}
+\item[a)] sample after pre-cuts,
+\item[b)] signal category (I) sample,
+\item[c)] b) + $BDT_{q\bar q}$ cut,
+\item[d)] b) + $BDT_{B\bar B}$ cut,
+\item[e)] b) + $BDT_{q\bar q} + BDT_{B\bar B}$ cut.
+\end{itemize}
+
+First, the binning scan was performed in order to determine optimal binning for each cut scenario above. The results for control fit yield, pulls and significance are shown in Figure X. 
+%TODO bias and description of optimal bins
+
+
+\subsection{Fit yields and yield ratios}
+\subsection{Double ratios}
+\subsection{Branching ratio measurement and comparison}
+
 \section{Signal fit to data}
 
 \chapter{Systematics}
