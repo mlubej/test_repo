@@ -1,17 +1,12 @@
-%\documentclass[10pt,a4paper,slovene,openany]{book}
-\documentclass[oneside,a4paper,openany,12pt]{scrbook}
-%\usepackage[a4,center,cam]{crop}
-%\usepackage[slovene]{babel}
-%\usepackage[T1]{fontenc}
-%\usepackage[pdftex]{graphicx,thumbpdf}
-%\usepackage{epstopdf}
-%\usepackage[math]{kurier}
+\documentclass[  headings=standardclasses,
+  headings=big,oneside,a4paper,openany,12pt]{scrbook}
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 
 \usepackage{paralist}
 \usepackage{caption}
+\usepackage{cancel}
 
 \setlength{\parskip}{1em}%
 \setlength{\parindent}{0cm}
@@ -24,7 +19,6 @@
 \usepackage{mathtools}
 \allowdisplaybreaks
 \usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
-%\usepackage{pifont}
 \usepackage{dictsym}
 \usepackage{braket}
 \usepackage{slashed}
@@ -33,13 +27,7 @@
 
 \usepackage{subfigure}
 
-%\usepackage[utf8]{inputenc}
-%\usepackage[titles]{tocloft}
-%\usepackage{setspace}
-
-\usepackage{xr}
-%
-\title{\huge {Measurement of the decay $B \to KK\ell\nu$ with B2BII}}
+\title{{\Large BELLE NOTE 1486}\\\huge {Measurement of the decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with B2BII}}
 \author{Matic Lubej}
 \date{Ljubljana, 2018}
 %
@@ -79,27 +67,89 @@
 
 \chapter{Introduction}
 \pagenumbering{arabic}
-Will add more info later
+Particle physics is already an established branch of physics with a rich history in theory and experiments ever since the beginning of the 20th century. So far the experimental and theoretical research have shown us hand in hand that the universe consists of particles and force carriers. Particles of matter, or elementary particles, are divided into two groups, quarks and leptons. The quarks that we know today are called $u$ (up), $d$ (down), $s$ (strange), $c$ (charm), $b$ (bottom) and $t$ (top). Leptons are split into two groups; charged leptons $e$ (electron), $\mu$ (muon), $\tau$ (tau lepton) and corresponding neutrinos $\nu_e$ (electron neutrino), $\nu_\mu$ (muon neutrino), $\nu_\tau$ (tau neutrino). Particles of force are known as gauge bosons and they are $\gamma$ (photon), $g$ (gluons), $W^\pm$ (charged weak bosons) and $Z^0$ (neutral weak boson). The theory also predicted the recently discovered Higgs boson ($H$), which is responsible for the mass of all particles. Some of the particles above also have a mirrored version of themselves, called antiparticles, which exhibit somewhat different properties as their un-mirrored versions.
 
-\chapter{Data and MC}
+Combinations of quarks such as $q_1 q_2 q_3$ (hadrons) or $q_1 \overline{q}_2$ (mesons) can make up heavier particles that we see today. Such particles are protons and neutrons, but also heavier particles which can be produced in processes involving very high energies. Such heavy particles are unstable and decay into lighter ones via forces of nature. Together with the elementary particles and force carriers, three out of four of these forces are joined in a theoretical model called the Standard Model (SM). They are the electromagnetic, weak nuclear and strong nuclear force. Gravity is not included in the current version of the Standard Model due to its nature. By researching such processes in large experiments it is possible to study the mechanism of how elementary particles interact. By doing so we are able to learn secrets of the universe and how it all began.
 
-Will add more info later
+This analysis revolves around decays of the so called $B$ mesons, which are particles that consist of a $b$ quark and a light $\overline u$ or $\overline d$ quark (or vice-versa). One of the most surprising features of the universe that can be studied with decays of $B$ mesons is the $CP$ symmetry violation ($\cancel{CP}$). $CP$ symmetry is a combination of the $C$ symmetry (charge conjugation) and the $P$ symmetry (spatial inversion). It states that there is no reason why processes of particles and mirrored processes of antiparticles would be different. Today we know that this does not hold for all cases and we in fact find processes which violate this postulate. We also know that $\cancel{CP}$ is very closely related to the the weak nuclear force. Here lies our motivation for studying decays of $B$ mesons, since they exhibit a rich spectrum of decays, many of which underway via the weak nuclear force.
 
-\section{MC}
+One of the most important properties of the weak nuclear force is that it can change the flavor of particles. Flavor is a quantum number which is conserved for each type of quark, so changing a flavor of a quark means changing the quark itself. Such processes are forbidden for the electromagnetic and the strong nuclear force, but not for the weak one. All of the information regarding quark transitions and transition probabilities can be merged into a form of a complex matrix called the Cabibbo-Kobayashi-Maskawa (CKM) matrix
 
+\begin{equation}
+V_{CKM} = \begin{bmatrix}
+    V_{ud} & V_{us} & V_{ub}\\
+	V_{cd} & V_{cs} & V_{cb}\\
+	V_{td} & V_{ts} & V_{tb}
+\end{bmatrix}.
+\end{equation}
+
+The CKM matrix is a unitary matrix and has only four free parameters which are not described by theory. Its unitarity provides us with several mathematical identities, out of which the most famous one is
+\begin{equation}
+V_{ud}V_{ub}^* + V_{cd}V_{cb}^* + V_{td}V_{tb}^* = 0.
+\end{equation}
+
+It can be represented by a triangle in the complex plane, called the unitarity triangle, shown in Figure~\ref{ut}. The sides and the angles of the unitarity triangle are closely connected to the free parameters of the CKM matrix. It is important to mention that all experimental measurements depend only on these four parameters, so it is possible to determine them by measuring the angles and sides of the unitarity triangle. This way the unitarity triangle offers us a unique way to test the consistency of the SM. The ultimate goal is to then join all such measurements and overconstrain the unitarity triangle to check if all the sides meet. By improving such measurements one can check whether the SM is consistent, or if there are some contributing physics processes that we do not yet understand. Such processes are commonly referred to as "new physics" (NP). The measurements of the sides and angles of the triangle are done by using different decays of which a large portion are $B$ meson decays. Here lies another motivation for using $B$ mesons in the analysis.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{texfig/UT_Triangle}
+\caption{The unitarity triangle with $\lambda,~\eta,~\rho$ and $A$ (not shown) as free parameters of the CKM matrix.} \label{ut}
+\end{figure}
+
+In this analysis we focus on the $V_{ub}$ CKM matrix element, which corresponds to $b \rightarrow u$ quark transitions. It has the smallest absolute value of all the CKM matrix elements and the largest error, so it offers the most room for improvement. Such quark transitions are present in charmless semi-leptonic $B$ meson decays of the form
+
+\begin{equation}
+B^+ \to X_u \ell^+ \nu_\ell,
+\end{equation}
+
+where $X_u$ represents a charmless hadron with a $u$ quark and $\ell$ one of the charged leptons $e,~\mu$ or $\tau$. Measuring the decay rate of the $B$ meson in such decays offers the way for the CKM matrix element determination. Decay rates are directly connected to the $V_{ub}$ element as
+
+\begin{equation}
+\mathrm{d} \Gamma \propto G_F^2 \vert V_{ub} \vert ^2 \vert L^\mu \langle X_u \vert \overline u \gamma_u \frac{1}{2} (1-\gamma_5) b \vert B \rangle \vert ^2,
+\end{equation}
+
+where $\Gamma$ is the decay width, $G_F$ is the Fermi coupling constant, $L^\mu$ is the leptonic current and the expression in the Dirac brackets the hadronic current. The factor $\vert V_{ub} \vert ^2$ represents the probability for the $b \rightarrow u$ quark transition. Measurement of the $V_{ub}$ CKM matrix element can be performed in two possible ways. With the exclusive or the inclusive method, which are described below. Both methods require different experimental and theoretical techniques, so they provide largely independent determinations of $V_{ub}$. Currently both methods also have comparable accuracies. %TODO: check if still true
+
+In the exclusive method one studies the decays of $B$ mesons to a specific charmless hadronic final state, such as $B \rightarrow \pi \ell \nu$. Clean determination of the $V_{ub}$ is possible due to precise experimental measurement along with reliable theoretical calculations. However, theoretical calculations are more challenging for decays to a specific final state, since hadronization of quarks has to be taken into account. There are also two main experimental challenges in this method. One has to reduce the much more abundant background from $B \rightarrow X_c \ell \nu$ processes, since the $b \rightarrow c$ quark transition is much more common. The second experimental challenge is to separate the $B$ meson decay with the specific charmless hadronic final state from other $B \rightarrow X_u \ell \nu$ decays, since it roughly populates the same regions of phase-space as the signal decay.
+
+In the inclusive method one studies the decays of $B$ mesons to any charmless hadronic final state $B \to X_u \ell \nu$. In this case, the total decay rate for $b \rightarrow u \ell \nu$ can be calculated accurately, since hadronization does not have to be taken into account. The greater challenge with this method is again the experimental measurement of the total decay rate due to the $B \rightarrow X_c \ell \nu$ background. Experimental sensitivity to $V_{ub}$ is highest where $B \rightarrow X_c \ell \nu$ decays are less dominant. Theory and experiment have to compromise and limit the $V_{ub}$ determination to a region where the signal-to-background ratio is good. Theory takes this into account by reliably calculating the partial decay rate $\Delta \Gamma$, which is more challenging than the total decay rate. One possible and relevant approach to reduce $b \rightarrow c$ background is to reject all events with $K$ particles, or kaons, in the final state. The procedure is also called a $K$-veto. Kaons consist of an $s$ quark, which is mainly produced in $c \rightarrow s$ transitions. This means that if a kaon is found, it is very likely that it originates from a particle with a $c$ quark. 
+
+If $V_{ub}$ is determined with both these methods, the values can be compared. It turns out that consistency between these two results is only marginal, where the difference is at a level of $3\sigma$. In fact, inclusive measurements prefer higher values than exclusive ones. This is known as the $V_{ub}$ puzzle. It is necessary to make further research as to why this difference occurs. The reason could be an unknown experimental or theoretical error, or it is even possible that some NP contributions occur. Part of the reason could be hidden in the selection mentioned before. By performing a $K$-veto, one discards all events with kaons in the final state in order to suppress $b \rightarrow c$ contributions. In this analysis we focus on the $B \rightarrow K K \ell \nu$ decay, which is very similar to the $B \rightarrow \pi \ell \nu$, except for a production of an $s \overline s$ quark pair, which then combines with final state quarks to form kaons, as shown in Figure~\ref{feynman}. In this case, we have kaons in the final state where the $B$ meson decayed via a $b \rightarrow u$ process. Such decays were discarded in previous $V_{ub}$ determinations with the inclusive method, but in principle they contribute to the result. The results of this analysis should help us make a step closer to solving the $V_{ub}$ puzzle.
+
+\begin{figure}[h]
+\centering
+\includegraphics{texfig/B2pilnu}
+\hspace{1cm}
+\includegraphics{texfig/B2KKlnu}
+\caption{Feynman diagrams for the $B^+ \to \pi^0 \ell^+ \nu_\ell$ decay (left) and the $B^+ \to K^- K^+ \ell^+ \nu_\ell$ decay (right).} \label{feynman}
+\end{figure}
+
+Even though the Belle experiment finished collecting data in 2010, the data is still relevant and available for analysis. On the other hand, Belle II experiment has entered its initial stages of operation. A large part of Belle II software is already available and working, so the practical part of this analysis is done in the framework of the Belle II experiment, called Belle II Analysis Framework (BASF2). The Belle II detector wasn't able to collect a significant amount of data for this analysis, however, the Belle II collaboration developed a data converter for Belle to Belle II format conversion, making it possible to perform analysis of Belle data with Belle II software and enables us to make a relevant contribution despite the transitional period.
+
+\chapter{Data and Monte-Carlo samples}
+
+The Belle detector acquired a dataset of about $L_0 = X\e{fb^{-1}}$ of integrated luminosity in it's lifetime, which corresponds to about $711\E{6}$ $B \bar B$ meson pairs. Additionally, several streams of Monte-Carlo (MC) samples were produced, where each stream of MC corresponds to the same amount of data that was taken with the detector. The main focus of this and other similar analyses is to study a rare signal decay, which means that the amount of such decays in the existing MC is not abundant enough. In such cases, it is a common practice to produce specific samples of signal MC, where the abundance of signal decays is much larger, enabling us to study it's properties in greater detail.
+
+The following samples were used in this analysis
 \begin{itemize}
-\item Belle generic MC, on Y(4S) resonance energy, converted with B2BII
-\item Belle generic MC, off resonance energy, converted with B2BII (for checks)
-\item Belle rare + ulnu MC, converted with B2BII
-\item Signal MC, produced with similar script to charged ulnu, converted with B2BII
+\item signal MC, corresponding to about $X \times L_0$,
+\item other MC
+\begin{itemize}
+\item generic, $10$ streams of $B\bar B$ and $6$ streams of $q\bar q$ produced at $\Upsilon(4S)$ resonance energy, where each stream corresponds to $X \times L_0$,
+\item generic, $6$ streams of $q\bar q$ produced at $60\e{MeV}$ below $\Upsilon(4S)$ resonance energy, where each stream corresponds to $1/10 \times L_0$,
+\item $B\to X_u \ell \nu$ (including our signal), not included in previous MC samples, equal to an amount of $20 \times L_0$, 
+\item other rare $B$ meson decays, not included in previous MC samples, equal to an amount of $50 \times L_0$, 
+\end{itemize}
+\item data
+\begin{itemize}
+\item Belle dataset of about $L_0$ integrated luminosity, measured at $\Upsilon(4S)$ resonance energy,
+\item Belle dataset of about $1/10 \times L_0$ integrated luminosity, measured at $60\e{MeV}$ below $\Upsilon(4S)$ resonance energy.
+\end{itemize}
 \end{itemize}
 
-\section{Data}
+\section{Signal MC production}
 
-\begin{itemize}
-\item Full Belle dataset, on resonance, converted with B2BII
-\item Full Belle dataset, off resonance, converted with B2BII (for checks)
-\end{itemize}
+The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} [] package. The package accepts a decay file, which describes the decays one wants to generate. The decay file for signal MC generation was the same one as for the $B\to X_u \ell \nu$ sample generation. However, an additional skim was applied in order to filter out all the unwanted decays, because they would only use up the CPU time during the following parts of the simulation.
 
 \chapter{B2BII conversion}
 \section{Description}
