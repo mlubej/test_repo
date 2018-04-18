@@ -66,6 +66,7 @@
 % - control sample definition
 
 \chapter{Introduction}
+%TODO: add references
 \pagenumbering{arabic}
 Particle physics is already an established branch of physics with a rich history in theory and experiments ever since the beginning of the 20th century. So far the experimental and theoretical research have shown us hand in hand that the universe consists of particles and force carriers. Particles of matter, or elementary particles, are divided into two groups, quarks and leptons. The quarks that we know today are called $u$ (up), $d$ (down), $s$ (strange), $c$ (charm), $b$ (bottom) and $t$ (top). Leptons are split into two groups; charged leptons $e$ (electron), $\mu$ (muon), $\tau$ (tau lepton) and corresponding neutrinos $\nu_e$ (electron neutrino), $\nu_\mu$ (muon neutrino), $\nu_\tau$ (tau neutrino). Particles of force are known as gauge bosons and they are $\gamma$ (photon), $g$ (gluons), $W^\pm$ (charged weak bosons) and $Z^0$ (neutral weak boson). The theory also predicted the recently discovered Higgs boson ($H$), which is responsible for the mass of all particles. Some of the particles above also have a mirrored version of themselves, called antiparticles, which exhibit somewhat different properties as their un-mirrored versions.
 
@@ -159,7 +160,23 @@ The following samples were used in this analysis
 
 \section{Signal MC production}
 
-The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} [] package. The package accepts a decay file, which describes the decays one wants to generate. The decay file for signal MC generation was the same one as for the $B\to X_u \ell \nu$ sample generation. However, an additional skim was applied in order to filter out all the unwanted decays, because they would only use up the CPU time during the following parts of the simulation.
+The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} [] package. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the $B\to X_u \ell \nu$ generation, since it includes the decays of interest. An additional skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same particle. This decreases the CPU consumption during the detector simulation and reconstruction.
+
+The relevant processes which contribute to our signal decay are
+\begin{itemize}
+\item add decays.
+\end{itemize}
+
+The produced signal MC sample contains decays of the form $B \to KK\ell \nu$ as well as $B \to KKX\ell \nu$, where $X$ can be any hadron as long as it satisfies all the selection rules of the decay. It is possible to calculate the MC branching ratios for each channel by making combinations of the particles directly from the generator. Table X shows some of the most prominent channels, which are similar to our signal decay, as long as their relative fraction. It is clear that our signal decay is the most abundant one, with a relative contribution of about X, while other channels contribute only up to about X or less. Additionally, our signal decay is also the cleanest, meaning that it has no neutral particles like $\pi^0$, which are harder to reconstruct and suffer from decrease in efficiency due to reconstruction effects.
+
+TABLE
+
+We generate about X events, which corresponds to an integrated luminosity of about $L = X\e{fb^{-1}}$. This amounts to about X skimmed events and to a total of X signal events, which corresponds to a branching ratio
+\begin{equation}
+\mathcal{B}(decay) = X.
+\end{equation}
+
+The abundant signal MC sample is then scaled down to correspond to the amount of data taken with the Belle detector.
 
 \chapter{B2BII conversion}
 \section{Description}
