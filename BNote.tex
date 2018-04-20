@@ -3,6 +3,7 @@
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
+\newcommand {\vars}{$\Delta E$ and $M_{BC}$}
 
 \usepackage{paralist}
 \usepackage{caption}
@@ -137,7 +138,7 @@ If $V_{ub}$ is determined with both these methods, the values can be compared. I
 
 Even though the Belle experiment finished collecting data in 2010, the data is still relevant and available for analysis. On the other hand, Belle II experiment has entered its initial stages of operation. A large part of Belle II software is already available and working, so the practical part of this analysis is done in the framework of the Belle II experiment, called Belle II Analysis Framework (BASF2). The Belle II detector wasn't able to collect a significant amount of data for this analysis, however, the Belle II collaboration developed a data converter for Belle to Belle II format conversion, making it possible to perform analysis of Belle data with Belle II software and enables us to make a relevant contribution despite the transitional period.
 
-\chapter{Data and Monte-Carlo samples}
+\chapter{Data and Monte-Carlo samples}\label{sec:data-and-monte-carlo-samples}
 
 The Belle detector acquired a dataset of about $L_0 = X\e{fb^{-1}}$ of integrated luminosity in it's lifetime, which corresponds to about $711\E{6}$ $B \bar B$ meson pairs. Additionally, several streams of Monte-Carlo (MC) samples were produced, where each stream of MC corresponds to the same amount of data that was taken with the detector. The main focus of this and other similar analyses is to study a rare signal decay, which means that the amount of such decays in the existing MC is not abundant enough. In such cases, it is a common practice to produce specific samples of signal MC, where the abundance of signal decays is much larger, enabling us to study it's properties in greater detail.
 
@@ -409,7 +410,7 @@ The newly defined neutrino four-momentum can be added to the four-momentum of th
 M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p} \vert^2}.
 \end{align}
 
-Since the final fit will be performed over $\Delta E$ and $M_{BC}$, we define the fit region
+Since the final fit will be performed over \vars, we define the fit region
 \begin{itemize}
 \item $M_{BC} \in [5.1,\,5.295]\e{GeV}/c^2$,
 \item $\Delta E \in [-1.0,\,1.3]\e{GeV}$.
@@ -1007,9 +1008,9 @@ Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:bellefo
 
 \section{Clean-up results}
 
-In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially $\Delta E$ and $M_{BC}$, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, this also results in an efficiency increase of the reconstructed sample. 
+In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially \vars, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, this also results in an efficiency increase of the reconstructed sample. 
 
-We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roe_opt} shows distributions of $\Delta E$ and $M_{BC}$ for various clean-up setups after applying all pre-cuts up to the point in Section \ref{sc:shortroe}. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
+We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roe_opt} shows distributions of \vars for various clean-up setups after applying all pre-cuts up to the point in Section \ref{sc:shortroe}. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
 
 %which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
 
@@ -1017,7 +1018,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_opt}
-\caption{$\Delta E$ and $M_{BC}$ distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
+\caption{\vars distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
 \label{fig:roe_opt}
 \end{figure}
 
@@ -1036,7 +1037,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \label{tab:roeeff}
 \end{table}
 
-Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at $\Delta E$ and $M_{BC}$ variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
+Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at \vars variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
 %TODO: Belle cleanup setup
 
 \begin{figure}[H]
@@ -1224,15 +1225,15 @@ where distant tracks are all tracks in ROE which satisfy the condition of $\vert
 When the training is finished and hyper-parameters of the classifier are optimized, the classifier output, shown in Figure \ref{fig:bbmva} (left), can be used for background suppression. $B$ meson candidates from $B \bar B$ background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values. Since the differences between signal and background $B \bar B$ events are smaller than $B \bar B$ and $q \bar q$ events, the resulting classifier has a smaller separation power than in previous section.
 
 \subsection{Boosting to uniformity}
-The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case $\Delta E$ and $M_{BC}$), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated FOM under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection [].
+The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated FOM under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection [].
 
-The training set used in this training is the same as described in the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBoost classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds can differ and the final conclusion will be shown only after the signal extraction.
+The training set used in this training is the same as described in the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBDT classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates with the uBoost algorithm. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds can differ and the final conclusion will be shown only after the signal extraction.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/bb_BDT}
-\caption{$B\bar B$ suppression classifier output for signal and various types of background for the standard BDT classifier (left) and the uBoost classifier (right). $B$ candidates from $B\bar B$ background events dominate the lower region, while signal and control candidates dominate in the upper region of the classifier output.}
+\caption{$B\bar B$ suppression classifier output for signal and various types of background for the standard BDT classifier (left) and the uBDT classifier (right). $B$ candidates from $B\bar B$ background events dominate the lower region, while signal and control candidates dominate in the upper region of the classifier output.}
 \label{fig:bbmva}
 \end{figure}
 
@@ -1244,14 +1245,14 @@ Instead of two separate $q \bar q$ and $B \bar B$ $FOM$ optimizations, it is mor
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/mva_fom}
-\caption{2D $FOM$ optimization of continuum suppression classifier and the standard BDT (left) and uBoost (right) $B\bar B$ suppression classifier.}
+\caption{2D $FOM$ optimization of continuum suppression classifier and the standard BDT (left) and uBDT (right) $B\bar B$ suppression classifier.}
 \label{fig:mvafom}
 \end{figure}
 
-We can compare signal and major background distributions of $\Delta E$ and $M_{BC}$ after the 2D $FOM$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBoost classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
+We can compare signal and major background distributions of \vars after the 2D $FOM$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
 \item Standard BDT: $N_{sig} = 152.82,\quad N_{sig}/N_{bkg} = 3.70~\%$,
-\item uBoost: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
+\item uBDT: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1266,7 +1267,7 @@ We can compare signal and major background distributions of $\Delta E$ and $M_{B
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/opt_1dc}
-\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the uBoost classifier.}
+\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the uBDT classifier.}
 \label{fig:opt1dc}
 \end{figure} 
 
@@ -1298,47 +1299,44 @@ We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} sho
 \end{figure}
 
 \chapter{Signal extraction}
-In this chapter we present the procedure for signal yield extraction, using the framework of RooFit. We define 2D histogram templates in $\Delta E$ and $M_{BC}$, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with a binned maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. For each fit, asymmetric errors are calculated using MINOS [].
-
+In this chapter we present the procedure for signal yield extraction, using the framework of RooFit []. We define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with a binned maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. For each fit, asymmetric errors are calculated using MINOS [].
 
 %TODO: Add description of ML fit.
 
 \section{Fit templates}
 
-For fit template construction, the following MC samples are used:
+For fit template construction, the same MC samples are used as described in Chapter \ref{sec:data-and-monte-carlo-samples}:
 \begin{itemize}
-\item Signal MC (produced in abundance),
+\item Signal MC,
 \item 10 streams of \texttt{charged} and \texttt{mixed} $B \bar B$ background,
 \item 6 streams of $c \bar c$ (\texttt{charm}) and other $q \bar q$ (\texttt{uds}) background,
 \item \texttt{ulnu} sample, corresponding to $20\times$ integrated luminosity of the full Belle dataset,
 \item \texttt{rare} sample, corresponding to $50\times$ integrated luminosity of the full Belle dataset.
 \end{itemize}
 
-For MC, we perform 10 fits, where the fitted sample was not used in the creation of the templates. In case of the $B\bar B$ background, each stream was fitted once, whereas in the case of the $q\bar q$ background, the streams were cycled back to the beginning after using the initial 6 streams. \texttt{rare} and \texttt{ulnu samples} were sampled randomly in appropriate sizes. In case of data, all available MC was used for creating the templates.
-
-The full signal MC sample was used for the signal template definition in case of MC and data fits.
-
-The following histogram templates were used in the fits
+We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as data. When fitting real data, all available MC was used for creating the templates. The following histogram templates were used in the fits
 \begin{itemize}
 \item signal template,
 \item control template,
 \item $B \bar B$ template,
-\item $q \bar q$ template,
+\item $q \bar q$ template.
 \end{itemize}
-where the $B \bar B$ template consists of appropriate contributions of \texttt{charged}, \texttt{mixed}, \texttt{rare} and \texttt{ulnu} samples. All templates shapes are fixed and all template yields are left as floating parameters in the fit, except in the case of the control template. The yield of the control template was fixed to the expected MC value.
 
-All four 2D templates for both final selections are shown in Figure X. One can see that the defined fit region includes regions of low statistics, which are populated with bins of zero content. This might produce problems, and the solution for them is described in the next section.
+When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small. In case of control sample fits, the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value, since there was very little signal candidates in the control region.
 
+The following subsections contain detailed description of these templates, where one can see that the defined fit region includes areas of low statistics, which are populated with bins with zero content. This produces problems during the fit in some cases, and the solution for this problem is described in Section \ref{sec:adaptive-binning-algorithm}.
 
-PLOT
+The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$.
 
-\section{Adaptive binning algorithm}
+The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed and even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
+
+\section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
 Bins with zero content are a direct consequence of having a finite MC sample and represent a liability in ML fits. Due to low statistic in the edge regions, the locations of these empty bins can vary for the templates and the fitted sample. A problem occurs if all templates have an empty bin where the fitted sample does not. In the scope of ML fits, this effectively means that there are entries where there is zero probability that there would be any. We will call such bins \textit{problematic}, because in these cases the fit does not converge.
 
-The ideal solution for this problem is to increase the MC statistics. Since that is not an option, we pursue other solutions, such as decreasing the number of bins. While this has a good potential to work, the drawback of it is a decrease in the template resolution in densely populated regions, where good resolution is most needed. The optimal solution here seems to be a choice of variable bins, with fine binning in the densely populated regions and larger bins in the regions with low statistics.
+The ideal solution for this problem would be to increase the MC statistics. Since this is not an option, we pursue other solutions, such as decreasing the number of bins. While this solves the problem, the drawback of it is a decrease in the template resolution in densely populated regions, where good resolution is most needed. The optimal solution here seems to be a choice of variable bins, with fine binning in the densely populated regions and larger bins in the regions with low statistics.
 
-We have devised an algorithm, which compares the templates and the fitted sample, and defines a variable binning so that there are no more problematic bins in the end. Figure X shows two examples of how the procedure works. The algorithm takes an argument for the initial number of uniform bins in each dimension, and does the following
+We have devised an algorithm, which compares the templates and the fitted sample, and defines a variable binning so that there are no more problematic bins in the end. Figure X shows an example of how the procedure works. The algorithm takes an argument for the initial number of uniform bins in each dimension, and does the following
 \begin{enumerate}
 \item define uniform binning in both dimensions with the provided argument,
 \item create a 2D histogram from MC templates with expected yields,
@@ -1357,11 +1355,11 @@ An additional problem seems to be the plotting of the fitted templates and the s
 
 \section{Signal MC fit results}\label{sec:signal-mc-fit-results}
 
-The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBoost). The choice of the initial uniform binning is not obvious, so we perform 10 fits for each initial binning choice and plot to compare fitted and expected yield difference, pulls and significance for both final samples, shown in Figure X. Fits to final sample, obtained with the uBoost classifier, generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance that the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of X bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
+The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform 10 fits for each initial binning choice and plot quantities of value for selecting the optimal binning choice. TODO to compare fitted and expected yield difference, pulls and significance for both final samples, shown in Figure X. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of X bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
 
 PLOT
 
-Figure X shows the fit result and the fitted sample of an arbitrary stream for $\Delta E$ and $M_{BC}$, for the fit region and for the signal region. The fits seem stable and under control. Fit results for all streams of MC are shown in Figure X, along with the global fit over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value of the global fit is X, while the average significance of the fits is X.
+Figure X shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and under control. Fit results for all streams of MC are shown in Figure X, along with the global fit over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value of the global fit is X, while the average significance of the fits is X.
 
 PLOT
 
@@ -1369,7 +1367,7 @@ PLOT
 
 \subsection{Toy MC experiment}
 
-Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way. In order to test the fit behavior, a toy MC study is performed where all available MC was used for template creation. We constructed X pseudo datasets, where each dataset was generated according to the expected size of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of XxX bins in $\Delta E$ and $M_{BC}$.
+Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way. In order to test the fit behavior, a toy MC study is performed where all available MC was used for template creation. We constructed X pseudo datasets, where each dataset was generated according to the expected size of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of XxX bins in \vars.
 
 Figure X shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, as the pulls follow a normal distribution with a mean of X and standard deviation of X.
 
