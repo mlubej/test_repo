@@ -3,8 +3,12 @@
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
-\newcommand {\vars}{$\Delta E$ and $M_{BC}~$}
+\newcommand {\vars}{$\Delta E$ and $M_{BC}$}
 \newcommand {\btbii}{\texttt{b2bii}}
+\newcommand {\decaya}{$B \rightarrow K K \ell \nu$}
+\newcommand {\decayb}{$B^+ \rightarrow K^+ K^- \ell^+ \nu$}
+
+%TODO: check spaces after these commands
 
 \usepackage{paralist}
 \usepackage{caption}
@@ -124,7 +128,7 @@ In the exclusive method one studies the decays of $B$ mesons to a specific charm
 
 In the inclusive method one studies the decays of $B$ mesons to any charmless hadronic final state $B \to X_u \ell \nu$. In this case, the total decay rate for $b \rightarrow u \ell \nu$ can be calculated accurately, since hadronization does not have to be taken into account. The greater challenge with this method is again the experimental measurement of the total decay rate due to the $B \rightarrow X_c \ell \nu$ background. Experimental sensitivity to $V_{ub}$ is highest where $B \rightarrow X_c \ell \nu$ decays are less dominant. Theory and experiment have to compromise and limit the $V_{ub}$ determination to a region where the signal-to-background ratio is good. Theory takes this into account by reliably calculating the partial decay rate $\Delta \Gamma$, which is more challenging than the total decay rate. One possible and relevant approach to reduce $b \rightarrow c$ background is to reject all events with $K$ particles, or kaons, in the final state. The procedure is also called a $K$-veto. Kaons consist of an $s$ quark, which is mainly produced in $c \rightarrow s$ transitions. This means that if a kaon is found, it is very likely that it originates from a particle with a $c$ quark. 
 
-If $V_{ub}$ is determined with both these methods, the values can be compared. It turns out that consistency between these two results is only marginal, where the difference is at a level of $3\sigma$. In fact, inclusive measurements prefer higher values than exclusive ones. This is known as the $V_{ub}$ puzzle. It is necessary to make further research as to why this difference occurs. The reason could be an unknown experimental or theoretical error, or it is even possible that some NP contributions occur. Part of the reason could be hidden in the selection mentioned before. By performing a $K$-veto, one discards all events with kaons in the final state in order to suppress $b \rightarrow c$ contributions. In this analysis we focus on the $B \rightarrow K K \ell \nu$ decay, which is very similar to the $B \rightarrow \pi \ell \nu$, except for a production of an $s \bar s$ quark pair, which then combines with final state quarks to form kaons, as shown in Figure~\ref{feynman}. In this case, we have kaons in the final state where the $B$ meson decayed via a $b \rightarrow u$ process. Such decays were discarded in previous $V_{ub}$ determinations with the inclusive method, but in principle they contribute to the result. The results of this analysis should help us make a step closer to solving the $V_{ub}$ puzzle.
+If $V_{ub}$ is determined with both these methods, the values can be compared. It turns out that consistency between these two results is only marginal, where the difference is at a level of $3\sigma$. In fact, inclusive measurements prefer higher values than exclusive ones. This is known as the $V_{ub}$ puzzle. It is necessary to make further research as to why this difference occurs. The reason could be an unknown experimental or theoretical error, or it is even possible that some NP contributions occur. Part of the reason could be hidden in the selection mentioned before. By performing a $K$-veto, one discards all events with kaons in the final state in order to suppress $b \rightarrow c$ contributions. In this analysis we focus on the charged \decaya~decay, which is very similar to the $B \rightarrow \pi \ell \nu$, except for a production of an $s \bar s$ quark pair, which then combines with final state quarks to form kaons, as shown in Figure~\ref{feynman}. In this case, we have kaons in the final state where the $B$ meson decayed via a $b \rightarrow u$ process. Such decays were discarded in previous $V_{ub}$ determinations with the inclusive method, but in principle they contribute to the result. The results of this analysis should help us make a step closer to solving the $V_{ub}$ puzzle. 
 
 \begin{figure}[H]
 \centering
@@ -136,6 +140,8 @@ If $V_{ub}$ is determined with both these methods, the values can be compared. I
 \end{figure}
 
 Even though the Belle experiment finished collecting data in 2010, the data is still relevant and available for analysis. On the other hand, Belle II experiment has entered its initial stages of operation. A large part of Belle II software is already available and working, so the practical part of this analysis is done in the framework of the Belle II experiment, called Belle II Analysis Framework (BASF2). The Belle II detector wasn't able to collect a significant amount of data for this analysis, however, the Belle II collaboration developed a data converter for Belle to Belle II format conversion, making it possible to perform analysis of Belle data with Belle II software and enables us to make a relevant contribution despite the transitional period.
+
+Specifically, we will be focusing on decays of the charged $B$ mesons of the form \decayb, since it includes two charged kaons, as opposed to the case of the neutral $B$ meson decay. The reason for this is a simpler decay chain and a higher reconstruction efficiency. All further occurrences of \decaya~automatically imply decays of the form \decayb and its charge conjugate counterpart.
 
 \chapter{Data and Monte-Carlo samples}\label{sec:data-and-monte-carlo-samples}
 
@@ -257,11 +263,11 @@ PLOT
 
 \chapter{Event reconstruction}
 
-In this chapter the procedure for event reconstruction of the $B$ meson decay $B \to K K \ell \nu$ is shown, starting with final state particle selection and then combining them to obtain $B$ meson candidates. 
+In this chapter the procedure for event reconstruction of the $B$ meson decay $B \to K K \ell \nu$ is shown, starting with final state particle selection and then combining them to obtain $B$ meson candidates.
 
 \section{Final state particles selection}
 
-Since the neutrino escapes detection, we can only reconstruct the charged tracks in the decay, which are the two kaons ($K$) and the light lepton, which is the electron ($e$) or muon ($\mu$). These are some of the particles which are commonly referred to as final state particles (FSP). Final state particles have a long lifetime and are usually the particles that we detect when they interact with the material in the detector.
+Since the neutrino escapes detection, we can only reconstruct the charged tracks in the decay, which are the two charged kaons ($K$) and the light lepton, which is the electron ($e$) or muon ($\mu$). These are some of the particles which are commonly referred to as final state particles (FSP). Final state particles have a long lifetime and are usually the particles that we detect when they interact with the material in the detector.
 
 It is important to limit our selection of FSP particles in order to cut down the number of particle combinations,  and consequentially computation time and file sizes.
 
@@ -293,16 +299,16 @@ Based on these distributions, we can define a set of cuts
 \item $p_{CMS} \in [0.6,\,2.6]~\e{GeV}/c$ for muons.
 \end{itemize}
 
-After this selection we can determine the optimal PID cuts for electrons and muons, where we optimize by maximizing the standard definition of \textit{figure of merit} (FOM), defined in Eq. (\ref{eq:fom})
+%TODO: space before \begin{...}
 
+After this selection we can determine the optimal PID cuts for electrons and muons, where we optimize the selection by maximizing the standard definition of \textit{figure of merit} (FOM), defined in Eq. (\ref{eq:fom})
 \begin{equation}
 \label{eq:fom}
-FOM = \frac{S}{\sqrt{S+B}},
+FOM = \frac{S}{\sqrt{S+B}}.
 \end{equation} 
-where $S$ represents number of signal and $B$ the number of background candidates.
+The definition of $S$ and $B$ are somewhat fluid throughout the analysis and need to be defined for each FOM separately. In this section we define two representations of $S$ and $B$. In $FOM_1$ the signal $S$ represents correctly reconstructed particles, while in $FOM_2$ the signal $S$ represents correctly reconstructed particles, which come from a correctly reconstructed $B$ meson candidate. In both cases $B$ represents all other particle candidates which do not satisfy the conditions of $S$.
 
-
-The $FOM$ plot is shown in Figures \ref{fig:efom} and \ref{fig:mufom}. The cuts values are based on PID cuts used for PID efficiency calibration. The optimal value for the PID cuts is equal to the largest available value, regardless of the leptons coming from signal decays or not. The optimized PID cuts for leptons are
+The $FOM$ plots are shown in Figures \ref{fig:efom} and \ref{fig:mufom}. The cuts values are based on PID cuts used for PID efficiency calibration. The optimal value for the PID cuts is equal to the largest available value, regardless of the leptons coming from signal decays or not. The optimized PID cuts for leptons are
 \begin{itemize}
 \item $e$ prob. $ > 0.9$ for electrons,
 \item $\mu$ prob. $ > 0.97$ for muons.
@@ -362,13 +368,12 @@ The optimized PID cuts for kaons are
 
 \section{Combination of FSP particles}
 
-With the pre-selected kaon and lepton candidates we make combinations for potential $B$ meson candidates. Due to the missing neutrino, we reconstruct the $B$ mesons in the following two channels
+With the pre-selected kaon and lepton candidates we make combinations for potential $B$ meson candidates. Since the missing neutrino escapes detection, we reconstruct the $B$ mesons in the following two channels
 \begin{align*}
 B^+ &\to K^+ K^- e^+, \\
 B^+ &\to K^+ K^- \mu^+,
 \end{align*}
-
-and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the z-axis of the detector in the direction of the boost, so the vertex fit is enforced with an \textit{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right).
+and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the z-axis of the detector in the direction of the boost, so the vertex fit is enforced with an \textit{IPTUBE} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right). In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino, with an additional constraint that the $B$ meson did not decay via a $b \to c$ transition.
 
 \begin{figure}[H]
 \centering
@@ -413,16 +418,16 @@ For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ r
 \label{fig:cosby}
 \end{figure}
 
-\section{Rest of event clean-up}
-\label{sc:shortroe}
-
-Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side before calculating the four-momentum of the missing part of the event. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then, for each ROE object, a ROE mask is created for tracks and clusters, which narrates the use of this track or cluster in the final calculations of the ROE four-momentum.
-
-In order to preserve the continuity of this chapter, a more detailed description of the ROE clean-up can be found in Chapter \ref{ch:roe}. From this point on we assume the ROE to be efficiently cleansed of extra tracks and clusters .
-
 \section{Loose neutrino reconstruction}
 
-The signal-side neutrino escapes detection, so we cannot directly determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the missing neutrino via indirectly reconstructing the companion $B$ meson by summing up all the FSP particles four-momenta in the ROE. This is known as the \textit{untagged} method. Here we see the motivation for the ROE clean-up, since our signal candidate reconstruction depends on the other $B$ meson.
+%Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side before calculating the four-momentum of the missing part of the event. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then, for each ROE object, a ROE mask is created for tracks and clusters, which narrates the use of this track or cluster in the final calculations of the ROE four-momentum.
+%
+%In order to preserve the continuity of this chapter, a more detailed description of the ROE clean-up can be found in Chapter \ref{ch:roe}. From this point on we assume the ROE to be efficiently cleansed of extra tracks and clusters .
+
+
+The signal-side neutrino escapes detection, so we cannot directly determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the missing neutrino via indirectly reconstructing the companion $B$ meson by summing up the four-momenta of all the FSP particles in the event which were not used in the reconstruction of the signal side $B$ meson. This is known as the \textit{untagged} method since we are not using any kind of tagging method to reconstruct the companion $B$ meson. The particles used in the indirect companion $B$ meson reconstruction are also said to belong to the \textit{rest of the event} (ROE).
+
+Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side before calculating the four-momentum of the missing part of the event. Here we see the motivation for the ROE clean-up, since our signal candidate reconstruction depends on tracks and clusters in the ROE side. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then, for each ROE object, a ROE mask is created for tracks and clusters, which narrates the use of this object in the final calculations of the ROE four-momentum. From this point on we assume the ROE to be efficiently cleansed of extra tracks and clusters. A more detailed description of the ROE clean-up can be found in Chapter \ref{ch:roe}. 
 
 The total missing four-momentum in the event can be determined as
 \begin{align}
@@ -499,43 +504,43 @@ Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_
 \end{figure}
 
 
-\section{$q^2$ calculation}
-
-Momentum transfer squared, $q^2$, is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson. There are several possible calculations of this variable which offer different resolution. The following describes the calculation of $q^2$ which follows the calculation from [] and yields the best resolution.
-
-For correctly reconstructed events Eq. (\ref{eq:de}) satisfies the condition $\Delta E \approx 0$ within precision. It is possible to rescale the neutrino energy in such way that we fix $\Delta E$ to zero, meaning 
-\begin{equation}
-\Delta E' = (E_Y + \alpha E_\nu) - E_{CMS}/2 = 0.
-\end{equation}
-and calculate and adapted version of $M_{BC}$
-\begin{equation}
-M_{BC}' = \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p}_Y + \alpha \vec{p}_\nu \vert^2}.
-\end{equation}
-
-The neutrino momentum resolution dominates the $\Delta E$ uncertainty [], so the correction factor $\alpha$ reduces this source of uncertainty.
-
-A second correction can be applied by rotating the direction of the neutrino momentum by a small angle with respect to the reconstructed one. Such an angle is chosen in order fix the value of $M_{BC}'$ to the nominal mass of the $B$ meson, $m_B$.
-
-The corrected neutrino momentum is then solely used for the $q^2$ calculation, alongside the reconstructed lepton four-momentum, as
-\begin{equation}
-\label{eq:q2}
-q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
-\end{equation}
-
-The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$, with details of the calculation method in the caption.
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/q2}
-\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in [], whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
-\label{fig:q2}
-\end{figure}
-
-One must bare in mind that even though this calculation yields a precise result, this says nothing about the correctness of the $q^2$ model which was used (ISGW2) []. Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
+%\section{$q^2$ calculation}
+%
+%Momentum transfer squared, $q^2$, is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson. There are several possible calculations of this variable which offer different resolution. The following describes the calculation of $q^2$ which follows the calculation from [] and yields the best resolution.
+%
+%For correctly reconstructed events Eq. (\ref{eq:de}) satisfies the condition $\Delta E \approx 0$ within precision. It is possible to rescale the neutrino energy in such way that we fix $\Delta E$ to zero, meaning 
+%\begin{equation}
+%\Delta E' = (E_Y + \alpha E_\nu) - E_{CMS}/2 = 0.
+%\end{equation}
+%and calculate and adapted version of $M_{BC}$
+%\begin{equation}
+%M_{BC}' = \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p}_Y + \alpha \vec{p}_\nu \vert^2}.
+%\end{equation}
+%
+%The neutrino momentum resolution dominates the $\Delta E$ uncertainty [], so the correction factor $\alpha$ reduces this source of uncertainty.
+%
+%A second correction can be applied by rotating the direction of the neutrino momentum by a small angle with respect to the reconstructed one. Such an angle is chosen in order fix the value of $M_{BC}'$ to the nominal mass of the $B$ meson, $m_B$.
+%
+%The corrected neutrino momentum is then solely used for the $q^2$ calculation, alongside the reconstructed lepton four-momentum, as
+%\begin{equation}
+%\label{eq:q2}
+%q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
+%\end{equation}
+%
+%The $q^2$ distribution and its resolution are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$, with details of the calculation method in the caption.
+%\begin{figure}[H]
+%\centering
+%\captionsetup{width=0.8\linewidth}
+%\includegraphics[width=\linewidth]{fig/q2}
+%\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in [], whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
+%\label{fig:q2}
+%\end{figure}
+%
+%One must bare in mind that even though this calculation yields a precise result, this says nothing about the correctness of the $q^2$ model which was used (ISGW2) []. Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
 
 \section{Event categorization}\label{sec:event-categorization}
 
-The missing information due to an escaping neutrino in our reconstructed channel is replaced by information from the companion $B$ meson. Since this is an untagged reconstruction, the quality of the companion $B$ meson affects the properties out signal candidate. Perfect reconstruction of a hadronically decaying companion $B$ meson results in pronounced peaks at $\Delta E \approx 0$, $m_{miss}^2 \approx 0$ and $M_{BC} \approx m_B$, while imperfect reconstruction due to any kind of missing particles produces long tails and/or a shift from the desired value in the mentioned distributions. These effects are undesired, since they make it harder to separate signal from background.
+The missing information due to an escaping neutrino in our reconstructed channel is replaced by information from the companion $B$ meson. Since this is an untagged reconstruction, the quality of the companion $B$ meson affects the properties of signal candidate. Perfect reconstruction of a hadronically decaying companion $B$ meson results in pronounced peaks at $\Delta E \approx 0$, $m_{miss}^2 \approx 0$ and $M_{BC} \approx m_B$, while imperfect reconstruction due to any kind of missing particles produces long tails and/or a shift from the desired value in the mentioned distributions. These effects are undesired, since they make it harder to separate signal from background.
 
 To remedy this, we split our signal candidates into 4 categories and work only with the best category. For categorization we use splitting in two ways. First, we look at the charge product of the reconstructed $B$ meson and the ROE object. For correctly reconstructed events, this should have a value of 
 
@@ -552,10 +557,10 @@ We define the 4 categories in the following way
 \item[]category I: $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} > 0.57$,
 \item[]category II: $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} > 0.57$,
 \item[]category III: $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} \leq 0.57$,
-\item[]category IV: $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} \leq 0.57$.
+\item[]category IV: $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} \leq 0.57$,
 \end{enumerate}
 
-Different categories for all signal candidates after the pre-cuts are shown in Figure \ref{fig:sig_categ}. Category I has the best resolution, so we use it in our analysis from this point on.
+with the relative ratios of $37.74~\%$, $40.50~\%$, $13.43~\%$ and $8.32~\%$ for categories I, II, III and IV, respectively. Different categories for all signal candidates after the pre-cuts are shown in Figure \ref{fig:sig_categ}. Category I and II represent the majority of the candidates more or less equally, but category I has the best resolution, so we focus on candidates from category I in this analysis.
 
 \begin{figure}[H]
 \centering
@@ -1141,19 +1146,19 @@ This chapter shows the procedure in suppressing various kinds of background by a
 
 In this analysis we study decays with kaons in the final state. This means that standard procedures in $b \to u$ analyses in order to suppress $b \to c$ backgrounds, such as $K$-veto, are not possible. As a consequence, our final sample consists of combinations of $K$ pairs coming from $b \to c$  sources, such as $D^0 \to K^+ K^-$. Such candidates usually have resonance-like properties in the two-kaon invariant mass spectrum. Figure \ref{fig:res_bkg} shows this invariant mass spectrum of two kaons, $m_{KK}$, where obvious resonant structures are present from sources like
 \begin{itemize}
-\item $\varphi \to K^+K^-$ (sharp resonance at $\sim1.019\e{GeV}/c^2$),
-\item $D^0 \to K^+K^-$ (sharp resonance at $\sim 1.864\e{GeV}/c^2$),
-\item $D^0 \to K^+ \pi^-$ (wide, shifted resonance, due to kaon miss-identification).
+\item $\phi \to K^+K^-$ (sharp resonance at $\sim1.019\e{GeV}/c^2$),
+\item $D^0 \to K^+K^-$ (sharp peak at $\sim 1.864\e{GeV}/c^2$),
+\item $D^0 \to K^+ \pi^-$ (wide, shifted peak, due to kaon miss-identification).
 \end{itemize}
 
 An opportunity for a control decay choice presents itself as $$B^+ \to D^0 \ell^+ \nu, \quad D^0 \to K^+ K^-,$$ which has very similar properties as the studied signal decay, is much more abundant, and, most importantly, is easy to suppress, since it only populates a very narrow region in the $m_{KK}$ invariant mass spectrum. In order to suppress these resonant backgrounds while studying the signal or control decay, we impose a set of the following cuts
 
 \begin{itemize}
-\item Signal decay: $\vert m_{KK} - m_{\varphi} \vert > \Delta_\varphi$, $\vert m_{KK} - m_{D^0} \vert > \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
-\item Control decay: $\vert m_{KK} - m_{\varphi} \vert > \Delta_\varphi$, $\vert m_{KK} - m_{D^0} \vert \leq \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
+\item Signal decay: $\vert m_{KK} - m_{\phi} \vert > \Delta_\phi$, $\vert m_{KK} - m_{D^0} \vert > \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
+\item Control decay: $\vert m_{KK} - m_{\phi} \vert > \Delta_\phi$, $\vert m_{KK} - m_{D^0} \vert \leq \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
 \end{itemize}
 
-where $m_\varphi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\varphi$ and $D^0$ mesons, and $\Delta_\varphi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.2\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\varphi$ and $D^0$ mesons, respectively.
+where $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.2\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\phi$ and $D^0$ mesons, respectively.
 
 \begin{figure}[H]
 \centering
