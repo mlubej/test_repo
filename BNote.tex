@@ -1,14 +1,20 @@
-\documentclass[  headings=standardclasses,
-  headings=big,oneside,a4paper,openany,12pt]{scrbook}
+\documentclass[headings=standardclasses,headings=big,oneside,a4paper,openany,12pt]{scrbook}
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 \newcommand {\vars}{$\Delta E$ and $M_{BC}$}
-\newcommand {\btbii}{\texttt{b2bii}}
+\newcommand {\btbii}{\texttt{B2BII}}
 \newcommand {\decaya}{$B \rightarrow K K \ell \nu$}
 \newcommand {\decayb}{$B^+ \rightarrow K^+ K^- \ell^+ \nu$}
 
 %TODO: check spaces after these commands
+
+%\usepackage{biblatex}
+%\bibliography{mybib.bib} 
+\usepackage[english]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+\usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
+\addbibresource{mybib.bib}% Syntax for version >= 1.2
 
 \usepackage{paralist}
 \usepackage{caption}
@@ -70,6 +76,7 @@
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
 \chapter{Introduction}
+
 %TODO: add references
 \pagenumbering{arabic}
 Particle physics is already an established branch of physics with a rich history in theory and experiments ever since the beginning of the 20th century. So far the experimental and theoretical research have shown us hand in hand that the universe consists of particles and force carriers. Particles of matter, or elementary particles, are divided into two groups, quarks and leptons. The quarks that we know today are called $u$ (up), $d$ (down), $s$ (strange), $c$ (charm), $b$ (bottom) and $t$ (top). Leptons are split into two groups; charged leptons $e$ (electron), $\mu$ (muon), $\tau$ (tau lepton) and corresponding neutrinos $\nu_e$ (electron neutrino), $\nu_\mu$ (muon neutrino), $\nu_\tau$ (tau neutrino). Particles of force are known as gauge bosons and they are $\gamma$ (photon), $g$ (gluons), $W^\pm$ (charged weak bosons) and $Z^0$ (neutral weak boson). The theory also predicted the recently discovered Higgs boson ($H$), which is responsible for the mass of all particles. Some of the particles above also have a mirrored version of themselves, called antiparticles, which exhibit somewhat different properties as their un-mirrored versions.
@@ -86,7 +93,7 @@ Combinations of quarks such as $q_1 q_2 q_3$ (hadrons) or $q_1 \bar{q}_2$ (meson
 
 This analysis revolves around decays of the so called $B$ mesons, which are particles that consist of a $b$ quark and a light $\bar u$ or $\bar d$ quark (or vice-versa). One of the most surprising features of the universe that can be studied with decays of $B$ mesons is the $CP$ symmetry violation ($\cancel{CP}$). $CP$ symmetry is a combination of the $C$ symmetry (charge conjugation) and the $P$ symmetry (spatial inversion). It states that there is no reason why processes of particles and mirrored processes of antiparticles would be different. Today we know that this does not hold for all cases and we in fact find processes which violate this postulate. We also know that $\cancel{CP}$ is very closely related to the the weak nuclear force. Here lies our motivation for studying decays of $B$ mesons, since they exhibit a rich spectrum of decays, many of which underway via the weak nuclear force.
 
-One of the most important properties of the weak nuclear force is that it can change the flavor of particles. Flavor is a quantum number which is conserved for each type of quark, so changing a flavor of a quark means changing the quark itself. Such processes are forbidden for the electromagnetic and the strong nuclear force, but not for the weak one. All of the information regarding quark transitions and transition probabilities can be merged into a form of a complex matrix called the Cabibbo-Kobayashi-Maskawa (CKM) matrix
+One of the most important properties of the weak nuclear force is that it can change the flavor of particles. Flavor is a quantum number which is conserved for each type of quark, so changing a flavor of a quark means changing the quark itself. Such processes are forbidden for the electromagnetic and the strong nuclear force, but not for the weak one. All of the information regarding quark transitions and transition probabilities can be merged into a form of a complex matrix called the Cabibbo-Kobayashi-Maskawa (CKM) matrix \cite{cabibbo1963unitary,kobayashi1973cp}
 
 \begin{equation}
 V_{CKM} = \begin{bmatrix}
@@ -166,7 +173,7 @@ The following samples were used in this analysis
 
 \section{Signal MC production}
 
-The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} [] package. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the $B\to X_u \ell \nu$ generation, since it includes the decays of interest. An additional skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same particle. This decreases the CPU consumption during the detector simulation and reconstruction.
+The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} package for Belle MC generation. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the $B\to X_u \ell \nu$ generation, since it includes the decays of interest. An additional skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same particle. This decreases the CPU consumption during the detector simulation and reconstruction.
 
 The relevant processes which contribute to our signal decay are
 \begin{itemize}
@@ -176,15 +183,15 @@ The relevant processes which contribute to our signal decay are
 \item $B^+ \to f_{0} \ell^+ \nu_\ell$,
 \item $B^+ \to X_{u}^0 \ell^+ \nu_\ell$,
 \end{itemize}
-where $a_{00}$, $a_{20}$, $f_{2}$ and $f_{0}$ are some of the light unflavored states which in some cases further decay into a $K^+K^-$ pair, while $X_u^0$ represents a generic $u \bar u$ quark pair, which further hadronizes based on the \texttt{PYTHIA} quark hadronization model []. %TODO: check this
-Figure \ref{KK_src} shows the invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structurer, while $KK$ pairs from the $X_u^0$ state are more frequent and follow a wider and smoother distribution.
+where $a_{00}$, $a_{20}$, $f_{2}$ and $f_{0}$ are some of the light unflavored states which in some cases further decay into a $K^+K^-$ pair, while $X_u^0$ represents a generic $u \bar u$ quark pair, which further hadronizes based on the \texttt{PYTHIA} quark hadronization model \cite{sjostrand2006pythia}. %TODO: check this
+Figure \ref{fig:KKsrc} shows the invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structurer, while $KK$ pairs from the $X_u^0$ state are more frequent and follow a wider and smoother distribution.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{fig/KKlnu_src}
 \captionsetup{width=.8\linewidth}
 \caption{Invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structurer, while $KK$ pairs from the $X_u^0$ state are more frequent and follow a wider and smoother distribution.}
-\label{fig:KK_src}
+\label{fig:KKsrc}
 \end{figure}
 
 The produced signal MC sample contains decays of the form $B \to KK\ell \nu$ as well as $B \to KKX\ell \nu$, where $X$ can be any hadron as long as it satisfies all the selection rules of the decay. It is possible to calculate the MC branching ratios for each channel by making combinations of the particles directly from the generator. Table \ref{tab:KKX} shows some of the most prominent channels, which are similar to our signal decay, as long as their relative fraction. It is clear that our signal decay is the most abundant one, with a relative contribution of about $28.14~\%$, while other channels contribute only up to about $8~\%$ or less. Additionally, our signal decay is also the cleanest, meaning that it has no neutral particles like $\pi^0$, which are harder to reconstruct and suffer from decrease in efficiency due to reconstruction effects.
@@ -251,7 +258,7 @@ The predecessor of the Belle II experiment was the Belle experiment, which finis
 
 In the Belle II Collaboration, a task force was created in order to convert Belle data into Belle II format (\btbii). The \btbii package was developed as a part of BASF2 in order to convert data and MC of the Belle experiment and make it available within BASF2. In addition to the convenience of Belle data being processed in the more intuitive and advanced BASF2 framework, \btbii allows for estimation and validation of performances of various advanced algorithms being developed for Belle II. The conversion itself, however, is considered non-trivial. Although the conversion of the raw detector data would be possible, the reconstruction algorithms of BASF2 are optimized for Belle II and cannot be effectively applied to Belle data. To bypass this problem, reconstructed objects from \texttt{PANTHER} tables, a custom solution of the Belle collaboration based on C/C++ and Fortran, are mapped to their corresponding representations in BASF2.
 
-The conversion in the \btbii package is divided into three BASF2 modules. The first module opens the Belle input files and reads the events into memory in the form of \texttt{PANTHER} tables. This module consists predominantly of reused BASF code. The second module applies various calibration factors, such as experiment and run dependent factors, to the beam energy, particle identification information, error matrices of the fitted tracks, etc. The module also applies some low-level cuts to reproduce removing background events as done within BASF. The actual conversion and the mapping of reconstructed objects is done in the last module. For more information see [].
+The conversion in the \btbii package is divided into three BASF2 modules. The first module opens the Belle input files and reads the events into memory in the form of \texttt{PANTHER} tables. This module consists predominantly of reused BASF code. The second module applies various calibration factors, such as experiment and run dependent factors, to the beam energy, particle identification information, error matrices of the fitted tracks, etc. The module also applies some low-level cuts to reproduce removing background events as done within BASF. The actual conversion and the mapping of reconstructed objects is done in the last module. For more information see \cite{Keck:48940}.
 
 \section{Validation}
 
@@ -373,7 +380,7 @@ With the pre-selected kaon and lepton candidates we make combinations for potent
 B^+ &\to K^+ K^- e^+, \\
 B^+ &\to K^+ K^- \mu^+,
 \end{align*}
-and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the z-axis of the detector in the direction of the boost, so the vertex fit is enforced with an \textit{IPTUBE} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right). In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino, with an additional constraint that the $B$ meson did not decay via a $b \to c$ transition.
+and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the z-axis of the detector in the direction of the boost, so the vertex fit is enforced with an \texttt{iptube} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $FOM$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right). In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino, with an additional constraint that the $B$ meson did not decay via a $b \to c$ transition.
 
 \begin{figure}[H]
 \centering
@@ -667,13 +674,13 @@ Continuing from Section \ref{sec:loose-neutrino-reconstruction}, the description
 
 Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step we run $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be signal-side dependent and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed candidates are chosen here, to prevent leaks of information from the signal side to the ROE side.
 
-For each clean-up step a dataset was prepared for the training of "signal" (target) against "background". The Fast-BDT (FBDT) [] algorithm was used as the MVA classifier and the following hyper-parameters were chosen for optimization
+For each clean-up step a dataset was prepared for the training of "signal" (target) against "background". The Fast-BDT (FBDT) \cite{keck2017fastbdt} algorithm was used as the MVA classifier and the following hyper-parameters were chosen for optimization
 \begin{itemize}
 \item \texttt{nTrees}: the number of trees in the FBDT forest,
 \item \texttt{nLevels}: the number of levels in each FBDT tree.
 \end{itemize}
 
-Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid-search method in the hyper-parameter phase-space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters [].
+Figure \ref{fig:BDT} shows a graphical interpretation of the FBDT forest with \texttt{nTrees} and \texttt{nLevels}. In all cases the hyper-parameters were optimized with a grid-search method in the hyper-parameter phase-space. Additionally, we perform a $k$-fold cross-validation ($k=5$) for each hyper-parameter set, where we cycle through the $5$ parts of the dataset and use $4$ parts of the dataset for training, whereas the remaining part is used for validation. This minimizes the bias towards the validation sample when optimizing the hyper-parameters.
 
 \begin{figure}[H]
 \centering
@@ -1086,7 +1093,7 @@ Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:bellefo
 
 In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially \vars, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, this also results in an efficiency increase of the reconstructed sample. 
 
-We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roe_opt} shows distributions of \vars for various clean-up setups after applying all pre-cuts up to the point in Section \ref{sc:shortroe}. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
+We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roeopt} shows distributions of \vars~for various clean-up setups. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
 
 %which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
 
@@ -1094,8 +1101,8 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_opt}
-\caption{\vars distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
-\label{fig:roe_opt}
+\caption{\vars~distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
+\label{fig:roeopt}
 \end{figure}
 
 \begin{table}[H]
@@ -1113,7 +1120,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \label{tab:roeeff}
 \end{table}
 
-Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at \vars variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
+Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at \vars~variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
 %TODO: Belle cleanup setup
 
 \begin{figure}[H]
@@ -1197,7 +1204,7 @@ In this case, a related variable is $\vert \cos\theta_T\vert$, where $\theta_T$ 
 \end{figure}
 
 \subsubsection{CLEO cones}
-CLEO cones have been introduced by the CLEO collaboration [] and are an additional specific tool to provide optimal background discrimination. They are nine variables corresponding to the momentum flow around the thrust axis of the $B$ meson candidate, binned in nine cones of $10^\circ$ around the thrust axis, as illustrated in Figure \ref{fig:ccones}. 
+CLEO cones have been introduced by the CLEO collaboration \cite{asner1996search} and are an additional specific tool to provide optimal background discrimination. They are nine variables corresponding to the momentum flow around the thrust axis of the $B$ meson candidate, binned in nine cones of $10^\circ$ around the thrust axis, as illustrated in Figure \ref{fig:ccones}. 
 
 \begin{figure}[H]
 \centering
@@ -1208,13 +1215,13 @@ CLEO cones have been introduced by the CLEO collaboration [] and are an addition
 \end{figure}
 
 \subsubsection{KSFW moments}
-Fox-Wolfram moments are another useful parametrization of phase-space distribution of energy flow and momentum in an event []. For a collection of $N$ momenta $p_i$, the $k$-th order normalized Fox-Wolfram moment $R_k$ is defined as
+Fox-Wolfram moments are another useful parametrization of phase-space distribution of energy flow and momentum in an event. For a collection of $N$ momenta $p_i$, the $k$-th order normalized Fox-Wolfram moment $R_k$ is defined as
 \begin{equation}
 R_k = \frac{H_k}{H_0} = \frac{1}{H_0} \sum_{i,j} \vert p_i \vert \vert p_j \vert P_k(\cos \theta_{ij}),
 \end{equation}
 where $\theta_{ij}$ is the angle between $p_i$ and $p_j$, and $P_k$ is the $k$-th order Legendre polynomial. For events with two strongly collimated jets, $R_k$ takes values close to 0 (1) for odd (even) values of $k$, so these moments provide a convenient discrimination between $B \bar B$ and continuum events.
 
-Belle developed a refined generation of Fox-Wolfram moments, called Kakuno-Super-Fox-Wolfram (KSFW) moments to further suppress the continuum background. There are $17$  different KSFW moments which are grouped into $R^{so}_k$, $R^{oo}_k$ and $R^{ss}_k$ []. The latter ones are excluded due to correlations with $B$ meson specific variables.
+Belle developed a refined generation of Fox-Wolfram moments, called Kakuno-Super-Fox-Wolfram (KSFW) moments to further suppress the continuum background. There are $17$  different KSFW moments which are grouped into $R^{so}_k$, $R^{oo}_k$ and $R^{ss}_k$ \cite{bevan2014physics}. The latter ones are excluded due to correlations with $B$ meson specific variables.
 
 \subsection{MVA training}
 \label{ss:qqmva}
@@ -1283,7 +1290,7 @@ The training variable set consisted of
 \item FlavorTagger variables for the two signal-side kaons,
 \item number of kaons, tracks and distant tracks in ROE,
 \item $\theta$ angle of the ROE momentum in CMS frame,
-\item $\xi_Z$ from []
+\item $\xi_Z$ from \cite{PhysRevD.83.032007}
 \item $\Delta z$,
 \item $m_{miss}^2$ from Eq. (\ref{eq:m2def}),
 \item $B \to D^* \ell \nu$ veto variables,
@@ -1301,7 +1308,7 @@ where distant tracks are all tracks in ROE which satisfy the condition of $\vert
 When the training is finished and hyper-parameters of the classifier are optimized, the classifier output, shown in Figure \ref{fig:bbmva} (left), can be used for background suppression. $B$ meson candidates from $B \bar B$ background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values. Since the differences between signal and background $B \bar B$ events are smaller than $B \bar B$ and $q \bar q$ events, the resulting classifier has a smaller separation power than in previous section.
 
 \subsection{Boosting to uniformity}
-The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated FOM under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection [].
+The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated FOM under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection \cite{stevens2013uboost}.
 
 The training set used in this training is the same as described in the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBDT classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates with the uBoost algorithm. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds can differ and the final conclusion will be shown only after the signal extraction.
 
@@ -1325,7 +1332,7 @@ Instead of two separate $q \bar q$ and $B \bar B$ $FOM$ optimizations, it is mor
 \label{fig:mvafom}
 \end{figure}
 
-We can compare signal and major background distributions of \vars after the 2D $FOM$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
+We can compare signal and major background distributions of \vars~after the 2D $FOM$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
 \item Standard BDT: $N_{sig} = 152.82,\quad N_{sig}/N_{bkg} = 3.70~\%$,
 \item uBDT: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
@@ -1375,7 +1382,7 @@ We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} sho
 \end{figure}
 
 \chapter{Signal extraction}
-In this chapter the procedure for signal yield extraction is presented. We use the framework of RooFit [] where we define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poisson nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure we attempt to find the parameter values that maximize the likelihood function, given the observations.
+In this chapter the procedure for signal yield extraction is presented. We use the framework of \texttt{RooFit} \cite{verkerke2006roofit} where we define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poisson nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure we attempt to find the parameter values that maximize the likelihood function, given the observations.
 
 If $P(n\vert\vec \alpha)$ is the probability of measuring $n$ on a given event, where $\vec \alpha$ is a set of parameters on which $P$ depends, we can define the likelihood function $L$ for a series of such measurements (i.e., bins in histogram) $n_i$ based on Poisson statistics as
 \begin{equation}
@@ -1389,7 +1396,7 @@ where $\mu_i$ is the expected and $n_i$ the measured value for each measurement.
 \end{equation}
 Maximizing $L$ or minimizing $\mathcal{L}$ gives us a maximum likelihood estimate of the set of parameters $\vec \alpha_{ML}$ which best describe the observed data. 
 
-The ML method provides a method to estimate the fit uncertainty. This is especially useful if the log-likelihood has a non-parabolic shape, which leads to asymmetric errors. We calculate the errors using the MINOS [] algorithm, which is implemented in RooFit. The algorithm follows the log-likelihood function out of the minimum to find the appropriate intervals of confidence for each parameter, taking the parameter correlations into account. 
+The ML method provides a method to estimate the fit uncertainty. This is especially useful if the log-likelihood has a non-parabolic shape, which leads to asymmetric errors. We calculate the errors using the \texttt{MINOS} algorithm from the \texttt{MINUIT} package \cite{James:1994vla}, which is implemented in RooFit. The algorithm follows the log-likelihood function out of the minimum to find the appropriate intervals of confidence for each parameter, taking the parameter correlations into account. 
 
 To estimate the goodness of the likelihood fit, one option is to generate toy MC experiments and obtain the expected log-likelihood distribution. Likelihood fits, however, also offer another way to test the goodness of fit via the likelihood ratio (LR), where we compare the likelihood obtained under the ML parameters $\vec\alpha_{ML}$, to the likelihood obtained under the null hypothesis parameters $\vec\alpha_{H_0}$. This determines how likely the data is under one model than the other. We define the LR test as
 \begin{equation}
@@ -1420,9 +1427,9 @@ We perform 10 fits to each stream of MC, where 9 streams were used for the creat
 \item $q \bar q$ template.
 \end{itemize}
 
-When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small and very similar to the signal template. In case of control sample fits, the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value for the same reasons as mentioned before. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$.
+When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small and very similar to the signal template. In case of control sample fits, the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value for the same reasons as mentioned before. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$.
 
-The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
+The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
 
 \section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
@@ -1462,7 +1469,7 @@ The fit setup was used on the final samples obtained with both versions of the f
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_binning}
-	\caption{Fitted yield and expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars  for the final sample, optimized with the standard BDT classifier (blue) and the uBDT classifier (orange).}
+	\caption{Fitted yield and expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars~for the final sample, optimized with the standard BDT classifier (blue) and the uBDT classifier (orange).}
 	\label{fig:sig_binning}
 \end{figure}
 
@@ -1472,7 +1479,7 @@ Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an 
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/plt_uMVA1dc_0.png}
-	\caption{An example fit to one stream of MC. Left column shows the $M_{BC}$ and the center column shows the $\Delta E$ distribution of the full fitted sample in the full fit region (top) and the signal region (bottom). The right column shows the expected 2D histogram in \vars with initial uniform binning (top) and the variable binning (bottom) after the binning algorithm.}
+	\caption{An example fit to one stream of MC. Left column shows the $M_{BC}$ and the center column shows the $\Delta E$ distribution of the full fitted sample in the full fit region (top) and the signal region (bottom). The right column shows the expected 2D histogram in \vars~with initial uniform binning (top) and the variable binning (bottom) after the binning algorithm.}
 	\label{fig:sig_streamfit}
 \end{figure}
 
@@ -1488,7 +1495,7 @@ Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an 
 
 Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way, which consumes unaffordable amounts of CPU time. In order to test the fit behavior, a toy MC study was performed where all available MC was used for template creation. We constructed $3\E{3}$ pseudo datasets, where each dataset was generated expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $22\times22$ bins in \vars.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control since there is not any significant bias, and the pulls follow a normal distribution with a mean of $(-4\pm18)\E{3}$ and standard deviation of $(1.009\pm0.013)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while the errors of these statistics were obtained by calculating the standard error of the mean ($\sigma_{\bar X}$) and standard deviation ($\sigma_S$), taken from [], as
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control since there is not any significant bias, and the pulls follow a normal distribution with a mean of $(-4\pm18)\E{3}$ and standard deviation of $(1.009\pm0.013)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while the errors of these statistics were obtained by calculating the standard error of the mean ($\sigma_{\bar X}$) and standard deviation ($\sigma_S$), taken from \cite{ahn2003standard}, as
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
@@ -1546,11 +1553,13 @@ The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied 
 \section{PID efficiency correction}
 \section{Bias}
 
+\printbibliography
+
 \chapter*{Addendum A: ROE clean-up $\pi^0$ training}
 \section*{Correlations}
-\section*{Hyper-parameter optimization}
 \section*{Importance}
-\section*{Validation}
+\section*{Hyper-parameter optimization}
+\section*{Results}
 
 \chapter*{Addendum B: ROE clean-up $\gamma$ training}
 \section*{Correlations}
@@ -1564,7 +1573,7 @@ The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied 
 \section*{Importance}
 \section*{Validation}
 
-\chapter*{Addendum D: ROE clean-up duplicate training}
+\chapter*{Addendum D: ROE clean-up duplicate track training}
 \section*{Correlations}
 \section*{Hyper-parameter optimization}
 \section*{Importance}
