@@ -20,6 +20,8 @@
 \usepackage{caption}
 \usepackage{cancel}
 
+\usepackage{longtable}
+
 \setlength{\parskip}{1em}%
 \setlength{\parindent}{0cm}
 
@@ -256,9 +258,9 @@ where $\ell$ is $e$ or $\mu$. During analysis the abundant signal MC sample is s
 
 The predecessor of the Belle II experiment was the Belle experiment, which finished its data taking run of 10 years at end of 2010 after collecting a dataset of about $1\e{ab^{-1}}$. That year the Belle detector was shut down and the Belle II experiment was born from the ashes, where even some of the old detector components were reused. The construction of the Belle II detector today is still an ongoing process, although first collisions are expected in 2018. By the year 2025 it is foreseen that Belle II will have recorded about $50\e{ab^{-1}}$ of data, which is about $50$ times more than in case of Belle. However, this is still a long time away, while the recorded dataset of the Belle experiment still has the potential for interesting physics analyses today. On the other hand, most of the people from Belle transitioned to Belle II and a lot of new institutes joined the Belle II Collaboration. This moved focus from Belle analyses and Belle Analysis Framework (BASF) to the construction of the Belle II detector and the development of Belle II Analysis Framework (BASF2), which was written completely from scratch, making the BASF2 software incompatible with the Belle data. This resulted in gradual loss of knowledge on the maintenance and operation of the BASF software.
 
-In the Belle II Collaboration, a task force was created in order to convert Belle data into Belle II format (\btbii). The \btbii package was developed as a part of BASF2 in order to convert data and MC of the Belle experiment and make it available within BASF2. In addition to the convenience of Belle data being processed in the more intuitive and advanced BASF2 framework, \btbii allows for estimation and validation of performances of various advanced algorithms being developed for Belle II. The conversion itself, however, is considered non-trivial. Although the conversion of the raw detector data would be possible, the reconstruction algorithms of BASF2 are optimized for Belle II and cannot be effectively applied to Belle data. To bypass this problem, reconstructed objects from \texttt{PANTHER} tables, a custom solution of the Belle collaboration based on C/C++ and Fortran, are mapped to their corresponding representations in BASF2.
+In the Belle II Collaboration, a task force was created in order to convert Belle data into Belle II format (\btbii). The \btbii~package was developed as a part of BASF2 in order to convert data and MC of the Belle experiment and make it available within BASF2. In addition to the convenience of Belle data being processed in the more intuitive and advanced BASF2 framework, \btbii~allows for estimation and validation of performances of various advanced algorithms being developed for Belle II. The conversion itself, however, is considered non-trivial. Although the conversion of the raw detector data would be possible, the reconstruction algorithms of BASF2 are optimized for Belle II and cannot be effectively applied to Belle data. To bypass this problem, reconstructed objects from \texttt{PANTHER} tables, a custom solution of the Belle collaboration based on C/C++ and Fortran, are mapped to their corresponding representations in BASF2.
 
-The conversion in the \btbii package is divided into three BASF2 modules. The first module opens the Belle input files and reads the events into memory in the form of \texttt{PANTHER} tables. This module consists predominantly of reused BASF code. The second module applies various calibration factors, such as experiment and run dependent factors, to the beam energy, particle identification information, error matrices of the fitted tracks, etc. The module also applies some low-level cuts to reproduce removing background events as done within BASF. The actual conversion and the mapping of reconstructed objects is done in the last module. For more information see \cite{Keck:48940}.
+The conversion in the \btbii~package is divided into three BASF2 modules. The first module opens the Belle input files and reads the events into memory in the form of \texttt{PANTHER} tables. This module consists predominantly of reused BASF code. The second module applies various calibration factors, such as experiment and run dependent factors, to the beam energy, particle identification information, error matrices of the fitted tracks, etc. The module also applies some low-level cuts to reproduce removing background events as done within BASF. The actual conversion and the mapping of reconstructed objects is done in the last module. For more information see \cite{Keck:48940}.
 
 \section{Validation}
 
@@ -654,14 +656,14 @@ In this section one can find the summary of all selection cuts in the event reco
 \item FSP particles:
 	\begin{itemize}
 	\item Electrons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p>0.6\e{GeV}/c,\\p_{CMS}\in[0.4,\,2.6]\e{GeV}/c,\,eID>0.9,$
-    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.9,$
+    \item Muons: $\vert d_0 \vert < 0.1\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS}\in[0.6,\,2.6]\e{GeV}/c,\\\mu ID>0.97,$
     \item Kaons: $\vert d_0 \vert < 0.15\e{cm},\,\vert z_0 \vert < 1,5\e{cm},\,p_{CMS} < 2.5\e{GeV}/c,\\K/\pi~ID>0.6,\,K/p~ID>0.1,$
 	\end{itemize}
 \item $B$ meson candidates:
 	\begin{itemize}
 	\item Before ROE clean-up: $P(\chi^2,\,DOF) > 1\E{-3},\,\vert \cos \theta_{BY} \vert < 1,\,\vert m_{miss}^2 \vert < 7\e{GeV}/c^2,$
     \item After ROE clean-up: $\Delta E \in [-1.0,1.3]\e{GeV},\,M_{BC} \in [5.1,5.295]\e{GeV}/c^2,$
-    \item After signal categorization: $q_{B_{sig}}~q_{B_{comp}} = -1,\,BDT_{had.} > 0.57,\,\vert m_{miss}^2\vert<~1.1\e{GeV}/c^2.$
+    \item After signal categorization: $q_{B_{sig}}~q_{B_{comp}} = -1,\,BDT_{had.} > 0.51,\,\vert m_{miss}^2\vert<~1.1\e{GeV}/c^2.$
 	\end{itemize}
 \end{itemize}
 
@@ -1337,6 +1339,7 @@ We can compare signal and major background distributions of \vars~after the 2D $
 \item Standard BDT: $N_{sig} = 152.82,\quad N_{sig}/N_{bkg} = 3.70~\%$,
 \item uBDT: $N_{sig} = 241.56,\quad N_{sig}/N_{bkg} = 1.09~\%$.
 \end{itemize}
+%TODO: update numbers
 
 \begin{figure}[H]
 \centering
@@ -1358,7 +1361,7 @@ We can compare signal and major background distributions of \vars~after the 2D $
 
 With the final selection in place, we can check the data and MC agreement by checking the control decay region in on- and off- resonance data. Off-resonance samples provide the ability to check the agreement of the $q\bar q$ background component, while on-resonance samples can be used to check the validity of the control MC sample and, consequentially, the signal MC sample.
 
-The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to having more streams of MC. Figures show a slight and a consistent overestimation of $q\bar q$ MC. However, looking at the shapes of the distributions, the only difference seems to be the normalization factor, so the distribution shapes can be left as they are, since the normalization will be automatically set in the template fit. There also seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
+The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to having more streams of MC. Figures show a slight and a consistent under-estimation of the $q\bar q$ MC sample. However, looking at the shapes of the fit distributions, the only difference seems to be the normalization factor, so the distribution shapes can be left as they are, since the normalization will be automatically set in the template fit. There also seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
 
 \begin{figure}[H]
 \centering
@@ -1371,7 +1374,7 @@ The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ re
 %ratios of MC and data for these variables before and after the $q\bar q$ MVA cut, shown in Figure X, one can conclude that, based on the flatness of the function,
 %PLOT
 
-We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant, which confirms our statement about data and MC differences in continuum background being negligible from before. Overall, data and MC seem to agree very well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
+We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. We see that MC is over-estimated in this region, most likely due to additional disagreements from other sources. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. Overall, data and MC seem to agree well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
 
 \begin{figure}[H]
 \centering
@@ -1526,24 +1529,25 @@ Figure \ref{fig:lin_test} shows the mean fit yield and expected yield difference
 
 \section{Control fit results}
 
-The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied for the control decay. This enables us to compare the fit behavior on MC as well as data and check the MC/data agreement. The control sample is used to check the efficiency of the MVA classifier cuts for data and MC at various selection stages. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios were studied
+The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied to the control decay. This enables us to compare the fit behavior on MC as well as data and check the MC/data agreement. The control sample is also used to check the behavior of several MVA classifier cuts on data and MC. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios were studied
 \begin{itemize}
 \item[(a)]  after pre-cuts,\, $\vert m_{miss}^2 \vert < 1.1\e{GeV}/c^2$,\, $q_{B_{sig}}~q_{B_{comp}} = -1$,
-\item[(b)] (a) + $BDT_{had.}$ cut (equal to signal category I),
+\item[(b)] (a) + $BDT_{had.}$ cut (signal category I),
 \item[(c)] (b) + $BDT_{q\bar q}$ cut,
 \item[(d)] (b) + $uBDT_{B\bar B}$ cut,
-\item[(e)] (b) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut.
+\item[(e)] (b) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
 \end{itemize}
 
-%TODO: BDT check if not uBDT
+The same binning was chosen as in the case of signal MC fits. The results for control fit yields, their ratios and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows an under-estimation of MC, which seems to be consistent and under control. On the other hand we also see that the cut efficiency ratios between data and MC are consistent with $1$. This means that the inconsistencies between data and MC, which are present since before applying any MVA cuts, are not introduce nor affect by these cuts.
 
-%The binning scan was performed in order to determine optimal binning choice for each cut scenario above. The results for control fit yield, pulls and significance are shown in Figure X. The fit for cut scenario (a) was performed on a subset of the full sample %TODO bias and description of optimal bins
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/cs_fits.pdf}
+	\caption{Fit yields, their ratios and ratios of cut efficiencies (double ratios) for the control sample fits to data and MC.}
+	\label{fig:cs_fits}
+\end{figure}
 
-%PLOT
-
-
-\subsection{Fit yields and yield ratios}
-\subsection{Double ratios}
 \subsection{Branching ratio measurement and comparison}
 
 \section{Signal fit to data}
@@ -1555,41 +1559,401 @@ The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied 
 
 \printbibliography
 
-\chapter*{Addendum A: ROE clean-up $\pi^0$ training}
-\section*{Correlations}
-\section*{Importance}
-\section*{Hyper-parameter optimization}
-\section*{Results}
+\chapter*{A: MVA control plots}
+\section*{ROE clean-up $\pi^0$ training}
 
-\chapter*{Addendum B: ROE clean-up $\gamma$ training}
-\section*{Correlations}
-\section*{Hyper-parameter optimization}
-\section*{Importance}
-\section*{Validation}
+\subsection*{Variable importance}
 
-\chapter*{Addendum C: ROE clean-up duplicate pair training}
-\section*{Correlations}
-\section*{Hyper-parameter optimization}
-\section*{Importance}
-\section*{Validation}
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{chiProb} & $v_{0}$ & $0.262$ \\ \hline
+1 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{1}$ & $0.148$ \\ \hline
+2 &\texttt{daughter(0,useCMSFrame(p))} & $v_{2}$ & $0.079$ \\ \hline
+3 &\texttt{InvM} & $v_{3}$ & $0.076$ \\ \hline
+4 &\texttt{daughter(1,clusterHighestE)} & $v_{4}$ & $0.062$ \\ \hline
+5 &\texttt{daughter(1,p)} & $v_{5}$ & $0.050$ \\ \hline
+6 &\texttt{daughter(1,clusterTheta)} & $v_{6}$ & $0.048$ \\ \hline
+7 &\texttt{daughter(0,clusterHighestE)} & $v_{7}$ & $0.031$ \\ \hline
+8 &\texttt{daughter(0,clusterTheta)} & $v_{8}$ & $0.028$ \\ \hline
+9 &\texttt{daughter(0,minC2HDist)} & $v_{9}$ & $0.023$ \\ \hline
+10 &\texttt{daughter(1,minC2HDist)} & $v_{10}$ & $0.021$ \\ \hline
+11 &\texttt{daughter(0,clusterE9E25)} & $v_{11}$ & $0.021$ \\ \hline
+12 &\texttt{daughter(1,clusterE9E25)} & $v_{12}$ & $0.021$ \\ \hline
+13 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{13}$ & $0.018$ \\ \hline
+14 &\texttt{daughter(1,clusterNHits)} & $v_{14}$ & $0.013$ \\ \hline
+15 &\texttt{SigMBF} & $v_{15}$ & $0.013$ \\ \hline
+16 &\texttt{daughter(0,clusterNHits)} & $v_{16}$ & $0.013$ \\ \hline
+17 &\texttt{useCMSFrame(p)} & $v_{17}$ & $0.012$ \\ \hline
+18 &\texttt{daughter(0,clusterErrorE)} & $v_{18}$ & $0.011$ \\ \hline
+19 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{19}$ & $0.010$ \\ \hline
+20 &\texttt{daughter(1,clusterErrorE)} & $v_{20}$ & $0.010$ \\ \hline
+21 &\texttt{daughter(1,useCMSFrame(p))} & $v_{21}$ & $0.008$ \\ \hline
+22 &\texttt{daughter(0,p)} & $v_{22}$ & $0.007$ \\ \hline
+23 &\texttt{p} & $v_{23}$ & $0.007$ \\ \hline
+24 &\texttt{SigM} & $v_{24}$ & $0.007$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of $\pi^0$ MVA training for ROE clean-up.}
+\end{longtable}
 
-\chapter*{Addendum D: ROE clean-up duplicate track training}
-\section*{Correlations}
-\section*{Hyper-parameter optimization}
-\section*{Importance}
-\section*{Validation}
+\subsection*{Variable distributions}
 
-\chapter*{Addendum E: $q \bar q$ suppression training}
-\section*{Correlations}
-\section*{Hyper-parameter optimization}
-\section*{Importance}
-\section*{Validation}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v15}}
+\caption{Feature distributions for MVA training of $\pi^0$ candidates in the scope of ROE clean-up.}
+\end{figure}
 
-\chapter*{Addendum F: $B \bar B$ suppression training}
-\section*{Correlations}
-\section*{Hyper-parameter optimization}
-\section*{Importance}
-\section*{Validation}
+\begin{figure}\ContinuedFloat
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v19}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v20}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v21}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v22}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v23}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v24}}
+\caption{Feature distributions for MVA training of $\pi^0$ candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/pi0_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $\pi^0$ candidates in the scope of the ROE clean-up.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/pi0_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $\pi^0$ candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/pi0_roc}
+\caption{ROC curves of the MVA classifier output for $\pi^0$ candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{ROE clean-up $\gamma$ training}
+
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{p} & $v_{0}$ & $0.317$ \\ \hline
+1 &\texttt{clusterHighestE} & $v_{1}$ & $0.251$ \\ \hline
+2 &\texttt{pi0p} & $v_{2}$ & $0.183$ \\ \hline
+3 &\texttt{minC2HDist} & $v_{3}$ & $0.058$ \\ \hline
+4 &\texttt{cosTheta} & $v_{4}$ & $0.044$ \\ \hline
+5 &\texttt{clusterNHits} & $v_{5}$ & $0.031$ \\ \hline
+6 &\texttt{clusterE9E25} & $v_{6}$ & $0.030$ \\ \hline
+7 &\texttt{useCMSFrame(p)} & $v_{7}$ & $0.028$ \\ \hline
+8 &\texttt{clusterUncorrE} & $v_{8}$ & $0.023$ \\ \hline
+9 &\texttt{clusterR} & $v_{9}$ & $0.019$ \\ \hline
+10 &\texttt{clusterErrorE} & $v_{10}$ & $0.011$ \\ \hline
+11 &\texttt{clusterReg} & $v_{11}$ & $0.006$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of $\gamma$ MVA training for ROE clean-up.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/gamma_v11}}\\
+\caption{Feature distributions for MVA training of $\gamma$ candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/gamma_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $\gamma$ candidates in the scope of the ROE clean-up.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/gamma_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $\gamma$ candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/gamma_roc}
+\caption{ROC curves of the MVA classifier output for $\gamma$ candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{ROE clean-up duplicate pair training}
+
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{0}$ & $0.140$ \\ \hline
+1 &\texttt{daughter(1,d0Err)} & $v_{1}$ & $0.084$ \\ \hline
+2 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{2}$ & $0.056$ \\ \hline
+3 &\texttt{daughter(1,d0)} & $v_{3}$ & $0.048$ \\ \hline
+4 &\texttt{daughter(0,d0)} & $v_{4}$ & $0.047$ \\ \hline
+5 &\texttt{daughter(0,nSVDHits)} & $v_{5}$ & $0.045$ \\ \hline
+6 &\texttt{daughter(1,phi0Err)} & $v_{6}$ & $0.042$ \\ \hline
+7 &\texttt{daughter(1,nCDCHits)} & $v_{7}$ & $0.038$ \\ \hline
+8 &\texttt{daughter(1,z0)} & $v_{8}$ & $0.035$ \\ \hline
+9 &\texttt{daughter(0,nCDCHits)} & $v_{9}$ & $0.032$ \\ \hline
+10 &\texttt{daughter(0,z0)} & $v_{10}$ & $0.030$ \\ \hline
+11 &\texttt{daughter(1,useCMSFrame(p))} & $v_{11}$ & $0.030$ \\ \hline
+12 &\texttt{daughter(1,pz)} & $v_{12}$ & $0.026$ \\ \hline
+13 &\texttt{extraInfo(decayModeID)} & $v_{13}$ & $0.026$ \\ \hline
+14 &\texttt{daughter(0,pz)} & $v_{14}$ & $0.022$ \\ \hline
+15 &\texttt{daughter(0,pValue)} & $v_{15}$ & $0.021$ \\ \hline
+16 &\texttt{daughter(1,tanlambda)} & $v_{16}$ & $0.021$ \\ \hline
+17 &\texttt{daughter(0,d0Err)} & $v_{17}$ & $0.020$ \\ \hline
+18 &\texttt{daughter(1,pValue)} & $v_{18}$ & $0.019$ \\ \hline
+19 &\texttt{daughter(0,phi0Err)} & $v_{19}$ & $0.018$ \\ \hline
+20 &\texttt{daughter(0,useCMSFrame(p))} & $v_{20}$ & $0.018$ \\ \hline
+21 &\texttt{daughter(0,tanlambda)} & $v_{21}$ & $0.017$ \\ \hline
+22 &\texttt{daughter(0,phi0)} & $v_{22}$ & $0.017$ \\ \hline
+23 &\texttt{daughter(1,phi0)} & $v_{23}$ & $0.016$ \\ \hline
+24 &\texttt{daughter(0,z0Err)} & $v_{24}$ & $0.014$ \\ \hline
+25 &\texttt{daughter(1,omega)} & $v_{25}$ & $0.014$ \\ \hline
+26 &\texttt{daughter(0,omega)} & $v_{26}$ & $0.013$ \\ \hline
+27 &\texttt{daughter(1,z0Err)} & $v_{27}$ & $0.013$ \\ \hline
+28 &\texttt{daughter(0,pt)} & $v_{28}$ & $0.012$ \\ \hline
+29 &\texttt{daughter(0,omegaErr)} & $v_{29}$ & $0.012$ \\ \hline
+30 &\texttt{daughter(1,pt)} & $v_{30}$ & $0.011$ \\ \hline
+31 &\texttt{daughter(1,omegaErr)} & $v_{31}$ & $0.011$ \\ \hline
+32 &\texttt{daughter(0,tanlambdaErr)} & $v_{32}$ & $0.010$ \\ \hline
+33 &\texttt{daughter(1,nSVDHits)} & $v_{33}$ & $0.010$ \\ \hline
+34 &\texttt{daughter(1,tanlambdaErr)} & $v_{34}$ & $0.009$ \\ \hline
+35 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{35}$ & $0.002$ \\ \hline
+36 &\texttt{daughter(1,charge)} & $v_{36}$ & $0.000$ \\ \hline
+37 &\texttt{daughter(0,charge)} & $v_{37}$ & $0.000$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of duplicate track pair MVA training for ROE clean-up.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v19}}
+\caption{Feature distributions for MVA training of duplicate track pair candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\begin{figure}\ContinuedFloat
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v20}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v21}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v22}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v23}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v24}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v25}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v26}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v27}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v28}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v29}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v30}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v31}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v32}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v33}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v34}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v35}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v36}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v37}}
+\caption{Feature distributions for MVA training of duplicate track pair candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/dup_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of duplicate track pair candidates in the scope of the ROE clean-up.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/dup_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for duplicate track pair candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/dup_roc}
+\caption{ROC curves of the MVA classifier output for duplicate track pair candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{ROE clean-up duplicate track training}
+
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{d0} & $v_{0}$ & $0.093$ \\ \hline
+1 &\texttt{extraInfo(nSVDHitsDiff)} & $v_{1}$ & $0.089$ \\ \hline
+2 &\texttt{z0} & $v_{2}$ & $0.080$ \\ \hline
+3 &\texttt{extraInfo(pValueDiff)} & $v_{3}$ & $0.060$ \\ \hline
+4 &\texttt{extraInfo(ptDiff)} & $v_{4}$ & $0.059$ \\ \hline
+5 &\texttt{extraInfo(z0Diff)} & $v_{5}$ & $0.055$ \\ \hline
+6 &\texttt{extraInfo(phi0Diff)} & $v_{6}$ & $0.046$ \\ \hline
+7 &\texttt{extraInfo(pzDiff)} & $v_{7}$ & $0.045$ \\ \hline
+8 &\texttt{extraInfo(nCDCHitsDiff)} & $v_{8}$ & $0.043$ \\ \hline
+9 &\texttt{phi0Err} & $v_{9}$ & $0.042$ \\ \hline
+10 &\texttt{extraInfo(tanlambdaDiff)} & $v_{10}$ & $0.039$ \\ \hline
+11 &\texttt{z0Err} & $v_{11}$ & $0.035$ \\ \hline
+12 &\texttt{pValue} & $v_{12}$ & $0.030$ \\ \hline
+13 &\texttt{extraInfo(omegaDiff)} & $v_{13}$ & $0.030$ \\ \hline
+14 &\texttt{tanlambdaErr} & $v_{14}$ & $0.029$ \\ \hline
+15 &\texttt{nCDCHits} & $v_{15}$ & $0.028$ \\ \hline
+16 &\texttt{pt} & $v_{16}$ & $0.027$ \\ \hline
+17 &\texttt{d0Err} & $v_{17}$ & $0.025$ \\ \hline
+18 &\texttt{phi0} & $v_{18}$ & $0.025$ \\ \hline
+19 &\texttt{pz} & $v_{19}$ & $0.024$ \\ \hline
+20 &\texttt{cosTheta} & $v_{20}$ & $0.022$ \\ \hline
+21 &\texttt{omegaErr} & $v_{21}$ & $0.022$ \\ \hline
+22 &\texttt{useCMSFrame(p)} & $v_{22}$ & $0.021$ \\ \hline
+23 &\texttt{omega} & $v_{23}$ & $0.018$ \\ \hline
+24 &\texttt{nSVDHits} & $v_{24}$ & $0.014$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of duplicate track MVA training for ROE clean-up.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v19}}
+\caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\begin{figure}\ContinuedFloat
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v20}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v21}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v22}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v23}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v24}}
+\caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/curl_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of duplicate track candidates in the scope of the ROE clean-up.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/curl_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for duplicate track candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/curl_roc}
+\caption{ROC curves of the MVA classifier output for duplicate track candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{$q \bar q$ suppression training}
+
+\section*{$B \bar B$ suppression training}
 
 
 \end{document}

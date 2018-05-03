@@ -13,3 +13,11 @@
 *.toc
 
 *.log
+
+*.bib
+
+*.bbl
+
+*.blg
+
+*.xml
