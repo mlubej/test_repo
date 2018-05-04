@@ -7,8 +7,6 @@
 \newcommand {\decaya}{$B \rightarrow K K \ell \nu$}
 \newcommand {\decayb}{$B^+ \rightarrow K^+ K^- \ell^+ \nu$}
 
-%TODO: check spaces after these commands
-
 %\usepackage{biblatex}
 %\bibliography{mybib.bib} 
 \usepackage[english]{babel}% Recommended
@@ -96,7 +94,6 @@ Combinations of quarks such as $q_1 q_2 q_3$ (hadrons) or $q_1 \bar{q}_2$ (meson
 This analysis revolves around decays of the so called $B$ mesons, which are particles that consist of a $b$ quark and a light $\bar u$ or $\bar d$ quark (or vice-versa). One of the most surprising features of the universe that can be studied with decays of $B$ mesons is the $CP$ symmetry violation ($\cancel{CP}$). $CP$ symmetry is a combination of the $C$ symmetry (charge conjugation) and the $P$ symmetry (spatial inversion). It states that there is no reason why processes of particles and mirrored processes of antiparticles would be different. Today we know that this does not hold for all cases and we in fact find processes which violate this postulate. We also know that $\cancel{CP}$ is very closely related to the the weak nuclear force. Here lies our motivation for studying decays of $B$ mesons, since they exhibit a rich spectrum of decays, many of which underway via the weak nuclear force.
 
 One of the most important properties of the weak nuclear force is that it can change the flavor of particles. Flavor is a quantum number which is conserved for each type of quark, so changing a flavor of a quark means changing the quark itself. Such processes are forbidden for the electromagnetic and the strong nuclear force, but not for the weak one. All of the information regarding quark transitions and transition probabilities can be merged into a form of a complex matrix called the Cabibbo-Kobayashi-Maskawa (CKM) matrix \cite{cabibbo1963unitary,kobayashi1973cp}
-
 \begin{equation}
 V_{CKM} = \begin{bmatrix}
     V_{ud} & V_{us} & V_{ub}\\
@@ -120,13 +117,11 @@ It can be represented by a triangle in the complex plane, called the unitarity t
 \end{figure}
 
 In this analysis we focus on the $V_{ub}$ CKM matrix element, which corresponds to $b \rightarrow u$ quark transitions. It has the smallest absolute value of all the CKM matrix elements and the largest error, so it offers the most room for improvement. Such quark transitions are present in charmless semi-leptonic $B$ meson decays of the form
-
 \begin{equation}
 B^+ \to X_u \ell^+ \nu_\ell,
 \end{equation}
 
 where $X_u$ represents a charmless hadron with a $u$ quark and $\ell$ one of the charged leptons $e,~\mu$ or $\tau$. Measuring the decay rate of the $B$ meson in such decays offers the way for the CKM matrix element determination. Decay rates are directly connected to the $V_{ub}$ element as
-
 \begin{equation}
 \mathrm{d} \Gamma \propto G_F^2 \vert V_{ub} \vert ^2 \vert L^\mu \langle X_u \vert \bar u \gamma_u \frac{1}{2} (1-\gamma_5) b \vert B \rangle \vert ^2,
 \end{equation}
@@ -150,7 +145,7 @@ If $V_{ub}$ is determined with both these methods, the values can be compared. I
 
 Even though the Belle experiment finished collecting data in 2010, the data is still relevant and available for analysis. On the other hand, Belle II experiment has entered its initial stages of operation. A large part of Belle II software is already available and working, so the practical part of this analysis is done in the framework of the Belle II experiment, called Belle II Analysis Framework (BASF2). The Belle II detector wasn't able to collect a significant amount of data for this analysis, however, the Belle II collaboration developed a data converter for Belle to Belle II format conversion, making it possible to perform analysis of Belle data with Belle II software and enables us to make a relevant contribution despite the transitional period.
 
-Specifically, we will be focusing on decays of the charged $B$ mesons of the form \decayb, since it includes two charged kaons, as opposed to the case of the neutral $B$ meson decay. The reason for this is a simpler decay chain and a higher reconstruction efficiency. All further occurrences of \decaya~automatically imply decays of the form \decayb and its charge conjugate counterpart.
+Specifically, we will be focusing on decays of the charged $B$ mesons of the form \decayb, since it includes two charged kaons, as opposed to the case of the neutral $B$ meson decay. The reason for this is a simpler decay chain and a higher reconstruction efficiency. All further occurrences of \decaya~automatically imply decays of the form \decayb~and its charge conjugated counterpart.
 
 \chapter{Data and Monte-Carlo samples}\label{sec:data-and-monte-carlo-samples}
 
@@ -158,13 +153,13 @@ The Belle detector acquired a dataset of about $L_0 \approx 710\e{fb^{-1}}$ of i
 
 The following samples were used in this analysis
 \begin{itemize}
-\item signal MC, corresponding to about $X \times L_0$,
+\item signal MC, corresponding to about $400 \times L_0$,
 \item other MC
 \begin{itemize}
-\item generic, $10$ streams of $B\bar B$ and $6$ streams of $q\bar q$ produced at $\Upsilon(4S)$ resonance energy, where each stream corresponds to $L_0$,
+\item generic, $10$ streams of $B\bar B$ (denoted \texttt{charged} and \texttt{mixed}) and $6$ streams of $q\bar q$ produced at $\Upsilon(4S)$ resonance energy, where each stream corresponds to $L_0$,
 \item generic, $6$ streams of $q\bar q$ produced at $60\e{MeV}$ below $\Upsilon(4S)$ resonance energy, where each stream corresponds to $1/10 \times L_0$,
-\item $B\to X_u \ell \nu$ (including our signal), not included in previous MC samples, equal to an amount of $20 \times L_0$, 
-\item other rare $B$ meson decays, not included in previous MC samples, equal to an amount of $50 \times L_0$, 
+\item $B\to X_u \ell \nu$ (denoted \texttt{ulnu}), not included in previous MC samples, equal to an amount of $20 \times L_0$, 
+\item other rare $B$ meson decays (denoted \texttt{rare}), not included in previous MC samples, equal to an amount of $50 \times L_0$, 
 \end{itemize}
 \item data
 \begin{itemize}
@@ -307,8 +302,6 @@ Based on these distributions, we can define a set of cuts
 \item $p_{CMS} \in [0.4,\,2.6]~\e{GeV}/c$ for electrons,
 \item $p_{CMS} \in [0.6,\,2.6]~\e{GeV}/c$ for muons.
 \end{itemize}
-
-%TODO: space before \begin{...}
 
 After this selection we can determine the optimal PID cuts for electrons and muons, where we optimize the selection by maximizing the standard definition of \textit{figure of merit} (FOM), defined in Eq. (\ref{eq:fom})
 \begin{equation}
@@ -552,7 +545,6 @@ Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_
 The missing information due to an escaping neutrino in our reconstructed channel is replaced by information from the companion $B$ meson. Since this is an untagged reconstruction, the quality of the companion $B$ meson affects the properties of signal candidate. Perfect reconstruction of a hadronically decaying companion $B$ meson results in pronounced peaks at $\Delta E \approx 0$, $m_{miss}^2 \approx 0$ and $M_{BC} \approx m_B$, while imperfect reconstruction due to any kind of missing particles produces long tails and/or a shift from the desired value in the mentioned distributions. These effects are undesired, since they make it harder to separate signal from background.
 
 To remedy this, we split our signal candidates into 4 categories and work only with the best category. For categorization we use splitting in two ways. First, we look at the charge product of the reconstructed $B$ meson and the ROE object. For correctly reconstructed events, this should have a value of 
-
 \begin{equation}
 \label{eq:chargeprod}
 q_{B_{sig}}~q_{B_{comp}} = -1,
@@ -561,7 +553,6 @@ q_{B_{sig}}~q_{B_{comp}} = -1,
 however, this value is distributed due to missing charged particles in the reconstruction. Secondly, we train an MVA classifier based on ROE object properties in order to recognize companion $B$ mesons, which decayed hadronically. The details of the training are described in subsection \ref{subs:HDMVA}.
 
 We define the 4 categories in the following way
-%TODO check
 \begin{enumerate} 
 \item[]category I: $q_{B^\pm}~q_{B^\mp} = -1$ and $BDT_{had.} > 0.57$,
 \item[]category II: $q_{B^\pm}~q_{B^\mp} \neq -1$ and $BDT_{had.} > 0.57$,
@@ -980,8 +971,6 @@ where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_
 where the "*" symbol denotes when a track is recognized as a duplicate track with respect to the other track. We see that no matter the order, both $t_2$ and $t_3$ get recognized as duplicate tracks correctly.
 
 \subsubsection{Training the duplicate track MVA}
-%TODO: add new vars
-
 The training procedure is similar as before. The sample of tracks from duplicate track pairs is now fed into an MVA, which is trained to distinguish duplicate tracks from good tracks. The dataset contains
 \begin{itemize}
 \item 160146 target candidates,
@@ -1123,7 +1112,6 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \end{table}
 
 Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at \vars~variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
-%TODO: Belle cleanup setup
 
 \begin{figure}[H]
 \centering
@@ -1620,7 +1608,7 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 \caption{Feature distributions for MVA training of $\pi^0$ candidates in the scope of ROE clean-up.}
 \end{figure}
 
-\begin{figure}\ContinuedFloat
+\begin{figure}[H]\ContinuedFloat
 \captionsetup{width=0.8\linewidth}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v16}}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/pi0_v17}}
@@ -1804,7 +1792,7 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 \caption{Feature distributions for MVA training of duplicate track pair candidates in the scope of ROE clean-up.}
 \end{figure}
 
-\begin{figure}\ContinuedFloat
+\begin{figure}[H]\ContinuedFloat
 \captionsetup{width=0.8\linewidth}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v20}}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/dup_v21}}
@@ -1916,7 +1904,7 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 \caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
 \end{figure}
 
-\begin{figure}\ContinuedFloat
+\begin{figure}[H]\ContinuedFloat
 \captionsetup{width=0.8\linewidth}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v20}}
 \subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v21}}
@@ -1951,9 +1939,300 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 \caption{ROC curves of the MVA classifier output for duplicate track candidates training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
+\section*{Hadronic decay MVA training}
+
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{B\_qpKinLepton} & $v_{0}$ & $0.510$ \\ \hline
+1 &\texttt{B\_qpIntermediateKinLepton} & $v_{1}$ & $0.170$ \\ \hline
+2 &\texttt{B\_nLepInROE} & $v_{2}$ & $0.151$ \\ \hline
+3 &\texttt{B\_qpIntermediateElectron} & $v_{3}$ & $0.031$ \\ \hline
+4 &\texttt{B\_qpMuon} & $v_{4}$ & $0.026$ \\ \hline
+5 &\texttt{B\_ROE\_PThetacms0} & $v_{5}$ & $0.020$ \\ \hline
+6 &\texttt{B\_nROEDistTrk} & $v_{6}$ & $0.020$ \\ \hline
+7 &\texttt{B\_qpElectron} & $v_{7}$ & $0.019$ \\ \hline
+8 &\texttt{B\_ROECharge0} & $v_{8}$ & $0.018$ \\ \hline
+9 &\texttt{B\_qpIntermediateMuon} & $v_{9}$ & $0.013$ \\ \hline
+10 &\texttt{B\_nROETrk0} & $v_{10}$ & $0.010$ \\ \hline
+11 &\texttt{B\_TagVPvalue} & $v_{11}$ & $0.007$ \\ \hline
+12 &\texttt{B\_nKaonInROE} & $v_{12}$ & $0.004$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of hadronic decay MVA training.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v12}}
+\caption{Feature distributions for MVA training of hadronically decayed candidates.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/HD_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of hadronically decayed candidates.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/HD_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/HD_roc}
+\caption{ROC curves of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
 \section*{$q \bar q$ suppression training}
 
-\section*{$B \bar B$ suppression training}
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{B\_R2} & $v_{0}$ & $0.275$ \\ \hline
+1 &\texttt{B\_CosTBTO} & $v_{1}$ & $0.162$ \\ \hline
+2 &\texttt{B\_ThrustB} & $v_{2}$ & $0.066$ \\ \hline
+3 &\texttt{B\_roeFit\_dz} & $v_{3}$ & $0.056$ \\ \hline
+4 &\texttt{B\_hso02} & $v_{4}$ & $0.056$ \\ \hline
+5 &\texttt{B\_ThrustO} & $v_{5}$ & $0.035$ \\ \hline
+6 &\texttt{B\_hoo2} & $v_{6}$ & $0.034$ \\ \hline
+7 &\texttt{B\_hso12} & $v_{7}$ & $0.025$ \\ \hline
+8 &\texttt{B\_qpFastHadron} & $v_{8}$ & $0.020$ \\ \hline
+9 &\texttt{B\_hoo0} & $v_{9}$ & $0.018$ \\ \hline
+10 &\texttt{B\_cc2\_CcROE} & $v_{10}$ & $0.018$ \\ \hline
+11 &\texttt{B\_CosTBz} & $v_{11}$ & $0.017$ \\ \hline
+12 &\texttt{B\_qpKaon} & $v_{12}$ & $0.016$ \\ \hline
+13 &\texttt{B\_cc3\_CcROE} & $v_{13}$ & $0.016$ \\ \hline
+14 &\texttt{B\_hso01} & $v_{14}$ & $0.016$ \\ \hline
+15 &\texttt{B\_cc4\_CcROE} & $v_{15}$ & $0.015$ \\ \hline
+16 &\texttt{B\_qpMaximumPstar} & $v_{16}$ & $0.014$ \\ \hline
+17 &\texttt{B\_cc5\_CcROE} & $v_{17}$ & $0.012$ \\ \hline
+18 &\texttt{B\_cc1\_CcROE} & $v_{18}$ & $0.011$ \\ \hline
+19 &\texttt{B\_cc6\_CcROE} & $v_{19}$ & $0.011$ \\ \hline
+20 &\texttt{B\_cc7\_CcROE} & $v_{20}$ & $0.010$ \\ \hline
+21 &\texttt{B\_cc9\_CcROE} & $v_{21}$ & $0.009$ \\ \hline
+22 &\texttt{B\_qpSlowPion} & $v_{22}$ & $0.009$ \\ \hline
+23 &\texttt{B\_cc8\_CcROE} & $v_{23}$ & $0.009$ \\ \hline
+24 &\texttt{B\_qpFSC} & $v_{24}$ & $0.009$ \\ \hline
+25 &\texttt{B\_qpLambda} & $v_{25}$ & $0.008$ \\ \hline
+26 &\texttt{B\_hoo1} & $v_{26}$ & $0.008$ \\ \hline
+27 &\texttt{B\_qpKaonPion} & $v_{27}$ & $0.008$ \\ \hline
+28 &\texttt{B\_hso10} & $v_{28}$ & $0.007$ \\ \hline
+29 &\texttt{B\_hoo4} & $v_{29}$ & $0.007$ \\ \hline
+30 &\texttt{B\_hso04} & $v_{30}$ & $0.006$ \\ \hline
+31 &\texttt{B\_hso03} & $v_{31}$ & $0.005$ \\ \hline
+32 &\texttt{B\_hoo3} & $v_{32}$ & $0.005$ \\ \hline
+33 &\texttt{B\_hso14} & $v_{33}$ & $0.005$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of $q\bar q$ suppression MVA training.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v19}}
+\caption{Feature distributions for MVA training of $q\bar q$ background suppression.}
+\end{figure}
+
+\begin{figure}[H]\ContinuedFloat
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v20}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v21}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v22}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v23}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v24}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v25}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v26}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v27}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v28}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v29}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v30}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v31}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v32}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v33}}
+\caption{Feature distributions for MVA training of $q\bar q$ background suppression.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/QQ_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $q\bar q$ background suppression.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/QQ_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $q\bar q$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/QQ_roc}
+\caption{ROC curves of the MVA classifier output for $q\bar q$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{Standard $B \bar B$ suppression training}
+
+\subsection*{Variable importance}
+
+\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+\hline
+& Name & Alias & Importance \\ \hline
+0 &\texttt{B\_cosMomVtxKKlnu} & $v_{0}$ & $0.412$ \\ \hline
+1 &\texttt{B\_ROE\_PThetacms0} & $v_{1}$ & $0.101$ \\ \hline
+2 &\texttt{B\_nROETrk0} & $v_{2}$ & $0.067$ \\ \hline
+3 &\texttt{B\_K1FT} & $v_{3}$ & $0.056$ \\ \hline
+4 &\texttt{B\_nROEDistTrk} & $v_{4}$ & $0.055$ \\ \hline
+5 &\texttt{B\_cosBY} & $v_{5}$ & $0.042$ \\ \hline
+6 &\texttt{B\_xiZ0} & $v_{6}$ & $0.038$ \\ \hline
+7 &\texttt{B\_roeFit\_dz} & $v_{7}$ & $0.034$ \\ \hline
+8 &\texttt{B\_cosMomVtx} & $v_{8}$ & $0.033$ \\ \hline
+9 &\texttt{B\_missM2Veto1} & $v_{9}$ & $0.030$ \\ \hline
+10 &\texttt{B\_nKaonInROE} & $v_{10}$ & $0.021$ \\ \hline
+11 &\texttt{B\_QVeto1} & $v_{11}$ & $0.020$ \\ \hline
+12 &\texttt{B\_chiProb} & $v_{12}$ & $0.017$ \\ \hline
+13 &\texttt{B\_K0FT} & $v_{13}$ & $0.016$ \\ \hline
+14 &\texttt{B\_TagVPvalue} & $v_{14}$ & $0.015$ \\ \hline
+15 &\texttt{B\_cosMomVtxKK} & $v_{15}$ & $0.014$ \\ \hline
+16 &\texttt{B\_missM20} & $v_{16}$ & $0.014$ \\ \hline
+17 &\texttt{B\_missM2Veto2} & $v_{17}$ & $0.007$ \\ \hline
+18 &\texttt{B\_QVeto2} & $v_{18}$ & $0.006$ \\ \hline
+\captionsetup{width=0.8\linewidth}
+\caption{Variable names, aliases and importance in the scope of $B\bar B$ background suppression.}
+\end{longtable}
+
+\subsection*{Variable distributions}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v18}}
+\caption{Feature distributions for MVA training of $B\bar B$ background suppression.}
+\end{figure}
+
+\subsection*{Hyper-parameter optimization}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/BB01c_hpo}
+\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $B\bar B$ background suppression.}
+\end{figure}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/BB01c_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/BB01c_roc}
+\caption{ROC curves of the MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\section*{Uniformity boosted $B \bar B$ suppression training}
+
+\subsection*{Hyper-parameter optimization}
+
+Hyper-parameters were not optimized due to the large CPU time consumption of the algorithm. The following set up of the hyper-parameters was chosen
+\begin{itemize}
+\item \texttt{nTrees}: 300
+\item \texttt{nLevels}: 4
+\end{itemize}
+
+\subsection*{Results}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/uMVA1dc_effpur}
+\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the uniformity boosted MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/addendums/uMVA1dc_roc}
+\caption{ROC curves of the uniformity boosted MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
+\end{figure}
 
 
 \end{document}

@@ -1,5 +1,5 @@
 - References
-  done to some extent
+  DONE to some extent
   
 - B2BII validation plots
   there was a difference in plots, looking into it
@@ -8,11 +8,11 @@
   waiting for jobs
 
 - Control Sample fit plots
-  1 job crashed, otherwise additional cut seems cool, only thing left now is to write it all up
-  also, normalize off resonance plots, use normalization factor as weight
-  draw BDTqq plot with corrected yields
+  DONE
+  wont do normalization to off-resonance
 
 - Category 2 results
   in the process, doesnt seem to be worth the effors (1.37 sigma)
 
-- MVA addendums
+- MVA addendums:
+  DONE
