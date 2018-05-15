@@ -1,18 +1,18 @@
 - References
-  DONE to some extent
+  DONE to some extent, add Vub values in introduction and HFLAV reference
   
 - B2BII validation plots
-  there was a difference in plots, looking into it
+  there was a difference in plots, bug found, not solved yet
 
 - ROE cleanup validation plots
-  waiting for jobs
-
-- Control Sample fit plots
-  DONE
-  wont do normalization to off-resonance
+  made plots, writing section. in the meantime running on full sample
 
 - Category 2 results
   in the process, doesnt seem to be worth the effors (1.37 sigma)
+  will see later
 
-- MVA addendums:
-  DONE
+- Bkg composition
+
+- efficiency error calculation
+
+- Br calculation of control sample
