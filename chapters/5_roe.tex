@@ -404,17 +404,15 @@ Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:bellefo
 
 \section{Clean-up results}
 
-In this section the results of the ROE clean-up are shown. It is clear that cleaning up the event affects the shape of various distribution, especially \vars, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, this also results in an efficiency increase of the reconstructed sample. 
+In this section the results of the ROE clean-up are shown. It is obvious that cleaning up the event affects the shape of various distribution, especially \vars, which we are most interested in. Since the reconstruction procedure includes cuts on the cleaned-up variables, the clean-up also affects the efficiency of the reconstructed sample, not only the resolution. 
 
-We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. Figure \ref{fig:roeopt} shows distributions of \vars~for various clean-up setups. We see an improvement in resolution as well as an increase in efficiency in both observed variables for the case where the ROE clean-up is performed. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of $\Delta E$ with respect to the default case. While both the Belle and ROE clean-up increase efficiency, only ROE clean-up improves the resolution.
-
-%which is the same as our optimal clean-up, with the exception of the masses of FSP particles in Eq. (\ref{eq:pcharged}), which are, in this case, taken from MC. Mass hypothesis determination of charged FSP particles in Eq. (\ref{eq:pcharged}) based on PID information seems to be quite successful, since the benefits of using true masses from Monte Carlo are very small.
+We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. We apply the clean-up procedure to our signal MC sample with all the applied cuts, defined in \ref{s:ss}, except for the signal categorization cuts. Figure \ref{fig:roeopt} (left) shows signal candidate distributions of \vars~for various clean-up setups. Focusing on the ROE clean-up, we see an improvement in resolution in both observed variables and an overall decrease in efficiency. The efficiency decrease is expected, since the cleaned-up variables are able to better isolate the perfectly reconstructed candidates and discard the non-perfect candidates. In fact, the efficiency of the perfectly reconstructed candidates increases after the ROE clean-up, as shown in Figure \ref{fig:roeopt} (right). The signal MC sample after in case of the Belle clean-up also shows a slight improvement in the resolution, but looking at the perfectly reconstructed candidates we see that this clean-up procedure is not optimal. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of the clean-up procedures for the perfect signal with respect to the default case, based on the $\Delta E$ distribution. While both the Belle and ROE clean-up improve the resolution, ROE clean-up performs significantly better and also increases the amount of the perfectly reconstructed candidates in the final sample.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_opt}
-\caption{\vars~distributions for various types of clean-up procedures. For ROE clean-up, the procedure seems to improve resolution as well as increase efficiency, compared to the default case.}
+\caption{\vars~distributions for various types of clean-up procedures. The figures on the left are shown for the full signal sample after the stated cuts, while the figures on the right are shown for the perfectly reconstructed signal candidates. For ROE clean-up, the procedure seems to improve resolution as well as increase the amount of perfectly reconstructed candidates, relative to the default case.}
 \label{fig:roeopt}
 \end{figure}
 
@@ -424,22 +422,22 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \hline
  & Efficiency ratio & FWHM ratio \\
  \hline 
- Belle clean-up & $121.90~\%$  & $102.60~\%$  \\
+ Belle clean-up & $23.8~\%$  & $73.7~\%$  \\
  \hline
- ROE clean-up & $123.40~\%$ & $77.92~\%$ \\
+ ROE clean-up & $115.0~\%$ & $42.1~\%$ \\
  \hline
 \end{tabular}
 \caption{Comparison of efficiencies and $FWHM$'s of ROE and Belle clean-up setups with respect to the default case (no clean-up).}
 \label{tab:roeeff}
 \end{table}
 
-Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. As a cross-check, we can also look at \vars~variables for each value of the charge product. These plots are shown in Figure \ref{fig:roe_split} and they show a clear increase in efficiency and improvement in resolution for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be an increase in efficiency for both cases of clean-up, but neither help improve the resolution. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
+Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. The figure shows an improved resolution of the distribution, which means that candidates migrate to the correct value of the charge product after the clean-up. Looking at the perfectly reconstructed candidates we again see the increase in the bin corresponding to the correct charge product. As a cross-check, we can also look at \vars~variables for each value of the charge product. These plots are shown for the full signal MC sample in Figure \ref{fig:roe_split} and they show a clear resolution improvement for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product there also seems to be a small improvement for both cases of clean-up, but it is negligible compared to the plots in the second column. This supports our choice of signal categorization, defined in Section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_chargeprod}
-\caption{Distribution of $B_{sig}$ and $B_{comp}$ charge product for various types of clean-up procedures. Fore ROE clean-up, the procedure seems to increase the number of candidates with the correct value of the product.}
+\caption{Distribution of the charge product of both $B$ mesons for various types of clean-up procedures, shown on the full signal MC (left) and for the perfectly reconstructed signal candidates (right). For ROE clean-up, the procedure seems to increase the number of perfectly reconstructed candidates.}
 \label{fig:roe_chargeproduct}
 \end{figure}
 
@@ -447,10 +445,43 @@ Another variable which heavily depends on the clean-up is the charge product of 
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_split}
-\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom)for various types of clean-up procedures, split by specific values of the charge product. While there seems to be an increase in efficiency for both clean-up procedures in general, ROE-cleanup makes the most improvement to resolution and efficiency for the correct value of the charge product.}
+\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom) for various types of clean-up procedures, split by specific values of the charge product, shown for the full signal MC. There is a significant improvement in resolution after ROE-cleanup for the case of the correct value of the charge product.}
 \label{fig:roe_split}
 \end{figure}
 
 \section{ROE clean-up validation}
 
-The ROE clean-up seems to perform well on signal MC. It is necessary to make sure that this procedure performs as well on simulated and measured data, which is done in this section.
+The ROE clean-up seems to perform well on signal MC based on the results in the previous section. However, it is necessary to make sure that this procedure performs as well on other simulated and measured data, which is done in this section. The clean-up procedure is validated on the control sample, $$B^+ \to \bar D {}^0 \ell^+ \nu,\quad D^0 \to K^+K^-,$$
+which was already defined in Section \ref{sec:control-decay}. The control candidates are reconstructed in the same manner as the signal candidates. In addition to the same cuts applied as in the previous section we also apply a selection to make the control sample more significant. We discard all candidates which fail to pass the cut on invariant mass of the two kaons
+\begin{equation}
+1.852\e{GeV}/c^2 < m_{KK} < 1.876\e{GeV}/c^2
+\end{equation}
+as shown in Figure \ref{fig:roe_mKK}.
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_mKK_cut}
+\caption{Distributions of $m_{KK}$ for the full MC dataset. The black lines represent the cut on region in the $m_{KK}$ distribution where the control sample is enhanced.}
+\label{fig:roe_mKK}
+\end{figure}
+
+With the control sample selection determined, we now run the reconstruction with and without the ROE clean-up procedure on MC and data. For the purpose of this validation we only run the reconstruction over experiment no.$~43$, which corresponds to about $56.2\e{fb^{-1}}$. 
+
+The affects of the ROE clean-up are shown in Figure \ref{fig:roe_val}. We see that data and MC agree well, and evidently even better after the clean-up procedure. The control sample resolution seems very poor in the case without the clean-up, but it improves significantly if the clean-up procedure is applied, as expected. The simulated background also seems to gain an improvement in the resolution, but this is likely due to the background consisting of similar candidates as the control sample. This means that the clean-up performs as expected due to the nature of the decays and does not arbitrarily shape the background to be more signal like. Additionally, it should be pointed out that, after the clean-up, the simulated background resolution is worse compared to the control decay resolution, while this is not the case if the clean-up procedure is not performed.
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_val}
+\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ bottom for the case without (left) and with ROE clean-up (right). The resolution of the control sample is improved and the MC and data agree well in all aspects. While the simulated background resolution is also improved, it is worse compared to the resolution of the control sample.}
+\label{fig:roe_val}
+\end{figure}
+
+To perform the clean-up validation in greater detail we also compare the data and MC agreement in bins of the charge product of the two $B$ mesons. Figure \ref{fig:roe_val_split} shows the cleaned-up versions of \vars~for each charge product bin in the same manner as shown in the previous section. We see that the MC and data agreement persists in all cases. 
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/roe_val_split}
+\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom) split in bins of the charge product of the two $B$ mesons.}
+\end{figure}
+
+The ROE clean-up procedure seems to perform well. It significantly improves the resolution of the signal/control candidates and increases the amount of perfectly clean events. The clean-up procedure was also applied to data and no disagreement with respect to the simulated MC samples was found. This means that the procedure does not differ between MC and data and does not affect them differently. The procedure was therefore validated in great detail and is suitable to be used in this analysis.

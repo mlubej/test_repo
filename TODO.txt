@@ -1,11 +1,11 @@
 - References
-  DONE to some extent, add Vub values in introduction and HFLAV reference
+  Add Vub values in introduction and HFLAV reference
   
 - B2BII validation plots
   there was a difference in plots, bug found, not solved yet
 
 - ROE cleanup validation plots
-  made plots, writing section. in the meantime running on full sample
+  DONE, running on full sample to change plots
 
 - Category 2 results
   in the process, doesnt seem to be worth the effors (1.37 sigma)
