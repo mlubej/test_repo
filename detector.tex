@@ -1,0 +1,147 @@
+\documentclass[headings=standardclasses,headings=big,oneside,a4paper,openany,12pt]{scrbook}
+
+\newcommand {\e}[1]{\mathrm{~#1}}
+\newcommand {\E}[1]{\times 10^{#1}}
+\newcommand {\vars}{$\Delta E$ and $M_{BC}$}
+\newcommand {\btbii}{\texttt{B2BII}}
+\newcommand {\decaya}{$B \to K K \ell \nu$}
+\newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
+
+%\usepackage{biblatex}
+%\bibliography{mybib.bib} 
+\usepackage[english]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+\usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
+\addbibresource{mybib.bib}% Syntax for version >= 1.2
+
+\usepackage{paralist}
+\usepackage{caption}
+\usepackage{cancel}
+
+\usepackage{longtable}
+
+\setlength{\parskip}{1em}%
+\setlength{\parindent}{0cm}
+
+\usepackage{titling}
+\usepackage{amsmath,amssymb,amsfonts,nicefrac}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+\usepackage{mathtools}
+\allowdisplaybreaks
+\usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage{dictsym}
+\usepackage{braket}
+\usepackage{slashed}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{enumerate}
+\usepackage{array}
+\setlength{\extrarowheight}{.5ex}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{subfigure}
+
+\begin{document}
+
+
+\chapter{Experimental Setup}
+The data used in this analysis were produced in $e^+e^-$ collisions at the KEKB accelerator and collected with the Belle detector. The experiment was hosted at the High Energy Accelerator Research Organization (KEK) in Tsukuba, Japan. The experiment ran
+from years 1999 to 2010, collecting data at and near the energy of the $\Upsilon(4S)$ resonance. This chapter briefly describes the accelerator and the detector. The descriptions are based on detailed reports from [X] and [X].
+
+
+\section{KEKB Accelerator}
+KEKB is an asymmetric $e^+e^-$ collider, composed roughly of an electron source and a positron target, a linear accelerator (Linac) and two separate main rings with a circumference of about $3\e{km}$ as shown in Figure X. Electrons are first produced by a thermal electron gun and accelerated in the Linac to an energy of about $8\e{GeV}$. Part of the electrons collide with a tungsten target to produce positrons, which are accelerated in the Linac to an energy of about $3.5\e{GeV}$. Electron and positron beams are injected into the high- (HER) and low energy ring (LER) where they collide at a single interaction point (IP) at an angle of about $22\e{mrad}$. The combined centre-of-mass (CM) energy of the collision corresponds to the mass of the $\Upsilon(4S)$ resonance
+\begin{equation}
+E_{CM} = 2\sqrt{E_{e^+}E_{e^-}} = m_{\Upsilon(4S)}c^2 \approx 10.58\e{GeV}.
+\end{equation}
+
+PLOT
+
+%TODO describe what is Bhabha?
+The $\Upsilon(4S)$ state is produced only in a fraction of all collisions, but when it is produced, it predominantly decays to a pair of charged or neutral $B$ mesons. This setup was chosen in accordance with the main goal of the experiment, which was to study CP
+violation in the $B$ meson system. In other cases the collisions of $e^+e^-$ result in Bhabha scattering, two-photon events, muon or tau lepton pair production, and quark pair production of $q \bar q$, where $q=u,\,d,\,s$ or $c$. Table X shows the cross-sections for all mentioned interactions in collisions of $e^+e^-$.
+In addition to the nominal CM energy, the experiment collected data also at energies
+corresponding to other $\Upsilon(nS)$ resonances, where $n = 1,\,2,\,3,\,5$, and also at energies below the resonances.
+
+% TODO: check tables style and caption, cite belle detector X
+
+
+\begin{center}
+	\begin{tabular}{c|c}
+		Interaction & Cross-section $[\mathrm{nb}]$ \\ 
+		\hline
+		$\Upsilon(4S) \to B \bar B$ & $1.2$ \\
+		$q \bar q,~q \in [u,d,s,c]$ & $2.8$ \\
+		$\mu^+\mu^-,~\tau^+\tau^-$ & $1.6$ \\
+		Bhabha scattering (within detector acceptance)& $44$ \\
+		Other QED processes (within detector acceptance)& $\sim 17$ \\
+		\hline
+		Total & $\sim 67$ 
+	\end{tabular} 
+\end{center}
+
+KEKB achieved the world-record for the peak luminosity of $2.11\E{34}\e{cm^{-2}s^{-1}}$, twice as much as the designed prediction, and the total integrated luminosity of $1041\e{fb^{-1}}$. Of the full Belle dataset, about $711\e{fb^{-1}}$ of data were taken at the $\Upsilon(4S)$ energy of $10.58\e{GeV}$, which corresponds to about $771\E{6}$ $B \bar B$ meson pairs.
+
+
+\section{Belle Detector}
+The Belle detector is a magnetic mass spectrometer which covers a large solid angle. It is designed to detect remnants of $e^+e^-$ collisions. The detector is configured around a $1.5\e{T}$ superconducting solenoid and iron structure surrounding the interaction point (IP). The 4-momentum of the decaying $B$ mesons and it's decayed daughter particles are determined via a series of sub-detector systems, which are installed in an onion-like shape. Short-lived particle vertices are measured by a silicon vertex detector (SVD) situated outside of a cylindrical beryllium beam pipe. Long-lived charged particle momentum is measured via tracking, which is performed by a wire drift chamber (CDC). Particle identification is provided by energy-loss measurements in CDC, aerogel Cherenkov counters (ACC) and time-of-flight counters (TOF) situated radially outside of CDC. Particles producing electromagnetic showers deposit energy in an array of CsI(Tl) crystals, known as the electromagnetic calorimeter (ECL), which is located inside the solenoid coil. Muons and $K_L$ mesons (KLM) are identified by arrays of resistive plate counters in the iron yoke. 
+
+The coordinate system of the Belle detector originates at the IP, with the $z$ axis pointing in the opposite direction of the positron beam, the $x$ axis pointing horizontally outside of the ring, and the $y$ axis perpendicular to the aforementioned ones. The polar angle $\theta$ covers the region between $17^\circ \leq \theta \leq 150^\circ$, while the cylindrical angle $\varphi$ covers the full range $0^\circ \leq \varphi \leq 360^\circ$, amounting to a $91~\%$ coverage of the full solid angle.
+
+
+%In our analysis, key features of the Belle detector are as follows.
+%•
+%Good particle detection efficiency for 4-
+%π
+%region to collect all the particles in an
+%e
+%+
+%e
+%−
+%collision.  This is important not only for the good signal reconstruction efficiency,
+%but also for background reduction since un-detected particles from various
+%B
+%decay
+%modes are the main source of the background.
+%•
+%Good reconstruction efficiency for low-momentum particles.  Since decay particles
+%from
+%D
+%∗
+%mesons and
+%τ
+%leptons are produced in a chain of multi-body decays, their
+%momenta are about 0.7 GeV
+%/c
+%on average and lower than 1.5 GeV
+%/c
+%.
+%•
+%Good  momentum  resolution  in  the  tracking  devices  and  energy  resolution  in  the
+%ECL.
+%•
+%Good PID performance for charged particles.
+
+
+
+\subsection{Interaction region}
+\subsection{Extreme forward calorimeter (EFC)}
+\subsection{Silicon vertex detector (SVD)}
+\subsection{Central tracking chamber (CDC)}
+\subsection{Aerogel Cherenkov counter system (ACC)}
+\subsection{Time-of-flight counters (TOF)}
+\subsection{Electromagnetic calorimetry (ECL)}
+\subsection{KL and muon detection system (KLM)}
+\subsection{Detector solenoid and iron structure}
+\subsection{Trigger}
+\subsection{Data acquisition}
+\subsection{Offline computing system}
+
+\printbibliography
+
+\end{document}
+
+
