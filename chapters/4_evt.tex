@@ -7,6 +7,8 @@ Since the neutrino escapes detection, we can only reconstruct the charged tracks
 
 It is important to limit our selection of FSP particles in order to cut down the number of particle combinations, and consequentially computation time and file sizes.
 
+At this point of the analysis, we do not apply any intelligent cuts yet, which results in a large number of available particles and their combinations. In order to minimize this effect, we perform this part of the study on a smaller subset of the available generic MC, experiment no. $23$ and $31$.
+
 \subsubsection{Leptons}
 
 Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake electrons and muons, where an extra category for true electrons/muons from the signal decay is shown.
@@ -102,26 +104,29 @@ The optimized PID cuts for kaons are
 
 \section{Combination of FSP particles}
 
-With the pre-selected kaon and lepton candidates we make combinations for potential $B$ meson candidates. Since the missing neutrino escapes detection, we reconstruct the $B$ mesons in the following two channels
+In this section we use the pre-selected charged particles to make particle combinations, which correspond to $B$ meson candidates. When a $B$ meson candidate is selected, additional features can be calculated and used for $\mathrm{FOM}$ optimization. Since we are still performing this part of the study on a smaller subset of the full available MC sample, we will perform under-optimized cuts in order to optimize them later on the full Belle MC sample.
+
+Since the missing neutrino escapes detection, we reconstruct the $B$ mesons in the following two channels
 \begin{align*}
 B^+ &\to K^+ K^- e^+, \\
 B^+ &\to K^+ K^- \mu^+,
 \end{align*}
-and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the $z$ axis of the detector in the direction of the boost, so the vertex fit is enforced with an \texttt{IPTUBE} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $\mathrm{FOM}$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right). In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino which are not coming from the $b \to c$ transition.
+and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the $z$ axis of the detector in the direction of the boost, so the vertex fit is enforced with an \texttt{IPTUBE} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $\mathrm{FOM}$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right) for the subset of the Belle MC sample, and the full Belle MC sample (bottom). In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino which are not coming from the $b \to c$ transition.
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/VTX}
-\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale (left) and $\mathrm{FOM}$ optimization of the vertex fit probability (right).}
+\includegraphics[width=\linewidth]{fig/VTX_precise}
+\caption{Normalized vertex fit probability distribution for signal and background $B$ meson candidates in logarithmic scale(left) and $\mathrm{FOM}$ optimization of the vertex fit probability (right) for the subset of the full Belle MC sample, and FOM optimization on the full Belle MC sample (bottom).}
 \label{fig:vtx}
 \end{figure}
 
-Even though the vertex fit probability cut was optimized, we choose a slightly different but a more standard cut of
+The vertex fit probability cut was optimized on a smaller subset of the available MC, and later on the full Belle MC. The corresponding pre-cut and optimized cut are
 \begin{itemize}
-\item $P(\chi^2,NDF) > 1.0\E{-3}$.
+\item Pre-cut: $P(\chi^2,NDF) > 1.0\E{-3}$,
+\item Optimal cut: $P(\chi^2,NDF) > 6.0\E{-3}$.
 \end{itemize}
-
 With the neutrino being the only missing particle on the reconstructed side, it is possible to determine the angle between the direction of the reconstructed $B$ (denoted as $Y \to K K \ell$) and the nominal $B$, as
 \begin{align}
 \mathrm{p}_\nu &= \mathrm{p}_B - \mathrm{p}_{Y}, \\
@@ -139,16 +144,18 @@ E_B &= E_{CMS} / 2,\\
 
 where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame and $m_B$ is the nominal mass of the $B$ meson. 
 
-For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. For background candidates, however, the candidates populate also the non-physical regions, as shown in Figure \ref{fig:cosby} (left). We impose an optimized cut on this variable from Figure \ref{fig:cosby} (right) to discard a large amount of background.
+For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. Background candidates, however, populate also the non-physical regions, as shown in Figure \ref{fig:cosby} (left). We impose an under-optimized cut on this variable from Figure \ref{fig:cosby} (right) to discard a large amount of background on the subset of the Belle MC, and later on the full Belle MC sample (bottom).
 \begin{itemize}
-\item $\vert \cos \left(\theta_{BY}\right) \vert < 1.0$.
+\item Pre-cut: $\vert \cos \left(\theta_{BY}\right) \vert < 1.20$,
+\item Optimal cut: $\vert \cos \left(\theta_{BY}\right) \vert < 1.05$.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=.8\linewidth}
 \includegraphics[width=\linewidth]{fig/cosBY}
-\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $\mathrm{FOM}$ optimization of the $\cos \theta_{BY}$ variable (right).}
+\includegraphics[width=\linewidth]{fig/cosBY_precise}
+\caption{Normalized $\cos \theta_{BY}$ distribution for signal and background $B$ meson candidates (left) and $\mathrm{FOM}$ optimization of the $\cos \theta_{BY}$ variable (right) for the subset of the Belle MC, and optimization of the FOM on the full Belle MC sample (bottom).}
 \label{fig:cosby}
 \end{figure}
 
@@ -190,7 +197,7 @@ We define the square of the missing mass, $m_{miss}^2$, which is consistent with
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, tails are introduced as soon as we have missing particles such as extra missing neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side
 \begin{itemize}
 \item $\vert m_{miss}^2 \vert < 7\e{GeV}/c^2$.
 \end{itemize}
