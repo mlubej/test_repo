@@ -15,10 +15,10 @@ In the first step of the clusters clean-up we train an MVA which recognizes good
 
 \subsection{$\pi^0$ MVA training}
 
-The dataset of $\pi^0$ candidates contains
+The training dataset of $\pi^0$ candidates contains
 \begin{itemize}
-\item 387125 target candidates,
-\item 416019 background candidates,
+\item 183255 target candidates,
+\item 200000 background candidates,
 \end{itemize}
 where the definition of target is that both photon daughters that were used in the reconstruction of the $\pi^0$ are actual photons and real daughters of the $\pi^0$ particle. We use $\pi^0$ candidates from the converted Belle particle list and select those with invariant mass in the range of $M \in [0.10,~0.16]\e{GeV}$. After that we perform a mass-constrained fit on all candidates, keeping only the ones for which the fit converged. 
 
@@ -55,10 +55,10 @@ The distributions for all input variables and their correlations for signal and 
 
 In this MVA training we take the $\pi^0$ classifier output of the previous training as an input in order to train a classifier to distinguish between good and bad photons. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs of photons, the $\pi^0$ probability is overwritten in the case of a larger value, since this points to a greater probability of a correct photon combination. On the other hand, some photon candidates fail to pass the $\pi^0$ selection, these candidates have a fixed value of $\pi^0$ probability equal to zero.
 
-The dataset of $\gamma$ candidates contains
+The training dataset of $\gamma$ candidates contains
 \begin{itemize}
-\item 324781 target candidates,
-\item 333353 background candidates,
+\item 171699 target candidates,
+\item 177773 background candidates,
 \end{itemize}
 where the definition of target is that the photon is an actual photon which is related to a primary MC particle. This tags all photon particles from secondary interactions as background photons. We use the converted $\gamma$ candidates from the existing Belle particle list. 
 
@@ -89,13 +89,13 @@ The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 
 With the final weights for photon classification in hand, we apply them to the photon particle list. The cut optimization is shown in Figure \ref{fig:ROE_gamma_opt} (left), with the optimal cut on the $\gamma$ classifier output at
 \begin{itemize}
-\item $BDT_\gamma > 0.519$.
+\item $BDT_\gamma > 0.5045$.
 \end{itemize}
 
 Figure \ref{fig:ROE_gamma_opt} (right) shows the LAB frame momentum of the photons before and after the cut in logarithmic scale. The signal efficiency and background rejection at this clean-up cut are
 \begin{itemize}
-\item Signal efficiency: $\epsilon_{SIG} = 82.6~\%$,
-\item Background rejection: $1-\epsilon_{BKG} = 81.7~\%$.
+\item Signal efficiency: $\epsilon_{SIG} = 83.2~\%$,
+\item Background rejection: $1-\epsilon_{BKG} = 81.2~\%$.
 \end{itemize}
 
 \begin{figure}[H]
@@ -207,10 +207,10 @@ in order to cut down the number of random track pairs, while retaining a high pe
 \subsubsection{Training the duplicate track pair MVA}
 \label{ss:trackMVA}
 
-This final sample of track pairs is now fed into an MVA, which is trained to recognize duplicate track pairs over random ones. The dataset contains
+This final sample of track pairs is now fed into an MVA, which is trained to recognize duplicate track pairs over random ones. The training dataset contains
 \begin{itemize}
-\item 215601 target candidates,
-\item 311124 background candidates,
+\item 113707 target candidates,
+\item 190314 background candidates,
 \end{itemize}
 where the definition of target is that the track pair is a duplicate track pair. 
 
@@ -239,8 +239,16 @@ The classifier is able to distinguish between random and duplicate track pairs i
 
 The $\mathrm{FOM}$ function for optimal cut selection is shown in Figure \ref{fig:ROE_dupOpt} (left), along with the angle between the two tracks before and after the optimal cut (right). The optimal cut for duplicate track selection is
 \begin{itemize}
-\item $BDT_{duplicate} > 0.99915.$
+\item $BDT_{duplicate} > 0.9985.$
 \end{itemize}
+
+The signal efficiency and background rejection for duplicate pair candidates after this cut is
+\begin{itemize}
+\item Signal efficiency: $\epsilon_{SIG} = 87.2~\%$,
+\item Background rejection: $1-\epsilon_{BKG} = 98.8~\%$,
+\end{itemize}
+where signal and background represent duplicate and random track pairs, respectively.
+
 
 \begin{figure}[H]
 \centering
@@ -293,10 +301,10 @@ where $t_1$ is the original track and $t_2$ and $t_3$ are extra tracks, with $t_
 where the "*" symbol denotes when a track is recognized as a duplicate track with respect to the other track. We see that no matter the order, both $t_2$ and $t_3$ get recognized as duplicate tracks correctly.
 
 \subsubsection{Training the duplicate track MVA}
-The training procedure is similar as before. The sample of tracks from duplicate track pairs is now fed into an MVA, which is trained to distinguish duplicate tracks from good tracks. The dataset contains
+The training procedure is similar as before. The sample of tracks from duplicate track pairs is now fed into an MVA, which is trained to distinguish duplicate tracks from good tracks. The training dataset contains
 \begin{itemize}
-\item 160146 target candidates,
-\item 128568 background candidates,
+\item 84339 target candidates,
+\item 68280 background candidates,
 \end{itemize}
 where the definition of target is that the track is a duplicate track. 
 
@@ -305,29 +313,28 @@ The input variables used in this MVA are
 \item theta angle of the track momentum,
 \item track quantities
 	\begin{itemize}
-	\item impact parameters $d_0$ and $z_0$,
-	\item momentum components $p_T$ and $p_z$
+	\item impact parameters $d_0$ and $z_0$ and their errors,
+	\item CMS frame momentum $p_{CMS}$ and momentum components $p_T$ and $p_z$ 
 	\item number of hits in the SVD and CDC detectors
 	\item track fit $p$-value,
 	\end{itemize}
 \item pair-level information
 	\begin{itemize}
-	\item $\Delta d_0$, $\Delta z_0$, $\Delta N_{CDC}$, $\Delta N_{SVD}$, $\Delta p_T$, $\Delta p_z$.  
+	\item $\Delta d_0$, $\Delta z_0$, $\Delta N_{CDC}$, $\Delta N_{SVD}$, $\Delta p_T$, $\Delta p_z$, $\Delta p$-value.  
 	\end{itemize}
 \end{itemize}
 
-The classifier is shown in Figure \ref{fig:ROE_curl}. The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. We now compare these values between both tracks in each track pair as
+The weights from this training are applied to the tracks, where now each track has a certain probability of being a duplicate track. We then compare these values between both tracks in each track pair as
 \begin{equation}
 \Delta BDT_{final} = BDT_{final}^{this} - BDT_{final}^{other},
 \end{equation}
-
-which is again applied to all track pairs and overwritten for tracks which are more duplicate-like.
+which is again applied to all track pairs and overwritten for tracks which are more duplicate-like. The classifier output and the classifier output difference for each track is shown in Figure \ref{fig:ROE_curl}. 
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/ROECleanup_curl}
-\caption{Classifier output of the MVA training for curling track recognition.}
+\caption{Classifier output of the MVA training for curling track recognition (left) and difference of the classifier output, calculated for each track in a track pair (right).}
 \label{fig:ROE_curl}
 \end{figure}
 
@@ -336,7 +343,7 @@ Finally, we select all duplicate tracks which survive the cut
 \Delta BDT_{final} > 0
 \end{equation}
 
-and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a sample of duplicate track pairs and comparing the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table \ref{tab:rat} shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
+and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a validation sample of duplicate track pairs and compare the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table \ref{tab:rat} shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
 
 \begin{table}[H]
 \centering
@@ -344,9 +351,9 @@ and discard them from our ROE. We can check the performance of our duplicate tra
 \hline
  & Predicted duplicate track & Predicted good track \\
  \hline 
- Duplicate track & $84.63~\%$  & $20.95~\%$  \\
+ Duplicate track & $83.07~\%$  & $22.62~\%$  \\
  \hline
- Good track & $15.37~\%$ & $79.05~\%$ \\
+ Good track & $16.93~\%$ & $77.38\%$ \\
  \hline
 \end{tabular}
 \caption{Ratios of correctly classified and misclassified tracks.}
@@ -422,9 +429,9 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 \hline
  & Efficiency ratio & FWHM ratio \\
  \hline 
- Belle clean-up & $23.8~\%$  & $73.7~\%$  \\
+ Belle clean-up & $28.5~\%$  & $75.0~\%$  \\
  \hline
- ROE clean-up & $115.0~\%$ & $42.1~\%$ \\
+ ROE clean-up & $140.1~\%$ & $35.0~\%$ \\
  \hline
 \end{tabular}
 \caption{Comparison of efficiencies and $FWHM$'s of ROE and Belle clean-up setups with respect to the default case (no clean-up).}
