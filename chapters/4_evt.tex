@@ -199,13 +199,14 @@ We define the square of the missing mass, $m_{miss}^2$, which is consistent with
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, should peak at zero. If this is not the case, candidates are shifted to larger values of this variable. Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side
-\begin{itemize}
-\item $\vert m_{miss}^2 \vert < 2.4\e{GeV}/c^2$, %TODO: argument for missm2 cut missing
-\end{itemize}
-where this cut on $m_{miss}^2$ was also not optimized at this point due to the same reasons as in the cases above.
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, peak at zero. If this is not the case, candidates are shifted to larger values of this variable, even if the event in question is a signal event. For this purpose we define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of it's particles were taken into account correctly. We only allow for missing photons, since they are frequently irradiated due to brehmsstrahlung effects and they do not have such a big impact on the 4-momentum of the final candidate. We denote this subset as \textit{perfect} signal.
 
-For further purposes in this analysis we also define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of it's particles were taken into account correctly. We only allow for missing photons, since they are frequently irradiated due to brehmsstrahlung effects and don't have such a big impact on the 4-momentum of the final candidate. We denote this subset as \textit{perfect} signal.
+Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side. The cut was chosen based on the optimization of FOM, where in this case the definition of $S$ were perfectly reconstructed signal candidates. The optimal cut value is 
+\begin{itemize}
+\item $\vert m_{miss}^2 \vert < 3.0\e{GeV}/c^2$,
+\end{itemize}
+which is also under-optimized at this point due to the same reasons as in the cases above.
+
 
 \begin{figure}[H]
 \centering
