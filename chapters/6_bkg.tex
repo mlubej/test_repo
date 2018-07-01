@@ -11,21 +11,35 @@ In this analysis we study decays with kaons in the final state. This means that 
 \item $D^0 \to K^+ \pi^-$ (wide, shifted peak, due to kaon miss-identification).
 \end{itemize}
 
-In order to suppress these resonant backgrounds while studying the signal or control decay, we impose a set of the following cuts
+In order to suppress these resonant backgrounds, while studying the signal or control decay, we impose a set of the following cuts
 \begin{itemize}
 \item Signal cut: $\vert m_{KK} - m_{\phi} \vert > \Delta_\phi$, $\vert m_{KK} - m_{D^0} \vert > \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
 \item Control cut: $\vert m_{KK} - m_{D^0} \vert \leq \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
 \end{itemize}
 
-where $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.2\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\phi$ and $D^0$ mesons, respectively.
+where $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.5\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\phi$ and $D^0$ mesons, respectively. By imposing the signal or control cut on our data, we are able to efficiently isolate the desired subset, which is very useful for further studies of the control decay. Table \ref{tab:cut_eff} shows the subsample efficiency after applying either of the cuts.
 
-By imposing the signal cut, as defined above, on the full sample at this stage, we are able to suppress $94.6~\%$ and $86.4~\%$ of the control candidates and candidates with the $\phi$ intermediate state, respectively, while retaining $95.9~\%$ of signal candidates. On the other hand, by imposing the control cut, we suppress $98.4~\%$ and $100.0~\%$ of the signal candidates and candidates with the $\phi$ intermediate state, respectively, while retaining $98.4~\%$ of the control candidates. We see that both cuts are very efficient in isolating the desired subsamples, which is very useful for further studies.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+  & $\epsilon$(Signal cand.)& $\epsilon$(Control cand.) & $\epsilon$($\phi$ resonance cand.)\\
+\hline
+Signal cut & $95.4\%$ & $4.0\%$ & $13.6\%$ \\
+\hline
+Control cut & $1.9\%$ & $96.0\%$ & $0.0\%$ \\
+\hline
+\end{tabular}
+\caption{Various subset efficiencies after imposing the signal or control cut on the $KK$ invariant mass.}
+\label{tab:cut_eff}
+\end{table}
+
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/res_bkg}
-\caption{Invariant mass of two correctly reconstructed kaons (left) and invariant mass of two kaons, where one was miss-identified as a pion (right).}
+\caption{Invariant mass of two correctly reconstructed kaons (left) and invariant mass of two kaons, where one was miss-identified as a pion (right). Signal (green) and perfect signal (black) are equally scaled up.}
 \label{fig:res_bkg}
 \end{figure}
 
@@ -188,15 +202,14 @@ Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, 
 
 We can compare signal and major background distributions of \vars~after the 2D $\mathrm{FOM}$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
-\item Standard BDT: $N_{sig} = 224.50,\quad N_{sig}/N_{bkg} = 1.97~\%$,
-\item uBDT: $N_{sig} = 297.34,\quad N_{sig}/N_{bkg} = 0.62~\%$.
+\item Standard BDT: $N_{sig} = 177.40,\quad N_{sig}/N_{bkg} = 4.81~\%$,
+\item uBDT: $N_{sig} = 260.55,\quad N_{sig}/N_{bkg} = 1.34~\%$.
 \end{itemize}
-%TODO: update numbers
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/opt_01c}
+\includegraphics[width=\linewidth]{fig/opt_BB}
 \caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier.}
 \label{fig:opt01c}
 \end{figure} 
@@ -204,7 +217,7 @@ We can compare signal and major background distributions of \vars~after the 2D $
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/opt_1dc}
+\includegraphics[width=\linewidth]{fig/opt_uBB}
 \caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the uBDT classifier.}
 \label{fig:opt1dc}
 \end{figure} 

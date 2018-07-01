@@ -38,7 +38,8 @@ The same MC samples are used for template construction as described in Chapter \
 
 We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as data. When fitting real data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
 
-The following histogram templates were defined for the fits
+\subsection{Templates in signal fits}
+The following histogram templates were defined for the signal fits
 \begin{itemize}
 \item signal template,
 \item control template,
@@ -46,9 +47,37 @@ The following histogram templates were defined for the fits
 \item $q \bar q$ template.
 \end{itemize}
 
-When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small and very similar to the signal template. In case of control sample fits, the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value for the same reasons as mentioned before. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$.
+When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small and very similar to the signal template. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$. The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using generic $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
 
-The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
+The argument for merging all $B \bar B$ background in a single template lies in the fact that the major part of this background consists of candidates with a $K \ell$ pair from one $B$ meson, and the remaining $K$ from the other one. Other sources of background are present, but not very significant. All sources of $B \bar B$ background for the signal $KK$ invariant mass region are shown in Figure \ref{fig:sig_BKG_comp}.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_BKG_composition}
+	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the signal $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
+	\label{fig:sig_BKG_comp}
+\end{figure}
+
+\subsection{Templates in control fits}
+
+In case of control sample fits the situation is similar. The difference is that in this case the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value for the same reasons as mentioned before. In this case, the following fit templates are chosen
+\begin{itemize}
+	\item signal template,
+	\item control template,
+	\item $B \to \bar D {}^* \ell^+ \nu$ template,
+	\item other $B \bar B$ BKG template,
+	\item $q \bar q$ template.
+\end{itemize}
+Since the background composition in the control region is different, we introduce a new category template for the background.  All sources of $B \bar B$ background for the control $KK$ invariant mass region are shown in Figure \ref{fig:cs_BKG_comp}.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/cs_BKG_composition}
+	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the control $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
+	\label{fig:cs_BKG_comp}
+\end{figure}
 
 \section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
@@ -82,7 +111,7 @@ An additional problem occurs in the plotting of the fitted templates and the sam
 
 \section{Signal MC fit results}\label{sec:signal-mc-fit-results}
 
-The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform fits to all streams of MC for each initial binning choice and the fitted and expected yield difference, pulls and fit significance for both final samples, shown in Figure \ref{fig:sig_binning}. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of $22$ bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
+The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform fits to all streams of MC for each initial binning choice and the fitted and expected yield difference, pulls and fit significance for both final samples, shown in Figure \ref{fig:sig_binning}. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of $20$ bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
 
 \begin{figure}[H]
 	\centering
@@ -92,7 +121,7 @@ The fit setup was used on the final samples obtained with both versions of the f
 	\label{fig:sig_binning}
 \end{figure}
 
-Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and fit errors are under control. Fit results for all streams of MC are shown in Figure \ref{fig:sig_global}, along with the global fit of a zero degree polynomial over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.72$, while the average significance of the fits is around $2.75 \sigma$.
+Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and fit errors are under control. Fit results for all streams of MC are shown in Figure \ref{fig:sig_global}, along with the global fit of a zero degree polynomial over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.9$, while the average significance of the fits is around $3.178 \sigma$.
 
 \begin{figure}[H]
 	\centering
@@ -101,6 +130,9 @@ Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an 
 	\caption{An example fit to one stream of MC. Left column shows the $M_{BC}$ and the center column shows the $\Delta E$ distribution of the full fitted sample in the full fit region (top) and the signal region (bottom). The right column shows the expected 2D histogram in \vars~with initial uniform binning (top) and the variable binning (bottom) after the binning algorithm.}
 	\label{fig:sig_streamfit}
 \end{figure}
+%TODO fix fit plots
+%TODO fix error in creation of CS templates
+
 
 \begin{figure}[H]
 	\centering

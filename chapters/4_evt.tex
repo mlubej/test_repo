@@ -201,7 +201,7 @@ m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 
 Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, peak at zero. If this is not the case, candidates are shifted to larger values of this variable, even if the event in question is a signal event. For this purpose we define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of it's particles were taken into account correctly. We only allow for missing photons, since they are frequently irradiated due to brehmsstrahlung effects and they do not have such a big impact on the 4-momentum of the final candidate. We denote this subset as \textit{perfect} signal.
 
-Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side. The cut was chosen based on the optimization of FOM, where in this case the definition of $S$ were perfectly reconstructed signal candidates. The optimal cut value is 
+Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side. The cut was chosen based on the optimization of FOM, where in this case the definition of $S$ were perfectly reconstructed signal candidates. The chosen cut value is 
 \begin{itemize}
 \item $\vert m_{miss}^2 \vert < 3.0\e{GeV}/c^2$,
 \end{itemize}
@@ -249,7 +249,7 @@ Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_
 
 \section{Final stage optimization}
 
-With the charge particle selection and a rough selection of the $B$ meson particles, we can now afford to run the reconstruction procedure over all $10$ streams of the full available Belle generic MC. At this point we should first optimize the under-optimized cuts from the pre-selection stage. Repeating the procedure on the full sample yields the FOM shapes shown in Figure \ref{fig:preciseFOM}, while the optimal cut values are
+With the charge particle selection and a rough selection of the $B$ meson particles in place, we can now afford to run the reconstruction procedure over all $10$ streams of the full available Belle generic MC. After obtaining the full reconstructed sample, the first task is to optimize the under-optimized cuts from the pre-selection stage. Repeating the procedure on the full sample results in the FOM shapes shown in Figure \ref{fig:preciseFOM}, while the optimal cut values are
 
 \begin{itemize}
 \item $P(\chi^2,NDF) > 6.0\E{-3}$,
@@ -265,7 +265,7 @@ With the charge particle selection and a rough selection of the $B$ meson partic
 \label{fig:preciseFOM}
 \end{figure}
 
-With all additional optimizations we will be fine tuning the signal to background ratio. The most prominent and distinguishable part of our signal is the perfectly reconstructed signal. For this purpose we define a signal region in \vars, where most of our perfectly reconstructed candidates lie. We use this region for optimizations of all cuts in the following steps of background suppression in chapter \ref{sec:background-suppression}. The 2D $\mathrm{FOM}$ optimization of the optimal $M_{BC}$ and $\Delta E$ signal regions is shown in Figure \ref{fig:sigwin}.
+With further optimizations we will be fine tuning the signal to background ratio. The most prominent and distinguishable part of our signal is the perfectly reconstructed signal. For this purpose we define a signal region in \vars, where most of our perfectly reconstructed candidates lie. We use this region for all of the following optimization steps in this chapter and also in the background suppression chapter \ref{sec:background-suppression}. The 2D $\mathrm{FOM}$ optimization of the optimal \vars~signal region is shown in Figure \ref{fig:sigwin}.
 
 The signal region is defined as
 \begin{itemize}
@@ -307,7 +307,7 @@ q_{B^\pm}q_{B^\mp} = -1,
 
 however, this value is distributed due to missing charged particles in the reconstruction. Figure \ref{fig:sig_categ} shows various signal distributions of \vars~in arbitrary (left) and normalized (right) scales, with the relative ratios of $67.86~\%$ and $32.14~\%$ for correct and wrong values of the charge product, respectively. We see that correctly reconstructed events represent the majority of signal and also have the best resolution in \vars, so we proceed with the analysis by imposing the cut in Eq. \ref{eq:chargeprod}.
 
-While this cut introduces a drop in the signal efficiency of about $32.14~\%$, it improves the resolution of our signal \vars~distributions and also the signal to background ratio, which changes from $0.95\E{-3}$ to $1.09\E{-3}$.
+While this cut introduces a drop in the signal efficiency of about $32.14~\%$, it improves the resolution of our signal \vars~distributions and also the signal to background ratio, where the latter changes from $0.95\E{-3}$ to $1.09\E{-3}$.
 
 \begin{figure}[H]
 \centering
@@ -319,7 +319,7 @@ While this cut introduces a drop in the signal efficiency of about $32.14~\%$, i
 
 \section{Selection summary}
 \label{s:ss}
-In this section one can find the full summary of all selection cuts in the event reconstruction, from FSP particles up to the $B$ meson.
+In this section one can find the full summary of all final selection cuts in the event reconstruction, from FSP particles up to the $B$ meson.
 
 \begin{itemize}
 \item FSP particles:
@@ -332,6 +332,7 @@ In this section one can find the full summary of all selection cuts in the event
 	\begin{itemize}
 	\item standard cuts: $P(\chi^2,\,DOF) > 6\E{-3},\,\vert \cos \theta_{BY} \vert < 1.05,\,\vert m_{miss}^2\vert<0.975\e{GeV}/c^2,$
     \item fit region cuts: $\Delta E \in [-1.0,1.3]\e{GeV},\,M_{BC} \in [5.1,5.295]\e{GeV}/c^2,$
+    \item signal region cuts: $\vert \Delta E \vert < 0.126\e{GeV},\,M_{BC} > 5.271\e{GeV}/c^2,$
     \item charge categorization: $q_{B^\pm}q_{B^\mp} = -1.$
 	\end{itemize}
 \end{itemize}
