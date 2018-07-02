@@ -79,6 +79,8 @@ Since the background composition in the control region is different, we introduc
 	\label{fig:cs_BKG_comp}
 \end{figure}
 
+%TODO fix legend
+
 \section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
 The fit templates contain areas of low statistics, which are populated with bins with zero content. This is a direct consequence of having a finite MC sample and represent a liability in ML fits. Due to low statistic in the edge regions, the locations of these empty bins can vary for the templates and the fitted sample. A problem occurs if all templates have an empty bin where the fitted sample does not. In the scope of ML fits, this effectively means that there are entries in bins where the probability of having them is $0$. We will call such bins \textit{problematic}, because in these cases the fit does not converge.
@@ -181,58 +183,88 @@ A similar fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied
 
 \begin{itemize}
 %\item constraining the ratio between control and $B \to D^* \ell^+ \nu$,
-\item applying a smearing factor to all MC templates,
-\item applying an offset to all MC templates w.r.t. data.
+\item a smearing factor to all MC templates,
+\item an offset to all MC templates
 \end{itemize}
 
-\subsection{Smearing and Offset in $\Delta E$}
+\subsection{Smearing and offset parameters}
 
-With simulated data we are able to perform detailed studies prior to looking at measured data. However, simulated data often does not describe data perfectly. In case of variables \vars, $\Delta E$ is especially prone to the lack of precision in energy measurements. This can introduce either overestimation of resolution on MC as well as a possible shift in the measured energy in either direction. Due to this fact, we perform a scan over additional 2 parameters of offset and smearing, applied on the $\Delta E$ variable. In case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
+With simulated data we are able to perform detailed studies prior to looking at measured data. However, simulated data often does not describe data perfectly. Out of variables \vars, $\Delta E$ is especially prone to a lack of precision in energy measurements. This can introduce either overestimation of resolution on MC as well as a possible shift in the measured energy in either direction. Due to this fact, we perform a scan over additional 2 parameters of offset and smearing, applied on the $\Delta E$ variable. In case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
 
 \subsubsection{Ratio constraint}
 
-Introducing a smearing and offset factor can lead to unphysical global minima, where we mold a single MC template to almost perfectly describe data, while other contributions are rejected by the fit. In order to bypass this problem, we fix the ratio between the control sample and the $B \to \bar D {}^* \ell \nu$ sample to the expected MC value in case of the MC fit, and to a corrected expected MC value for the data fit, where the corrections to the appropriate measured branching ratios are applied. In the latter case the constraint is applied in the form of a Gaussian function with the mean at the calculated value and with the width according to the appropriately propagated error.
+Introducing a smearing and offset factor can lead to unphysical global minima in the negative log-likelihood, where we mold a single MC template to almost perfectly describe data, while other contributions are rejected by the fit. In order to bypass this problem, we fix the ratio between the  $B \to \bar D {}^* \ell \nu$ sample and the control sample to the expected MC value in case of the MC fit, and to a corrected expected MC value for the data fit, where the corrections to the appropriate measured branching ratios are applied. In the latter case the constraint is applied in the form of a Gaussian function with the mean at the calculated value and with the width according to the appropriately propagated error.
 
+The expected MC ratio and the corrected ratio are calculated as
+\begin{align}
+\eta_{MC} &= \frac{N^{MC}_{B \to \bar D {}^* \ell^+ \nu}}{N^{MC}_{\mathrm{control}}},\\
+\eta_{DATA} &= \frac{N^{MC}_{B^+ \to \bar D {}^{*0} \ell^+ \nu}\times \rho_{B^+ \to \bar D {}^{*0} \ell^+ \nu} + N^{MC}_{B^0 \to D^{*-} \ell^+ \nu}\times \rho_{B^0 \to D^{*-} \ell^+ \nu}}{N^{MC}_{\mathrm{control}}\times \rho_{B^+ \to \bar D {}^{0} \ell^+ \nu}},
+\label{eq:ratioData}
+\end{align}
+where each $\rho_X$ is defined as 
+\begin{equation*}
+\rho_X = \frac{\mathcal{B}_{PDG}(X)}{\mathcal{B}_{GEN}(X)},
+\end{equation*}
+where the appropriate branching ratio values $\mathcal{B}_{PDG}$ and $\mathcal{B}_{GEN}$ are values taken from the PDG \cite{tanabashi2018review} and values used in MC generation, respectively. Table \ref{tab:br} shows the corresponding values of all mentioned branching ratios.
 
-We scan the following phase space
+\begin{table}[H]
+	\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	Decay mode & $\mathcal{B}_{PDG}$ & $\mathcal{B}_{GEN}$ \\
+	\hline
+	$1)~B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $(5.25\pm0.12)\E{-2}$ & $5.79\E{-2}$ \\
+	$2)~B^0 \to D^{*-} \ell^+ \nu$ & $(4.88\pm0.11)\E{-2}$ & $5.33\E{-2}$ \\
+	$3)~B^+ \to \bar D {}^0 \ell^+ \nu$ & $(2.29\pm0.10)\E{-2}$ & $2.31\E{-2}$ \\
+	$4)~D^0 \to K^+ K^-$ & $(3.97\pm0.07)\E{-3}$ & $3.90\E{-3}$ \\
+	\hline
+	Control $3) \times 4)$ & $(9.10\pm0.42)\times 10^{-5}$ & $9.01\times 10^{-5}$ \\
+	\hline
+\end{tabular}
+	\caption{Generated and PDG branching ratios of several decay modes.}
+	\label{tab:br}
+\end{table}
+
+Finally, after calculating the ratio and propagating the statistical errors and errors of the measurements, we obtain
+\begin{align*}
+\eta_{MC} &= 1.41,\\
+\eta_{DATA} &= 1.29\pm 0.06,
+\end{align*}
+where errors of all terms in Eq. (\ref{eq:ratioData}) were assumed to be uncorrelated, except for errors of $\rho_{B^+ \to \bar D {}^{*0} \ell^+ \nu}$ and $\rho_{B^0 \to D^{*0} \ell^+ \nu}$, where we assumed $100\%$ correlation, due to both values being obtained from the same measurement, assuming isospin symmetry [X].
+
+\subsubsection{Determination of optimal parameters}
+
+After fixing the ratio defined in previous subsubsection, we scan the following phase space
 \begin{itemize}
-\item Smearing factor in range $[0.0,0.08]\e{GeV}$ in steps of $8\E{-3}$,
-\item Offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-3}$,
+\item smearing factor in range $[0.0,0.08]\e{GeV}$ in steps of $8\E{-3}$,
+\item offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-3}$,
 \end{itemize}
-where for each parameter pair the likelihood ratio test is performed to estimate both parameters. Figure X shows the contour plot of the likelihood test ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing offset. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
+where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood test ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing and offset. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
 \begin{itemize}
 \item Smearing: $24\e{MeV} \pm X$,
 \item Offset: $6\e{MeV} \pm X$.
 \end{itemize}
+We apply this transformation to our MC samples in all cases when we fit real data.
 
-PLOT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/smearing_offset}
+	\caption{Likelihood ratio test of an additional smearing and offset parameter to MC (left) and data (right).}
+	\label{fig:smearing_offset}
+\end{figure}
 
+\subsection{Consistency of MVA cuts}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This enables us to compare the fit behavior on MC as well as data and check the MC/data agreement. The control sample is also used to check the behavior of several MVA classifier cuts on data and MC. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios were studied
+Control sample fits allow us to check the behavior of optimized MVA cuts on MC as well as data and see if any of the MVA steps introduce a possible disagreement between the two. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios are studied
 \begin{itemize}
-\item[(a)] before any MVA steps,
+\item[(a)] final selection before any MVA step,
 \item[(b)] (a) + $BDT_{q\bar q}$ cut,
 \item[(c)] (a) + $uBDT_{B\bar B}$ cut,
 \item[(d)] (a) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
 \end{itemize}
 
-The same binning was chosen as in the case of signal MC fits. The results for control fit yields, their ratios and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows an under-estimation of MC, which seems to be consistent and under control. On the other hand we also see that the cut efficiency ratios between data and MC are consistent with $1$. This means that the inconsistencies between data and MC, which are present since before applying any MVA cuts, are not introduce nor affect by these cuts.
+The same binning was chosen as in the case of signal MC fits. The results for control fit yields, their ratios and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows that yield ratios and cut efficiency ratios are consistent with $1$. This means that, for the control sample, data and MC are in agreement before as well as after applying the final selection cuts. This is an important check for the signal decay mode, since, this check serves as an argument that the final selection is not over-optimized to signal MC.
 
 \begin{figure}[H]
 	\centering
@@ -242,8 +274,82 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 	\label{fig:cs_fits}
 \end{figure}
 
-\subsection{Branching ratio measurement and comparison}
+\subsection{Control decay branching ratio measurement}
 
-It is also possible
+After acquiring the fit results on MC and data we are able to determine the branching ratio of the control decay on MC and data, which are defined as
+\begin{align}
+\mathcal{B}^{MC}_{\mathrm{control}} &= \frac{N^{\mathrm{MC}}_\mathrm{control} \times \epsilon_{MC}}{2N_{B\bar B}^{MC}},\\
+\mathcal{B}_{\mathrm{control}} &= \frac{N_\mathrm{control} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
+\label{eq:br_data}
+\end{align}
+where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of the control fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the control sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and in data, respectively. The factor of 2 in the denominator comes from the fact that there are 2 $B$ mesons in each $B$ meson pair $(\times 1/2)$, where only about $50\%$ of the $B$ meson pairs are charged $B^+B^-$ meson pairs $(\times 2)$, and from the fact that we are interested in the branching ratio to the lepton final state of either $e$ or $\mu$, and not their sum $(\times 1/2)$.
+
+The control sample efficiency was determined on a separate signal MC sample of the control decay, where we generated $5\E{6}$ $B^+ \bar B^-$ pairs, with one $B$ always decaying via $B^+ \to \bar D {}^0 \ell^+ \nu,~D^0 \to K^+K^-$. After applying the final selection, the full and split efficiencies with regard to the lepton final state were determined to be 
+\begin{align*}
+\epsilon_{MC} &= (8.89\pm 0.04)\E{-3},\\
+\epsilon_{MC}^e &= (4.40\pm 0.03)\E{-3},\\
+\epsilon_{MC}^\mu &= (4.49\pm 0.03)\E{-3},
+\end{align*}
+where the efficiency error was estimated based on a formula from [X]
+\begin{equation*}
+\epsilon_{MC} = \frac{1}{N}\sqrt{n(1-\frac{n}{N})},
+\end{equation*}
+where $n$ is a subset of the full set $N$.
+
+The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in X and is determined to be
+\begin{equation*}
+\rho_{PID} = 0.99\pm 0.02
+\end{equation*}
+for the $e$ and $\mu$ mode, as well both of them together.
+
+The number of $B\bar B$ meson pairs can be counted on MC and has been measured for data [X]. The values are
+\begin{align*}
+&N_{B\bar B}^{MC} = 765.98\E{6},\\
+&N_{B\bar B} = (771.58 \pm 10.56)\E{6}.
+\end{align*}
+
+The yields of control sample candidates and their errors were taken from the fits to MC and data. In case of MC, the fit results were averaged over 10 streams, which results in a smaller error. The fit results after the final selection are shown in Table \ref{tab:fit_yield}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+\hline
+ & $N^{MC}$ & $N^{\mathrm{data}}$ \\
+\hline
+$\ell = e$ or $\mu$ & $1214.76 \pm 22.76$ & $1245.38 \pm 69.73$\\
+	\hline
+$\ell = e$ & $607.59 \pm 15.18$ & $602.74 \pm 47.32$ \\
+\hline
+$\ell = \mu$ & $607.34 \pm 12.39$ & $631.70 \pm 50.06$\\
+	\hline
+\end{tabular}
+\caption{Control sample fit results for MC and data for various lepton final state modes.}
+\label{tab:fit_yield}
+\end{table}
+
+Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure X, along with the MC generated value and the current PDG world average. Both MC and measured determination of the control decay branching ratio are in agreement with the expected and the world average values.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		$\mathcal{B}_{PDG}$ & \multicolumn{2}{c|}{$(9.10\pm0.42)\E{-5}$} \\
+		\hline
+     	$\mathcal{B}_{GEN}$ & \multicolumn{2}{c|}{$9.01\E{-5}$} \\
+     	\hline
+		& $\mathcal{B}^{MC}$ & $\mathcal{B}^{\mathrm{data}}$ \\
+		\hline
+		$\ell = e$ or $\mu$ & $(8.92\pm0.17)\E{-5}$ & $(9.17\pm0.56)\E{-5}$\\
+		\hline
+		$\ell = e$ & $(9.02\pm0.23)\E{-5}$ & $(9.01\pm0.75)\E{-5}$ \\
+		\hline
+		$\ell = \mu$ & $(8.82\pm0.19)\E{-5}$ & $(9.17\pm0.77)\E{-5}$\\
+		\hline
+	\end{tabular}
+	\caption{Control sample fit results for MC and data for various lepton final state modes.}
+	\label{tab:br_result}
+\end{table}
+
+PLOT
 
 \section{Signal fit to data}
