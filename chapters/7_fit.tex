@@ -144,9 +144,9 @@ Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an 
 
 \subsection{Toy MC experiment}
 
-Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way, which consumes unaffordable amounts of CPU time. In order to test the fit behavior, a toy MC study was performed where all available MC was used for template creation. We constructed $3\E{3}$ pseudo datasets, where each dataset was generated expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $22\times22$ bins in \vars.
+Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way, which consumes unaffordable amounts of CPU time. In order to test the fit behavior, a toy MC study was performed where all available MC was used for template creation. We constructed $3\E{3}$ pseudo datasets, where each dataset was generated expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $20\times20$ bins in \vars.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control since there is not any significant bias, and the pulls follow a normal distribution with a mean of $(-4\pm18)\E{3}$ and standard deviation of $(1.009\pm0.013)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while the errors of these statistics were obtained by calculating the standard error of the mean ($\sigma_{\bar X}$) and standard deviation ($\sigma_S$), taken from \cite{ahn2003standard}, as
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control since there is not any significant bias, and the pulls follow a normal distribution with a mean of $(1.1\pm1.8)\E{-2}$ and standard deviation of $(1.013\pm0.013)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while the errors of these statistics were obtained by calculating the standard error of the mean ($\sigma_{\bar X}$) and standard deviation ($\sigma_S$), taken from \cite{ahn2003standard}, as
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
@@ -163,9 +163,9 @@ where $N$ is the number of performed measurements.
 \subsection{Toy MC linearity test}
 Linearity test is used for determining sensitivity of the fit to the amount of signal in the fitted sample. Since this is a first measurement of this decay channel, MC modeling is not reliable and could be very different from reality, so we need to perform this test in order to determine our sensitivity to smaller, as well as larger amounts of expected signal.
 
-The pseudo datasets are generated in the same way as in the previous subsection, with the exception of signal, which is generated with various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 600 pseudo datasets according to Poisson statistics.
+The pseudo datasets are generated in the same way as in the previous subsection, with the exception of signal, which is generated with various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo datasets according to Poisson statistics.
 
-Figure \ref{fig:lin_test} shows the mean fit yield and expected yield difference, mean pull and the mean significance at each signal fraction value. The expected MC result is shown at fraction value $1$. The plots show no significant bias with with respect to the signal fraction, while the pulls seems to be described by the normal distributions throughout the fraction range. At expected value we are just below $3\sigma$ significance, as already pointed out at the beginning of this section.
+Figure \ref{fig:lin_test} shows the mean fit yield and expected yield difference, mean pull and the mean significance at each signal fraction value. The expected MC result is shown at fraction value $1$. The plots show no significant bias with with respect to the signal fraction, while the pulls seems to be described by the normal distributions throughout the fraction range. At expected value we are at about $3.2\sigma$ significance, as already pointed out at the beginning of this section.
 
 \begin{figure}[H]
 	\centering
@@ -177,13 +177,59 @@ Figure \ref{fig:lin_test} shows the mean fit yield and expected yield difference
 
 \section{Control fit results}
 
-The same fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied to the control decay. This enables us to compare the fit behavior on MC as well as data and check the MC/data agreement. The control sample is also used to check the behavior of several MVA classifier cuts on data and MC. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios were studied
+A similar fit procedure as in Section \ref{sec:signal-mc-fit-results} is applied in the case of the control decay on MC. In case of fits to real data, several corrections and constraints are applied before performing the fit
+
 \begin{itemize}
-\item[(a)]  after pre-cuts,\, $\vert m_{miss}^2 \vert < 1.1\e{GeV}/c^2$,\, $q_{B_{sig}}~q_{B_{comp}} = -1$,
-\item[(b)] (a) + $BDT_{had.}$ cut (signal category I),
-\item[(c)] (b) + $BDT_{q\bar q}$ cut,
-\item[(d)] (b) + $uBDT_{B\bar B}$ cut,
-\item[(e)] (b) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
+%\item constraining the ratio between control and $B \to D^* \ell^+ \nu$,
+\item applying a smearing factor to all MC templates,
+\item applying an offset to all MC templates w.r.t. data.
+\end{itemize}
+
+\subsection{Smearing and Offset in $\Delta E$}
+
+With simulated data we are able to perform detailed studies prior to looking at measured data. However, simulated data often does not describe data perfectly. In case of variables \vars, $\Delta E$ is especially prone to the lack of precision in energy measurements. This can introduce either overestimation of resolution on MC as well as a possible shift in the measured energy in either direction. Due to this fact, we perform a scan over additional 2 parameters of offset and smearing, applied on the $\Delta E$ variable. In case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
+
+\subsubsection{Ratio constraint}
+
+Introducing a smearing and offset factor can lead to unphysical global minima, where we mold a single MC template to almost perfectly describe data, while other contributions are rejected by the fit. In order to bypass this problem, we fix the ratio between the control sample and the $B \to \bar D {}^* \ell \nu$ sample to the expected MC value in case of the MC fit, and to a corrected expected MC value for the data fit, where the corrections to the appropriate measured branching ratios are applied. In the latter case the constraint is applied in the form of a Gaussian function with the mean at the calculated value and with the width according to the appropriately propagated error.
+
+
+We scan the following phase space
+\begin{itemize}
+\item Smearing factor in range $[0.0,0.08]\e{GeV}$ in steps of $8\E{-3}$,
+\item Offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-3}$,
+\end{itemize}
+where for each parameter pair the likelihood ratio test is performed to estimate both parameters. Figure X shows the contour plot of the likelihood test ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing offset. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
+\begin{itemize}
+\item Smearing: $24\e{MeV} \pm X$,
+\item Offset: $6\e{MeV} \pm X$.
+\end{itemize}
+
+PLOT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This enables us to compare the fit behavior on MC as well as data and check the MC/data agreement. The control sample is also used to check the behavior of several MVA classifier cuts on data and MC. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios were studied
+\begin{itemize}
+\item[(a)] before any MVA steps,
+\item[(b)] (a) + $BDT_{q\bar q}$ cut,
+\item[(c)] (a) + $uBDT_{B\bar B}$ cut,
+\item[(d)] (a) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
 \end{itemize}
 
 The same binning was chosen as in the case of signal MC fits. The results for control fit yields, their ratios and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows an under-estimation of MC, which seems to be consistent and under control. On the other hand we also see that the cut efficiency ratios between data and MC are consistent with $1$. This means that the inconsistencies between data and MC, which are present since before applying any MVA cuts, are not introduce nor affect by these cuts.
@@ -197,5 +243,7 @@ The same binning was chosen as in the case of signal MC fits. The results for co
 \end{figure}
 
 \subsection{Branching ratio measurement and comparison}
+
+It is also possible
 
 \section{Signal fit to data}
