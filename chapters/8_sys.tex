@@ -1,4 +1,36 @@
 \chapter{Systematics}
 \section{Model uncertainty effects}
 \section{PID efficiency correction}
+
+The PID cut efficiency for the three charged particles in our signal decay needs to be corrected on MC due to various differences when comparing to data. The Belle PID group has prepared correction factor and systematics tables for PID cut efficiencies of all charged particles. In case of kaon ID and lepton ID, the tables are binned over experiment numbers, particle momentum and in $\cos\theta$ of the particle, where for each bin a ratio of efficiencies between MC and data is provided, as well as the systematic errors. Each particle's correction factor and error is shown in Table \ref{tab:PID}, as well as the corresponding entry for all 3 particles. The entries are shown for both the signal and control region.
+
+The central values were obtained with a weighted average over all experiments, where $100\%$ correlation for error calculation was assumed. Full correlation was also assumed when calculating the $KK$ correction, as both $K$ use the same PID information.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		PID correction and systematics & Control region & Signal region \\
+		\hline
+		First $K$ & $1.005\pm 0.009$ & $1.007\pm 0.010$\\
+		\hline
+		Second $K$ & $1.004\pm 0.009$ & $1.006\pm 0.009$\\
+		\hline
+		$e$ & $0.977\pm 0.011$ & $0.976\pm 0.011$\\
+		\hline
+		$\mu$ & $0.985\pm 0.009$ & $0.980\pm 0.009$\\
+		\hline
+        $\ell$ & $0.981\pm 0.007$ & $0.980\pm 0.007$\\
+		\hline
+		$KKe$ & $0.986 \pm 0.021$ & $0.988\pm 0.022$\\
+		\hline
+		$KK\mu$ & $0.994 \pm 0.020$ & $0.993\pm 0.021$\\
+		\hline
+		$KK\ell$ & $0.990 \pm 0.019$ & $0.990\pm 0.020$\\
+		\hline
+	\end{tabular}
+	\caption{PID correction factors and systematic error for various charged particles and their combinations.}
+	\label{tab:PID}
+\end{table}
+
 \section{Bias}

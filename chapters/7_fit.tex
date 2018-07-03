@@ -123,7 +123,7 @@ The fit setup was used on the final samples obtained with both versions of the f
 	\label{fig:sig_binning}
 \end{figure}
 
-Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and fit errors are under control. Fit results for all streams of MC are shown in Figure \ref{fig:sig_global}, along with the global fit of a zero degree polynomial over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.9$, while the average significance of the fits is around $3.178 \sigma$.
+Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and fit errors are under control. Fit results for all streams of MC are shown in Figure \ref{fig:sig_global}, along with the global fit of a zero degree polynomial over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.9$, while the average significance of the fits is around $3.17 \sigma$.
 
 \begin{figure}[H]
 	\centering
@@ -133,7 +133,6 @@ Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an 
 	\label{fig:sig_streamfit}
 \end{figure}
 %TODO fix fit plots
-%TODO fix error in creation of CS templates
 
 
 \begin{figure}[H]
@@ -205,7 +204,7 @@ where each $\rho_X$ is defined as
 \begin{equation*}
 \rho_X = \frac{\mathcal{B}_{PDG}(X)}{\mathcal{B}_{GEN}(X)},
 \end{equation*}
-where the appropriate branching ratio values $\mathcal{B}_{PDG}$ and $\mathcal{B}_{GEN}$ are values taken from the PDG \cite{tanabashi2018review} and values used in MC generation, respectively. Table \ref{tab:br} shows the corresponding values of all mentioned branching ratios.
+and where the appropriate branching ratio values $\mathcal{B}_{PDG}$ and $\mathcal{B}_{GEN}$ are values taken from the PDG \cite{tanabashi2018review} and from tables used in MC generation, respectively. Table \ref{tab:br} shows the corresponding values of all mentioned branching ratios.
 
 \begin{table}[H]
 	\centering
@@ -230,7 +229,7 @@ Finally, after calculating the ratio and propagating the statistical errors and 
 \eta_{MC} &= 1.41,\\
 \eta_{DATA} &= 1.29\pm 0.06,
 \end{align*}
-where errors of all terms in Eq. (\ref{eq:ratioData}) were assumed to be uncorrelated, except for errors of $\rho_{B^+ \to \bar D {}^{*0} \ell^+ \nu}$ and $\rho_{B^0 \to D^{*0} \ell^+ \nu}$, where we assumed $100\%$ correlation, due to both values being obtained from the same measurement, assuming isospin symmetry [X].
+where errors of all terms in Eq. (\ref{eq:ratioData}) were assumed to be uncorrelated, except for errors of $\rho_{B^+ \to \bar D {}^{*0} \ell^+ \nu}$ and $\rho_{B^0 \to D^{*0} \ell^+ \nu}$, where we assumed $100\%$ error correlation, due to both values being obtained from the same measurement, assuming isospin symmetry.
 
 \subsubsection{Determination of optimal parameters}
 
@@ -239,7 +238,7 @@ After fixing the ratio defined in previous subsubsection, we scan the following 
 \item smearing factor in range $[0.0,0.08]\e{GeV}$ in steps of $8\E{-3}$,
 \item offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-3}$,
 \end{itemize}
-where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood test ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing and offset. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
+where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing and offset. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
 \begin{itemize}
 \item Smearing: $24\e{MeV} \pm X$,
 \item Offset: $6\e{MeV} \pm X$.
@@ -327,7 +326,7 @@ $\ell = \mu$ & $607.34 \pm 12.39$ & $631.70 \pm 50.06$\\
 \label{tab:fit_yield}
 \end{table}
 
-Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure X, along with the MC generated value and the current PDG world average. Both MC and measured determination of the control decay branching ratio are in agreement with the expected and the world average values.
+Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure \ref{fig:br_plot}, along with the MC generated value and the current PDG world average. Both MC and measured determination of the control decay branching ratio are in agreement with the expected and the world average values.
 
 \begin{table}[H]
 	\centering
@@ -350,6 +349,12 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{tab:br_result}
 \end{table}
 
-PLOT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/br_plot}
+	\caption{Various branching ratio determinations for the control decay of our analysis.}
+	\label{fig:br_plot}
+\end{figure}
 
 \section{Signal fit to data}

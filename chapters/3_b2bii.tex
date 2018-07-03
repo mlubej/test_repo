@@ -7,8 +7,38 @@ The conversion in the \btbii~package is divided into three BASF2 modules. The fi
 
 \section{Validation}
 
-In order to make sure the conversion was successful and without errors, a thorough validation should be performed. This is done by comparing histograms of all physical quantities of the reconstructed objects on simulated and recorded events, processed with BASF and BASF2. Figures X and X show some of the physical properties of the neutral and charged particles, obtained with BASF and BASF2, and their difference. The plots indicate that the conversion is successful and we can proceed with the analysis in the framework of BASF2.
+In order to make sure the conversion was successful and without errors, a thorough validation should be performed. This is done by comparing histograms of all physical quantities of the reconstructed objects on simulated and recorded events, processed with BASF and BASF2. 
 
-PLOT
+Our signal decay mode consists of three charged tracks, track conversion should perform flawlessly. Additionally, energy measurement is also very important in our untagged analysis in order to successfully determine the missing 4-momentum in the event, which is why we also need a correct conversion of the ECL clusters for photons and $\pi^0$ particles. Figures \ref{fig:b2bii_tracks} to \ref{fig:b2bii_pi0s} show the basic physical properties of converted tracks, photons and $\pi^0$ particles, obtained with BASF and BASF2. The plots indicate that the conversion is successful in all aspects and we can proceed with the analysis in the framework of BASF2.
 
-PLOT
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/b2bii_tracks}
+\caption{Some of the more important physical properties of tracks for Belle and Belle II in the conversion process. The histograms seem to overlap and the conversion is assumed to be successful.}
+\label{fig:b2bii_tracks}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/b2bii_gammas}
+\caption{Some of the more important physical properties of photons for Belle and Belle II in the conversion process. The histograms seem to overlap and the conversion is assumed to be successful.}
+\label{fig:b2bii_gammas}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\linewidth}
+\includegraphics[width=\linewidth]{fig/b2bii_pi0s}
+\caption{Some of the more important physical properties of $\pi^0$ particles for Belle and Belle II in the conversion process. The histograms seem to overlap and the conversion is assumed to be successful.}
+\label{fig:b2bii_pi0s}
+\end{figure}
+
+%\section{Conversion improvement}
+%
+%An additional improvement is applied to neutral particles after the conversion where we change the origin of the ECL clusters to the interaction point instead of the point $(0,0,0)$, which was used at Belle. In order to successfully implement this improvement, we have to make sure that the conversion of the beam parameters is successful and how the momentum resolution of neutral particles changes after it's implementation. Figure X shows the distributions of the beam parameters for Belle and Belle II, which shows no obvious errors in the conversion process. Improving the information about the origin point of photons then results in improvement of the momentum determination. The comparison is shown on Figure X with an obvious benefit after the mentioned implementation.
+%
+%PLOT
+%
+%PLOT

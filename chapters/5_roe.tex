@@ -461,7 +461,7 @@ Another variable which heavily depends on the clean-up is the charge product of 
 The ROE clean-up seems to perform well on signal MC based on the results in the previous section. However, it is necessary to make sure that this procedure performs as well on other simulated and measured data, which is done in this section. The clean-up procedure is validated on the control sample, $$B^+ \to \bar D {}^0 \ell^+ \nu,\quad D^0 \to K^+K^-,$$
 which was already defined in Section \ref{sec:control-decay}. The control candidates are reconstructed in the same manner as the signal candidates. In addition to the same cuts applied as in the previous section we also apply a selection to make the control sample more significant. We discard all candidates which fail to pass the cut on invariant mass of the two kaons
 \begin{equation}
-1.852\e{GeV}/c^2 < m_{KK} < 1.876\e{GeV}/c^2
+1.849\e{GeV}/c^2 < m_{KK} < 1.879\e{GeV}/c^2
 \end{equation}
 as shown in Figure \ref{fig:roe_mKK}.
 \begin{figure}[H]
@@ -472,7 +472,7 @@ as shown in Figure \ref{fig:roe_mKK}.
 \label{fig:roe_mKK}
 \end{figure}
 
-With the control sample selection determined, we now run the reconstruction with and without the ROE clean-up procedure on MC and data. For the purpose of this validation we only run the reconstruction over experiment no.$~43$, which corresponds to about $56.2\e{fb^{-1}}$. 
+With the control sample selection determined, we now run the reconstruction with and without the ROE clean-up procedure on MC and data. For the purpose of this validation we only run the reconstruction over 1 stram of the full available generated MC. 
 
 The affects of the ROE clean-up are shown in Figure \ref{fig:roe_val}. We see that data and MC agree well, and evidently even better after the clean-up procedure. The control sample resolution seems very poor in the case without the clean-up, but it improves significantly if the clean-up procedure is applied, as expected. The simulated background also seems to gain an improvement in the resolution, but this is likely due to the background consisting of similar candidates as the control sample. This means that the clean-up performs as expected due to the nature of the decays and does not arbitrarily shape the background to be more signal like. Additionally, it should be pointed out that, after the clean-up, the simulated background resolution is worse compared to the control decay resolution, while this is not the case if the clean-up procedure is not performed.
 \begin{figure}[H]
@@ -489,6 +489,7 @@ To perform the clean-up validation in greater detail we also compare the data an
 \captionsetup{width=0.8\linewidth}
 \includegraphics[width=\linewidth]{fig/roe_val_split}
 \caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom) split in bins of the charge product of the two $B$ mesons.}
+\label{fig:roe_val_split}
 \end{figure}
 
 The ROE clean-up procedure seems to perform well. It significantly improves the resolution of the signal/control candidates and increases the amount of perfectly clean events. The clean-up procedure was also applied to data and no disagreement with respect to the simulated MC samples was found. This means that the procedure does not differ between MC and data and does not affect them differently. The procedure was therefore validated in great detail and is suitable to be used in this analysis.

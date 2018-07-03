@@ -1,74 +1,74 @@
 \chapter*{A: MVA control plots}
 
-\section*{Hadronic decay MVA training}\label{sec:hadronic-decay-mva-training}
-
-\subsection*{Variable importance}
-
-\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
-\hline
-& Name & Alias & Importance \\ \hline
-0 &\texttt{B\_qpKinLepton} & $v_{0}$ & $0.510$ \\ \hline
-1 &\texttt{B\_qpIntermediateKinLepton} & $v_{1}$ & $0.170$ \\ \hline
-2 &\texttt{B\_nLepInROE} & $v_{2}$ & $0.151$ \\ \hline
-3 &\texttt{B\_qpIntermediateElectron} & $v_{3}$ & $0.031$ \\ \hline
-4 &\texttt{B\_qpMuon} & $v_{4}$ & $0.026$ \\ \hline
-5 &\texttt{B\_ROE\_PThetacms0} & $v_{5}$ & $0.020$ \\ \hline
-6 &\texttt{B\_nROEDistTrk} & $v_{6}$ & $0.020$ \\ \hline
-7 &\texttt{B\_qpElectron} & $v_{7}$ & $0.019$ \\ \hline
-8 &\texttt{B\_ROECharge0} & $v_{8}$ & $0.018$ \\ \hline
-9 &\texttt{B\_qpIntermediateMuon} & $v_{9}$ & $0.013$ \\ \hline
-10 &\texttt{B\_nROETrk0} & $v_{10}$ & $0.010$ \\ \hline
-11 &\texttt{B\_TagVPvalue} & $v_{11}$ & $0.007$ \\ \hline
-12 &\texttt{B\_nKaonInROE} & $v_{12}$ & $0.004$ \\ \hline
-\captionsetup{width=0.8\linewidth}
-\caption{Variable names, aliases and importance in the scope of hadronic decay MVA training.}
-\end{longtable}
-
-\subsection*{Variable distributions}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v0}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v1}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v2}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v3}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v4}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v5}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v6}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v7}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v8}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v9}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v10}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v11}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v12}}
-\caption{Feature distributions for MVA training of hadronically decayed candidates.}
-\end{figure}
-
-\subsection*{Hyper-parameter optimization}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/HD_hpo}
-\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of hadronically decayed candidates.}
-\end{figure}
-
-\subsection*{Results}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/HD_effpur}
-\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/HD_roc}
-\caption{ROC curves of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
-\end{figure}
+%\section*{Hadronic decay MVA training}\label{sec:hadronic-decay-mva-training}
+%
+%\subsection*{Variable importance}
+%
+%\begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
+%\hline
+%& Name & Alias & Importance \\ \hline
+%0 &\texttt{B\_qpKinLepton} & $v_{0}$ & $0.510$ \\ \hline
+%1 &\texttt{B\_qpIntermediateKinLepton} & $v_{1}$ & $0.170$ \\ \hline
+%2 &\texttt{B\_nLepInROE} & $v_{2}$ & $0.151$ \\ \hline
+%3 &\texttt{B\_qpIntermediateElectron} & $v_{3}$ & $0.031$ \\ \hline
+%4 &\texttt{B\_qpMuon} & $v_{4}$ & $0.026$ \\ \hline
+%5 &\texttt{B\_ROE\_PThetacms0} & $v_{5}$ & $0.020$ \\ \hline
+%6 &\texttt{B\_nROEDistTrk} & $v_{6}$ & $0.020$ \\ \hline
+%7 &\texttt{B\_qpElectron} & $v_{7}$ & $0.019$ \\ \hline
+%8 &\texttt{B\_ROECharge0} & $v_{8}$ & $0.018$ \\ \hline
+%9 &\texttt{B\_qpIntermediateMuon} & $v_{9}$ & $0.013$ \\ \hline
+%10 &\texttt{B\_nROETrk0} & $v_{10}$ & $0.010$ \\ \hline
+%11 &\texttt{B\_TagVPvalue} & $v_{11}$ & $0.007$ \\ \hline
+%12 &\texttt{B\_nKaonInROE} & $v_{12}$ & $0.004$ \\ \hline
+%\captionsetup{width=0.8\linewidth}
+%\caption{Variable names, aliases and importance in the scope of hadronic decay MVA training.}
+%\end{longtable}
+%
+%\subsection*{Variable distributions}
+%
+%\begin{figure}[H]
+%\centering
+%\captionsetup{width=0.8\linewidth}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v0}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v1}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v2}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v3}}\\
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v4}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v5}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v6}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v7}}\\
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v8}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v9}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v10}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v11}}\\
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/HD_v12}}
+%\caption{Feature distributions for MVA training of hadronically decayed candidates.}
+%\end{figure}
+%
+%\subsection*{Hyper-parameter optimization}
+%
+%\begin{figure}[H]
+%\centering
+%\captionsetup{width=0.8\linewidth}
+%\includegraphics[width=\linewidth]{fig/addendums/HD_hpo}
+%\caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of hadronically decayed candidates.}
+%\end{figure}
+%
+%\subsection*{Results}
+%
+%\begin{figure}[H]
+%\centering
+%\captionsetup{width=0.8\linewidth}
+%\includegraphics[width=\linewidth]{fig/addendums/HD_effpur}
+%\caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\captionsetup{width=0.8\linewidth}
+%\includegraphics[width=\linewidth]{fig/addendums/HD_roc}
+%\caption{ROC curves of the MVA classifier output for hadronically decayed candidates training on the train (solid) and test (dashed) samples.}
+%\end{figure}
 
 \section*{ROE clean-up $\pi^0$ training}\label{sec:ROE_pi0}
 
@@ -77,31 +77,31 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{chiProb} & $v_{0}$ & $0.262$ \\ \hline
-1 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{1}$ & $0.148$ \\ \hline
-2 &\texttt{daughter(0,useCMSFrame(p))} & $v_{2}$ & $0.079$ \\ \hline
-3 &\texttt{InvM} & $v_{3}$ & $0.076$ \\ \hline
-4 &\texttt{daughter(1,clusterHighestE)} & $v_{4}$ & $0.062$ \\ \hline
-5 &\texttt{daughter(1,p)} & $v_{5}$ & $0.050$ \\ \hline
-6 &\texttt{daughter(1,clusterTheta)} & $v_{6}$ & $0.048$ \\ \hline
-7 &\texttt{daughter(0,clusterHighestE)} & $v_{7}$ & $0.031$ \\ \hline
-8 &\texttt{daughter(0,clusterTheta)} & $v_{8}$ & $0.028$ \\ \hline
-9 &\texttt{daughter(0,minC2HDist)} & $v_{9}$ & $0.023$ \\ \hline
-10 &\texttt{daughter(1,minC2HDist)} & $v_{10}$ & $0.021$ \\ \hline
-11 &\texttt{daughter(0,clusterE9E25)} & $v_{11}$ & $0.021$ \\ \hline
-12 &\texttt{daughter(1,clusterE9E25)} & $v_{12}$ & $0.021$ \\ \hline
-13 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{13}$ & $0.018$ \\ \hline
+0 &\texttt{chiProb} & $v_{0}$ & $0.280$ \\ \hline
+1 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{1}$ & $0.203$ \\ \hline
+2 &\texttt{daughter(0,useCMSFrame(p))} & $v_{2}$ & $0.073$ \\ \hline
+3 &\texttt{InvM} & $v_{3}$ & $0.072$ \\ \hline
+4 &\texttt{daughter(1,clusterHighestE)} & $v_{4}$ & $0.061$ \\ \hline
+5 &\texttt{daughter(1,clusterTheta)} & $v_{5}$ & $0.049$ \\ \hline
+6 &\texttt{daughter(1,p)} & $v_{6}$ & $0.047$ \\ \hline
+7 &\texttt{daughter(0,clusterHighestE)} & $v_{7}$ & $0.029$ \\ \hline
+8 &\texttt{daughter(0,clusterTheta)} & $v_{8}$ & $0.024$ \\ \hline
+9 &\texttt{daughter(0,clusterE9E25)} & $v_{9}$ & $0.018$ \\ \hline
+10 &\texttt{daughter(0,minC2HDist)} & $v_{10}$ & $0.018$ \\ \hline
+11 &\texttt{daughter(1,minC2HDist)} & $v_{11}$ & $0.017$ \\ \hline
+12 &\texttt{daughter(1,clusterE9E25)} & $v_{12}$ & $0.016$ \\ \hline
+13 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{13}$ & $0.014$ \\ \hline
 14 &\texttt{daughter(1,clusterNHits)} & $v_{14}$ & $0.013$ \\ \hline
-15 &\texttt{SigMBF} & $v_{15}$ & $0.013$ \\ \hline
-16 &\texttt{daughter(0,clusterNHits)} & $v_{16}$ & $0.013$ \\ \hline
-17 &\texttt{useCMSFrame(p)} & $v_{17}$ & $0.012$ \\ \hline
-18 &\texttt{daughter(0,clusterErrorE)} & $v_{18}$ & $0.011$ \\ \hline
-19 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{19}$ & $0.010$ \\ \hline
-20 &\texttt{daughter(1,clusterErrorE)} & $v_{20}$ & $0.010$ \\ \hline
-21 &\texttt{daughter(1,useCMSFrame(p))} & $v_{21}$ & $0.008$ \\ \hline
-22 &\texttt{daughter(0,p)} & $v_{22}$ & $0.007$ \\ \hline
-23 &\texttt{p} & $v_{23}$ & $0.007$ \\ \hline
-24 &\texttt{SigM} & $v_{24}$ & $0.007$ \\ \hline
+15 &\texttt{daughter(0,clusterNHits)} & $v_{15}$ & $0.011$ \\ \hline
+16 &\texttt{daughter(0,clusterErrorE)} & $v_{16}$ & $0.009$ \\ \hline
+17 &\texttt{daughter(1,clusterErrorE)} & $v_{17}$ & $0.009$ \\ \hline
+18 &\texttt{SigMBF} & $v_{18}$ & $0.007$ \\ \hline
+19 &\texttt{useCMSFrame(p)} & $v_{19}$ & $0.006$ \\ \hline
+20 &\texttt{daughter(0,p)} & $v_{20}$ & $0.005$ \\ \hline
+21 &\texttt{SigM} & $v_{21}$ & $0.005$ \\ \hline
+22 &\texttt{daughter(1,useCMSFrame(p))} & $v_{22}$ & $0.005$ \\ \hline
+23 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{23}$ & $0.005$ \\ \hline
+24 &\texttt{p} & $v_{24}$ & $0.003$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of $\pi^0$ MVA training for ROE clean-up.}
 \end{longtable}
@@ -176,21 +176,22 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{p} & $v_{0}$ & $0.317$ \\ \hline
-1 &\texttt{clusterHighestE} & $v_{1}$ & $0.251$ \\ \hline
-2 &\texttt{pi0p} & $v_{2}$ & $0.183$ \\ \hline
-3 &\texttt{minC2HDist} & $v_{3}$ & $0.058$ \\ \hline
-4 &\texttt{cosTheta} & $v_{4}$ & $0.044$ \\ \hline
-5 &\texttt{clusterNHits} & $v_{5}$ & $0.031$ \\ \hline
-6 &\texttt{clusterE9E25} & $v_{6}$ & $0.030$ \\ \hline
-7 &\texttt{useCMSFrame(p)} & $v_{7}$ & $0.028$ \\ \hline
-8 &\texttt{clusterUncorrE} & $v_{8}$ & $0.023$ \\ \hline
-9 &\texttt{clusterR} & $v_{9}$ & $0.019$ \\ \hline
-10 &\texttt{clusterErrorE} & $v_{10}$ & $0.011$ \\ \hline
-11 &\texttt{clusterReg} & $v_{11}$ & $0.006$ \\ \hline
+0 &\texttt{p} & $v_{0}$ & $0.327$ \\ \hline
+1 &\texttt{pi0p} & $v_{1}$ & $0.243$ \\ \hline
+2 &\texttt{clusterHighestE} & $v_{2}$ & $0.226$ \\ \hline
+3 &\texttt{minC2HDist} & $v_{3}$ & $0.052$ \\ \hline
+4 &\texttt{cosTheta} & $v_{4}$ & $0.036$ \\ \hline
+5 &\texttt{clusterE9E25} & $v_{5}$ & $0.031$ \\ \hline
+6 &\texttt{clusterNHits} & $v_{6}$ & $0.025$ \\ \hline
+7 &\texttt{clusterUncorrE} & $v_{7}$ & $0.022$ \\ \hline
+8 &\texttt{clusterR} & $v_{8}$ & $0.015$ \\ \hline
+9 &\texttt{useCMSFrame(p)} & $v_{9}$ & $0.013$ \\ \hline
+10 &\texttt{clusterErrorE} & $v_{10}$ & $0.010$ \\ \hline
+11 &\texttt{clusterReg} & $v_{11}$ & $0.000$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of $\gamma$ MVA training for ROE clean-up.}
 \end{longtable}
+
 
 \subsection*{Variable distributions}
 
@@ -244,47 +245,48 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{0}$ & $0.140$ \\ \hline
-1 &\texttt{daughter(1,d0Err)} & $v_{1}$ & $0.084$ \\ \hline
-2 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{2}$ & $0.056$ \\ \hline
-3 &\texttt{daughter(1,d0)} & $v_{3}$ & $0.048$ \\ \hline
-4 &\texttt{daughter(0,d0)} & $v_{4}$ & $0.047$ \\ \hline
-5 &\texttt{daughter(0,nSVDHits)} & $v_{5}$ & $0.045$ \\ \hline
-6 &\texttt{daughter(1,phi0Err)} & $v_{6}$ & $0.042$ \\ \hline
-7 &\texttt{daughter(1,nCDCHits)} & $v_{7}$ & $0.038$ \\ \hline
-8 &\texttt{daughter(1,z0)} & $v_{8}$ & $0.035$ \\ \hline
-9 &\texttt{daughter(0,nCDCHits)} & $v_{9}$ & $0.032$ \\ \hline
+0 &\texttt{useCMSFrame(daughterAngleInBetween(0,1))} & $v_{0}$ & $0.132$ \\ \hline
+1 &\texttt{daughter(0,phi0Err)} & $v_{1}$ & $0.082$ \\ \hline
+2 &\texttt{useLabFrame(daughterAngleInBetween(0,1))} & $v_{2}$ & $0.055$ \\ \hline
+3 &\texttt{daughter(1,d0)} & $v_{3}$ & $0.051$ \\ \hline
+4 &\texttt{daughter(1,phi0Err)} & $v_{4}$ & $0.051$ \\ \hline
+5 &\texttt{daughter(0,d0)} & $v_{5}$ & $0.050$ \\ \hline
+6 &\texttt{daughter(1,nCDCHits)} & $v_{6}$ & $0.040$ \\ \hline
+7 &\texttt{daughter(1,d0Err)} & $v_{7}$ & $0.037$ \\ \hline
+8 &\texttt{daughter(0,nCDCHits)} & $v_{8}$ & $0.034$ \\ \hline
+9 &\texttt{daughter(1,z0)} & $v_{9}$ & $0.032$ \\ \hline
 10 &\texttt{daughter(0,z0)} & $v_{10}$ & $0.030$ \\ \hline
-11 &\texttt{daughter(1,useCMSFrame(p))} & $v_{11}$ & $0.030$ \\ \hline
-12 &\texttt{daughter(1,pz)} & $v_{12}$ & $0.026$ \\ \hline
-13 &\texttt{extraInfo(decayModeID)} & $v_{13}$ & $0.026$ \\ \hline
-14 &\texttt{daughter(0,pz)} & $v_{14}$ & $0.022$ \\ \hline
-15 &\texttt{daughter(0,pValue)} & $v_{15}$ & $0.021$ \\ \hline
-16 &\texttt{daughter(1,tanlambda)} & $v_{16}$ & $0.021$ \\ \hline
-17 &\texttt{daughter(0,d0Err)} & $v_{17}$ & $0.020$ \\ \hline
-18 &\texttt{daughter(1,pValue)} & $v_{18}$ & $0.019$ \\ \hline
-19 &\texttt{daughter(0,phi0Err)} & $v_{19}$ & $0.018$ \\ \hline
-20 &\texttt{daughter(0,useCMSFrame(p))} & $v_{20}$ & $0.018$ \\ \hline
+11 &\texttt{daughter(0,d0Err)} & $v_{11}$ & $0.028$ \\ \hline
+12 &\texttt{daughter(0,nSVDHits)} & $v_{12}$ & $0.028$ \\ \hline
+13 &\texttt{daughter(1,pz)} & $v_{13}$ & $0.027$ \\ \hline
+14 &\texttt{daughter(1,useCMSFrame(p))} & $v_{14}$ & $0.024$ \\ \hline
+15 &\texttt{extraInfo(decayModeID)} & $v_{15}$ & $0.023$ \\ \hline
+16 &\texttt{daughter(0,pz)} & $v_{16}$ & $0.020$ \\ \hline
+17 &\texttt{daughter(1,nSVDHits)} & $v_{17}$ & $0.020$ \\ \hline
+18 &\texttt{daughter(0,pValue)} & $v_{18}$ & $0.020$ \\ \hline
+19 &\texttt{daughter(1,tanlambda)} & $v_{19}$ & $0.018$ \\ \hline
+20 &\texttt{daughter(1,pValue)} & $v_{20}$ & $0.018$ \\ \hline
 21 &\texttt{daughter(0,tanlambda)} & $v_{21}$ & $0.017$ \\ \hline
-22 &\texttt{daughter(0,phi0)} & $v_{22}$ & $0.017$ \\ \hline
+22 &\texttt{daughter(0,phi0)} & $v_{22}$ & $0.016$ \\ \hline
 23 &\texttt{daughter(1,phi0)} & $v_{23}$ & $0.016$ \\ \hline
-24 &\texttt{daughter(0,z0Err)} & $v_{24}$ & $0.014$ \\ \hline
-25 &\texttt{daughter(1,omega)} & $v_{25}$ & $0.014$ \\ \hline
-26 &\texttt{daughter(0,omega)} & $v_{26}$ & $0.013$ \\ \hline
-27 &\texttt{daughter(1,z0Err)} & $v_{27}$ & $0.013$ \\ \hline
-28 &\texttt{daughter(0,pt)} & $v_{28}$ & $0.012$ \\ \hline
-29 &\texttt{daughter(0,omegaErr)} & $v_{29}$ & $0.012$ \\ \hline
-30 &\texttt{daughter(1,pt)} & $v_{30}$ & $0.011$ \\ \hline
-31 &\texttt{daughter(1,omegaErr)} & $v_{31}$ & $0.011$ \\ \hline
-32 &\texttt{daughter(0,tanlambdaErr)} & $v_{32}$ & $0.010$ \\ \hline
-33 &\texttt{daughter(1,nSVDHits)} & $v_{33}$ & $0.010$ \\ \hline
+24 &\texttt{daughter(0,useCMSFrame(p))} & $v_{24}$ & $0.015$ \\ \hline
+25 &\texttt{daughter(0,z0Err)} & $v_{25}$ & $0.014$ \\ \hline
+26 &\texttt{daughter(1,omega)} & $v_{26}$ & $0.013$ \\ \hline
+27 &\texttt{daughter(0,omega)} & $v_{27}$ & $0.013$ \\ \hline
+28 &\texttt{daughter(1,z0Err)} & $v_{28}$ & $0.012$ \\ \hline
+29 &\texttt{daughter(0,pt)} & $v_{29}$ & $0.011$ \\ \hline
+30 &\texttt{daughter(0,omegaErr)} & $v_{30}$ & $0.011$ \\ \hline
+31 &\texttt{daughter(1,omegaErr)} & $v_{31}$ & $0.010$ \\ \hline
+32 &\texttt{daughter(1,pt)} & $v_{32}$ & $0.009$ \\ \hline
+33 &\texttt{daughter(0,tanlambdaErr)} & $v_{33}$ & $0.009$ \\ \hline
 34 &\texttt{daughter(1,tanlambdaErr)} & $v_{34}$ & $0.009$ \\ \hline
-35 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{35}$ & $0.002$ \\ \hline
+35 &\texttt{useRestFrame(daughterAngleInBetween(0,1))} & $v_{35}$ & $0.003$ \\ \hline
 36 &\texttt{daughter(1,charge)} & $v_{36}$ & $0.000$ \\ \hline
 37 &\texttt{daughter(0,charge)} & $v_{37}$ & $0.000$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of duplicate track pair MVA training for ROE clean-up.}
 \end{longtable}
+
 
 \subsection*{Variable distributions}
 
@@ -369,34 +371,30 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{d0} & $v_{0}$ & $0.093$ \\ \hline
-1 &\texttt{extraInfo(nSVDHitsDiff)} & $v_{1}$ & $0.089$ \\ \hline
-2 &\texttt{z0} & $v_{2}$ & $0.080$ \\ \hline
+0 &\texttt{extraInfo(d0Diff)} & $v_{0}$ & $0.214$ \\ \hline
+1 &\texttt{extraInfo(z0Diff)} & $v_{1}$ & $0.087$ \\ \hline
+2 &\texttt{d0} & $v_{2}$ & $0.069$ \\ \hline
 3 &\texttt{extraInfo(pValueDiff)} & $v_{3}$ & $0.060$ \\ \hline
-4 &\texttt{extraInfo(ptDiff)} & $v_{4}$ & $0.059$ \\ \hline
-5 &\texttt{extraInfo(z0Diff)} & $v_{5}$ & $0.055$ \\ \hline
-6 &\texttt{extraInfo(phi0Diff)} & $v_{6}$ & $0.046$ \\ \hline
-7 &\texttt{extraInfo(pzDiff)} & $v_{7}$ & $0.045$ \\ \hline
-8 &\texttt{extraInfo(nCDCHitsDiff)} & $v_{8}$ & $0.043$ \\ \hline
-9 &\texttt{phi0Err} & $v_{9}$ & $0.042$ \\ \hline
-10 &\texttt{extraInfo(tanlambdaDiff)} & $v_{10}$ & $0.039$ \\ \hline
-11 &\texttt{z0Err} & $v_{11}$ & $0.035$ \\ \hline
-12 &\texttt{pValue} & $v_{12}$ & $0.030$ \\ \hline
-13 &\texttt{extraInfo(omegaDiff)} & $v_{13}$ & $0.030$ \\ \hline
-14 &\texttt{tanlambdaErr} & $v_{14}$ & $0.029$ \\ \hline
-15 &\texttt{nCDCHits} & $v_{15}$ & $0.028$ \\ \hline
-16 &\texttt{pt} & $v_{16}$ & $0.027$ \\ \hline
-17 &\texttt{d0Err} & $v_{17}$ & $0.025$ \\ \hline
-18 &\texttt{phi0} & $v_{18}$ & $0.025$ \\ \hline
-19 &\texttt{pz} & $v_{19}$ & $0.024$ \\ \hline
-20 &\texttt{cosTheta} & $v_{20}$ & $0.022$ \\ \hline
-21 &\texttt{omegaErr} & $v_{21}$ & $0.022$ \\ \hline
-22 &\texttt{useCMSFrame(p)} & $v_{22}$ & $0.021$ \\ \hline
-23 &\texttt{omega} & $v_{23}$ & $0.018$ \\ \hline
-24 &\texttt{nSVDHits} & $v_{24}$ & $0.014$ \\ \hline
+4 &\texttt{z0} & $v_{4}$ & $0.058$ \\ \hline
+5 &\texttt{phi0Err} & $v_{5}$ & $0.056$ \\ \hline
+6 &\texttt{extraInfo(pzDiff)} & $v_{6}$ & $0.055$ \\ \hline
+7 &\texttt{extraInfo(ptDiff)} & $v_{7}$ & $0.045$ \\ \hline
+8 &\texttt{z0Err} & $v_{8}$ & $0.043$ \\ \hline
+9 &\texttt{extraInfo(nCDCHitsDiff)} & $v_{9}$ & $0.037$ \\ \hline
+10 &\texttt{extraInfo(nSVDHitsDiff)} & $v_{10}$ & $0.034$ \\ \hline
+11 &\texttt{pt} & $v_{11}$ & $0.032$ \\ \hline
+12 &\texttt{d0Err} & $v_{12}$ & $0.030$ \\ \hline
+13 &\texttt{pValue} & $v_{13}$ & $0.029$ \\ \hline
+14 &\texttt{nCDCHits} & $v_{14}$ & $0.028$ \\ \hline
+15 &\texttt{nSVDHits} & $v_{15}$ & $0.028$ \\ \hline
+16 &\texttt{pz} & $v_{16}$ & $0.025$ \\ \hline
+17 &\texttt{cosTheta} & $v_{17}$ & $0.024$ \\ \hline
+18 &\texttt{phi0} & $v_{18}$ & $0.023$ \\ \hline
+19 &\texttt{useCMSFrame(p)} & $v_{19}$ & $0.021$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of duplicate track MVA training for ROE clean-up.}
 \end{longtable}
+
 
 \subsection*{Variable distributions}
 
@@ -426,15 +424,15 @@
 \caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
 \end{figure}
 
-\begin{figure}[H]\ContinuedFloat
-\captionsetup{width=0.8\linewidth}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v20}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v21}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v22}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v23}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v24}}
-\caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
-\end{figure}
+%\begin{figure}[H]\ContinuedFloat
+%\captionsetup{width=0.8\linewidth}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v20}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v21}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v22}}
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v23}}\\
+%\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/curl_v24}}
+%\caption{Feature distributions for MVA training of duplicate track candidates in the scope of ROE clean-up.}
+%\end{figure}
 
 \subsection*{Hyper-parameter optimization}
 
@@ -468,40 +466,40 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{B\_R2} & $v_{0}$ & $0.275$ \\ \hline
-1 &\texttt{B\_CosTBTO} & $v_{1}$ & $0.162$ \\ \hline
-2 &\texttt{B\_ThrustB} & $v_{2}$ & $0.066$ \\ \hline
-3 &\texttt{B\_roeFit\_dz} & $v_{3}$ & $0.056$ \\ \hline
-4 &\texttt{B\_hso02} & $v_{4}$ & $0.056$ \\ \hline
-5 &\texttt{B\_ThrustO} & $v_{5}$ & $0.035$ \\ \hline
-6 &\texttt{B\_hoo2} & $v_{6}$ & $0.034$ \\ \hline
-7 &\texttt{B\_hso12} & $v_{7}$ & $0.025$ \\ \hline
-8 &\texttt{B\_qpFastHadron} & $v_{8}$ & $0.020$ \\ \hline
-9 &\texttt{B\_hoo0} & $v_{9}$ & $0.018$ \\ \hline
-10 &\texttt{B\_cc2\_CcROE} & $v_{10}$ & $0.018$ \\ \hline
-11 &\texttt{B\_CosTBz} & $v_{11}$ & $0.017$ \\ \hline
-12 &\texttt{B\_qpKaon} & $v_{12}$ & $0.016$ \\ \hline
-13 &\texttt{B\_cc3\_CcROE} & $v_{13}$ & $0.016$ \\ \hline
-14 &\texttt{B\_hso01} & $v_{14}$ & $0.016$ \\ \hline
-15 &\texttt{B\_cc4\_CcROE} & $v_{15}$ & $0.015$ \\ \hline
-16 &\texttt{B\_qpMaximumPstar} & $v_{16}$ & $0.014$ \\ \hline
-17 &\texttt{B\_cc5\_CcROE} & $v_{17}$ & $0.012$ \\ \hline
-18 &\texttt{B\_cc1\_CcROE} & $v_{18}$ & $0.011$ \\ \hline
-19 &\texttt{B\_cc6\_CcROE} & $v_{19}$ & $0.011$ \\ \hline
-20 &\texttt{B\_cc7\_CcROE} & $v_{20}$ & $0.010$ \\ \hline
-21 &\texttt{B\_cc9\_CcROE} & $v_{21}$ & $0.009$ \\ \hline
-22 &\texttt{B\_qpSlowPion} & $v_{22}$ & $0.009$ \\ \hline
-23 &\texttt{B\_cc8\_CcROE} & $v_{23}$ & $0.009$ \\ \hline
-24 &\texttt{B\_qpFSC} & $v_{24}$ & $0.009$ \\ \hline
-25 &\texttt{B\_qpLambda} & $v_{25}$ & $0.008$ \\ \hline
-26 &\texttt{B\_hoo1} & $v_{26}$ & $0.008$ \\ \hline
-27 &\texttt{B\_qpKaonPion} & $v_{27}$ & $0.008$ \\ \hline
-28 &\texttt{B\_hso10} & $v_{28}$ & $0.007$ \\ \hline
-29 &\texttt{B\_hoo4} & $v_{29}$ & $0.007$ \\ \hline
-30 &\texttt{B\_hso04} & $v_{30}$ & $0.006$ \\ \hline
-31 &\texttt{B\_hso03} & $v_{31}$ & $0.005$ \\ \hline
-32 &\texttt{B\_hoo3} & $v_{32}$ & $0.005$ \\ \hline
-33 &\texttt{B\_hso14} & $v_{33}$ & $0.005$ \\ \hline
+0 &\texttt{B\_CosTBTO} & $v_{0}$ & $0.291$ \\ \hline
+1 &\texttt{B\_hso02} & $v_{1}$ & $0.096$ \\ \hline
+2 &\texttt{B\_ThrustB} & $v_{2}$ & $0.096$ \\ \hline
+3 &\texttt{B\_roeFit\_dz} & $v_{3}$ & $0.075$ \\ \hline
+4 &\texttt{B\_R2} & $v_{4}$ & $0.054$ \\ \hline
+5 &\texttt{B\_hso12} & $v_{5}$ & $0.044$ \\ \hline
+6 &\texttt{B\_hoo2} & $v_{6}$ & $0.032$ \\ \hline
+7 &\texttt{B\_ThrustO} & $v_{7}$ & $0.027$ \\ \hline
+8 &\texttt{B\_qpKaon} & $v_{8}$ & $0.024$ \\ \hline
+9 &\texttt{B\_cc2\_CcROE} & $v_{9}$ & $0.023$ \\ \hline
+10 &\texttt{B\_hoo0} & $v_{10}$ & $0.019$ \\ \hline
+11 &\texttt{B\_cc3\_CcROE} & $v_{11}$ & $0.019$ \\ \hline
+12 &\texttt{B\_cc4\_CcROE} & $v_{12}$ & $0.016$ \\ \hline
+13 &\texttt{B\_CosTBz} & $v_{13}$ & $0.015$ \\ \hline
+14 &\texttt{B\_hso01} & $v_{14}$ & $0.015$ \\ \hline
+15 &\texttt{B\_cc1\_CcROE} & $v_{15}$ & $0.015$ \\ \hline
+16 &\texttt{B\_cc5\_CcROE} & $v_{16}$ & $0.013$ \\ \hline
+17 &\texttt{B\_cc6\_CcROE} & $v_{17}$ & $0.012$ \\ \hline
+18 &\texttt{B\_qpFastHadron} & $v_{18}$ & $0.012$ \\ \hline
+19 &\texttt{B\_cc7\_CcROE} & $v_{19}$ & $0.010$ \\ \hline
+20 &\texttt{B\_cc9\_CcROE} & $v_{20}$ & $0.010$ \\ \hline
+21 &\texttt{B\_cc8\_CcROE} & $v_{21}$ & $0.010$ \\ \hline
+22 &\texttt{B\_qpMaximumPstar} & $v_{22}$ & $0.008$ \\ \hline
+23 &\texttt{B\_hso10} & $v_{23}$ & $0.008$ \\ \hline
+24 &\texttt{B\_hso04} & $v_{24}$ & $0.007$ \\ \hline
+25 &\texttt{B\_qpLambda} & $v_{25}$ & $0.006$ \\ \hline
+26 &\texttt{B\_hoo1} & $v_{26}$ & $0.006$ \\ \hline
+27 &\texttt{B\_qpKaonPion} & $v_{27}$ & $0.006$ \\ \hline
+28 &\texttt{B\_hoo4} & $v_{28}$ & $0.006$ \\ \hline
+29 &\texttt{B\_qpSlowPion} & $v_{29}$ & $0.006$ \\ \hline
+30 &\texttt{B\_hso03} & $v_{30}$ & $0.005$ \\ \hline
+31 &\texttt{B\_hso14} & $v_{31}$ & $0.004$ \\ \hline
+32 &\texttt{B\_qpFSC} & $v_{32}$ & $0.004$ \\ \hline
+33 &\texttt{B\_hoo3} & $v_{33}$ & $0.004$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of $q\bar q$ suppression MVA training.}
 \end{longtable}
@@ -511,45 +509,45 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v0}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v1}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v2}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v3}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v4}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v5}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v6}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v7}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v8}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v9}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v10}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v11}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v12}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v13}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v14}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v15}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v16}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v17}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v18}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v19}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v19}}
 \caption{Feature distributions for MVA training of $q\bar q$ background suppression.}
 \end{figure}
 
 \begin{figure}[H]\ContinuedFloat
 \captionsetup{width=0.8\linewidth}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v20}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v21}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v22}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v23}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v24}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v25}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v26}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v27}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v28}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v29}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v30}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v31}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v32}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQ_v33}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v20}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v21}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v22}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v23}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v24}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v25}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v26}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v27}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v28}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v29}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v30}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v31}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v32}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/QQcC_v33}}
 \caption{Feature distributions for MVA training of $q\bar q$ background suppression.}
 \end{figure}
 
@@ -558,7 +556,7 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/QQ_hpo}
+\includegraphics[width=\linewidth]{fig/addendums/QQcC_hpo}
 \caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $q\bar q$ background suppression.}
 \end{figure}
 
@@ -567,14 +565,14 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/QQ_effpur}
+\includegraphics[width=\linewidth]{fig/addendums/QQcC_effpur}
 \caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $q\bar q$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/QQ_roc}
+\includegraphics[width=\linewidth]{fig/addendums/QQcC_roc}
 \caption{ROC curves of the MVA classifier output for $q\bar q$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
@@ -585,25 +583,25 @@
 \begin{longtable}{| p{.05\textwidth} | p{.6\textwidth} | p{.05\textwidth} |p{.2\textwidth} |}
 \hline
 & Name & Alias & Importance \\ \hline
-0 &\texttt{B\_cosMomVtxKKlnu} & $v_{0}$ & $0.412$ \\ \hline
-1 &\texttt{B\_ROE\_PThetacms0} & $v_{1}$ & $0.101$ \\ \hline
-2 &\texttt{B\_nROETrk0} & $v_{2}$ & $0.067$ \\ \hline
-3 &\texttt{B\_K1FT} & $v_{3}$ & $0.056$ \\ \hline
-4 &\texttt{B\_nROEDistTrk} & $v_{4}$ & $0.055$ \\ \hline
-5 &\texttt{B\_cosBY} & $v_{5}$ & $0.042$ \\ \hline
-6 &\texttt{B\_xiZ0} & $v_{6}$ & $0.038$ \\ \hline
-7 &\texttt{B\_roeFit\_dz} & $v_{7}$ & $0.034$ \\ \hline
-8 &\texttt{B\_cosMomVtx} & $v_{8}$ & $0.033$ \\ \hline
-9 &\texttt{B\_missM2Veto1} & $v_{9}$ & $0.030$ \\ \hline
-10 &\texttt{B\_nKaonInROE} & $v_{10}$ & $0.021$ \\ \hline
-11 &\texttt{B\_QVeto1} & $v_{11}$ & $0.020$ \\ \hline
-12 &\texttt{B\_chiProb} & $v_{12}$ & $0.017$ \\ \hline
-13 &\texttt{B\_K0FT} & $v_{13}$ & $0.016$ \\ \hline
-14 &\texttt{B\_TagVPvalue} & $v_{14}$ & $0.015$ \\ \hline
-15 &\texttt{B\_cosMomVtxKK} & $v_{15}$ & $0.014$ \\ \hline
-16 &\texttt{B\_missM20} & $v_{16}$ & $0.014$ \\ \hline
-17 &\texttt{B\_missM2Veto2} & $v_{17}$ & $0.007$ \\ \hline
-18 &\texttt{B\_QVeto2} & $v_{18}$ & $0.006$ \\ \hline
+0 &\texttt{B\_cosMomVtxKKlnu} & $v_{0}$ & $0.372$ \\ \hline
+1 &\texttt{B\_ROE\_PThetacms0} & $v_{1}$ & $0.096$ \\ \hline
+2 &\texttt{B\_nROETrk0} & $v_{2}$ & $0.079$ \\ \hline
+3 &\texttt{B\_K1FT} & $v_{3}$ & $0.063$ \\ \hline
+4 &\texttt{B\_cosBY} & $v_{4}$ & $0.051$ \\ \hline
+5 &\texttt{B\_roeFit\_dz} & $v_{5}$ & $0.047$ \\ \hline
+6 &\texttt{B\_xiZ0} & $v_{6}$ & $0.043$ \\ \hline
+7 &\texttt{B\_cosMomVtx} & $v_{7}$ & $0.038$ \\ \hline
+8 &\texttt{B\_chiProb} & $v_{8}$ & $0.031$ \\ \hline
+9 &\texttt{B\_nKaonInROE} & $v_{9}$ & $0.028$ \\ \hline
+10 &\texttt{B\_missM2Veto1} & $v_{10}$ & $0.026$ \\ \hline
+11 &\texttt{B\_missM2Veto2} & $v_{11}$ & $0.021$ \\ \hline
+12 &\texttt{B\_nROEDistTrk} & $v_{12}$ & $0.018$ \\ \hline
+13 &\texttt{B\_cosMomVtxKK} & $v_{13}$ & $0.018$ \\ \hline
+14 &\texttt{B\_K0FT} & $v_{14}$ & $0.017$ \\ \hline
+15 &\texttt{B\_QVeto1} & $v_{15}$ & $0.016$ \\ \hline
+16 &\texttt{B\_missM20} & $v_{16}$ & $0.015$ \\ \hline
+17 &\texttt{B\_TagVPvalue} & $v_{17}$ & $0.012$ \\ \hline
+18 &\texttt{B\_QVeto2} & $v_{18}$ & $0.010$ \\ \hline
 \captionsetup{width=0.8\linewidth}
 \caption{Variable names, aliases and importance in the scope of $B\bar B$ background suppression.}
 \end{longtable}
@@ -613,25 +611,25 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v0}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v1}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v2}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v3}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v4}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v5}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v6}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v7}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v8}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v9}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v10}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v11}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v12}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v13}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v14}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v15}}\\
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v16}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v17}}
-\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BB01c_v18}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v0}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v1}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v2}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v3}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v4}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v5}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v6}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v7}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v8}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v9}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v10}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v11}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v12}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v13}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v14}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v15}}\\
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v16}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v17}}
+\subfigure{\includegraphics[width=0.241\linewidth]{fig/addendums/BBcC_v18}}
 \caption{Feature distributions for MVA training of $B\bar B$ background suppression.}
 \end{figure}
 
@@ -640,7 +638,7 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/BB01c_hpo}
+\includegraphics[width=\linewidth]{fig/addendums/BBcC_hpo}
 \caption{Hyper-parameter optimization of \texttt{nTrees} and \texttt{nLevels} in the BDT forest training of $B\bar B$ background suppression.}
 \end{figure}
 
@@ -649,14 +647,14 @@
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/BB01c_effpur}
+\includegraphics[width=\linewidth]{fig/addendums/BBcC_effpur}
 \caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/BB01c_roc}
+\includegraphics[width=\linewidth]{fig/addendums/BBcC_roc}
 \caption{ROC curves of the MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
@@ -675,13 +673,13 @@ Hyper-parameters were not optimized due to the large CPU time consumption of the
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/uMVA1dc_effpur}
+\includegraphics[width=\linewidth]{fig/addendums/uBBcC_effpur}
 \caption{Efficiency ($\mathcal{E}$) and purity ($\mathcal{P}$) of the uniformity boosted MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/addendums/uMVA1dc_roc}
+\includegraphics[width=\linewidth]{fig/addendums/uBBcC_roc}
 \caption{ROC curves of the uniformity boosted MVA classifier output for $B\bar B$ background suppression training on the train (solid) and test (dashed) samples.}
 \end{figure}
