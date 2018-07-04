@@ -79,8 +79,6 @@ Since the background composition in the control region is different, we introduc
 	\label{fig:cs_BKG_comp}
 \end{figure}
 
-%TODO fix legend
-
 \section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
 The fit templates contain areas of low statistics, which are populated with bins with zero content. This is a direct consequence of having a finite MC sample and represent a liability in ML fits. Due to low statistic in the edge regions, the locations of these empty bins can vary for the templates and the fitted sample. A problem occurs if all templates have an empty bin where the fitted sample does not. In the scope of ML fits, this effectively means that there are entries in bins where the probability of having them is $0$. We will call such bins \textit{problematic}, because in these cases the fit does not converge.
@@ -113,7 +111,7 @@ An additional problem occurs in the plotting of the fitted templates and the sam
 
 \section{Signal MC fit results}\label{sec:signal-mc-fit-results}
 
-The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform fits to all streams of MC for each initial binning choice and the fitted and expected yield difference, pulls and fit significance for both final samples, shown in Figure \ref{fig:sig_binning}. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of $20$ bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
+The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform fits to all streams of MC for each initial binning choice and the fitted and expected yield difference, pulls and fit significance for both final samples, shown in Figure \ref{fig:sig_binning}. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of $20$ bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
 
 \begin{figure}[H]
 	\centering

@@ -9,9 +9,7 @@ Training the MVA classifiers follows the same recipe for all the steps in this c
 
 Photons originate from the IP region, travel to the ECL part of the detector in a straight line and produce a cluster. The direction of the photon is determined via the location of the cluster hit in the ECL and the energy of the photon is directly measured via the deposited energy. This way the four-momentum of photons is determined and used in Eq. (\ref{eq:ROEloop}).
 
-Most of the photons in events with $B$ mesons come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hits in the ECL are also created by photons coming from beam-induced background or secondary interactions with the detector material. Such photons add extra energy and momentum which spoils our measured quantities.
-
-In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates. The output of this classifier is then applied to photons and represents a sort of a $\pi^0$ origin probability, which is used as an additional classifier variable in the next step of the clean-up.
+Most of the photons in events with $B$ mesons come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hits in the ECL are also created by photons coming from beam-induced background or secondary interactions with the detector material. Photons of the first kind should be taken into account when calculating the missing 4-momentum, while the latter kind adds extra energy and momentum which spoils our measured quantities. In the first step of the clusters clean-up we train an MVA which recognizes good $\pi^0$ candidates and apply this information to the daughter photons. This represents a sort of a $\pi^0$ origin probability, which peaks at or is equal to 0 for photons not coming from $\pi^0$ particles, and peaks at 1 otherwise. This information is used as an additional classifier variable in the next step of the clean-up, where we train to recognize good photons in an event.
 
 \subsection{$\pi^0$ MVA training}
 
