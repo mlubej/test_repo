@@ -89,7 +89,7 @@ KEKB achieved the world-record for the peak luminosity of $2.11\E{34}\e{cm^{-2}s
 \section{Belle Detector}
 The Belle detector is a magnetic mass spectrometer which covers a large solid angle. It is designed to detect remnants of $e^+e^-$ collisions. The detector is configured around a $1.5\e{T}$ superconducting solenoid and iron structure surrounding the interaction point (IP). The 4-momentum of the decaying $B$ mesons and it's decayed daughter particles are determined via a series of sub-detector systems, which are installed in an onion-like shape. Short-lived particle vertices are measured by a silicon vertex detector (SVD) situated outside of a cylindrical beryllium beam pipe. Long-lived charged particle momentum is measured via tracking, which is performed by a wire drift chamber (CDC). Particle identification is provided by energy-loss measurements in CDC, aerogel Cherenkov counters (ACC) and time-of-flight counters (TOF) situated radially outside of CDC. Particles producing electromagnetic showers deposit energy in an array of CsI(Tl) crystals, known as the electromagnetic calorimeter (ECL), which is located inside the solenoid coil. Muons and $K_L$ mesons (KLM) are identified by arrays of resistive plate counters in the iron yoke. 
 
-The coordinate system of the Belle detector originates at the IP, with the $z$ axis pointing in the opposite direction of the positron beam, the $x$ axis pointing horizontally outside of the ring, and the $y$ axis perpendicular to the aforementioned ones. The polar angle $\theta$ covers the region between $17^\circ \leq \theta \leq 150^\circ$, while the cylindrical angle $\varphi$ covers the full range $0^\circ \leq \varphi \leq 360^\circ$, amounting to a $91~\%$ coverage of the full solid angle.
+The coordinate system of the Belle detector originates at the IP, with the $z$ axis pointing in the opposite direction of the positron beam, the $x$ axis pointing horizontally out of the ring, and the $y$ axis perpendicular to the aforementioned ones. Th electron beam crosses the positron beam at an angle of about $22^\circ$. The polar angle $\theta$ covers the region between $17^\circ \leq \theta \leq 150^\circ$, while the cylindrical angle $\varphi$ covers the full range $0^\circ \leq \varphi \leq 360^\circ$, amounting to a $91~\%$ coverage of the full solid angle.
 
 
 %In our analysis, key features of the Belle detector are as follows.
@@ -125,12 +125,65 @@ The coordinate system of the Belle detector originates at the IP, with the $z$ a
 %•
 %Good PID performance for charged particles.
 
+%\subsection{Extreme forward calorimeter (EFC)}
 
-
-\subsection{Interaction region}
-\subsection{Extreme forward calorimeter (EFC)}
 \subsection{Silicon vertex detector (SVD)}
+SVD is the inner-most part of the Belle detector and serves the purpose of measuring the decay vertices of decaying particles. The precision of the subsystem is about $100\e{\mu m}$, which is important for measuring the difference in $z$-vertex positions of the $B$ mesons in time-dependent CP violation studies. The main part of the SVD are the double-sided silicon detectors (DSSD).
+
+During the data taking period, two configurations were od the SVD have been used. The first, SVD1, has three layers of DSSD detectors, positioned at $30$, $45.5$ and $60\e{mm}$ away from the IP. They compose a ladder-like structure, covering the polar angle of $23^\circ < \theta < 140^\circ$. This configuration was used from the beginning od the experiment until 2003, when a dataset of about $1.52\E{8}$ pairs of $B \bar B$ mesons were recorded. After that a new configuration was used, SVD2, which was operational until the end of data taking, measuring about $6.20\E{8}$ pairs of $B \bar B$ mesons. The SVD2 has 4 layers of DSSD detectors positioned at $20$, $43.5$, $70$ and $80\e{mm}$ away from the IP and covered the polar angle of $17^\circ < \theta < 150^\circ$. The first layer was moved closer to the IP, which greatly improved the sub-system precision, due to multiple-Coulomb scattering affecting resolution more as the distance from the IP increases.
+
+The momentum and angular dependence of the impact parameter resolution are shown in Figure X for both SVD configurations and are well represented by the expressions $p\beta \sin^{5/2}\theta$ and $p\beta \sin^{3/2}\theta$ for the direction parallel and perpendicular to the $z$ axis, respectively, where $p$ is the particle momentum, $\theta$ is the polar angle, and $\beta=v/c$.
+
+PLOT
+
+%reference to [25]
+%A. Abashian et al. The Belle Detector.
+%Nucl. Instrum. Method Phys. Res., Sect.
+%A
+%, 479:117–232, 2002. doi: 10.1016/S0168-9002(01)02013-7
+
 \subsection{Central tracking chamber (CDC)}
+
+Moving radially away from the IP, the SVD is followed by CDC, a large-volume tracking device located at the central part of the Belle detector. It has a cylindrical structure with a radius of $88\e{cm}$, length of $2.4\e{m}$ and acceptance equal to the one of SVD2. The chamber has a total of $8400$ wires, which are positioned in $50$ layers and describe nearly square configuration. The even-numbered wire layers are inclined with respect to the $z$ axis by about $40-70\e{mrad}$ in order to provide position in the $z$ axis direction with a  There are two types of wires -- field wires for producig the electrical field, which is needed for electron avalanches, and sense wires for detecting the pulses of said electron avalanches. The space between the wires is filled with a gas mixture of $1:1$ helium-ethane, a low-$Z$ gas in order to minimize multiple-Coulomb scattering contributions to momentum resolution. It also has a small cross section of the photoelectric effect, which is important to reduce background electrons induced by the synchrotron radiation from the beam.
+
+The important roles of the CDC are
+\begin{itemize}
+	\item measurement of the particle's trajectory,
+	\item measurement of the particles momentum,
+	\item energy loss measurement for particle identification (PID) purposes.
+\end{itemize}
+The position of a particle hit inside the CDC is determined from the time difference between the passage of the particle via a trigger in the scintillation counter, and the time of the detection of the pulse on the sense wire -- the time difference is smaller for wires closer to the particle and vice versa. The track hits are then sorted into helical tracks by advanced tracking algorithms. The particle's momentum can be 
+
+
+
+  The field wires are connected to the ground, and a high
+voltage (HV) of typically 2.35 kV is applied to the sense wires.  These wires compose a
+square-shape cell as shown in Fig. 2.5.  There are 50 cylindrical sense-wire layers in total,
+and three to five layers compose a superlayer.  The even-number superlayers are inclined
+with respect to the
+z
+-axis by 40–70 mrad, that provides about 600
+μ
+m resolution for the
+z
+direction.  The
+z
+information is used to distinguish tracks originating from the IP from
+background-induced tracks.  On the innermost surface of the CDC cylinder and between
+the second and the third layers, 7.4 mm wide cathode strips are equipped perpendicularly
+to the sense wires to measure the
+z
+-direction.
+The cylinder is filled with a mixture gas of 50%-helium and 50%-ethane.  This gas has
+a small cross section of the photoelectric effect.  This is important to reduce background
+electrons induced by the synchrotron radiation from the beam.  It has a radiation length
+of 640 m, which is sufficiently long to reduce the Coulomb scattering of charged particles.
+The output from the sense wire is amplified and sent to a charge-to-time conversion
+(QTC) module.  The QTC module outputs a digital pulse, the leading-edge timing and
+the width of which correspond to the drift time and the output charge from the CDC,
+respectively.  The QTC output is measured by the FASTBUS multi-hit TDC module.
+The momentum of a charged particle is measured using a curvature of the charged
+
 \subsection{Aerogel Cherenkov counter system (ACC)}
 \subsection{Time-of-flight counters (TOF)}
 \subsection{Electromagnetic calorimetry (ECL)}
