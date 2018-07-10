@@ -49,47 +49,53 @@
 
 \chapter{Experimental Setup}
 The data used in this analysis were produced in $e^+e^-$ collisions at the KEKB accelerator and collected with the Belle detector. The experiment was hosted at the High Energy Accelerator Research Organization (KEK) in Tsukuba, Japan. The experiment ran
-from years 1999 to 2010, collecting data at and near the energy of the $\Upsilon(4S)$ resonance. This chapter briefly describes the accelerator and the detector. The descriptions are based on detailed reports from [X] and [X].
+from years 1999 to 2010, collecting data at and near the energy of the $\Upsilon(4S)$ resonance. This chapter briefly describes the accelerator and the detector, based on detailed reports from \cite{doi:10.1093/ptep/pts102} and \cite{ABASHIAN2002117}, respectively.
 
 
 \section{KEKB Accelerator}
-KEKB is an asymmetric $e^+e^-$ collider, composed roughly of an electron source and a positron target, a linear accelerator (Linac) and two separate main rings with a circumference of about $3\e{km}$ as shown in Figure X. Electrons are first produced by a thermal electron gun and accelerated in the Linac to an energy of about $8\e{GeV}$. Part of the electrons collide with a tungsten target to produce positrons, which are accelerated in the Linac to an energy of about $3.5\e{GeV}$. Electron and positron beams are injected into the high- (HER) and low energy ring (LER) where they collide at a single interaction point (IP) at an angle of about $22\e{mrad}$. The combined centre-of-mass (CM) energy of the collision corresponds to the mass of the $\Upsilon(4S)$ resonance
+KEKB is an asymmetric $e^+e^-$ collider, composed roughly of an electron source and a positron target, a linear accelerator (Linac) and two separate main rings with a circumference of about $3\e{km}$ as shown in Figure \ref{fig:kekb}. Electrons are first produced by a thermal electron gun and accelerated in the Linac to an energy of about $8\e{GeV}$. Part of the electrons collide with a tungsten target to produce positrons, which are accelerated in the Linac to an energy of about $3.5\e{GeV}$. Electron and positron beams are injected into the high- (HER) and low energy ring (LER) where they collide as bunches of particles at a single interaction point (IP) at an angle of about $22\e{mrad}$. The combined centre-of-mass (CM) energy of the collision corresponds to the mass of the $\Upsilon(4S)$ resonance
 \begin{equation}
 E_{CM} = 2\sqrt{E_{e^+}E_{e^-}} = m_{\Upsilon(4S)}c^2 \approx 10.58\e{GeV}.
 \end{equation}
 
-PLOT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.5\linewidth]{fig/setup/KEKB}
+	\caption{Schematic layout of the KEKB accelerator. The HER and the LER are the $e^-$ and the $e^+$ beams, respectively. Four experimental halls, FUJI, NIKKO, OHO and TSUKUBA are shown.}
+	\label{fig:kekb}
+\end{figure}
 
-%TODO describe what is Bhabha?
 The $\Upsilon(4S)$ state is produced only in a fraction of all collisions, but when it is produced, it predominantly decays to a pair of charged or neutral $B$ mesons. This setup was chosen in accordance with the main goal of the experiment, which was to study CP
-violation in the $B$ meson system. In other cases the collisions of $e^+e^-$ result in Bhabha scattering, two-photon events, muon or tau lepton pair production, and quark pair production of $q \bar q$, where $q=u,\,d,\,s$ or $c$. Table X shows the cross-sections for all mentioned interactions in collisions of $e^+e^-$.
+violation in the $B$ meson system. In other cases the processes include $e^+e^-$ scattering, also known as Bhabha scattering, two-photon events, muon or tau lepton pair production, and production of $q \bar q$, where $q=u,\,d,\,s$ or $c$. Table \ref{tab:xsec} shows the cross-sections for all mentioned interactions in collisions of $e^+e^-$.
 In addition to the nominal CM energy, the experiment collected data also at energies
 corresponding to other $\Upsilon(nS)$ resonances, where $n = 1,\,2,\,3,\,5$, and also at energies below the resonances.
 
-% TODO: check tables style and caption, cite belle detector X
-
-
-\begin{center}
-	\begin{tabular}{c|c}
-		Interaction & Cross-section $[\mathrm{nb}]$ \\ 
-		\hline
-		$\Upsilon(4S) \to B \bar B$ & $1.2$ \\
-		$q \bar q,~q \in [u,d,s,c]$ & $2.8$ \\
-		$\mu^+\mu^-,~\tau^+\tau^-$ & $1.6$ \\
-		Bhabha scattering (within detector acceptance)& $44$ \\
-		Other QED processes (within detector acceptance)& $\sim 17$ \\
-		\hline
-		Total & $\sim 67$ 
-	\end{tabular} 
-\end{center}
+\begin{table}[H]
+\centering
+	\begin{tabular}{|c|c|}
+	\hline
+	Interaction & Cross-section $[\mathrm{nb}]$ \\ 
+	\hline
+	$\Upsilon(4S) \to B \bar B$ & $1.2$ \\
+	$q \bar q,~q \in [u,d,s,c]$ & $2.8$ \\
+	$\mu^+\mu^-,~\tau^+\tau^-$ & $1.6$ \\
+	Bhabha scattering (within detector acceptance)& $44$ \\
+	Other QED processes (within detector acceptance)& $\sim 17$ \\
+	\hline
+	Total & $\sim 67$ \\
+	\hline
+\end{tabular}
+\caption{Cross-sections with $L=10^{34}\e{cm^{-2}s^{-1}}$ for various physics processes at $\Upsilon(4S)$ resonance energy \cite{ABASHIAN2002117}.}
+\label{tab:xsec}
+\end{table}
 
 KEKB achieved the world-record for the peak luminosity of $2.11\E{34}\e{cm^{-2}s^{-1}}$, twice as much as the designed prediction, and the total integrated luminosity of $1041\e{fb^{-1}}$. Of the full Belle dataset, about $711\e{fb^{-1}}$ of data were taken at the $\Upsilon(4S)$ energy of $10.58\e{GeV}$, which corresponds to about $771\E{6}$ $B \bar B$ meson pairs.
 
-
 \section{Belle Detector}
-The Belle detector is a magnetic mass spectrometer which covers a large solid angle. It is designed to detect remnants of $e^+e^-$ collisions. The detector is configured around a $1.5\e{T}$ superconducting solenoid and iron structure surrounding the interaction point (IP). The 4-momentum of the decaying $B$ mesons and it's decayed daughter particles are determined via a series of sub-detector systems, which are installed in an onion-like shape. Short-lived particle vertices are measured by a silicon vertex detector (SVD) situated outside of a cylindrical beryllium beam pipe. Long-lived charged particle momentum is measured via tracking, which is performed by a wire drift chamber (CDC). Particle identification is provided by energy-loss measurements in CDC, aerogel Cherenkov counters (ACC) and time-of-flight counters (TOF) situated radially outside of CDC. Particles producing electromagnetic showers deposit energy in an array of CsI(Tl) crystals, known as the electromagnetic calorimeter (ECL), which is located inside the solenoid coil. Muons and $K_L$ mesons (KLM) are identified by arrays of resistive plate counters in the iron yoke. 
+The Belle detector is a magnetic mass spectrometer which covers a large solid angle. It is designed to detect remnants of $e^+e^-$ collisions. The detector is configured around a $1.5\e{T}$ superconducting solenoid and iron structure surrounding the interaction point (IP). The 4-momentum of the decaying $B$ mesons and it's decayed daughter particles are determined via a series of sub-detector systems, which are installed in an onion-like shape. Short-lived particle decay vertices are measured by the silicon vertex detector (SVD) situated outside of a cylindrical beryllium beam pipe. Long-lived charged particle momentum is measured via tracking, which is performed by a wire drift chamber (CDC). Particle identification is provided by energy-loss measurements in CDC, aerogel Cherenkov counters (ACC) and time-of-flight counters (TOF), situated radially outside of CDC. Particles producing electromagnetic showers deposit energy in an array of CsI(Tl) crystals, known as the electromagnetic calorimeter (ECL), which is located inside the solenoid coil. Muons and $K_L$ mesons (KLM) are identified by arrays of resistive plate counters in the iron yoke on the outside of the coil. 
 
-The coordinate system of the Belle detector originates at the IP, with the $z$ axis pointing in the opposite direction of the positron beam, the $x$ axis pointing horizontally out of the ring, and the $y$ axis perpendicular to the aforementioned ones. Th electron beam crosses the positron beam at an angle of about $22^\circ$. The polar angle $\theta$ covers the region between $17^\circ \leq \theta \leq 150^\circ$, while the cylindrical angle $\varphi$ covers the full range $0^\circ \leq \varphi \leq 360^\circ$, amounting to about $92~\%$ coverage of the full solid angle.
+The coordinate system of the Belle detector originates at the IP, with the $z$ axis pointing in the opposite direction of the positron beam, the $x$ axis pointing horizontally out of the ring, and the $y$ axis being perpendicular to the aforementioned axes. Th electron beam crosses the positron beam at an angle of about $22^\circ$. The polar angle $\theta$ covers the region between $17^\circ \leq \theta \leq 150^\circ$, while the cylindrical angle $\varphi$ covers the full $360^\circ$ range, amounting to about $92\%$ coverage of the full solid angle.
 
 
 %In our analysis, key features of the Belle detector are as follows.
@@ -128,56 +134,109 @@ The coordinate system of the Belle detector originates at the IP, with the $z$ a
 %\subsection{Extreme forward calorimeter (EFC)}
 
 \subsection{Silicon Vertex Detector}
-SVD is the inner-most part of the Belle detector and serves the purpose of measuring the decay vertices of decaying particles. The precision of the subsystem is about $100\e{\mu m}$, which is important for measuring the difference in $z$-vertex positions of the $B$ mesons in time-dependent CP violation studies. The main part of the SVD are the double-sided silicon detectors (DSSD).
+SVD is the inner-most part of the Belle detector and serves the purpose of measuring the decay vertices of decaying particles. The precision of the subsystem is about $100\e{\mu m}$, which is important for measuring the difference in $z$-vertex positions of the $B$ mesons in time-dependent CP violation studies. The main part of the SVD are the double-sided silicon detectors (DSSD). With their thin profile and parallel silicon strips on both sides they provide 2D hit information of charged particle and are perfect for a small-scale device which acts with high precision.
 
-During the data taking period, two configurations were od the SVD have been used. The first, SVD1, has three layers of DSSD detectors, positioned at $30$, $45.5$ and $60\e{mm}$ away from the IP. They compose a ladder-like structure, covering the polar angle of $23^\circ < \theta < 140^\circ$. This configuration was used from the beginning od the experiment until 2003, when a dataset of about $1.52\E{8}$ pairs of $B \bar B$ mesons were recorded. After that a new configuration was used, SVD2, which was operational until the end of data taking, measuring about $6.20\E{8}$ pairs of $B \bar B$ mesons. The SVD2 has 4 layers of DSSD detectors positioned at $20$, $43.5$, $70$ and $80\e{mm}$ away from the IP and covered the polar angle of $17^\circ < \theta < 150^\circ$. The first layer was moved closer to the IP, which greatly improved the sub-system precision, due to multiple-Coulomb scattering affecting resolution more as the distance from the IP increases.
+During the data taking period, two configurations were od the SVD have been used. The first, SVD1, has three layers of DSSD detectors, positioned at $30$, $45.5$ and $60\e{mm}$ away from the IP. They compose a ladder-like structure, covering the polar angle of $23^\circ < \theta < 140^\circ$. This configuration was used from the beginning od the experiment until 2003, when a dataset of about $1.52\E{8}$ pairs of $B \bar B$ mesons were recorded. Due to problems with radiation hardness, a new configuration was used, SVD2, which was operational until the end of data taking, measuring about $6.20\E{8}$ pairs of $B \bar B$ mesons. The SVD2 has 4 layers of DSSD detectors positioned at $20$, $43.5$, $70$ and $80\e{mm}$ away from the IP and covered the polar angle of $17^\circ < \theta < 150^\circ$. The first layer was moved closer to the IP, which greatly improved the sub-system precision, due to multiple-Coulomb scattering affecting resolution more as the distance from the IP increases. The front and side view of the SVD2 are shown in Figure \ref{fig:SVD_layout}.
 
-The momentum and angular dependence of the impact parameter resolution are shown in Figure X for both SVD configurations and are well represented by the expressions $p\beta \sin^{5/2}\theta$ and $p\beta \sin^{3/2}\theta$ for the direction parallel and perpendicular to the $z$ axis, respectively, where $p$ is the particle momentum, $\theta$ is the polar angle, and $\beta=v/c$.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/setup/SVD_layout}
+	\caption{Front (left) and side (right) view of the SVD detector with the SVD2 configuration. The front view also shows the inner wires of the
+	Drift Chamber \cite{haba2004letter}.}
+	\label{fig:SVD_layout}
+\end{figure}
 
-PLOT
+The efficiency of the SVD was determined as a fraction of CDC tracks within the SVD acceptance that have associated SVD hits, needed for the $B$ meson reconstruction. The average efficiency is found to be around $98\%$ and is in agreement with simulation. SVD performance is also determined via the impact parameter $z$ and $r\phi$ resolution, which was obtained from cosmic ray data. The momentum and angular dependence of the impact parameters is shown in Figure \ref{fig:SVD_performance} and is well represented by the following parametrization for the SVD2
+\begin{align}
+\sigma_z = 28\e{\mu m}\oplus \frac{32\e{\mu m}}{\left(p/(1\e{GeV}/c)\right)}\frac{1}{\beta \sin^{5/2}\theta},\\
+\sigma_{r\phi} = 22\e{\mu m}\oplus \frac{36\e{\mu m}}{\left(p/(1\e{GeV}/c)\right)}\frac{1}{\beta \sin^{3/2}\theta},
+\end{align}
+where $p$ is the particle momentum, $\theta$ is the polar angle, and $\beta=v/c$. An advantage of the smaller distance between the IP and the first DSSD layer in SVD2 is clearly seen.
 
-%reference to [25]
-%A. Abashian et al. The Belle Detector.
-%Nucl. Instrum. Method Phys. Res., Sect.
-%A
-%, 479:117–232, 2002. doi: 10.1016/S0168-9002(01)02013-7
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/setup/SVD_performance_1}
+	\caption{Impact parameter resolutions of $z$ (left) and $r\phi$ (right) coordinates for the SVD1 and SVD2 configuration of the vertex detector \cite{haba2004letter}.}
+	\label{fig:SVD_performance}
+\end{figure}
+
 
 \subsection{Central Drift Chamber}
 
-CDC is a large-volume tracking device located at the central part of the Belle detector. It has a cylindrical structure with a radius of $88\e{cm}$, length of $2.4\e{m}$ and acceptance equal to the one of SVD2. The chamber has a total of $8400$ wires, which are positioned in $50$ layers and describe nearly square configuration. There are two types of wires -- field wires for producing the electrical field, and sense wires for detecting the particles. Odd-numbered wire layers are oriented in the $z$ direction and provide measurement of the transverse momentum $p_t$, while even-numbered wires are inclined with respect to the $z$ axis by a small angle of $\pm 50\e{mrad}$ to allow for measuring of the polar angle of the track. The resolution of the transverse momentum is
-$$\sigma(p_T) = 0.201\%p_t \oplus 0.290\%\beta.$$
-The space between the wires is filled with a gas mixture of $1:1$ helium-ethane, a low-$Z$ gas in order to minimize multiple-Coulomb scattering contributions to momentum resolution. It also has a small cross section of the photoelectric effect, which is important to reduce background electrons induced by the synchrotron radiation from the beam.
-%TODO check equations
+CDC is a large-volume tracking device located at the central part of the Belle detector and is crucial for measurements of the particle trajectories and momenta, but also serves as a particle identification device (PID). It has a cylindrical structure with a radius of $88\e{cm}$, length of $2.4\e{m}$ and acceptance equal to the one of SVD2. The chamber has a total of $8400$ wires, which are positioned in $50$ layers and describe a nearly square wire configuration. There are two types of wires -- field wires for producing the electrical field, and sense wires for detecting the particles. Odd-numbered wire layers are oriented in the $z$ direction and provide measurement of the transverse momentum $p_t$, while even-numbered wires are inclined with respect to the $z$ axis by a small angle of $\pm 50\e{mrad}$ to allow for measuring of the polar angle of the track. The wire configuration is shown in Figure \ref{fig:CDC_layout}. The space between the wires is filled with a gas mixture of $1:1$ helium-ethane, a low-$Z$ gas in order to minimize multiple-Coulomb scattering contributions to momentum resolution, since the majority of particles in $B$ events have a momentum lower than $1\e{GeV}/c$. It also has a small cross section of the photoelectric effect, which is important to reduce background electrons induced by the synchrotron radiation from the beam. 
 
-Charged particles which pass the CDC wire frame cause gas ionization. The produced electrons drift toward the sense wires with great acceleration due to the strong electric field close to the wire. The accelerated electrons collide with the gas and produce secondary ionizations and so on, which results in an electron avalanche, a process which increases the signal by more many orders of magnitude. The primary electrons also have a specific drift velocity, which allows us to relate the measured pulse height and drift time to the energy deposit of the particle as well as the distance from the sense wire. This information is important for calculating the energy loss $\mathrm{d}E/\mathrm{d}x$. $\mathrm{d}E/\mathrm{d}x$ as a function of momentum is different for different particles as shown in Figure X. This allows for identification purposes of particles, specifically kaons and pions. In the momentum region less than $0.8\e{GeV}/c$ $\mathrm{d}E/\mathrm{d}x$ enables a separation between kaons and pions up to $3\sigma$.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.6\linewidth]{fig/setup/CDC_layout}
+	\caption{Cell structure of CDC \cite{ABASHIAN2002117}.}
+	\label{fig:CDC_layout}
+\end{figure}
 
-PLOT
+Charged particles which pass the CDC wire frame cause gas ionization. The produced electrons drift toward the sense wires with great acceleration due to the strong electric field close to the wire. The accelerated electrons collide with gas molecules and produce secondary, tertiary etc. ionizations, which result in an electron avalanche, a process which increases the signal by many orders of magnitude. The primary electrons also have a specific drift velocity, which allows us to relate the measured pulse height and drift time to the energy deposit of the particle as well as the distance from the sense wire. This information is important for calculating the energy loss $\mathrm{d}E/\mathrm{d}x$. $\mathrm{d}E/\mathrm{d}x$ as a function of momentum differs for different particles, as shown in Figure \ref{fig:dEdx}. This allows for identification purposes of, specifically for kaons and pions. In the momentum region less than $0.8\e{GeV}/c$, $\mathrm{d}E/\mathrm{d}x$ enables a separation between kaons and pions up to $3\sigma$. The resolution of the transverse momentum measurement with the CDC is a function of the transverse momentum itself, as well as the particle velocity, and is parametrized as
+\begin{equation}
+\sigma(p_T)/p_T = \frac{0.201\%~p_T}{1\e{GeV}/c} \oplus \frac{0.290\%}{\beta}.
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.6\linewidth]{fig/setup/dEdx}
+	\caption{Measured $\mathrm{d}E/\mathrm{d}x$ as a function of particle momentum. The red lines show the expected distribution for different types of particles \cite{ABASHIAN2002117}.}
+	\label{fig:dEdx}
+\end{figure}
 
 \subsection{Time-of-Flight Counter}
 
-The purpose of the TOF subdetector is particle identification in the momentum region $0.8\e{GeV}/c < p < 1.2\e{GeV}/c$, especially for kaons and pions. It measures the time interval between the $e^+e^-$ collision and the passage of the particle through TOF with a resolution of about $100\e{ps}$. The mass of a particle can be inferred via the relation
+The purpose of the TOF subdetector is particle identification in the momentum region $0.8\e{GeV}/c < p < 1.2\e{GeV}/c$, especially for kaons and pions. There are 64 TOF modules in the barrel region, covering the polar angle of $33^\circ < \theta < 121^\circ$. One TOF module consists of two long polyvinyltoluene-based plastic scintillator bars, 4 fine-mesh photo-multiplier tubes (PMT) at the 4 ends of the bars, and a trigger scintillation counter, where the latter provides additional trigger information. TOF measures the time interval between the $e^+e^-$ collision and the passage of the particle through it. The mass of a particle can be inferred via the relation
 \begin{equation}
 m^2 = \left( \frac{1}{\beta^2}-1\right)p^2 = \left( \frac{T^2c^2}{L^2}-1\right)p^2,
 \end{equation}
-%TODO: number equations
-where $T$ is the measured time interval, $L$ is the charged particle trajectory length from the IP and $p$ is the charged particle momentum, determined by SVD and CDC. Figure X shows the mass distribution for charged tracks measured by TOF in hadron events. Clear peaks corresponding to pions, kaons and protons can be seen.
+where $T$ is the measured time interval, $L$ is the charged particle trajectory length from the IP to TOF and $p$ is the charged particle momentum, determined by SVD and CDC. The resulting mass distribution for charged tracks measured by TOF in hadron events is shown in Figure \ref{fig:TOF_mass}, where clear peaks corresponding to pions, kaons and protons can be seen. To achieve the good discrimination between kaons and pions, a time-of-flight resolution of less than $100\e{ps}$ is needed for particles with momentum below about $1.2\e{GeV}/c$, which encompasses $90\%$ of the particles produced in $\Upsilon(4S)$ decays. The identification power can also be determined in the form of $\pi^\pm/K^\pm$ separation significance as a function of particle momentum, shown in Figure \ref{fig:TOF_separation}. A clear separation of about $2\sigma$ is achieved for particle momenta up to $1.25\e{GeV}/c$.
 
-There are 64 TOF modules in the barrel region, covering the polar angle of $33^\circ < \theta < 121^\circ$. One TOF module consists of two long plastic scintillator bars, 4 fine-mesh photo-multiplier tubes (PMT) at the 4 ends of the bars, and a trigger scintillation counter (TSC), where the latter provides additional trigger information.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.6\linewidth]{fig/setup/TOF_mass}
+	\caption{Mass distribution from TOF measurements for particle momenta below $1.2\e{GeV}/c$ \cite{ABASHIAN2002117}.}
+	\label{fig:TOF_mass}
+\end{figure}
 
-PLOT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.6\linewidth]{fig/setup/TOF_separation}
+	\caption{$\pi^\pm/K^\pm$ separation by TOF \cite{ABASHIAN2002117}.}
+	\label{fig:TOF_separation}
+\end{figure}
 
-%TODO: separation?
 
-\subsection{Aerogel Cherenkov Counter} %todo: all caps titles
-TOF is not capable of performing good PID above $1\e{GeV}/c$ momentum, since $\beta$ is almost equal to 1. For higher momentum in the region $1.0\e{GeV}/c < 4.0\e{GeV}/c$, the ACC is introduced. It is a threshold-type Cherenkov counter which utilizes the fact that particles emit Cherenkov light if the particle speed is greater than the speed of light in the passing medium. The threshold velocity $\beta$ of a given particle for Cherenkov radiation is
+\subsection{Aerogel Cherenkov Counter}
+TOF is not capable of performing good PID above $1.2\e{GeV}/c$ momentum, since $\beta$ is almost equal to 1. For higher momenta in the region $1.0\e{GeV}/c < 4.0\e{GeV}/c$, the ACC is introduced. It is a threshold-type Cherenkov counter which utilizes the fact that particles emit Cherenkov light if the particle speed is greater than the speed of light in the passing medium. ACC is introduced in the barrel region with 960 separate modules, covering a polar angle of $34^\circ < \theta < 127^\circ$ and 228 modules in the forward endcap region, with the polar angle coverage of $17^\circ < \theta < 34^\circ$. Each ACC module consists of an aluminum encased block of silica aerogel and one or two fine-mesh PMTs encased on each block to detect Cherenkov light pulses. Due to the polar angle dependence of the particle momentum, 6 different refractive indices are chosen for the aerogel material, ranging from $1.010$ up to $1.030$ and are controlled within $3\%$ precision. The layout of the ACC is shown in Figure \ref{fig:ACC_layout}.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/setup/ACC_layout}
+	\caption{Cross-sectional view of the CDC (inner most), ACC and TOF (outer most) detectors \cite{ABASHIAN2002117}.}
+	\label{fig:ACC_layout}
+\end{figure}
+The threshold velocity $\beta$ of a given particle for Cherenkov radiation is
 \begin{equation}
 \beta \leq \frac{1}{n},
 \end{equation}
-where $n$ is the refractive index of the medium. The refractive indices in the ACC are such that, due to different masses, pions will emit Cherenkov light and kaons will not, due to different masses of the particles. 
+where $n$ is the refractive index of the medium. The refractive indices in the ACC are such that, due to different masses, pions will emit Cherenkov light and kaons will not, due to different masses of the particles. Using the PID of ACC, along with other sub-system PID info, the electron identification efficiency in the momentum range above $1\e{GeV}/c$ is equal to or above $90\%$ while the pion fake rate, the probability of wrongly identifying pions as electrons, to be around $0.2$ - $0.3\%$. Similarly for kaons, kaon ID efficiency is equal to $80\%$ for most of the momentum region up to $4\e{GeV}/c$, while pion fake rate remains below $10\%$. Figure \ref{fig:ACC_eff} shows the electron and kaon efficiencies and the corresponding pion fake rates as a function of particle momenta.
 
-The ACC is introduced in the barrel region with 960 separate module, covering a polar angle of $34^\circ < \theta < 127^\circ$ and 228 modules in the forward endcap regions, with the polar angle coverage of $17^\circ < \theta < 34^\circ$. Each module consists of an aluminum encased block of silica aerogel and one or two fine-mesh PMTs encased on each block to detect Cherenkov light pulses. Due to the polar angle dependence of the particle momentum, 6 different refractive indices are chosen for the aerogel material, ranging from $1.010$ up to $1.030$. The layour of the ACC is shown in Figure X.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.48\linewidth]{fig/setup/ACC_eff1}
+	\includegraphics[width=0.48\linewidth]{fig/setup/ACC_eff2}
+	\caption{Electron identification efficiency and fake rate for charged pions (left) and similarly for kaons (right). Note the different scales for the electron efficiency and fake rate in the former case \cite{ABASHIAN2002117}.}
+	\label{fig:ACC_eff}
+\end{figure}
 
-%TODO: efficiency?
 
 \subsection{Electromagnetic Calorimeter}
 The ECL provides measurement of position and energy deposit of particles, especially electrons and photons, where the latter are not measured by any of the subsystems described so far. It also provides complimentary particle identifications for electrons versus pions.
