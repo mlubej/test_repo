@@ -214,7 +214,7 @@ where $T$ is the measured time interval, $L$ is the charged particle trajectory 
 
 
 \subsection{Aerogel Cherenkov Counter}
-TOF is not capable of performing good PID above $1.2\e{GeV}/c$ momentum, since $\beta$ is almost equal to 1. For higher momenta in the region $1.0\e{GeV}/c < 4.0\e{GeV}/c$, the ACC is introduced. It is a threshold-type Cherenkov counter which utilizes the fact that particles emit Cherenkov light if the particle speed is greater than the speed of light in the passing medium. ACC is introduced in the barrel region with 960 separate modules, covering a polar angle of $34^\circ < \theta < 127^\circ$ and 228 modules in the forward endcap region, with the polar angle coverage of $17^\circ < \theta < 34^\circ$. Each ACC module consists of an aluminum encased block of silica aerogel and one or two fine-mesh PMTs encased on each block to detect Cherenkov light pulses. Due to the polar angle dependence of the particle momentum, 6 different refractive indices are chosen for the aerogel material, ranging from $1.010$ up to $1.030$ and are controlled within $3\%$ precision. The layout of the ACC is shown in Figure \ref{fig:ACC_layout}.
+TOF is not capable of performing good PID above $1.2\e{GeV}/c$ momentum, since $\beta$ is almost equal to 1. For higher momenta in the region $1.0\e{GeV}/c < 4.0\e{GeV}/c$, the ACC is introduced. It is a threshold-type Cherenkov counter which utilizes the fact that particles emit Cherenkov light if the particle speed is greater than the speed of light in the passing medium. ACC is introduced in the barrel region with 960 separate modules, covering a polar angle of $34^\circ < \theta < 127^\circ$ and 228 modules in the forward end-cap region, with the polar angle coverage of $17^\circ < \theta < 34^\circ$. Each ACC module consists of an aluminum encased block of silica aerogel and one or two fine-mesh PMTs encased on each block to detect Cherenkov light pulses. Due to the polar angle dependence of the particle momentum, 6 different refractive indices are chosen for the aerogel material, ranging from $1.010$ up to $1.030$ and are controlled within $3\%$ precision. The layout of the ACC is shown in Figure \ref{fig:ACC_layout}.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
@@ -232,39 +232,113 @@ where $n$ is the refractive index of the medium. The refractive indices in the A
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.48\linewidth]{fig/setup/ACC_eff1}
-	\includegraphics[width=0.48\linewidth]{fig/setup/ACC_eff2}
+	\includegraphics[width=0.48\linewidth,trim = 0cm -4cm 0cm 0cm]{fig/setup/ACC_eff2}
 	\caption{Electron identification efficiency and fake rate for charged pions (left) and similarly for kaons (right). Note the different scales for the electron efficiency and fake rate in the former case \cite{ABASHIAN2002117}.}
 	\label{fig:ACC_eff}
 \end{figure}
 
 
 \subsection{Electromagnetic Calorimeter}
-The ECL provides measurement of position and energy deposit of particles, especially electrons and photons, where the latter are not measured by any of the subsystems described so far. It also provides complimentary particle identifications for electrons versus pions.
+Measurement of position and energy deposit of particles is performed in the ECL, especially for electrons and photons, where the latter are not measured by any of the subsystems described so far. It also provides complimentary particle identifications for electrons versus pions. The calorimeter consists of a highly segmented array of thallium-doped caesium iodide (CsI(Tl)) in the form of tower-shaped crystals, each pointing towards the IP. Each crystal is about $30\e{cm}$ long with a width from $44.5\e{mm}$ to $65\e{mm}$ in the barrel, and from $44.5\e{mm}$ to $82\e{mm}$ in the end-caps. Out of a total of 8736 crystals with a total mass of about $43\e{tons}$, 6624 of them are positioned in the barrel region and 1152 (960) in the forward (backward) end-caps. The inner radius of the barrel section is about $1.25\e{m}$, while the end-caps are positioned at $-1.0\e{m}$ and $2.0\e{m}$ from the IP in direction of the $z$ axis. The polar angle coverage of the barrel region is $32.2^\circ < \theta < 128.7^\circ$, and for the end-caps $12.4^\circ < \theta < 31.4^\circ$ and $130.7^\circ < \theta < 155.1^\circ$. Figure \ref{fig:ECL_layout} shows the layout of the barrel and end-caps ECL. 
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+   \includegraphics[width=\linewidth]{fig/setup/ECL_layout}
+	\caption{Overall configuration of the ECL \cite{ABASHIAN2002117}.}
+	\label{fig:ECL_layout}
+\end{figure}
+When an electron or a photon hits a crystal, it produces an electromagnetic shower, a result of the bremsstrahlung and pair-production effects. Heavier charged particles do not interact in the same way and deposit only a small amount of energy by ionization effects. The information from the ECL, compared with momentum measurements provided by the CDC, enables the identification of electrons. The distribution of the deposited energy for different particles is shown in Figure \ref{fig:ECL_deposit}. The probability of misidentifying an electron as a pion is approximately $5\%$ for momenta less than $1\e{GeV}/c$, and less than $1\%$ for momenta above $2\e{GeV}/c$.
 
-%TODO: check spelling
-This subdetector consists of a highly segmented array of thallium-doped cesium iodide (CsI(Tl)) tower-shaped crystals, each pointing towards the IP. Each crystal is about $30\e{cm}$ long with a width from $44.5\e{mm}$ to $65\e{mm}$ in the barrel, and from $44.5\e{mm}$ to $82\e{mm}$ in the endcaps. Out of a total of 8736 crystals, 6624 are positioned in the barrel region and 1152 (960) in the forward (backward) endcaps. The inner radius of the barrel section is about $1.25\e{m}$, while the endcaps are positioned at $-1.0\e{m}$ and $2.0\e{m}$ from the IP in the $z$ direction. The polar angle coverage of the barrel region is $32.2^\circ < \theta < 128.7^\circ$ and for the encaps $12.4^\circ < \theta < 31.4^\circ$ and $130.7^\circ < \theta < 155.1^\circ$.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.6\linewidth]{fig/setup/ECL_deposit}
+	\caption{Distribution of the energy deposit by electrons and charged pions at $1\e{GeV}/c$ momentum \cite{ABASHIAN2002117}.}
+	\label{fig:ECL_deposit}
+\end{figure}
 
-When an electron or a photon hits a crystal, it produces an electromagnetic shower, a result of the bremsstrahlung and pair-production effects. Heavier charged particles do not interact in the same way and deposit only a small amount of energy by ionization effects. Electron identification can be performed by looking at the ratio $E/p$, which is close to unity for electrons, while lower for heavier charged particles. The average energy resolution is $1.7\%$ and is given by
+For ECL calibration, $e^+e^- \to e^+e^-$ and $e^+e^- \to \gamma\gamma$ events were used. The average energy resolution was achieved to be $1.7\%$ for the barrel ECL, and $1.74\%$ and $2.85\%$ for the forward and backward ECL, respectively, as shown in Figure \ref{fig:ECL_resolution}. These value are in good agreement with Monte Carlo predictions. Worse energy resolution in backward end-cap is due to the lower photon energy, which results in larger effects of passive material in front of the calorimeter \cite{haba2004letter}. The energy resolution as a function of energy can be obtained via the following relation
 \begin{equation}
 \frac{\sigma_E}{E} = \frac{0.0066\%}{\left(E/1\e{GeV}\right)}\oplus\frac{1.53\%}{\left( E/1\e{GeV}\right)^{1/4}}\oplus 1.18\%,
 \end{equation}
 while the resolution of the position measurement is
 \begin{equation}
-\sigma_{pos} = 0.27\e{mm}+\frac{3.4\e{mm}}{\left( E/1\e{GeV}\right)^{1/2}} + \frac{1.8\e{mm}}{\left( E/1\e{GeV}\right)^{1/4}}
+\sigma_{pos} = 0.27\e{mm}+\frac{3.4\e{mm}}{\left( E/1\e{GeV}\right)^{1/2}} + \frac{1.8\e{mm}}{\left( E/1\e{GeV}\right)^{1/4}}.
 \end{equation}
 
-%TODO: add plots, efficiencies...
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.8\linewidth]{fig/setup/ECL_resolution}
+	\caption{Reconstructed energy distribution for $e^+e^- \to \gamma\gamma$ events for overall, barrel, forward and backward end-cap calorimeters \cite{ABASHIAN2002117}.}
+	\label{fig:ECL_resolution}
+\end{figure}
 
 \subsection{$K_L^0/\mu$ Detector}
-The KLM detector is used for detection of high-penetration particles such as $K_L^0$ and $\mu$ for momenta larger than $0.6\e{GeV}/c$. The setup covers the polar angle of $20^\circ < \theta 155^\circ$. Detection of $K_L^0$ particles is troublesome, since they are neutral and since they have a small material interaction probability, therefore a lot of material is needed in the KLM. To provide detection of both kinds of particles, hadronic and neutral, as well as electromagnetically and hadronically interacting, the KLM is constructed as a sampling calorimeter, which consists of 15 layers of $3.7\e{cm}$ thick resistive-plate counters (RPC) with 14 layers of $4.7\e{cm}$ thick iron plates between them. A single RPC module consists of two parallel plate electrodes, two glass panels, and gas in between. A charged particle passing the gas gap initiates a local discharge of the plates, which in turn induces signal to record the time and location of ionization. Hadrons interacting with the iron plates may produce a shower of ionizing particles, which are then detected by the RPCs. 
+The KLM detector is used for detection of high-penetration particles such as $K_L^0$ and $\mu$ for momenta larger than $0.6\e{GeV}/c$. The setup covers the polar angle of $20^\circ < \theta < 155^\circ$. Detection of $K_L^0$ particles is troublesome, since they are neutral and have a small material interaction probability, therefore a lot of material is needed in the KLM. To provide detection of both kinds of particles, hadronic and neutral, as well as electromagnetically and hadronically interacting, the KLM is constructed as a sampling calorimeter, which consists of 15 layers of $3.7\e{cm}$ thick resistive-plate counters (RPC) with 14 layers of $4.7\e{cm}$ thick iron plates between them. A single RPC module consists of two parallel plate electrodes, two glass panels, and gas in between. A charged particle passing the gas gap initiates a local discharge of the plates, which in turn induces signal to record the time and location of ionization. This is possible since the resistivity of the glass surface is high, so the discharge occurs locally. Hadrons interacting with the iron plates may produce a shower of ionizing particles, which are then also detected by the RPCs. The KLM is located outside of superconducting solenoid and the iron plates of the KLM serve a dual role as the flux return for the magnetic field. Figure \ref{fig:KLM_layer} shows a cross-section of an RPC superlayer, consisting of an RPC pair.
 
-The $K_L^0$ particle can be distinguished from other charged hadrons because they have no matched track in the CDC. The flight direction can also be inferred from the hit locations in the consecutive RPCs. On the other hand, muons do have matched tracks in the CDC, but they do not interact strongly and do not produce hadronic showers in the KLM and can be recognized in this way.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.4\linewidth]{fig/setup/KLM_layer}
+	\caption{Cross-section of an RPC superlayer, consisting of an RPC pair \cite{ABASHIAN2002117}.}
+	\label{fig:KLM_layer}
+\end{figure}
 
-efficiency etc, plots?
+The $K_L^0$ particle can be distinguished from other charged hadrons because they have no matched track in the CDC. The flight direction can also be inferred from the hit locations in the consecutive RPCs. Tracks of charged particles measured in CDC are extrapolated into KLM and clusters within $15^\circ$ of an extrapolated charged particle track are excluded from $K_L^0$ cluster candidates. On the other hand, muons with matched CDC tracks are able to reach the KLM if their momentum is larger than $0.5\e{GeV}/c$. They do not interact strongly and do not produce hadronic showers in the KLM, which serves as a handle on the muon identification. Figure \ref{fig:KLM_eff} (left) shows the number of neutral clusters per event and a Monte Carlo simulation of the predicted number of $K_L^0$ clusters per event. The average number of $K_L^0$ clusters per event is $0.5$. The agreement with the prediction gives us the confidence that the detector and our reconstruction software are performing correctly. Figure \ref{fig:KLM_eff} (right) shows the muon detection efficiency as a function of  momentum and shown for a likelihood cut of $0.66$, where muon likelihood is based on the comparison of the measured range of a particle with the predicted range for a muon. Based on $K_S \to \pi^+\pi^-$ events, a muon identification efficiency of better than $90\%$ is determined,  with a pion fake rate of less than $5\%$ for particles with momenta more than $1.5\e{GeV}/c$ and a likelihood cut of $0.66$.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.48\linewidth,trim = 0cm -1.5cm 0cm 0cm]{fig/setup/KLM_clusters}
+	\includegraphics[width=0.48\linewidth]{fig/setup/KLM_efficiency}
+	\caption{Number of neutral clusters per event in KLM (left) and muon detection efficiency as a function of momentum in KLM (right) \cite{ABASHIAN2002117}.}
+	\label{fig:KLM_eff}
+\end{figure}
+
+Cosmic ray events have been used to determine efficiency and resolution of the KLM, with an overall efficiency typically over $98\%$. The temporal and spatial resolution of the KLM are few$\e{ns}$ and about $1.2\e{cm}$, respectively. The latter corresponds to an angular resolution from the interaction point of better than $10\e{mrad}$.
 
 
-\subsection{Trigger System and Data Acquisition}
-\subsection{Particle Identification}
+\section{Trigger, Data Acquisition and Computing Systems at Belle}
+
+In order to to detector calibration and proper luminosity measurements, we need to accumulate samples of Bhabha and $\gamma\gamma$ scattering. Otherwise, as shown in Table \ref{tab:xsec}, the cross-section for physics events of interest is reasonably small. During normal operation (luminosity of $L = 10\E{34}\e{cm^{-2}s^{-1}}$) the total event rate is around $200\e{Hz}$, which is well below the data acquisition (DAQ) limit of $500\e{Hz}$. Out of this rate, $100\e{Hz}$ are physically interesting events, which include also two photon events, Bhabha scattering and $\mu$ pair production, besides hadronic events from $B \bar B$ pair events. In order to discard events which are not interesting for physics analyses, we use a trigger system by appropriately applying restrictive conditions. This section describes the necessary procedures and equipment to successfully do so.
+
+\subsection{Trigger System}
+The trigger system operates by immediately eliminating events that are not of interest, so that the amount of stored data is within the $500\e{Hz}$ frequency limit, while the efficiency for physics events of interest is kept high. Events which pass the triggers are then stored, otherwise discarded. The Belle trigger system consists of three stages, Level-1 (L1) online hardware trigger, Level-3 (L3) online software trigger and Level-4 (L4) offline software trigger.
+
+L1 trigger is the first stage of the trigger system, which consists of multiple sub-detector triggers, all connected to a central trigger system called the Global Decision Logic (GDL), as schematically shown in Figure X. Each sub-detector trigger works on a principle of either a track trigger or an energy trigger. In the former case the triggers discard events not meeting conditions based on the number of reconstructed tracks or track hits, while the latter is based on the total energy deposit and counting of crystal hits. Each sub-detector processes the event information and provides it to the GDL, where all the information is combined and the current event is characterized. The information from the sub-detector triggers reaches the GLD within $1.85\e{\mu s}$ after the collision, and the final trigger signal is provided within at a fixed $2.2\e{\mu s}$ latency. The combined efficiency from the L1 trigger is greater than $99.5\%$ for hadronic events.
+
+PLOT
+
+After passing L1 trigger, the L3 discards background events from the software-wise perspective. L3 is an online software trigger which performs a fast reconstruction of the event. Events with at least one track selects events with at least 
+
+The next
+stage, the Level-3 (L3) trigger, is the online software trigger.  It selects events with at least
+one track originating around the IP (
+|
+dr
+|
+<
+5
+.
+0 cm) and reduces the beam background
+events by a factor of about 2 while keeping the efficiency of hadronic events more than
+99%
+
+The L3 trigger performs a fast reconstruction and rejects all events with no tracks
+with the impact parameter satisfying the condition
+|
+dz
+| ă
+5
+.
+0
+cm, and for which the
+total energy deposit in the ECL less than 3 GeV. The L3 trigger reduces the event
+rate by 50%, with a 99% efficiency for hadronic events
+
+\subsection{Data Acquisition Sytem}
+\subsection{Computing System}
 
 \printbibliography
 
