@@ -298,47 +298,29 @@ The $K_L^0$ particle can be distinguished from other charged hadrons because the
 
 Cosmic ray events have been used to determine efficiency and resolution of the KLM, with an overall efficiency typically over $98\%$. The temporal and spatial resolution of the KLM are few$\e{ns}$ and about $1.2\e{cm}$, respectively. The latter corresponds to an angular resolution from the interaction point of better than $10\e{mrad}$.
 
-
-\section{Trigger, Data Acquisition and Computing Systems at Belle}
-
 In order to to detector calibration and proper luminosity measurements, we need to accumulate samples of Bhabha and $\gamma\gamma$ scattering. Otherwise, as shown in Table \ref{tab:xsec}, the cross-section for physics events of interest is reasonably small. During normal operation (luminosity of $L = 10\E{34}\e{cm^{-2}s^{-1}}$) the total event rate is around $200\e{Hz}$, which is well below the data acquisition (DAQ) limit of $500\e{Hz}$. Out of this rate, $100\e{Hz}$ are physically interesting events, which include also two photon events, Bhabha scattering and $\mu$ pair production, besides hadronic events from $B \bar B$ pair events. In order to discard events which are not interesting for physics analyses, we use a trigger system by appropriately applying restrictive conditions. This section describes the necessary procedures and equipment to successfully do so.
 
 \subsection{Trigger System}
 The trigger system operates by immediately eliminating events that are not of interest, so that the amount of stored data is within the $500\e{Hz}$ frequency limit, while the efficiency for physics events of interest is kept high. Events which pass the triggers are then stored, otherwise discarded. The Belle trigger system consists of three stages, Level-1 (L1) online hardware trigger, Level-3 (L3) online software trigger and Level-4 (L4) offline software trigger.
 
-L1 trigger is the first stage of the trigger system, which consists of multiple sub-detector triggers, all connected to a central trigger system called the Global Decision Logic (GDL), as schematically shown in Figure X. Each sub-detector trigger works on a principle of either a track trigger or an energy trigger. In the former case the triggers discard events not meeting conditions based on the number of reconstructed tracks or track hits, while the latter is based on the total energy deposit and counting of crystal hits. Each sub-detector processes the event information and provides it to the GDL, where all the information is combined and the current event is characterized. The information from the sub-detector triggers reaches the GLD within $1.85\e{\mu s}$ after the collision, and the final trigger signal is provided within at a fixed $2.2\e{\mu s}$ latency. The combined efficiency from the L1 trigger is greater than $99.5\%$ for hadronic events.
+L1 trigger is the first stage of the trigger system, which consists of multiple sub-detector triggers, all connected to a central trigger system called the Global Decision Logic (GDL), as schematically shown in Figure \ref{fig:TRG_GDL}. Each sub-detector trigger works on a principle of either a track trigger or an energy trigger. In the former case the triggers discard events not meeting conditions based on the number of reconstructed tracks or track hits, while the latter is based on the total energy deposit and counting of crystal hits. Each sub-detector processes the event information and provides it to the GDL, where all the information is combined and the current event is characterized. The information from the sub-detector triggers reaches the GLD within $1.85\e{\mu s}$ after the collision, and the final trigger signal is provided within at a fixed $2.2\e{\mu s}$ latency. The combined efficiency from the L1 trigger is greater than $99.5\%$ for hadronic events.
 
-PLOT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.8\linewidth]{fig/setup/TRG_GDL}
+	\caption{The Level-1 trigger system for the Belle detector \cite{ABASHIAN2002117}.}
+	\label{fig:TRG_GDL}
+\end{figure}
 
-After passing L1 trigger, the L3 discards background events from the software-wise perspective. L3 is an online software trigger which performs a fast reconstruction of the event. Events with at least one track selects events with at least 
+After passing L1 trigger, the L3 discards background events from the software-wise perspective. L3 is an online software trigger which performs a simple, but fast reconstruction of the event. Events with at least one track satisfying the impact parameter condition $\vert\mathrm{d}z \vert < 5.0\e{cm}$ and with a total energy deposit in the ECL more than $1\e{GeV}/c$ are selected. The L3 trigger reduces the event rate by $50\%$, with a $99\%$ efficiency for hadronic events.
 
-The next
-stage, the Level-3 (L3) trigger, is the online software trigger.  It selects events with at least
-one track originating around the IP (
-|
-dr
-|
-<
-5
-.
-0 cm) and reduces the beam background
-events by a factor of about 2 while keeping the efficiency of hadronic events more than
-99%
-
-The L3 trigger performs a fast reconstruction and rejects all events with no tracks
-with the impact parameter satisfying the condition
-|
-dz
-| ă
-5
-.
-0
-cm, and for which the
-total energy deposit in the ECL less than 3 GeV. The L3 trigger reduces the event
-rate by 50%, with a 99% efficiency for hadronic events
-
-\subsection{Data Acquisition Sytem}
-\subsection{Computing System}
+After passing the L3 trigger, the events are recorded on tapes. However, these data still contain many events from the beam background. To reduce the background events even further, they are required to pass the L4 offline software filtering. At the same time, high efficiencies for signal events is still required. Events must satisfy the following conditions
+\begin{itemize}
+	\item have at least one track with $p_T > 300\e{MeV}/c$ and impact parameters $\vert \mathrm{d}r \vert < 1.0\e{cm}$ and $\vert \mathrm{d}z \vert < 4.0\e{cm}$,
+	\item have total energy deposit in the ECL must greater than $4\e{GeV}$.
+\end{itemize}
+Approximately $27\%$ of triggered events are passed through L4, while keeping an almost full efficiency for hadronic events. Events that pass the L4 trigger are fully reconstructed and stored to the DST. Overall, the efficiency of hadronic events after all trigger stages is measured to be more than $99\%$, which is more than the requirements from physics analyses.
 
 \printbibliography
 
