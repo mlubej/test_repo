@@ -1,5 +1,6 @@
-\chapter{Systematics}
-\section{Model uncertainty effects}
+\chapter{Systematic Uncertainty}
+In this chapter the systematic errors of the analysis are discussed. These uncertainties arise due to various reasons, some of them being the difference between real and simulated data, or due to the nature of the approaches taken in a specific analysis. Depending on their type, some uncertainties are generic and prepared beforehand in order to be used in all analyses, while others are analysis specific and possible sources need to be thought through thoroughly. 
+
 \section{PID efficiency correction}
 
 The PID cut efficiency for the three charged particles in our signal decay needs to be corrected on MC due to various differences when comparing to data. The Belle PID group has prepared correction factor and systematics tables for PID cut efficiencies of all charged particles. In case of kaon ID and lepton ID, the tables are binned over experiment numbers, particle momentum and in $\cos\theta$ of the particle, where for each bin a ratio of efficiencies between MC and data is provided, as well as the systematic errors. Each particle's correction factor and error is shown in Table \ref{tab:PID}, as well as the corresponding entry for all 3 particles. The entries are shown for both the signal and control region.
@@ -33,4 +34,17 @@ The central values were obtained with a weighted average over all experiments, w
 	\label{tab:PID}
 \end{table}
 
-\section{Bias}
+\section{Fit Bias}
+
+\section{Fit Template Smearing and Offset}
+
+\section{Effects of a Finite MC sample}
+
+\section{MVA Selection Efficiencies}
+
+\section{Model Uncertainty Effects}
+The used signal decay model in the generation step was \mathtt{ISGW2} [X], which is known not to be the most precise model for such decays (which ones X)? Due to this uncertainty, our analysis has been made as model independent as possible via means of not using variables, which might have a model dependent nature, in any kind of selection steps or MVA trainings. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
+
+In order to test the effects of model uncertainty on our final result, we prepare two additional signal MC samples, produced with an extreme scenario decay model. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \mathtt{PHSP} [X], which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure X shows the generated $m_{KK}$ distribution of the three mentioned decay models and distributions of \vars~after the final selection. The different signal templates are used and the range of the corresponding fit yields is taken as the uncertainty range.
+
+PLOTS AND MORE TEXT
