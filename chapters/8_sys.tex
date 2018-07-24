@@ -35,16 +35,27 @@ The central values were obtained with a weighted average over all experiments, w
 \end{table}
 
 \section{Fit Bias}
+Signal and background templates in our analysis are not perfectly distinct from one another and may potentially cause some over- or underestimation of the signal fit yield. In order to study this problem, we estimated the fit bias as a function of the signal yield in the form of a linear approximation, as already shown in Figure X. The bias function is approximated as
+\begin{equation}
+bias function,
+\end{equation}
+which leads to a systematic uncertainty of about X at the value of expected signal yield.
+
 
 \section{Fit Template Smearing and Offset}
 
+
 \section{Effects of a Finite MC sample}
+The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we can take each bin and vary the bin content according to the Poisson distribution. This procedure is repeated for X times and the width of the fit yield distribution, shown in Figure X, is taken as the uncertainty estimate.
 
 \section{MVA Selection Efficiencies}
 
-\section{Model Uncertainty Effects}
-The used signal decay model in the generation step was \mathtt{ISGW2} [X], which is known not to be the most precise model for such decays (which ones X)? Due to this uncertainty, our analysis has been made as model independent as possible via means of not using variables, which might have a model dependent nature, in any kind of selection steps or MVA trainings. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
 
-In order to test the effects of model uncertainty on our final result, we prepare two additional signal MC samples, produced with an extreme scenario decay model. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \mathtt{PHSP} [X], which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure X shows the generated $m_{KK}$ distribution of the three mentioned decay models and distributions of \vars~after the final selection. The different signal templates are used and the range of the corresponding fit yields is taken as the uncertainty range.
+\section{Model Uncertainty Effects}
+The used signal decay model in the generation step was \texttt{ISGW2} [X], which is known not to be the most precise model for such decays (which ones X)? Due to this uncertainty, our analysis has been made as model independent as possible via means of not using variables, which might have a model dependent nature, in any kind of selection steps or MVA trainings. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
+
+In order to test the effects of model uncertainty on our final result, we prepare two additional signal MC samples, produced with an extreme scenario decay model. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} [X], which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure X shows the generated $m_{KK}$ distribution of the three mentioned decay models and distributions of \vars~after the final selection. The different signal templates are used and the range of the corresponding fit yields is taken as the uncertainty range.
 
 PLOTS AND MORE TEXT
+
+\section{Summary of Systematics}
