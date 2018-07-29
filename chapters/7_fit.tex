@@ -25,7 +25,7 @@ which asymptotically behaves as the $\chi^2_q$ distribution with $q=m-n$ degrees
 \mathrm{Significance} = \sqrt{\lambda} = \sqrt{\chi^2}.
 \end{equation}
 
-\section{Fit templates}
+\section{Fit Templates}
 
 The same MC samples are used for template construction as described in Chapter \ref{sec:data-and-monte-carlo-samples},
 \begin{itemize}
@@ -36,49 +36,41 @@ The same MC samples are used for template construction as described in Chapter \
 \item \texttt{rare} sample, corresponding to $50\times$ integrated luminosity of the full Belle dataset.
 \end{itemize}
 
-We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as data. When fitting real data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
+We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as fitted data. When fitting real data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
 
-\subsection{Templates in signal fits}
-The following histogram templates were defined for the signal fits
+\subsection{Templates in signal fits}\label{sec:templates-in-signal-fits}
+The motivation for choice of signal fit templates comes from Figure \ref{fig:sig_bkg_all_after}. The following histogram templates were defined for the signal fits
 \begin{itemize}
 \item signal template,
-\item $q \bar q$ template.
-\item a series of constrained templates from $B \bar B$ background
-\item Remaining $B \bar B$ background template.
+\item $q \bar q$ template,
+\item a series of constrained templates from $B \bar B$ background:
+\begin{itemize}
+	\item $C_0:~B^+ \to \bar{D} {}^0 \ell^+ \nu,~D^0 \to K^-K^+$ (control decay),
+	\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$,
+	\item $C_2:~B \to \bar{D} {}^{(*)} \ell^+ \nu,~D^0 \to K^-\pi^+$,
+	\item $C_3:~B \to \bar{D} {}^{(*)} \ell^+ \nu,~D^0 \to K^-K^+\pi^0,~K^-\pi^+\pi^0$,
+	\item $C_4:~B \to \bar{D} {}{(*)} \ell^+ \nu,~D^0 \to K^-\ell^+\nu$,
+	\item $C_5:~B^0 \to D^{(*)-} \ell^+ \nu,~D^+ \to K^-K^+\pi^+,~K^-\pi^+\pi^+$,
+	\item $C_6:~$ other $B \to \bar D {}^{(*)} \ell^+ \nu$ decays,
 \end{itemize}
-While signal and $q \bar q$ templates are well defined, the majority of the background comes from $B \bar B$ events. Various processes contribute to this background, so a detailed study of the sources is necessary. The large majority of contributions to $B \bar B$ background comes from $b \to c$ decays with two of the $KK\ell$ daughters coming from one $B$ meson, and the remaining daughter coming from the other one, as shown in Figure X. The \vars~in this case have a large spread and tails, with a continuous shape in the $m_KK$ variable. Other sources in the $B \bar B$ background come from events where all three final state daughters come from the same $B$ meson. These are well defined in the MC and have distinct shapes in \vars, which can mimic out signal distribution. Fortunately, these contributions are well known and measured, so we make use of these measurements to constrain the contributions appropriately when fitting on real data, and fixing them to expected values when fitting to MC simulated data. 
+\item remaining $B \bar B$ background template.
+\end{itemize}
+As mentioned in Chapter \ref{sec:background-suppression}, the majority of the background comes from $B \bar B$ events. Various processes contribute to this background which are well known and measured, so we make use of these measurements to fix these contributions in MC fits and appropriately constrain them when fitting to real data. The remaining $B \bar B$ background is merged into a single template.
 
-When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of constrained templates. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$. The remaining templates all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value.
-
-The argument for merging all $B \bar B$ background in a single template lies in the fact that the major part of this background consists of candidates with a $K \ell$ pair from one $B$ meson, and the remaining $K$ from the other one. Other sources of background are present, but not very significant. All sources of $B \bar B$ background for the signal $KK$ invariant mass region are shown in Figure \ref{fig:sig_BKG_comp}.
-
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_before}
-	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the signal $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
-	\label{fig:sig_BKG_comp}
-\end{figure}
+When fitting the signal sample, the shape of all templates is fixed and, except in the case of constrained background templates, the template yields were left as floating parameters in the fit.
 
 \subsection{Templates in control fits}
 
-In case of control sample fits the situation is similar. The difference is that in this case the yield of the control template was left as a floating parameter, while the yield of the signal template was fixed to the expected MC value for the same reasons as mentioned before. In this case, the following fit templates are chosen
+In case of control region fit the background composition is different, as seen in Figure \ref{fig:cs_bkg_after}. Due to the strict cut of the $m_{KK}$ around the $D^0$ mass window, most of the decays with a $D^0$ proceed via $D^0 \to K^+K^-$ decay. In this case, the following fit templates are chosen
 \begin{itemize}
 	\item signal template,
-	\item control template,
-	\item $B \to \bar D {}^* \ell^+ \nu$ template,
-	\item other $B \bar B$ BKG template,
-	\item $q \bar q$ template.
-\end{itemize}
-Since the background composition in the control region is different, we introduce a new category template for the background.  All sources of $B \bar B$ background for the control $KK$ invariant mass region are shown in Figure \ref{fig:cs_BKG_comp}.
+	\item $q \bar q$ template,
+	\item $C_0:~B^+ \to \bar{D} {}^0 \ell^+ \nu,~D^0 \to K^-K^+$ (control decay),
+	\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$ template,
+	\item other $B \bar B$ BKG template.
 
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/cs_BKG_composition_before}
-	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the control $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
-	\label{fig:cs_BKG_comp}
-\end{figure}
+\end{itemize}
+As in the previous case, the shape of templates is fixed. The yield of all template, except the $B \to \bar D {}^* \ell^+ \nu,~D^0 \to K^-K^+$ template, are floated. Since the $B \to \bar D {}^* \ell^+ \nu,~D^0 \to K^-K^+$ decay is well known and measured, we take use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit and constrained to the measured value in case of fits to real data.
 
 \section{Adaptive binning algorithm}\label{sec:adaptive-binning-algorithm}
 
@@ -109,6 +101,50 @@ We have devised an algorithm, which compares the templates and the fitted sample
 \end{figure}
 
 An additional problem occurs in the plotting of the fitted templates and the sample with variable binning. It would seem that RooFit does not take the bin widths into account when plotting, while everything works as expected for the fit itself. This was bypassed by extracting the fitted yields and applying them to templates and samples with uniform binning, which were then used for drawing.
+
+\section{Fit Constraints}
+
+In this section the procedure for fixing or constraining the physics parameters in the fits to MC or data.
+
+\subsection{Signal Fit Constraints}
+As mentioned in subsection \ref{sec:templates-in-signal-fits}, some parts of the $B \bar B$ background is well known and can be constrained based on world measurements. The channels are constrained based on the following formula
+
+X
+
+\subsection{Control Fit Constraints}
+In order to define constraints in control fits, the channels defined in Table X are used.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|c|c|c|l|}
+		\hline
+		Category & Channel & Decay mode & $N_{MC}$ & $\mathcal{B}_{MC}$ & $\mathcal{B}_{PDG}$ & Ref. \\
+		\hline
+		\multirow{2}{*}{$C_0$} & \multirow{2}{*}{$N_{00}$} & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & \multirow{2}{*}{X} & X & X & [X]\\
+		 & & $D^0 \to K^-K^+$ &  & X & X & [X]\\
+		\hline
+		\multirow{4}{*}{$C_1$} & \multirow{2}{*}{$N_{10}$} & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & \multirow{2}{*}{X} & X & X & [X]\\
+		 & & $D^0 \to K^-K^+$ &  & X & X & [X]\\	
+		 \cline{2-6}	 
+		 & \multirow{2}{*}{$N_{11}$} & $B^0 \to D {}^{*-} \ell^+ \nu$ & \multirow{2}{*}{X} & X & X & [X]\\		 
+		 & & $D^0 \to K^-K^+$ &  & X & X & [X]\\
+		 %		\multirow{2}{*}{1}&X\\
+%		&X\\
+		\hline
+	\end{tabular}
+	\caption{Generated and PDG branching ratios of several decay modes.}
+	\label{tab:cs_constraint_table}
+\end{table}
+
+%
+%		$1)~B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $(5.25\pm0.12)\E{-2}$ & $5.79\E{-2}$ \\
+%		$2)~B^0 \to D^{*-} \ell^+ \nu$ & $(4.88\pm0.11)\E{-2}$ & $5.33\E{-2}$ \\
+%		$3)~B^+ \to \bar D {}^0 \ell^+ \nu$ & $(2.29\pm0.10)\E{-2}$ & $2.31\E{-2}$ \\
+%		$4)~D^0 \to K^+ K^-$ & $(3.97\pm0.07)\E{-3}$ & $3.90\E{-3}$ \\
+%Control $3) \times 4)$ & $(9.10\pm0.42)\times 10^{-5}$ & $9.01\times 10^{-5}$ \\
+
+\begin{equation}
+r_i = \frac{N_{C_i}^{MC}\times \rho_i}{N_{C_0}^{MC}\times \rho_0}
+\end{equation}
 
 \section{Signal MC fit results}\label{sec:signal-mc-fit-results}
 

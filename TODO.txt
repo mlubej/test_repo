@@ -18,5 +18,8 @@
 - Br calculation of control sample
 
 
+- check ROE validation plots
+
+
 CITE:
 root, roofit, geant

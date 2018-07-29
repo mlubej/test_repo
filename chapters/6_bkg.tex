@@ -202,8 +202,8 @@ Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, 
 
 We can compare signal and major background distributions of \vars~after the 2D $\mathrm{FOM}$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
-\item Standard BDT: $N_{sig} = 177.40,\quad N_{sig}/N_{bkg} = 4.81~\%$,
-\item uBDT: $N_{sig} = 260.55,\quad N_{sig}/N_{bkg} = 1.34~\%$.
+\item Standard BDT: $N_{sig} = 176,\quad N_{sig}/N_{bkg} = 4.83~\%$,
+\item uBDT: $N_{sig} = 264,\quad N_{sig}/N_{bkg} = 1.33~\%$.
 \end{itemize}
 
 \begin{figure}[H]
@@ -220,6 +220,49 @@ We can compare signal and major background distributions of \vars~after the 2D $
 \includegraphics[width=\linewidth]{fig/opt_uBB}
 \caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the uBDT classifier for $B \bar B$ suppression.}
 \label{fig:opt1dc}
+\end{figure} 
+
+\subsection{$B \bar B$ Background Composition and Lepton Veto}
+
+The majority of background candidates after the final selection is represented by candidates from $B \bar B$ events. In order to suppress this background even further, we need to take a look at its structure and recognize various contributions to this part of background. Figure \ref{fig:sig_bkg_all_before} shows \vars~for the most significant contributions, along with $m_{KK}$. While most of the candidates come from events, where all reconstructed charged particles in the signal decay do not come from one $B$ meson, but both of them, these candidates are not so problematic, because their collaborative distribution is rather smooth and frequent in regions where we expect no signal. On the other hand, there are also contributions from $B$ meson decays which produce more signal-like distributions. We will denote the first kind of background as $\Upsilon(4S)$-matched and the second kind as the $B$-matched $B \bar B$ background. Fortunately, these decays are well known and well measured, so their yields can be constrained by these known values. Especially problematic is the double semileptonic decay $B \to D^{(*)} \ell^+ \nu,~D \to \bar K \ell \nu$, where the secondary lepton is missidentified as a kaon. Even though these decays have two neutrinos, these events survive the $m_{miss}^2$ selection cut and produce peaks at the same positions as signal distributions, while exhibiting only a slightly worse resolution. 
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_before.pdf}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right) and $m_{KK}$ (bottom) for major contributions to the $B \bar B$ background in the signal cut region. $\Upsilon(4S)$-matched backgrounds represents the majority, but has a smooth and wide background, which has a distinguishable shape from signal. $B$-matched contributions show a peak in $M_{BC}$ and sometimes in $\Delta E$, but can be constrained using existing measurements.}
+	\label{fig:sig_bkg_all_before}
+\end{figure} 
+
+In order to suppress these candidates, a lepton veto can be applied on both kaons, stating that neither of the kaons should exhibit lepton-like properties. On the candidates passing the final selection, we optimize the $eID$ and $\mu ID$ PID cuts, where $S$ and $B$ in Eq. \ref{eq:fom} are represented by perfect signal candidates and by background candidates, respectively, where in the latter case a lepton has been missidentified as a kaon. 2D FOM plots for both kaons are shown in Figure \ref{fig:lepVeto}, where it can be seen that in majority of the cases, an electron is missidentified as the kaon with the opposite charge to the $B$ meson. With the optimal cuts of 
+\begin{itemize}
+	\item $K_0:~eID < 0.7,$
+	\item $K_1:~eID < 0.1,~\mu ID < 0.8,$
+\end{itemize}
+we reject $77.5\%$ of candidates from the double semileptonic decays, while efficiency loss of signal and other types of $B \bar B$ background is about $5-6\%$. The $B \bar B$ background after the lepton veto cuts is shown in Figure \ref{fig:sig_bkg_all_after} for the signal cut region, and in Figure \ref{fig:cs_bkg_after} for the control cut region.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/lepVeto}
+	\caption{2D FOM for optimal $eID$ and $\mu ID$ cuts on same-sign (left) and opposite-sign (right) kaons with respect to the $B$ meson charge. For double semileptonic background component, in most cases an electron is missidentified as the opposite-sign kaon in the reconstruction chain.}
+	\label{fig:lepVeto}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_after}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right) and $m_{KK}$ (bottom) for major contributions to the $B \bar B$ background in the signal cut region after the lepton veto. The double semileptonic background component is suppressed by a factor of $4-5$.}
+	\label{fig:sig_bkg_all_after}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/cs_BKG_composition_after}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right) and $m_{KK}$ (bottom) for major contributions to the $B \bar B$ background in the control cut region after the lepton veto. The major component in this case are other $B \to D^* \ell+ \nu,~D \to K^+K^-$ decays, besides the control decay.}
+	\label{fig:cs_bkg_after}
 \end{figure} 
 
 \section{Data and MC agreement}
