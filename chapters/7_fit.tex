@@ -42,19 +42,20 @@ We perform 10 fits to each stream of MC, where 9 streams were used for the creat
 The following histogram templates were defined for the signal fits
 \begin{itemize}
 \item signal template,
-\item control template,
-\item $B \bar B$ template,
 \item $q \bar q$ template.
+\item a series of constrained templates from $B \bar B$ background
+\item Remaining $B \bar B$ background template.
 \end{itemize}
+While signal and $q \bar q$ templates are well defined, the majority of the background comes from $B \bar B$ events. Various processes contribute to this background, so a detailed study of the sources is necessary. The large majority of contributions to $B \bar B$ background comes from $b \to c$ decays with two of the $KK\ell$ daughters coming from one $B$ meson, and the remaining daughter coming from the other one, as shown in Figure X. The \vars~in this case have a large spread and tails, with a continuous shape in the $m_KK$ variable. Other sources in the $B \bar B$ background come from events where all three final state daughters come from the same $B$ meson. These are well defined in the MC and have distinct shapes in \vars, which can mimic out signal distribution. Fortunately, these contributions are well known and measured, so we make use of these measurements to constrain the contributions appropriately when fitting on real data, and fixing them to expected values when fitting to MC simulated data. 
 
-When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of control template, where the yield was fixed to the expected MC value, since the sample size was very small and very similar to the signal template. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$. The remaining three templates for control, $q \bar q$ and $B \bar B$ sample all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value. For the $q \bar q$ template the sample of $q \bar q$ background was used, whereas in case of the control and $B \bar B$ templates, they were constructed using generic $B \bar B$ background, along with the \texttt{rare} and \texttt{ulnu} background samples with expected relative ratios, based on MC. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the three types of background for the final selection using the standard $BDT$ and the $uBDT$, respectively.
+When fitting the signal sample, all template shapes were fixed and all template yields were left as floating parameters in the fit, except in the case of constrained templates. Figures \ref{fig:opt01c} and \ref{fig:opt1dc} show \vars~distributions for the signal template for both final samples, where pronounced peaks can be seen at $\Delta E \approx 0\e{GeV}$ and $M_{BC} \approx m_B$. The remaining templates all describe the background part and, with the exception of the control template, tend to be more widely distributed or even shifted from the nominal value.
 
 The argument for merging all $B \bar B$ background in a single template lies in the fact that the major part of this background consists of candidates with a $K \ell$ pair from one $B$ meson, and the remaining $K$ from the other one. Other sources of background are present, but not very significant. All sources of $B \bar B$ background for the signal $KK$ invariant mass region are shown in Figure \ref{fig:sig_BKG_comp}.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/sig_BKG_composition}
+	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_before}
 	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the signal $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
 	\label{fig:sig_BKG_comp}
 \end{figure}
@@ -74,7 +75,7 @@ Since the background composition in the control region is different, we introduc
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/cs_BKG_composition}
+	\includegraphics[width=\linewidth]{fig/cs_BKG_composition_before}
 	\caption{Distributions of $\Delta E$ (left) and $M_{BC}$ (right) for various sources of the $B \bar B$ background after imposing the control $KK$ invariant mass cut. The major source of the $B \bar B$ background comes from candidates with a $K\ell$ pair from one $B$ meson and the remaining $K$ from the other one.}
 	\label{fig:cs_BKG_comp}
 \end{figure}
