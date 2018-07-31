@@ -46,14 +46,14 @@ $B \bar B$ background composition in control region is shown in Figure \ref{fig:
 	\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$,
 	\item other $B \bar B$ BKG template.
 \end{itemize}
-In control fits, all template shapes are fixed and the yields of all templates are floated, except for the signal template, which is expected to be very close to zero and was fixed to the expected MC yield. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit and constrained to the measured value in case of fits to real data. The ratio is implemented based on the decay channels shown in Table X and is defined as
+In control fits, all template shapes are fixed and the yields of all templates are floated, except for the signal template, which is expected to be very close to zero and is fixed to the expected MC yield. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit and constrained to the measured value in case of fits to real data. The ratio is implemented based on the decay channels shown in Table \ref{tab:cs_constraint_table} and is defined as
 \begin{equation}
 r_1 = \frac{\left(\sum_j N_{1j}\times \rho_{1j} \right)}{N_{00} \times \rho_{00}},
 \label{eq:cs_fix}
 \end{equation}
 where $j$ runs over all channels in the category $C_1$ and where $\rho_{ij}$ is the branching ratio correction factor for the specific channel $N_{ij}$, which incorporates information from world measurements. It is defined as 
 \begin{equation}
-\rho = \frac{\mathcal{B}^{PDG}}{\mathcal{B}^{MC}}.
+\rho = \frac{\mathcal{B}^{PDG}}{\mathcal{B}^{GEN}}.
 \label{eq:br_fix}
 \end{equation}
 The branching ratio correction factor has been implemented due to differences between measured and MC branching ratio values. Each branching ratio measurement serves as a constraint used in the fit. All branching ratio constraints in the control fit are shown in Table \ref{tab:cs_br_constraint_table}. The measured values are cited only for the $B^0$ decay mode, where isospin symmetry has been assumed. The corresponding $B^+$ branching ratios can be calculated as
@@ -88,7 +88,7 @@ In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}
 	\centering
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		Decay & $\mathcal{B}_{MC}$ & $\mathcal{B}_{PDG}$ & Reference \\
+		Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & Reference \\
 		\hline
         $B^0 \to D {}^{-} \ell^+ \nu$ & $2.13\E{-2}$ & $(2.13 \pm 0.09)\E{-2}$ & [X]\\
         \hline
@@ -111,14 +111,14 @@ With simulated data we are able to perform detailed studies prior to looking at 
 The following parameter phase space is scanned
 \begin{itemize}
 \item smearing factor in range $[0.0,0.08]\e{GeV}$ in steps of $8\E{-3}$,
-\item offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-3}$,
+\item offset in range $[0.0,0.003]\e{GeV}$ in steps of $1.5\E{-4}$,
 \end{itemize}
 where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In case of data, we see that we obtain a better fit by introducing some level of smearing and offset. In neither of the cases the two parameters show any sign of significant correlation, so we treat them as independent parameters. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
 \begin{itemize}
 \item Smearing: $40_{-17}^{+15}\e{MeV}$,
 \item Offset: $6_{-6}^{+4.6}\e{MeV}$.
 \end{itemize}
-We apply this transformation to our MC samples in all cases when we fit real data.
+We apply this transformation to our MC samples in all cases when fitting real data.
 
 \begin{figure}[!htbp]
 	\centering
@@ -156,7 +156,7 @@ where $j$ runs over all channels in the category $C_i$ and where $\rho_{ij}$ is 
 \end{equation}
 where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yields in the control fit for data and MC, respectively.
 
-In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced. For channels in the $C_6$ category we introduce a correction factor of $1$ with a $100\%$ error for the $D$ meson decays.
+In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio.
 
 
 \begin{table}[!htbp]
@@ -243,7 +243,7 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 	\centering
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		Decay & $\mathcal{B}_{MC}$ & $\mathcal{B}_{PDG}$ & Reference \\
+		Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & Reference \\
 		\hline
         $D^0 \to K^-K^+$ & $3.9\E{-3}$ & $(3.97\pm0.07)\E{-3}$ & [X] \\
 		\hline
@@ -361,7 +361,7 @@ An additional problem occurs in the plotting of the fitted templates and the sam
 
 
 \section{Fit Results}
-In this section we present the control fit results on MC and data, along with the control sample branching ratio. We also show results of the signal fit on MC and data. All fits were performed with an initial binning of $20\times20$ bins in \vars.
+In this section we present the control fit results on MC and data, along with the control decay branching ratio. We also show results of the signal fit on MC and data. All fits were performed with an initial binning of $20\times20$ bins in \vars.
 
 \subsection{Control Fit Result}
 With the control fit setup described in \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC were fitted with a 0th degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
