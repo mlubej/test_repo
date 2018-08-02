@@ -361,7 +361,39 @@ An additional problem occurs in the plotting of the fitted templates and the sam
 
 
 \section{Fit Results}
-In this section we present the control fit results on MC and data, along with the control decay branching ratio. We also show results of the signal fit on MC and data. All fits were performed with an initial binning of $20\times20$ bins in \vars.
+In this section we present the fir results of signal and control fits on MC as well as data, along with the control decay branching ratio measurement. We also show results of the signal fit on MC and data.
+
+\subsection{Signal MC fit results}\label{sec:signal-mc-fit-results}
+
+With the signal fit setup described in \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1.  While both fit results seem to have no bias with respect to the binning choice, the pull distribution seems to be closer to the normal distribution and the significance of the fit better by $1\sigma$ in the case of the sample optimized with the uBDT classifier. This fixes our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where also no bias is present, and is somewhere in the region of $20$ bins in each dimension.
+
+\begin{figure}[!htbp]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_binning}
+	\caption{Fitted yield and expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars~for the final sample, optimized with the standard BDT classifier (blue) and the uBDT classifier (orange).}
+	\label{fig:sig_binning}
+\end{figure}
+
+For the chosen binning of $20 \times 20$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.99$, while the average significance of the fits is around $3.57 \sigma$.
+
+\begin{figure}[!htbp]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_fit_mc}
+	\caption{An example fit to one stream of MC. Left column shows the $M_{BC}$ and the right column shows the $\Delta E$ distribution of the full fitted sample in the full fit region (top) and the signal region (bottom).}
+	\label{fig:sig_streamfit}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_global_mc}
+	\caption{Fits to all 10 streams of MC and the global fit with a zero degree polynomial. The red line shows the mean value of the global fit and the gray band shows the $1\sigma$ confidence interval.}
+	\label{fig:sig_global}
+\end{figure}
+
+For the chosen final selection and fit procedure, toy MC pseudo-experiments were performed in order to confirm the behavior of the signal fit. The fit behavior is also checked as a function of the signal yield in the form of a linearity test. A detailed description of toy MC experiments is written in Section X.
 
 \subsection{Control Fit Result}
 With the control fit setup described in \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC were fitted with a 0th degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
@@ -473,72 +505,4 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{fig:br_plot}
 \end{figure}
 
-
-\section{Signal MC fit results}\label{sec:signal-mc-fit-results}
-
-The fit setup was used on the final samples obtained with both versions of the final selection (standard BDT and uBDT). The choice of the initial uniform binning is not obvious, so we perform fits to all streams of MC for each initial binning choice and the fitted and expected yield difference, pulls and fit significance for both final samples, shown in Figure \ref{fig:sig_binning}. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1. Fits to final sample, obtained with the uBDT classifier generally seem to have a lower bias, pull distributions closer to the normal distribution and better significance than the fits in the case of the standard BDT final sample. This fixes our choice of the final selection. It is also possible to determine the optimal initial binning choice to be somewhere in the region of $20$ bins in each dimension, since a higher number of initial bins yields biased results, while a lower one yields results with poorer significance.
-
-\begin{figure}[!htbp]
-	\centering
-	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/sig_binning}
-	\caption{Fitted yield and expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars~for the final sample, optimized with the standard BDT classifier (blue) and the uBDT classifier (orange).}
-	\label{fig:sig_binning}
-\end{figure}
-
-Figure \ref{fig:sig_streamfit} shows the fit result and the fitted sample of an arbitrary stream for \vars, for the fit region and for the signal region. The fits seem stable and fit errors are under control. Fit results for all streams of MC are shown in Figure \ref{fig:sig_global}, along with the global fit of a zero degree polynomial over all streams. The results seem to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.9$, while the average significance of the fits is around $3.17 \sigma$.
-
-\begin{figure}[!htbp]
-	\centering
-	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/plt_uMVA1dc_0.png}
-	\caption{An example fit to one stream of MC. Left column shows the $M_{BC}$ and the center column shows the $\Delta E$ distribution of the full fitted sample in the full fit region (top) and the signal region (bottom). The right column shows the expected 2D histogram in \vars~with initial uniform binning (top) and the variable binning (bottom) after the binning algorithm.}
-	\label{fig:sig_streamfit}
-\end{figure}
-%TODO fix fit plots
-
-
-\begin{figure}[!htbp]
-	\centering
-	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=\linewidth]{fig/sig_global}
-	\caption{Fits to all 10 streams of MC and the global fit with a zero degree polynomial. The red like shows the mean value of the global fit and the green band shows the $1\sigma$ confidence interval. The expected value here differs slightly from the values in Section \ref{sec:selection-optimization}, since it is evaluated on a 10 stream sample size of the $20\times L_0$ \texttt{ulnu} sample.}
-	\label{fig:sig_global}
-\end{figure}
-
-%\subsection{Toy MC experiment}
-%
-%Toy MC experiments allow us to study the yields, errors and the pulls of the signal fit by generating our own pseudo datasets, according to the MC, and not producing it in the standard way, which consumes unaffordable amounts of CPU time. In order to test the fit behavior, a toy MC study was performed where all available MC was used for template creation. We constructed $3\E{3}$ pseudo datasets, where each dataset was generated expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $20\times20$ bins in \vars.
-%
-%Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control since there is not any significant bias, and the pulls follow a normal distribution with a mean of $(1.1\pm1.8)\E{-2}$ and standard deviation of $(1.013\pm0.013)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while the errors of these statistics were obtained by calculating the standard error of the mean ($\sigma_{\bar X}$) and standard deviation ($\sigma_S$), taken from \cite{ahn2003standard}, as
-%\begin{equation}
-%\sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
-%\end{equation}
-%where $N$ is the number of performed measurements.
-%
-%\begin{figure}[!htbp]
-%	\centering
-%	\captionsetup{width=0.8\linewidth}
-%	\includegraphics[width=\linewidth]{fig/toyMC}
-%	\caption{Toy MC fits of pseudo data showing the fit yield (top), fit errors (center) and the pull distribution of the fits (bottom).}
-%	\label{fig:toyMC}
-%\end{figure}
-%
-%\subsection{Toy MC linearity test}
-%Linearity test is used for determining sensitivity of the fit to the amount of signal in the fitted sample. Since this is a first measurement of this decay channel, MC modeling is not reliable and could be very different from reality, so we need to perform this test in order to determine our sensitivity to smaller, as well as larger amounts of expected signal.
-%
-%The pseudo datasets are generated in the same way as in the previous subsection, with the exception of signal, which is generated with various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo datasets according to Poisson statistics.
-%
-%Figure \ref{fig:lin_test} shows the mean fit yield and expected yield difference, mean pull and the mean significance at each signal fraction value. The expected MC result is shown at fraction value $1$. The plots show no significant bias with with respect to the signal fraction, while the pulls seems to be described by the normal distributions throughout the fraction range. At expected value we are at about $3.2\sigma$ significance, as already pointed out at the beginning of this section.
-%
-%\begin{figure}[!htbp]
-%	\centering
-%	\captionsetup{width=0.8\linewidth}
-%	\includegraphics[width=\linewidth]{fig/lin_test}
-%	\caption{Mean fit yield and expected yield difference (top), mean pull (center) and mean significance (bottom) as a function of signal fraction.}
-%	\label{fig:lin_test}
-%\end{figure}
-
-
-
-\section{Signal fit to data}
+\subsection{Signal fit to data}
