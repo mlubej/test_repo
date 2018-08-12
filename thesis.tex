@@ -1,0 +1,198 @@
+\documentclass[longbibliography,a4paper,12pt]{book}
+\newcommand {\e}[1]{\mathrm{~#1}}
+\newcommand {\E}[1]{\times 10^{#1}}
+\newcommand {\vars}{$\Delta E$ and $M_{BC}$}
+\newcommand {\btbii}{\texttt{B2BII}}
+\newcommand {\decaya}{$B \to K K \ell \nu$}
+\newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
+
+\usepackage{fancyhdr}
+
+%\usepackage{biblatex}
+%\bibliography{mybib.bib} 
+\usepackage[slovene,english]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+\usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
+\addbibresource{mybib.bib}% Syntax for version >= 1.2
+
+\usepackage{paralist}
+\usepackage{caption}
+\usepackage{cancel}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\setlength{\parskip}{1em}%
+\setlength{\parindent}{0cm}
+
+\usepackage{titling}
+\usepackage{amsmath,amssymb,amsfonts,nicefrac}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+\usepackage{mathtools}
+\allowdisplaybreaks
+\usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage{dictsym}
+\usepackage{braket}
+\usepackage{slashed}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{enumerate}
+\usepackage{array}
+\setlength{\extrarowheight}{.5ex}
+
+%\usepackage{lineno}
+%\linenumbers
+
+\usepackage{subfigure}
+
+\usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
+\usepackage[titletoc,title]{appendix}
+
+\title{{\Large BELLE NOTE 1486}\\\huge {Measurement of the decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with B2BII}}
+\author{Matic Lubej}
+\date{Ljubljana, 2018}
+%
+%
+\begin{document}
+\nocite{*}
+
+%%% NASLOVNA STRAN V ANGLESKEM JEZIKU
+
+\pagestyle{empty}
+\begin{center}
+
+{\large UNIVERSITY OF LJUBLJANA\\
+FACULTY OF MATHEMATICS AND PHYSICS\\
+DEPARTMENT OF PHYSICS\\}
+
+\vspace{4cm}
+
+{\Large Matic Lubej\\}
+
+\vspace{10mm}
+
+{\bf \Large Measurement of the Decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with the Belle Detector\\}
+\vspace{5mm}
+{\large Doctoral thesis}\\
+
+\vfill
+
+{\large ADVISER: An\v ze Zupanc\\
+%COADVISER: Ime in priimek\\
+}
+
+\vspace{2cm}
+{\large Ljubljana, 2018}
+
+\end{center}
+
+%%% NASLOVNA STRAN V SLOVENSKEM JEZIKU
+
+\cleardoublepage
+\begin{center}
+
+{\large UNIVERZA V LJUBLJANI\\
+FAKULTETA ZA MATEMATIKO IN FIZIKO\\
+ODDELEK ZA FIZIKO\\}
+
+\vspace{4cm}
+
+{\Large Matic Lubej\\}
+
+\vspace{10mm}
+
+{\bf \Large Meritev razpada $B^+ \to K^+K^-\ell^+\nu_\ell$ z detektorjem Belle\\}
+\vspace{5mm}
+{\large Doktorska disertacija}\\
+
+\vfill
+
+{\large MENTOR: An\v ze Zupanc\\
+%SOMENTOR$\backslash$-ICA: naziv, Ime in priimek\\
+}
+
+
+\vspace{2cm}
+
+{\large Ljubljana, 2018}
+
+\end{center}
+
+%%% ZAHVALA (NEOBVEZNO)
+
+\cleardoublepage
+\mbox{}
+\vfill
+{\Large \bf Acknowledgements}
+\vspace{1cm}\\
+Na tem mestu zapi"site, komu se zahvaljujete za pomo"c 
+pri nastanku doktorske di- sertacije.
+
+%%% IZVLECEK
+
+\cleardoublepage
+{\Large\bf Izvle"cek}
+\vspace{1cm}\\
+Kratek izvle"cek v slovenskem jeziku.\\
+\vspace{1cm}\\
+{\bf Klju"cne besede:}\\
+{\bf PACS:}
+
+%%% ABSTRACT
+
+\cleardoublepage
+{\Large \bf Abstract}
+\vspace{1cm}\\
+Kratek izvle"cek v angle"skem jeziku.
+\vspace{1cm}\\
+{\bf Keywords:}\\
+{\bf PACS:}
+
+%%% KAZALO
+
+\tableofcontents
+
+%%% SEZNAM SLIK (NEOBVEZNO)
+
+\cleardoublepage\phantomsection
+\renewcommand\listfigurename{List of figures}
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+%%% SEZNAM TABEL (NEOBVEZNO)
+
+\cleardoublepage\phantomsection
+\renewcommand\listtablename{List of tables}
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\cleardoublepage
+
+%%% OSREDNJI DEL
+
+\pagestyle{fancy}
+\fancyhead[CE,RE]{}
+\fancyhead[LO,CO]{}
+\fancyhead[LE]{\textbf{\nouppercase{\leftmark}}}
+\fancyhead[RO]{\textbf{\nouppercase{\rightmark}}}
+
+\include{chapters/1_intro}
+\include{chapters/2_data}
+\include{detector}
+\include{chapters/3_b2bii}
+\include{chapters/4_evt}
+\include{chapters/5_roe}
+\include{chapters/6_bkg}
+\include{chapters/7_fit}
+\include{chapters/8_sys}
+\include{si_summary}
+
+\printbibliography
+
+\include{chapters/A_mva}
+
+
+\end{document}
+
+

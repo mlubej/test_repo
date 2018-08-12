@@ -1,5 +1,9 @@
 *.lob 
 
+*.lot
+
+*.lof
+
 *.toc 
 
 *.out 
