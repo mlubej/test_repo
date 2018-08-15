@@ -164,9 +164,34 @@ PLOT
 
 \subsection{Lu"s"cenje fizikalnih parametrov}
 
-Po selekciji končnega vzorca lahko začnemo luščiti fizikalne parametre iz podatkov.
+Po selekciji končnega vzorca lahko začnemo luščiti fizikalne parametre iz podatkov. Za to uporabimo orodje RooFit [X], ki nam omogoča, da teoretični model prilagodimo izmerjenim podatkom, in na tak način določimo fizikalne parametre, ki jih iščemo. Na podlagi MC vzorca določimo porazdelitve za kandidate signalne kategorije in večih tipov ozadja. Te porazdelitve služijo kot predloge, ki jih ustrezno seštejemo skupaj, da dobimo teoretičen model, ki dobro opiše podatke.
+
+Vsaka predloga je predstavljena kot 2-dimenzionalen histogram v spremenljivkah \varss, in sicer v $20\times$ razredih v zgoraj definiranem območju. Predloge posameznih kategorij so si med seboj različne, kar programu omogoča, da z visoko verjetnostjo pravilno določi posamezne prispevke.
+
+Lu"s"cenja parametrov se lotimo z metodo največje zanesljivosti (ang. \textit{maximum likelihood method}), saj nam omogoča zanesljivejše rezultate, ko so signalni vzorci majhni, kot v našem primeru. Za vsakega od 10 vzorcev MC podatkov izvršimo prilagajanje v namen preverjanja metode, na koncu pa enako ponovimo še na pravih podatkih. V nadaljevanju so prikazani rezultati prilagajanja za signalni in kontrolni razpad.
 
 \subsubsection{Kontrolni razpad}
+Fizikalne parametre v primeru kontrolnega razpada izluščimo v ozkem oknu okoli mase mezona $D^0$. Pri postopku luščenja uporabimo naslednje predloge
+\begin{itemize}
+\item kontrolni razpad,
+\item signalni razpad,
+\item kontinuumsko ozadje,
+\item ozadje razpada $B\to D^* \ell \nu,~D^0 \to K^+K^-$,
+\item ostalo ozadje.
+\end{itemize}
+
+Slika X prikazuje rezultate luščenja na pravih podatkih in na vseh MC podatkih, Slika X pa prikazuje primer posameznega prilagajanja predlog MC podatkom. Število kandidatov kontrolnega razpada na podlagi luščenja so
+
+REZULTATI.
+
+Pri luščenju parametrov na pravih podatkih smo uporabili dodatno informacijo, in sicer meritev razpada $B\to D^* \ell \nu,~D^0 \to K^+K^-$ [X], ki smo jo uporabili v obliki omejitve vrednosti razmerja števila kandidatov omenjenega in kontrolnega razpada. Na podlagi končnega števila kandidatov kontrolnega razpada $N$ lahko določimo tudi razvejitveno razmerje, ki je določeno kot
+\begin{align}
+\mathcal{B} &= \frac{N \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
+\label{eq:br_data_si}
+\end{align}
+kjer $\epsilon_{MC}$ predstavlja izkoristek kontrolnega razpada, določenega na MC vzorcu, $\rho_{PID}$ je korekcijski faktor na račun razlike identifikacij nabitih delcev na MC in na pravih podatkih, $N_{B\bar B}$ pa je izmerjeno število parov mezonov $B$. Razvejitveno razmerje lahko določimo tako na podatkih kot na MC vzorcu, rezultati obeh pa so prikazani na Sliki X. Rezultati so konsistentni s pričakovanimi in izmerjenimi vrednostmi, kar potrjuje zanesljivost naše analize.
+
+PLOT
 
 \subsubsection{Signalni razpad}
 
