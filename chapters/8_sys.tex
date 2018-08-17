@@ -91,11 +91,19 @@ We estimate the systematic error due to the MVA selection steps as the standard 
 \end{figure}
 
 \section{Model Uncertainty Effects}
-The used signal decay model in the generation step was \texttt{ISGW2} [X], which is known not to be the most precise model for such decays (which ones X)? Due to this uncertainty, our analysis has been made as model independent as possible via means of not using variables, which might have a model dependent nature, in any kind of selection steps or MVA trainings. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
+The used signal decay model in the generation step was \texttt{ISGW2} \cite{Scora:1995ty}, which is known to result in unrealistic predictions and poor agreement with data, so it is not the most precise model for our signal. Due to this model unreliability, our analysis has been made as model independent as possible via means of not using variables, which exhibit model dependence. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
 
-In order to test the effects of model uncertainty on our final result, we prepare two additional signal MC samples, produced with an extreme scenario decay model. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} [X], which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure X shows the generated $m_{KK}$ distribution of the three mentioned decay models and distributions of \vars~after the final selection. The different signal templates are used and the range of the corresponding fit yields is taken as the uncertainty range.
+In order to test the effects of model dependency on our final result, we prepare two additional signal MC samples, produced with two extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001dj}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. The different signal MC samples are used for templates in the signal fit where X fits are performed in each case. The differences between mean values of fit yields serve as a measure of model uncertainty.
 
-PLOTS AND MORE TEXT
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/model_cases}
+	\caption{$m_{KK}$ (top left), $q^2$ (tip right), $\Delta E$ (bottom left) and $M_{BC}$ (bottom right) for three different signal MC data sets with the standard ISGW2 decay model and two extreme cases of decay models, phase-space (PHSP) and resonant (RES) modes.}
+	\label{fig:model_cases}
+\end{figure}
+
+\texttt{Wait for referees to do the fits.}
 
 \section{Summary of Systematics}
 
