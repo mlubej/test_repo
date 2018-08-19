@@ -8,9 +8,7 @@
 \newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
 
 \usepackage{fancyhdr}
-
-%\usepackage{biblatex}
-%\bibliography{mybib.bib} 
+ 
 \usepackage[slovene,english]{babel}% Recommended
 \usepackage{csquotes}% Recommended
 \usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
@@ -23,8 +21,8 @@
 \usepackage{longtable}
 \usepackage{multirow}
 
-\setlength{\parskip}{1em}%
-\setlength{\parindent}{0cm}
+%\setlength{\parskip}{1em}%
+%\setlength{\parindent}{0cm}
 
 \usepackage{titling}
 \usepackage{amsmath,amssymb,amsfonts,nicefrac}
@@ -32,7 +30,7 @@
 \usepackage{color}
 \usepackage{float}
 \usepackage{mathtools}
-\allowdisplaybreaks
+%\allowdisplaybreaks
 \usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
 \usepackage{dictsym}
 \usepackage{braket}
@@ -40,7 +38,8 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \usepackage{enumerate}
 \usepackage{array}
-\setlength{\extrarowheight}{.5ex}
+%\setlength{\extrarowheight}{.5ex}
+
 
 %\usepackage{lineno}
 %\linenumbers
@@ -49,14 +48,35 @@
 
 \usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
 \usepackage[titletoc,title]{appendix}
-
-\title{{\Large BELLE NOTE 1486}\\\huge {Measurement of the decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with B2BII}}
-\author{Matic Lubej}
-\date{Ljubljana, 2018}
 %
 %
 \begin{document}
 \nocite{*}
+
+%%% Platnica
+
+\pagestyle{empty}
+\begin{center}
+
+{\large UNIVERSITY OF LJUBLJANA\\
+FACULTY OF MATHEMATICS AND PHYSICS
+}
+
+\vspace{9cm}
+
+{\LARGE DOKTORSKA DISERTACIJA}
+
+\vfill
+
+{\hfill \large Matic Lubej}
+
+\vspace{1cm}
+{\large 2018}
+
+\cleardoublepage
+
+\end{center}
+
 
 %%% NASLOVNA STRAN V ANGLESKEM JEZIKU
 
@@ -79,7 +99,7 @@ DEPARTMENT OF PHYSICS\\}
 
 \vfill
 
-{\large ADVISER: An\v ze Zupanc\\
+{\large ADVISER: Assist. Prof. Dr. An\v ze Zupanc\\
 %COADVISER: Ime in priimek\\
 }
 
@@ -91,7 +111,9 @@ DEPARTMENT OF PHYSICS\\}
 %%% NASLOVNA STRAN V SLOVENSKEM JEZIKU
 
 \cleardoublepage
+\begin{otherlanguage}{slovene}
 \begin{center}
+
 
 {\large UNIVERZA V LJUBLJANI\\
 FAKULTETA ZA MATEMATIKO IN FIZIKO\\
@@ -109,7 +131,7 @@ ODDELEK ZA FIZIKO\\}
 
 \vfill
 
-{\large MENTOR: An\v ze Zupanc\\
+{\large MENTOR: doc. dr. An\v ze Zupanc\\
 %SOMENTOR$\backslash$-ICA: naziv, Ime in priimek\\
 }
 
@@ -125,7 +147,7 @@ ODDELEK ZA FIZIKO\\}
 \cleardoublepage
 \mbox{}
 \vfill
-{\Large \bf Acknowledgements}
+{\Large \bf Zahvala}
 \vspace{1cm}\\
 Na tem mestu zapi"site, komu se zahvaljujete za pomo"c 
 pri nastanku doktorske di- sertacije.
@@ -133,13 +155,13 @@ pri nastanku doktorske di- sertacije.
 %%% IZVLECEK
 
 \cleardoublepage
-{\Large\bf Izvle"cek}
+{\Large\bf Izvle\v cek}
 \vspace{1cm}\\
 Kratek izvle"cek v slovenskem jeziku.\\
 \vspace{1cm}\\
 {\bf Klju"cne besede:}\\
 {\bf PACS:}
-
+\end{otherlanguage}
 %%% ABSTRACT
 
 \cleardoublepage
