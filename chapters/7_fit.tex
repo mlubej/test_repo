@@ -303,9 +303,9 @@ With toy MC experiments in this section, we study the yields, errors and the pul
 
 \subsection{Pseudo Experiment: Expected Signal Yield}
 
-We constructed $3\E{3}$ pseudo data sets, where each data set was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $20\times20$ bins in \vars.
+We constructed $3\E{3}$ pseudo data sets, where each data set was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $19 \times 19$ bins in \vars.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.1\pm0.02)$ and standard deviation of $(1.00\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated as \cite{ahn2003standard}
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.11\pm0.02)$ and standard deviation of $(1.01\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated as \cite{ahn2003standard}
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
@@ -325,7 +325,7 @@ Linearity test is used for determining the sensitivity of the fit to the amount 
 
 The pseudo data sets are generated in the same way as in the previous subsection, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo data sets according to Poisson statistics.
 
-Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show no significant bias with respect to the signal fraction, while the pulls seem to be described by the normal distributions throughout the fraction range. At expected value, we are at about $3.5\sigma$ significance.
+Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show no significant bias with respect to the signal fraction, while the pulls seem to be described by the normal distributions throughout the fraction range. At expected value, we are at about $3.58\sigma$ significance.
 
 \begin{figure}[H]
 	\centering
@@ -351,7 +351,7 @@ With the signal fit setup described in section \ref{sec:templates-in-signal-fits
 	\label{fig:sig_binning}
 \end{figure}
 
-For the chosen binning of $20 \times 20$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.99$, while the average significance of the fits is around $3.57 \sigma$.
+For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.98$, while the average significance of the fits is around $3.56 \sigma$.
 
 \begin{figure}[H]
 	\centering
@@ -378,11 +378,11 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 		\hline
 		& $N^{MC}$ & $N^{\mathrm{data}}$ \\
 		\hline
-		$\ell = e$ or $\mu$ & $1180 \pm 11$ & $1198 \pm 44$\\
+		$\ell = e$ or $\mu$ & $1180 \pm 11$ & $1192 \pm 44$\\
 		\hline
-		$\ell = e$ & $590 \pm 8$ & $585 \pm 28$ \\
+		$\ell = e$ & $590 \pm 9$ & $588 \pm 28$ \\
 		\hline
-		$\ell = \mu$ & $591 \pm 7$ & $617 \pm 30$\\
+		$\ell = \mu$ & $591 \pm 7$ & $610 \pm 30$\\
 		\hline
 	\end{tabular}
 	\caption{Control sample fit results for MC and data for various lepton final state modes.}
@@ -460,11 +460,11 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 		\hline
 		& $\mathcal{B}^{MC}$ & $\mathcal{B}^{\mathrm{data}}$ \\
 		\hline
-		$\ell = e$ or $\mu$ & $(8.94\pm0.09)\E{-5}$ & $(9.10\pm0.4)\E{-5}$\\
+		$\ell = e$ or $\mu$ & $(8.94\pm0.09)\E{-5}$ & $(9.06\pm0.4)\E{-5}$\\
 		\hline
-		$\ell = e$ & $(9.04\pm0.14)\E{-5}$ & $(9.03\pm0.49)\E{-5}$ \\
+		$\ell = e$ & $(9.04\pm0.15)\E{-5}$ & $(9.07\pm0.49)\E{-5}$ \\
 		\hline
-		$\ell = \mu$ & $(8.85\pm0.12)\E{-5}$ & $(9.23\pm0.50)\E{-5}$\\
+		$\ell = \mu$ & $(8.85\pm0.12)\E{-5}$ & $(9.12\pm0.50)\E{-5}$\\
 		\hline
 	\end{tabular}
 	\caption{Control sample fit results for MC and data for various lepton final state modes.}
