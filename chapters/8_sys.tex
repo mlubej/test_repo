@@ -1,11 +1,11 @@
 \chapter{Systematic Uncertainty}\label{sec:systematic-uncertainty}
-In this chapter the systematic errors of the analysis are discussed. These uncertainties arise due to various reasons, some of them being the difference between real and simulated data, or due to the nature of the approaches taken in a specific analysis. Depending on their type, some uncertainties are generic and prepared beforehand in order to be used in all analyses, while others are analysis specific and possible sources need to be thought through thoroughly. 
+In this chapter, the systematic errors of the analysis are discussed. These uncertainties arise due to various reasons, some of them being the difference between real and simulated data, or due to the nature of the approaches taken in a specific analysis. Depending on their type, some uncertainties are generic and prepared beforehand in order to be used in all analyses, while others are analysis specific and possible sources need to be thought through thoroughly. 
 
-\section{PID efficiency correction}
+\section{PID Efficiency Correction}
 
 The PID selection efficiency for the three charged particles in our signal decay needs to be corrected on MC due to various differences when comparing to data. The Belle PID group has prepared correction factors and systematics tables for PID efficiencies for all charged particles. In case of kaon ID and lepton ID, the tables are binned in experiment numbers, particle momentum and in $\cos\theta$ of the particle direction, where, for each bin, a ratio of efficiencies between MC and data is provided, as well as the systematic errors. Each particle's correction factor and error is shown in Table \ref{tab:PID}, as well as the corresponding entry for all 3 particles. The entries are shown for both signal and control region.
 
-The central values were obtained with a weighted average over all experiments, where $100\%$ correlation for error calculation was assumed. Full correlation was also assumed when calculating the $KK$ correction, as both $K$ use the same PID information.
+The central values were obtained with a weighted average over all experiments, where $100\%$ correlation for error calculation was assumed. A full correlation was also assumed when calculating the $KK$ correction, as both $K$ use the same PID information.
 
 The final PID efficiency systematic error on the full signal MC sample is determined to be
 \begin{equation}
@@ -26,7 +26,7 @@ The final PID efficiency systematic error on the full signal MC sample is determ
 		\hline
 		$\mu$ & $0.985\pm 0.009$ & $0.980\pm 0.009$\\
 		\hline
-        $\ell$ & $0.981\pm 0.007$ & $0.980\pm 0.007$\\
+		$\ell$ & $0.981\pm 0.007$ & $0.980\pm 0.007$\\
 		\hline
 		\hline
 		$KKe$ & $0.986 \pm 0.021$ & $0.988\pm 0.022$\\
@@ -52,7 +52,7 @@ where $x$ represents the signal yield of the fit.
 
 
 \section{Fit Template Smearing and Offset}
-The smearing and offset of the $\Delta E$ variable was discussed in section \ref{sec:smearing-and-offset-parameters}, where we have estimated the central value of the parameters as well as their range in the $1\sigma$ confidence level. We have to perform a study of effects of different smearing and offset parameter values on the final value of the signal yield. From section \ref{sec:smearing-and-offset-parameters}, the parameter values are
+The smearing and offset of the $\Delta E$ variable was discussed in section \ref{sec:smearing-and-offset-parameters}, where we have estimated the central value of the parameters as well as their range in the $1\sigma$ confidence level. We have to perform a study of the effects of different smearing and offset parameter values on the final value of the signal yield. From section \ref{sec:smearing-and-offset-parameters}, the parameter values are
 \begin{itemize}
 	\item Smearing: $40_{-17}^{+15}\e{MeV}$,
 	\item Offset: $6_{-6}^{+4.6}\e{MeV}$.
@@ -62,20 +62,20 @@ We perform signal fits for all four different combinations of parameters in the 
 \texttt{Wait for referees to do the fits.}
 
 \section{Effects of a Finite MC sample}
-The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we can take the content of each bin and vary value according to the Poisson distribution. This procedure is repeated for X times and the width of the fit yield distribution is taken as the uncertainty estimate.
+The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated for X times and the width of the fit yield distribution is taken as the uncertainty estimate.
 
 \texttt{Wait for referees to do the fits.}
 
 \section{MVA Selection Efficiencies}
 Control sample fits allow us to check the behavior of optimized MVA cuts on MC as well as data and see if any of the MVA steps introduce a possible disagreement between the two. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios are studied
 \begin{itemize}
-\item[(a)] final selection before any MVA step,
-\item[(b)] (a) + $BDT_{q\bar q}$ cut,
-\item[(c)] (a) + $uBDT_{B\bar B}$ cut,
-\item[(d)] (a) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
+	\item[(a)] final selection before any MVA step,
+	\item[(b)] (a) + $BDT_{q\bar q}$ cut,
+	\item[(c)] (a) + $uBDT_{B\bar B}$ cut,
+	\item[(d)] (a) + $BDT_{q\bar q} + uBDT_{B\bar B}$ cut (final selection).
 \end{itemize}
 
-The results for control fit yields, their ratios and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows that yield ratios and cut efficiency ratios are consistent with $1$. This means that data and MC are in agreement before as well as after applying the final selection cuts. This is an important check, since behavior of our analysis on the control sample suggests that the final selection is not over-optimized to signal MC.
+The results for control fit yields, their ratios, and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows that the yield ratios and cut efficiency ratios are consistent with $1$. This means that data and MC are in agreement before as well as after applying the final selection cuts. This is an important check since the behavior of our analysis on the control sample suggests that the final selection is not over-optimized to signal MC.
 
 We estimate the systematic error due to the MVA selection steps as the standard deviation of double ratio entries around the nominal value for each step in the MVA selection, except for the final two values for $e$ and $\mu$ modes, since we are performing the inclusive fit. The systematic error estimation is 
 \begin{equation}
@@ -91,9 +91,9 @@ We estimate the systematic error due to the MVA selection steps as the standard 
 \end{figure}
 
 \section{Model Uncertainty Effects}
-The used signal decay model in the generation step was \texttt{ISGW2} \cite{Scora:1995ty}, which is known to result in unrealistic predictions and poor agreement with data, so it is not the most precise model for our signal. Due to this model unreliability, our analysis has been made as model independent as possible via means of not using variables, which exhibit model dependence. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
+The used signal decay model in the generation step was \texttt{ISGW2} \cite{Scora:1995ty}, which is known to result in unrealistic predictions and poor agreement with data, so it is not the most precise model for our signal. Due to this model unreliability, our analysis has been made as model-independent as possible via means of not using variables, which exhibit model dependence. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), the invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
 
-In order to test the effects of model dependency on our final result, we prepare two additional signal MC samples, produced with two extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001dj}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario only resonant-like contributions in $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. The different signal MC samples are used for templates in the signal fit where X fits are performed in each case. The differences between mean values of fit yields serve as a measure of model uncertainty.
+In order to test the effects of model dependency on our final result, we prepare two additional signal MC samples, produced with two extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001dj}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario, only resonant-like contributions of $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. The different signal MC samples are used for templates in the signal fit where X fits are performed in each case. The differences between mean values of fit yields serve as a measure of model uncertainty.
 
 \begin{figure}[H]
 	\centering
