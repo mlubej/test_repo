@@ -86,22 +86,22 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching ratio measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|l|l|c|}
+	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
-		Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & Reference \\
+		$\mathcal{B}$ ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Reference \\
 		\hline
-		$B^0 \to D {}^{-} \ell^+ \nu$ & $2.13\E{-2}$ & $(2.13 \pm 0.09)\E{-2}$ & \multirow{2}{*}{\cite{Amhis:2016xyh}} \\ 
-		\cline{1-3}
-		$B^0 \to D {}^{*-} \ell^+ \nu$ & $5.33\E{-2}$ & $(4.88 \pm 0.11)\E{-2}$ & \\
+		0 & $B^0 \to D {}^{-} \ell^+ \nu$ & $2.13\E{-2}$ & $(2.13 \pm 0.09)\E{-2}$ & $1.00 \pm 0.04$ & \multirow{2}{*}{\cite{Amhis:2016xyh}} \\ 
+		\cline{1-5}
+ 		1 & $B^0 \to D {}^{*-} \ell^+ \nu$ & $5.33\E{-2}$ & $(4.88 \pm 0.11)\E{-2}$ & $0.92 \pm 0.02$ & \\
 		\hline
-		$B^+ \to \bar D {}^{0} \ell^+ \nu$ & $2.31\E{-2}$ & $(2.29 \pm 0.10)\E{-2}$ & \multirow{2}{*}{[calc.]} \\ 
-		\cline{1-3}
-		$B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $5.79\E{-2}$ & $(5.25 \pm 0.12)\E{-2}$ & \\
+		2 & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $2.31\E{-2}$ & $(2.29 \pm 0.10)\E{-2}$ &  $0.99 \pm 0.04$ & \multirow{2}{*}{[calc.]} \\ 
+		\cline{1-5}
+		3 & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $5.79\E{-2}$ & $(5.25 \pm 0.12)\E{-2}$ &  $0.91 \pm 0.02$ & \\
 		\hline
-		$D^0 \to K^-K^+$ & $3.9\E{-3}$ & $(3.97\pm0.07)\E{-3}$ & \cite{tanabashi2018review} \\
+		4 & $D^0 \to K^-K^+$ & $3.90\E{-3}$ & $(3.97\pm0.07)\E{-3}$ & $1.02 \pm 0.02$ & \cite{tanabashi2018review} \\
 		\hline
 	\end{tabular}
-	\caption{MC and measured values of branching ratios used for constraining the control fit.}
+	\caption{MC and measured values of branching ratios along with the calculated correction factors used for constraining the control fit.}
 	\label{tab:cs_br_constraint_table}
 \end{table}
 
@@ -157,7 +157,7 @@ where $j$ runs over all channels in the category $C_i$ and where $\rho_{ij}$ is 
 \end{equation}
 where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yields in the control fit for data and MC, respectively.
 
-In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio.
+In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
 
 
 \begin{table}[H]
@@ -242,26 +242,26 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|l|l|c|}
+	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
-		Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & Reference \\
+		$\mathcal{B}$ ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Reference \\ 
 		\hline
-		$D^0 \to K^-\pi^+$ & $3.82\E{-2}$ & $(3.89\pm0.04)\E{-2}$ & \multirow{7}{*}{ \cite{tanabashi2018review}} \\
-		\cline{1-3}
-		$D^0 \to K^-K^+\pi^0$ & $2.36\E{-3}$ & $(3.37\pm0.15)\E{-3}$ & \\
-		\cline{1-3}
-		$D^0 \to K^-\pi^+\pi^0$ & $13.08\E{-2}$ & $(14.2\pm0.5)\E{-2}$ &  \\
-		\cline{1-3}
-		$D^0 \to K^-e^+\nu$ & $3.41\E{-2}$ & $(3.53\pm0.028)\E{-2}$ &  \\
-		\cline{1-3}
-		$D^0 \to K^-\mu^+\nu$ & $3.41\E{-2}$ & $(3.31\pm0.13)\E{-2}$ &  \\
-		\cline{1-3}
-		$D^+ \to K^-K^+\pi^+$ & $9.06\E{-3}$ & $(9.51\pm0.34)\E{-3}$ &  \\
-		\cline{1-3}
-		$D^+ \to K^-\pi^+\pi^+$ & $9.51\E{-2}$ & $(8.98\pm0.28)\E{-2}$ &  \\
+		5 &	$D^0 \to K^-\pi^+$ & $3.82\E{-2}$ & $(3.89\pm0.04)\E{-2}$ & $1.02 \pm 0.01$ & \multirow{7}{*}{ \cite{tanabashi2018review}} \\
+		\cline{1-5}
+		6 & $D^0 \to K^-K^+\pi^0$ & $2.36\E{-3}$ & $(3.37\pm0.15)\E{-3}$ & $1.43 \pm 0.06$ & \\
+		\cline{1-5}
+		7 & $D^0 \to K^-\pi^+\pi^0$ & $13.08\E{-2}$ & $(14.2\pm0.5)\E{-2}$ & $1.09 \pm 0.04$ &  \\
+		\cline{1-5}
+		8 & $D^0 \to K^-e^+\nu$ & $3.41\E{-2}$ & $(3.53\pm0.028)\E{-2}$ & $1.04 \pm 0.01$ &  \\
+		\cline{1-5}
+		9 & $D^0 \to K^-\mu^+\nu$ & $3.41\E{-2}$ & $(3.31\pm0.13)\E{-2}$ & $0.97 \pm 0.04$ &  \\
+		\cline{1-5}
+		10 & $D^+ \to K^-K^+\pi^+$ & $9.06\E{-3}$ & $(9.51\pm0.34)\E{-3}$ & $1.05 \pm 0.04$ &  \\
+		\cline{1-5}
+		11 & $D^+ \to K^-\pi^+\pi^+$ & $9.51\E{-2}$ & $(8.98\pm0.28)\E{-2}$ & $0.94 \pm 0.03$ &  \\
 		\hline
 	\end{tabular}
-	\caption{Additional MC and measured values of $D$ meson branching ratios used for constraining the signal fit.}
+	\caption{Additional MC and measured values of $D$ meson branching ratios along with the calculated correction factors used for constraining the signal fit.}
 	\label{tab:sig_br_constraint_table}
 \end{table}
 
@@ -371,7 +371,6 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 
 \subsection{Control Fit Result}
 With the control fit setup described in section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a 0th degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|c|c|}
@@ -422,7 +421,7 @@ After acquiring the fit results on MC and data, we are able to determine the bra
 \mathcal{B}_{\mathrm{control}} &= \frac{N_\mathrm{control} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
 \label{eq:br_data}
 \end{align}
-where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of the control fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the control sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and in data, respectively. The factor of 2 in the denominator comes from the fact that there are 2 $B$ mesons in each $B$ meson pair $(\times 1/2)$, where only about $50\%$ of the $B$ meson pairs are charged $B^+B^-$ meson pairs $(\times 2)$, and from the fact that we are interested in the branching ratio to the lepton final state of either $e$ or $\mu$, and not their sum $(\times 1/2)$.
+where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of the control fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the control sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and data, respectively. The factor of 2 in the denominator comes from the fact that there are 2 $B$ mesons in each $B$ meson pair $(\times 1/2)$, where only about $50\%$ of the $B$ meson pairs are charged $B^+B^-$ meson pairs $(\times 2)$, and from the fact that we are interested in the branching ratio to the lepton final state of either $e$ or $\mu$, and not their sum $(\times 1/2)$.
 
 The control sample efficiency was determined on a separate signal MC sample of the control decay, where we generated $5\E{6}$ $B^+ \bar B^-$ pairs, with one $B$ always decaying via $B^+ \to \bar D {}^0 \ell^+ \nu,~D^0 \to K^+K^-$. After applying the final selection, the full and split efficiencies with regard to the lepton final state were determined to be 
 \begin{align*}
@@ -480,5 +479,130 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 \end{figure}
 
 \subsection{Signal Fit to Data}
+Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
-\texttt{Wait for referees to get results}.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_fit_data}
+	\caption{Signal fit result on real data. Left column shows the $M_{BC}$ and the right column shows the $\Delta E$ distribution in the full fit window (top) and the signal window (bottom).}
+	\label{fig:sig_fit_data}
+\end{figure} 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		Category & Fit Yield \\
+		\hline
+		Signal & $476 \pm 86$ \\
+		\hline
+		$q \bar q$ background & $ 2315 \pm 179 $ \\
+		\hline
+		$C_0$ & $ 45 \pm 7 $ \\
+		\hline
+		$C_1$ & $ 57 \pm 8 $\\
+		\hline
+		$C_2$ & $ 69 \pm 9 $ \\
+		\hline
+		$C_3$ & $ 910 \pm 57 $ \\
+		\hline
+		$C_4$ & $ 180 \pm 16 $ \\
+		\hline
+		$C_5$ & $ 223 \pm 18 $ \\
+		\hline
+		$C_6$ & $ 341 \pm 107 $ \\
+		\hline
+		Other $B \bar B$ background & $ 16399 \pm 246 $ \\
+     	\hline
+	\end{tabular}
+	\caption{Yields of all signal fit contributions on data.}
+	\label{tab:sig_yields}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l||l|l|}
+		\hline
+		Constraint & Value & Constrain & Value \\
+		\hline
+$\mathcal{B}_{0}$ & $0.049 \pm 0.001$ & $N_{30}$ & $103 \pm 10$\\
+\hline
+$\mathcal{B}_{1}$ & $1.076 \pm 0.004$ & $N_{31}$ & $211 \pm 14$\\
+\hline
+$\mathcal{B}_{2}$ & $0.021 \pm 0.001$ & $N_{32}$ & $136 \pm 12$\\
+\hline
+$\mathcal{B}_{3}$ & $1.014 \pm 0.018$ & $N_{33}$ & $267 \pm 16$\\
+\hline
+$\mathcal{B}_{4}$ & $1.018 \pm 0.010$ & $N_{34}$ & $19 \pm 4$\\
+\hline
+$\mathcal{B}_{5}$ & $1.439 \pm 0.063$ & $N_{35}$ & $35 \pm 6$\\
+\hline
+$\mathcal{B}_{6}$ & $1.092 \pm 0.038$ & $N_{40}$ & $48 \pm 7$\\
+\hline
+$\mathcal{B}_{7}$ & $1.035 \pm 0.008$ & $N_{41}$ & $7 \pm 3$\\
+\hline
+$\mathcal{B}_{8}$ & $0.971 \pm 0.038$ & $N_{42}$ & $99 \pm 10$\\
+\hline
+$\mathcal{B}_{9}$ & $1.052 \pm 0.038$ & $N_{43}$ & $10 \pm 3$\\
+\hline
+$\mathcal{B}_{10}$ & $0.945 \pm 0.029$ & $N_{44}$ & $14 \pm 4$\\
+\hline
+$\mathcal{B}_{11}$ & $1.331 \pm 0.441$ & $N_{45}$ & $3 \pm 2$\\
+\hline
+$N_{\mathrm{control}}^{MC}$ & $1179 \pm 11$ & $N_{50}$ & $103 \pm 10$\\
+\hline
+$N_{\mathrm{control}}$ & $1215 \pm 43$ & $N_{51}$ & $63 \pm 8$\\
+\hline
+$N_{00}$ & $44 \pm 7$ & $N_{52}$ & $31 \pm 6$\\
+\hline
+$N_{10}$ & $54 \pm 7$ & $N_{53}$ & $21 \pm 5$\\
+\hline
+$N_{11}$ & $6 \pm 2$ & $N_{60}$ & $69 \pm 8$\\
+\hline
+$N_{20}$ & $23 \pm 5$ & $N_{61}$ & $94 \pm 10$\\
+\hline
+$N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
+\hline
+$N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
+\hline
+	\end{tabular}
+\caption{Mean values and standard deviations of constraints after the fit.}
+\label{tab:constraints}
+\end{table}
+
+In this fit setup we perform a random smearing of the $\Delta E$ variable according to the Poisson distribution. The result is similar to a convolution with a Gaussian function, but the application is different in the sense that it returns a slightly different result after each fit. We perform 500 data fits in order to obtain the mean values of the signal yield and fit error. The averaged result is
+\begin{equation*}
+\bar N {}_{sig} = 487 \pm 86,
+\end{equation*}
+where the error represents the joint value of the statistical error as well as the systematic error of the Gaussian constraints used in the fit. 
+
+%It is possible to estimate the size of the systematic errors from this contribution by fixing the Gaussian constraints to the mean values to obtain the pure statistical error. Due to the same reasons as above, we repeat the fit 500 times and subtract the mean statistical error from the initial error. The result with split errors is then
+%\begin{equation*}
+%\bar N {}_{sig} = 476 \pm 86.
+%\end{equation*}
+
+\subsection{Branching Ratio Calculation for Signal Decay}
+
+Similarly as for the control decay, we are able to calculate the branching ratio of the signal decay via the formulas
+\begin{align}
+\mathcal{B}^{MC}_{\mathrm{sig}} &= \frac{N^{\mathrm{MC}}_\mathrm{sig} \times \epsilon_{MC}}{2N_{B\bar B}^{MC}},\\
+\mathcal{B}_{\mathrm{sig}} &= \frac{N_\mathrm{sig} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
+\label{eq:br_data_sig}
+\end{align}
+where $N^{\mathrm{MC}}_\mathrm{sig}$ and $N_\mathrm{sig}$ are yields of the signal fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the signal sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and data, respectively.
+
+The signal efficiency was determined on the same signal MC sample as was used throughout the analysis. The full signal efficiency is determined to be
+\begin{equation*}
+\epsilon_{MC} = ,
+\end{equation*}
+
+\begin{equation*}
+\epsilon_{MC} = \frac{1}{N}\sqrt{n(1-\frac{n}{N})},
+\end{equation*}
+
+
+
+
+
+
