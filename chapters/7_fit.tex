@@ -413,7 +413,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 \end{figure}
 
 
-\subsection{Branching Ratio Measurement for Control Decay}
+\subsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
 
 After acquiring the fit results on MC and data, we are able to determine the branching ratio of the control decay, which is defined as
 \begin{align}
@@ -435,7 +435,7 @@ where the efficiency error was estimated based on a formula from \cite{paterno20
 \end{equation*}
 where $n$ is a subset of the full set $N$.
 
-The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in X and is determined to be
+The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in {sec:pid-efficiency-correction} and is determined to be
 \begin{equation*}
 \rho_{PID} = 0.99\pm 0.02
 \end{equation*}
@@ -478,7 +478,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{fig:br_plot}
 \end{figure}
 
-\subsection{Signal Fit to Data}
+\subsection{Final Results from Data}
 Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
 \begin{figure}[H]
@@ -524,7 +524,7 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\centering
 	\begin{tabular}{|l|l||l|l|}
 		\hline
-		Constraint & Value & Constrain & Value \\
+		Constraint & Value & Constraint & Value \\
 		\hline
 $\mathcal{B}_{0}$ & $0.049 \pm 0.001$ & $N_{30}$ & $103 \pm 10$\\
 \hline
@@ -594,15 +594,27 @@ where $N^{\mathrm{MC}}_\mathrm{sig}$ and $N_\mathrm{sig}$ are yields of the sign
 
 The signal efficiency was determined on the same signal MC sample as was used throughout the analysis. The full signal efficiency is determined to be
 \begin{equation*}
-\epsilon_{MC} = ,
+\epsilon_{MC} = (1.030 \pm 0.007)\E{-2},
 \end{equation*}
+where the efficiency error was calculated in the same manner as in section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement
 
-\begin{equation*}
-\epsilon_{MC} = \frac{1}{N}\sqrt{n(1-\frac{n}{N})},
-\end{equation*}
+Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. We see that the measured value is twice as large as the MC value. Of all the systematic uncertainties, only the Gaussian constraint uncertainties are included in the statistical error, while other sources are grouped separately. Further details about the systematic uncertainties estimation can be found in chapter \ref{sec:systematic-uncertainty}.
 
+With the statistical significance of X this is the first observation of the charmless semileptonic decay $B^+ \to K^+ K^- \ell^+ \nu$. it indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		$\mathcal{B}_{GEN}$ & \multicolumn{2}{c|}{$1.57\E{-5}$} \\
+		\hline
+		& $\mathcal{B}^{MC}$ & $\mathcal{B}^{\mathrm{data}}$ \\
+		\hline
+		$\ell = e$ or $\mu$ & $(1.60 \pm 0.14)\E{-5}$ & $(3.09 \pm 0.55)\E{-5}$\\
+		\hline
+	\end{tabular}
+	\caption{Signal decay fit results for MC and data.}
+	\label{tab:br_result_sig}
+\end{table}
 
-
-
-
+\subsection{Signal Distribution in $m_{KK}$}
