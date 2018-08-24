@@ -51,16 +51,16 @@ f_{\mathrm{max}}(N_b) &= 5.06 + \sigma_{f_{\mathrm{max}}}(N_b), \\
 \end{align}
 where $x$ represents the signal yield fraction of the data fit and $N_b$ represents the binning choice of the fit. Values of $1\sigma$ intervals have been added to the bias functions in order to be more conservative. The extracted signal yield on data  with the fit setup of $N_b=19$ bins was determined to be $N_{sig} = 487$, which leads to $x = N_{sig} / N_{sig}^{MC} = 487 / 250 \approx 2$. The bias interval is therefore
 \begin{equation}
-\sigma_{\mathrm{sys}}^{bias} = {}^{+6}_{-10},\quad \delta_{\mathrm{sys}}^{bias} = {}^{+1.23\%}_{-2.05\%}
+\sigma_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+6}_{-10},\quad \delta_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+1.23\%}_{-2.05\%}.
 \end{equation}
 
 \section{Gaussian Constraints}
 As mentioned in section \ref{sec:final-results-from-data}, it is possible to estimate the size of the systematic error of the Gaussian constraints. By fixing the constraints to the nominal values, determined by the data fit, we obtain the pure statistical error, which can then be subtracted from the average fit error in order to determine the systematic uncertainty contribution due to using Gaussian constraints. For the fixed and non-fixed case we perform 500 fits and calculate with the mean values. The split errors are then
-\begin{align*}
+\begin{align}
 \bar N {}_{sig} &= 487 \pm 86, \\
 \bar N {}_{sig}^{fix} &= 485 \pm 81, \\
-\sigma_{stat} &= 81,\quad \sigma_{sys}^{GC} = 5,\quad \delta_{sys}^{GC} = 1\%,
-\end{align*}
+\sigma_{stat} &= 81,\quad \sigma_{sys}^{GC} = 29,\quad \delta_{sys}^{GC} = 5.95\%,
+\end{align}
 where GC stands for Gaussian constraint. We see that the constrained channels are very well defined and introduce little to none additional uncertainty.
 
 
@@ -70,14 +70,25 @@ The smearing and offset of the $\Delta E$ variable was discussed in section \ref
 	\item Smearing: $40_{-17}^{+15}\e{MeV}$,
 	\item Offset: $6_{-6}^{+4.6}\e{MeV}$.
 \end{itemize}
-We perform signal fits for all four different combinations of parameters in the given ranges, where for each parameter setting X fits are performed.
-
-\texttt{Wait for referees to do the fits.}
+Since the two parameters are largely uncorrelated, we are able to perform the study in the form of signal fits with four different combinations of parameters in the given range. For each parameter setting 500 fits are performed and the following results are obtained
+\begin{itemize}
+	\item Set: [smearing, offset]: $[23\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 446 $,
+	\item Set: [smearing, offset]: $[55\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 538 $,
+	\item Set: [smearing, offset]: $[40\e{MeV},0\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 547 $,
+	\item Set: [smearing, offset]: $[40\e{MeV},12.6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 439 $,
+\end{itemize}
+which results in the following estimate of systematic uncertainties for smearing and offset parameters
+\begin{align}
+\sigma_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+53}_{-39},&\quad \delta_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+10.90\%}_{-8.06\%}, \\
+\sigma_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+62}_{-46},&\quad \delta_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+12.82\%}_{-9.45\%}.
+\end{align}
 
 \section{Effects of a Finite MC sample}
-The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated for X times and the width of the fit yield distribution is taken as the uncertainty estimate.
+The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated 500 times and the width of the fit yield distribution is taken as the uncertainty estimate. The resulting finite MC sample contribution of the systematic uncertainty is
+\begin{equation}
+\sigma_{\mathrm{sys}}^{MC} = 27,\quad \delta_{\mathrm{sys}}^{MC} = 5.54\%.
+\end{equation}
 
-\texttt{Wait for referees to do the fits.}
 
 \section{MVA Selection Efficiencies}
 Control sample fits allow us to check the behavior of optimized MVA cuts on MC as well as data and see if any of the MVA steps introduce a possible disagreement between the two. We compare control yields, their ratios and ratios of cut efficiencies (double ratios). The following cut scenarios are studied
@@ -90,12 +101,12 @@ Control sample fits allow us to check the behavior of optimized MVA cuts on MC a
 
 The results for control fit yields, their ratios, and double ratios are shown in Figure \ref{fig:cs_fits}. The plot shows that the yield ratios and cut efficiency ratios are consistent with $1$. This means that data and MC are in agreement before as well as after applying the final selection cuts. This is an important check since the behavior of our analysis on the control sample suggests that the final selection is not over-optimized to signal MC.
 
-We estimate the systematic error due to the MVA selection steps as the standard deviation of double ratio entries around the nominal value for each step in the MVA selection, except for the final two values for $e$ and $\mu$ modes, since we are performing the inclusive fit. The systematic error estimation is 
+We estimate the systematic error due to the MVA selection steps as the standard deviation of double ratio entries around the nominal value for each step in the MVA selection, except for the final two values for $e$ and $\mu$ modes, since we are performing the inclusive lepton measurement. The systematic error estimate for this contribution is 
 \begin{equation}
-\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 1\%
+\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 5,\quad\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 1.03\%.
 \end{equation}
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_fits.pdf}
@@ -104,8 +115,10 @@ We estimate the systematic error due to the MVA selection steps as the standard 
 \end{figure}
 
 \section{Model Uncertainty Effects}
-The used signal decay model in the generation step was \texttt{ISGW2} \cite{Scora:1995ty}, which is known to result in unrealistic predictions and poor agreement with data, so it is not the most precise model for our signal. Due to this model unreliability, our analysis has been made as model-independent as possible via means of not using variables, which exhibit model dependence. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), the invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
-In order to test the effects of model dependency on our final result, we prepare two additional signal MC samples, produced with two extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001dj}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario, only resonant-like contributions of $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. The different signal MC samples are used for templates in the signal fit where X fits are performed in each case. The differences between mean values of fit yields serve as a measure of model uncertainty.
+The signal decay model used in the generation step was \texttt{ISGW2} \cite{Scora:1995ty}, which is known to result in unrealistic predictions and poor agreement with data, so it is not the most precise model for our signal MC sample. Due to this model unreliability, our analysis has been set up as model-independent as possible via means of not using variables, which exhibit model dependence. Such variables are i.e. squared momentum transfer to the lepton pair ($q^2$), the invariant mass of the two kaon daughters ($m_{KK}$) or decay angle between any two charged particles in the final state.
+In order to test the effects of model dependency on our final result, we prepare two additional signal MC samples, produced with two extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001dj}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario, only resonant-like contributions of $m_{KK}$ are used. These two scenarios act as extreme cases of decay model choice and present a reasonable measure of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. Figures show a good agreement of \vars, even if the signal model is very different. This proves that our analysis is model-independent to a satisfactory extent.
+
+The systematic uncertainty due to the model dependence is estimated via using the different signal MC samples as signal templates in the fit. We perform 500 fits for each case. The differences between mean values of fit yields serve as an estimate of the model uncertainty.
 
 \begin{figure}[H]
 	\centering
@@ -115,9 +128,55 @@ In order to test the effects of model dependency on our final result, we prepare
 	\label{fig:model_cases}
 \end{figure}
 
-\texttt{Wait for referees to do the fits.}
+The resulting average signal yields for the three model choices are
+\begin{align}
+\bar N {}_{sig} &= 487, \\
+\bar N {}_{sig}^{\mathtt{PHSP}} &= 532, \\
+\bar N {}_{sig}^{\mathrm{res.}} &= 490.
+\end{align}
+
+Any kind of different signal model will likely result in a worse resolution of the 2D distribution in \vars, which results in a larger yield, so the increase of the yields obtained with different models is expected. The systematic uncertainty due to model dependence is therefore estimated to be asymmetric with a value of 
+\begin{equation}
+\sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+47}_{-0},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+9.65\%}_{-0\%}.
+\end{equation}
 
 \section{Summary of Systematics}
+
+The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summary}. The full estimate of the systematic uncertainty is summed up in quadrature and applied to the result in section \ref{sec:branching-ratio-calculation-for-signal-decay}.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Source & $\sigma$ & $\delta~[\%]$ \\
+		\hline
+		\hline
+		PID & $10$ & $2$ \\
+		\hline
+		Fit Bias & $ {}^{+6}_{-10}$ & ${}^{+1.23}_{-2.05}$ \\
+		\hline
+		Gaussian Constraints & $29$ & $5.95$ \\
+		\hline
+		Template Smearing & ${}^{+53}_{-39}$ & ${}^{+10.90}_{-8.06}$ \\
+		\hline
+		Template Offset & ${}^{+62}_{-46}$ & ${}^{+12.82}_{-9.45}$ \\
+		\hline
+		Finite MC Effects & $27$ & $5.54$ \\
+		\hline
+		MVA Selection & $5$ & $1.03$\\
+		\hline
+		Model Dependence & ${}^{+47}_{-0}$ & ${}^{+9.65}_{-0}$ \\
+		\hline
+		\hline
+		Total & ${} ^{+103}_{-73}$ & ${}^{+21.30}_{-15.08}$ \\
+		\hline
+	\end{tabular}
+	\caption{Summary of systematic uncertainties of this analysis.}
+	\label{tab:sys_summary}
+\end{table}
+
+
 
 
 
