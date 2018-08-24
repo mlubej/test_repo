@@ -413,7 +413,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 \end{figure}
 
 
-\subsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
+\subsubsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
 
 After acquiring the fit results on MC and data, we are able to determine the branching ratio of the control decay, which is defined as
 \begin{align}
@@ -478,7 +478,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{fig:br_plot}
 \end{figure}
 
-\subsection{Final Results from Data}
+\subsection{Final Results from Data}\label{sec:final-results-from-data}
 Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
 \begin{figure}[H]
@@ -575,14 +575,15 @@ In this fit setup we perform a random smearing of the $\Delta E$ variable accord
 \begin{equation*}
 \bar N {}_{sig} = 487 \pm 86,
 \end{equation*}
-where the error represents the joint value of the statistical error as well as the systematic error of the Gaussian constraints used in the fit. 
+where the error represents the joint value of the statistical error as well as the systematic error of the Gaussian constraints used in the fit. This means that our initial fit is a good representation of the average fit result. 
 
-%It is possible to estimate the size of the systematic errors from this contribution by fixing the Gaussian constraints to the mean values to obtain the pure statistical error. Due to the same reasons as above, we repeat the fit 500 times and subtract the mean statistical error from the initial error. The result with split errors is then
-%\begin{equation*}
-%\bar N {}_{sig} = 476 \pm 86.
-%\end{equation*}
+It is possible to estimate the contribution of the systematic uncertainty to the fit error above, which is found to be
+\begin{equation}
+\sigma_{stat} = 81,\quad \sigma_{sys}^{GC} = 5,\quad \delta_{sys}^{GC} = 1\%,
+\end{equation}
+where GC stands for Gaussian constraint. Further details can be found in chapter \ref{sec:systematic-uncertainty}.
 
-\subsection{Branching Ratio Calculation for Signal Decay}
+\subsubsection{Branching Ratio Calculation for Signal Decay}\label{sec:branching-ratio-calculation-for-signal-decay}
 
 Similarly as for the control decay, we are able to calculate the branching ratio of the signal decay via the formulas
 \begin{align}
@@ -610,11 +611,11 @@ With the statistical significance of X this is the first observation of the char
 		\hline
 		& $\mathcal{B}^{MC}$ & $\mathcal{B}^{\mathrm{data}}$ \\
 		\hline
-		$\ell = e$ or $\mu$ & $(1.60 \pm 0.14)\E{-5}$ & $(3.09 \pm 0.55)\E{-5}$\\
+		$\ell = e$ or $\mu$ & $(1.60 \pm 0.14 \pm X)\E{-5}$ & $(3.09 \pm 0.52 \pm X)\E{-5}$\\
 		\hline
 	\end{tabular}
 	\caption{Signal decay fit results for MC and data.}
 	\label{tab:br_result_sig}
 \end{table}
 
-\subsection{Signal Distribution in $m_{KK}$}
+\subsubsection{Signal Distribution in $m_{KK}$}
