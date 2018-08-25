@@ -65,7 +65,7 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 \tau_{B^+/B^0} = 1.076 \pm 0.004.
 \end{equation}
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -84,7 +84,7 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 \end{table}
 
 In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching ratio measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
@@ -120,7 +120,7 @@ where for each parameter pair the likelihood ratio test is performed to estimate
 \end{itemize}
 We apply this transformation to our MC samples in all cases when fitting real data.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/smearing_offset}
@@ -160,7 +160,7 @@ where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yield
 In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
 
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -240,7 +240,7 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 	\label{tab:sig_constraint_table}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
@@ -284,7 +284,7 @@ We have devised an algorithm, which compares the templates and the fitted sample
 	\end{enumerate}
 \end{enumerate}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.49\linewidth]{fig/adaptive_1}
@@ -311,7 +311,7 @@ Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pul
 \end{equation}
 where $N$ is the number of performed measurements.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/toyMC}
@@ -327,7 +327,7 @@ The pseudo data sets are generated in the same way as in the previous subsection
 
 Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show no significant bias with respect to the signal fraction, while the pulls seem to be described by the normal distributions throughout the fraction range. At expected value, we are at about $3.58\sigma$ significance.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/lin_test}
@@ -343,7 +343,7 @@ In this section, we present the first results of signal and control fits on MC a
 
 With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1.  While both fit results seem to have no significant bias with respect to the binning choice, the pull distribution seems to be closer to the normal distribution. The uBDT classifier fit setup outperforms the standard BDT fit setup in terms of significance by $1\sigma$. This determines our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_binning}
@@ -353,7 +353,7 @@ With the signal fit setup described in section \ref{sec:templates-in-signal-fits
 
 For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.98$, while the average significance of the fits is around $3.56 \sigma$.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_fit_mc}
@@ -361,7 +361,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 	\label{fig:sig_streamfit}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_global_mc}
@@ -371,7 +371,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 
 \subsection{Control Fit Result}
 With the control fit setup described in section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a 0th degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -388,7 +388,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{tab:cs_fit_yield}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_fit_mc}
@@ -396,7 +396,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_fit_mc}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_fit_data}
@@ -404,7 +404,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_fit_data}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_global}
@@ -449,7 +449,7 @@ The number of $B\bar B$ meson pairs can be counted on MC and has been measured f
 
 Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure \ref{fig:br_plot}, along with the MC generated value and the current PDG world average. Both MC and measured determinations of the control decay branching ratio are in agreement with the expected and the world average values. One should note that the black error bars correspond to statistical uncertainty. Of all the systematic uncertainties, only the PID systematics are included in this results. Other contributions of systematics are not included since this measurement is not the goal of our analysis.
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -470,7 +470,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{tab:br_result}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/br_plot}
@@ -478,10 +478,10 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{fig:br_plot}
 \end{figure}
 
-\subsection{Final Results from Data}\label{sec:final-results-from-data}
+\subsection{Signal Fit to Data}\label{sec:final-results-from-data}
 Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_fit_data}
@@ -489,7 +489,7 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\label{fig:sig_fit_data}
 \end{figure} 
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
@@ -520,7 +520,7 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\label{tab:sig_yields}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|l||l|l|}
 		\hline
@@ -603,7 +603,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 With the statistical significance of about $6\sigma$ this is the first observation of the charmless semileptonic decay $B^+ \to K^+ K^- \ell^+ \nu$. It indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -619,3 +619,5 @@ With the statistical significance of about $6\sigma$ this is the first observati
 \end{table}
 
 \subsubsection{Signal Distribution in $m_{KK}$}
+
+\section{Conclusion}

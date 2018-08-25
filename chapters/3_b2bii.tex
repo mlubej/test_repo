@@ -1,4 +1,6 @@
 \chapter{B2BII Conversion}
+
+\section{Conversion Procedure}
 The predecessor of the Belle II experiment was the Belle experiment, which finished its data-taking run of 10 years at end of 2010 after collecting a dataset of about $1\e{ab^{-1}}$. That year the Belle detector was shut down and the Belle II experiment was born from the ashes, where even some of the old detector components were reused. This moved focus from Belle analyses and Belle Analysis Framework (BASF) to the construction of the Belle II detector and the development of Belle II Analysis Framework (BASF2), which was written completely from scratch, making the BASF2 software incompatible with Belle data. This resulted in gradual loss of knowledge on the maintenance and operation of the BASF software. The construction of the Belle II detector today is still an ongoing process, although first collisions were already recorded in April 2018. By the year 2025, it is foreseen that Belle II will have recorded about $50\e{ab^{-1}}$ of data, which is about $50$ times more than in the case of Belle. 
 
 However, this is still in the distant future and in principle, we need to wait for data in order to start doing analyses. On the other hand, even though the Belle experiment finished collecting data, the data itself is still relevant and has the potential for interesting physics analyses today. In the Belle II Collaboration, a task force was created in order to convert Belle data into Belle II format (\btbii). The \btbii~package was developed as a part of BASF2 in order to convert data and MC of the Belle experiment and make it available within BASF2. In addition to the convenience of Belle data being processed in the more intuitive and advanced BASF2 framework, \btbii~allows for estimation and validation of performances of various advanced algorithms being developed for Belle II. The conversion itself, however, is considered non-trivial. Although the conversion of the raw detector data would be possible, the reconstruction algorithms of BASF2 are optimized for Belle II and cannot be effectively applied to Belle data. To bypass this problem, reconstructed objects from \texttt{PANTHER} tables, a custom solution of the Belle collaboration based on C/C++ and Fortran, are mapped to their corresponding representations in BASF2. In this analysis, we use the developed converter package in order to analyze Belle data with the Belle II software.
@@ -11,7 +13,7 @@ In order to make sure the conversion was successful and without errors, a thorou
 
 Our signal decay mode consists of three charged tracks, track conversion should perform flawlessly. Additionally, energy measurement is also very important in our untagged analysis in order to successfully determine the missing 4-momentum in the event, which is why we also need a correct conversion of the ECL clusters for photons and $\pi^0$ particles. Figures \ref{fig:b2bii_tracks} to \ref{fig:b2bii_pi0s} show the basic physical properties of converted tracks, photons and $\pi^0$ particles, obtained with BASF and BASF2. The plots indicate that the conversion is successful in all aspects and we can proceed with the analysis in the framework of BASF2.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/b2bii_tracks}
@@ -19,7 +21,7 @@ Our signal decay mode consists of three charged tracks, track conversion should 
 	\label{fig:b2bii_tracks}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/b2bii_gammas}
@@ -27,7 +29,7 @@ Our signal decay mode consists of three charged tracks, track conversion should 
 	\label{fig:b2bii_gammas}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/b2bii_pi0s}

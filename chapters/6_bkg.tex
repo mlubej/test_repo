@@ -19,7 +19,7 @@ In order to suppress these resonant backgrounds, while studying signal or contro
 
 where $m_{KK}$ is the $KK$ invariant mass and $m_{K\pi}$ is the invariant mass of $KK$, where the kaon's mass, which has the same charge as the $B$ meson, was given the mass of the $\pi^0$ particle, and where $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.5\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\phi$ and $D^0$ mesons, respectively. By imposing the signal or control cut on our data, we are able to efficiently isolate the desired subset, which is very useful for further studies of the control decay. Table \ref{tab:cut_eff} shows the subsample efficiency after applying either of the cuts.
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|l|c|c|c|}
 		\hline
@@ -35,7 +35,7 @@ where $m_{KK}$ is the $KK$ invariant mass and $m_{K\pi}$ is the invariant mass o
 \end{table}
 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/res_bkg}
@@ -63,7 +63,7 @@ It is possible to define a thrust axis $\mathbf{T}$ for a collection of $N$ mome
 \end{equation}
 In this case, a related variable is $\vert \cos\theta_T\vert$, where $\theta_T$ is the angle between the thrust axis of the momenta from $B$ meson decay particles and the thrust axis of all particles in the ROE. Since both $B$ mesons in $B \bar B$ events are produced at rest, their decay particles, and consequentially their thrust axes, are uniformly distributed in the range $[0,~1]$. On the other hand, decay particles from continuum events follow the direction of the jets in the event. As a consequence, the thrusts of both the $B$ meson and the ROE are strongly directional and collimated, which results in a large peak at $\vert \cos\theta_T\vert \approx 1$. Additionally, one can also use the variable $\vert \cos\theta_{TB}\vert $, which is the thrust axis between the $B$ candidate and the beam axis. For $B$ candidates from $B \bar B$, this distributions is again uniformly distributed, while for candidates from continuum events this distribution follows the distribution of the jets with the function $1+\cos^2\theta_{T,B}$. Figure \ref{fig:cosplots} shows the distributions of $\vert \cos\theta_T\vert$ (left) and $\vert \cos\theta_{T,B}\vert$ (right) for different $B$ meson candidates.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_cosplots}
@@ -74,7 +74,7 @@ In this case, a related variable is $\vert \cos\theta_T\vert$, where $\theta_T$ 
 \subsubsection{CLEO Cones}
 CLEO cones have been introduced by the CLEO collaboration \cite{asner1996search} and are an additional specific tool to provide optimal background discrimination. They are nine variables corresponding to the momentum flow around the thrust axis of the $B$ meson candidate, binned in nine cones of $10^\circ$ around the thrust axis, as illustrated in Figure \ref{fig:ccones}. 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[scale=1]{texfig/CCones}
@@ -129,7 +129,7 @@ The training variable set consisted of
 
 Figure \ref{fig:cs_mva} shows the classifier output for various types of background, all in expected MC proportions. $B$ meson candidates from continuum background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_BDT}
@@ -165,7 +165,7 @@ The training variable set consisted of
 \end{itemize}
 where distant tracks are all tracks in ROE which satisfy the condition of $\vert d_0 \vert  > 10.0\e{cm}$ or $\vert z_0 \vert > 20.0\e{cm}$. The last entry, $B \to D^* \ell \nu$ veto variables, are a set of variables where we partially reconstruct the $D^*$ candidate 4-momentum via a linear combination of the $\pi^\pm_s$ 4-momentum in the $D^* \to D \pi_s^\pm$ decay. It helps discard the most dominant $B \to D^* \ell \nu$ background. It is most efficient in the $B^0 \to D^{*-} \ell^+ \nu$ decay, where $D^{*-}$ further decays via $D^{*-} \to \bar D {}^0 \pi^-_s$. Other decays do not contain a charged $\pi_s$ particle and are harder to reconstruct with good precision. This results in larger suppression of the neutral $B \bar B$ background only. Figures \ref{fig:vetoplot} shows the veto variable with a partial reconstruction of a charged $\pi_s^\pm$.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/bb_partial_veto}
@@ -180,7 +180,7 @@ The selection approach with standard classifiers is optimal for counting experim
 
 The training set used in this training is the same as described at the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBDT classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates with the uBoost algorithm. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds differ significantly, which greatly affects the performance of signal extraction.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/bb_BDT}
@@ -192,7 +192,7 @@ The training set used in this training is the same as described at the beginning
 
 Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, it is more efficient to do a simultaneous 2D $\mathrm{FOM}$ optimization, since the two classifiers are not completely uncorrelated. In the same manner, as before, $\mathrm{FOM}$ is optimized for perfectly reconstructed signal candidates in the signal window, after all the pre-cuts, signal categorization, and after cutting out the background resonances and the control decay. The $\mathrm{FOM}$ plot with the optimal point for both $B \bar B$ MVA classifiers is shown in Figure \ref{fig:mvafom}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/mva_fom}
@@ -207,7 +207,7 @@ We can compare signal and major background distributions of \vars~after the 2D $
 \end{itemize}
 Due to the large difference in \vars~shape, we will continue the analysis with the uBDT classifier, although the comparison between both methods will be shown for the final fit result in the next chapter.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/opt_BB}
@@ -215,7 +215,7 @@ Due to the large difference in \vars~shape, we will continue the analysis with t
 	\label{fig:opt01c}
 \end{figure} 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/opt_uBB}
@@ -227,7 +227,7 @@ Due to the large difference in \vars~shape, we will continue the analysis with t
 
 The majority of background candidates after the final selection is represented by candidates from $B \bar B$ events. In order to suppress this background even further, we need to take a look at its structure and recognize various contributions to this part of the background. Figure \ref{fig:sig_bkg_all_before} shows \vars~for the most significant contributions, along with $m_{KK}$. While most of the candidates come from events where all reconstructed charged particles in the signal decay do not come from one $B$ meson, but both of them, these candidates are not so problematic, because their collaborative distribution is rather smooth and frequent in regions where we expect no signal. On the other hand, there are also contributions from $B$ meson decays which produce more signal-like distributions. We will denote the first kind of background as $\Upsilon(4S)$-matched and the second kind as the $B$-matched $B \bar B$ background. Fortunately, these decays are well known and well measured, so their yields can be constrained. Especially problematic is the double semileptonic decay $B \to \bar D {}^{(*)} \ell^+ \nu,~D^+ \to \bar K^- \ell^+ \nu$, where the secondary lepton is misidentified as a kaon. Even though the decay has two neutrinos, these events survive the $m_{miss}^2$ selection cut and produce peaks at the same positions as signal distributions, while exhibiting only a slightly worse resolution. 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_before.pdf}
@@ -242,7 +242,7 @@ In order to suppress these candidates, a lepton veto can be applied to both kaon
 \end{itemize}
 we reject $77.5\%$ of candidates from the double semileptonic decays, while efficiency loss of signal and other types of $B \bar B$ background is about $5-6\%$. The $B \bar B$ background after the lepton veto cuts is shown in Figure \ref{fig:sig_bkg_all_after} for the signal cut region, and in Figure \ref{fig:cs_bkg_after} for the control cut region.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/lepVeto}
@@ -250,7 +250,7 @@ we reject $77.5\%$ of candidates from the double semileptonic decays, while effi
 	\label{fig:lepVeto}
 \end{figure} 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_BKG_composition_all_after}
@@ -258,7 +258,7 @@ we reject $77.5\%$ of candidates from the double semileptonic decays, while effi
 	\label{fig:sig_bkg_all_after}
 \end{figure} 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_BKG_composition_after}
@@ -273,7 +273,7 @@ With the final selection in place, we can check the data and MC agreement by che
 \subsection{Off-resonance Data}
 
 The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It, therefore, offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to 6 streams of MC. Figures show good data and MC agreement of the off-resonance sample. More importantly than the normalization, the shape of data and MC also seems to be the same, so further corrections of \vars~on MC are not necessary. This is also consistent by the flatness of the ratio function for \vars, shown in the same Figure. There seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/offres_control}
@@ -284,7 +284,7 @@ The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ re
 \subsection{On-resonance Data}
 
 We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. We see that MC is over-estimated in this region, most likely due to additional disagreements from other sources. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. Overall, data and MC seem to agree well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/onres_control}

@@ -13,7 +13,7 @@ At this point in the analysis, we do not apply any intelligent cuts yet, which r
 
 Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake electrons and muons, where an extra category for true electrons/muons from the signal decay is shown.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\includegraphics[width=\linewidth]{fig/FSP_e_vars}
 	\captionsetup{width=.8\linewidth}
@@ -21,7 +21,7 @@ Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ an
 	\label{fig:evars}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\includegraphics[width=\linewidth]{fig/FSP_mu_vars}
 	\captionsetup{width=.8\linewidth}
@@ -50,7 +50,7 @@ The $\mathrm{FOM}$ plots are shown in Figures \ref{fig:efom} and \ref{fig:mufom}
 	\item $\mu$ prob. $ > 0.97$ for muons.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/FSP_e_fom}
@@ -58,7 +58,7 @@ The $\mathrm{FOM}$ plots are shown in Figures \ref{fig:efom} and \ref{fig:mufom}
 	\label{fig:efom}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/FSP_mu_fom}
@@ -71,7 +71,7 @@ The $\mathrm{FOM}$ plots are shown in Figures \ref{fig:efom} and \ref{fig:mufom}
 
 We repeat the procedure for both kaons. Figure \ref{fig:Kvars} shows the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake kaons, where an extra category for true kaons from the signal decay is shown.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\includegraphics[width=\linewidth]{fig/FSP_kaon_vars}
 	\captionsetup{width=.8\linewidth}
@@ -88,7 +88,7 @@ We define the kaon cuts in the same manner as in the case for leptons
 
 The PID optimization, in this case, is taken in two steps. First, we optimize the cut on $K / \pi$, and after that the $K/p$ separation probability. Figure \ref{fig:Kfom} shows the optimization procedure for PID cuts on kaon candidates.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/FSP_kaon_fom}
@@ -113,7 +113,7 @@ B^+ &\to K^+ K^- \mu^+,
 \end{align*}
 and similarly for $B^-$. When an arbitrary combination is obtained, we perform a vertex fit of the three tracks in order to discard combinations with a low probability of tracks coming from the same point. $B$ mesons have a relatively long lifetime and decay along the $z$ axis of the detector in the direction of the boost, so the vertex fit is enforced with an \texttt{IPTUBE} constraint, which constrains the vertex to an elongated ellipsoid along beam direction. We demand that the fit converged and apply a cut on the minimal fit probability. The fit probability for signal and background $B$ meson candidates is shown in Figure \ref{fig:vtx} (left). We perform a $\mathrm{FOM}$ cut optimization of this variable, which is shown in Figure \ref{fig:vtx} (right) for the subset of the Belle MC sample. In this and in the following cases, the definition of $S$ from Eq. (\ref{eq:fom}) are correctly reconstructed $B$ meson candidates with a missing neutrino which are not coming from a $b \to c$ transition.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/VTX}
@@ -148,7 +148,7 @@ where $E_{CMS}$ is the total energy of the $e^+e^-$ collision in the CMS frame a
 
 For the correctly reconstructed candidates, this variable lies in the $[-1,1]$ region, though only to a certain precision, due to the finite detector resolution. Background candidates, however, populate also the non-physical regions, as shown in Figure \ref{fig:cosby} (left). 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cosBY}
@@ -208,7 +208,7 @@ Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to parti
 which is also under-optimized at this point due to the same reasons as in the cases above.
 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/missM2}
@@ -239,7 +239,7 @@ Since the final fit will be performed over \vars, we define the fit region
 
 Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_{BC}$ (right) for signal and major types of background after the pre-cuts. Both signal components are scaled up with respect to the background components but are in proper scale one to another. The effects of missing particles are clearly seen based on the shape difference between all and perfect signal.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/mbc_de_pre}
@@ -256,7 +256,7 @@ With the charge particle selection and a rough selection of the $B$ meson partic
 	\item $\vert \cos \left(\theta_{BY}\right) \vert < 1.05$.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.48\linewidth]{fig/VTX_precise}
@@ -273,7 +273,7 @@ The signal region is defined as
 	\item $\vert \Delta E \vert < 0.126\e{Gev}$. 
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sigWin}
@@ -287,7 +287,7 @@ With the signal window defined, we can tighten the cut on $m_{miss}^2$, which we
 	\item $\vert m_{miss}^2 \vert < 0.975\e{GeV}/c^2$.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/missM2_precise}
@@ -309,7 +309,7 @@ however, this value is distributed due to missing charged particles in the recon
 
 While this cut introduces a drop in the signal efficiency of about $32.14~\%$, it improves the resolution of our signal \vars~distributions and also the signal to background ratio, where the latter changes from $0.95\E{-3}$ to $1.09\E{-3}$.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_categ}

@@ -38,6 +38,8 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \usepackage{enumerate}
 \usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
 %\setlength{\extrarowheight}{.5ex}
 
 
@@ -45,10 +47,16 @@
 %\linenumbers
 
 \usepackage{subfigure}
+\usepackage{bm}
 
 \usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
 \usepackage[titletoc,title]{appendix}
 %
+
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+\makeatother
+
 %
 \begin{document}
 \nocite{*}
@@ -59,13 +67,24 @@
 \pagestyle{empty}
 \begin{center}
 
-{\large UNIVERSITY OF LJUBLJANA\\
-FACULTY OF MATHEMATICS AND PHYSICS
+{\large UNIVERZA V LJUBLJANI\\
+FAKULTETA ZA MATEMATIKO IN FIZIKO
 }
 
-\vspace{9cm}
+\vspace{6cm}
 
-{\LARGE DOKTORSKA DISERTACIJA}
+{\huge DOKTORSKA DISERTACIJA}
+
+\vspace{6cm}
+
+\tikzfading[name=fade out,
+inner color=transparent!0,
+outer color=transparent!100]
+% Now we use the fading in another picture:
+\begin{tikzpicture}[remember picture, overlay]
+\node[opacity=1.0,inner sep=0pt, scope fading=fade out] at (0,-2)
+{\includegraphics[width=0.8\linewidth]{bc_1}};
+\end{tikzpicture}
 
 \vfill
 
@@ -83,18 +102,20 @@ FACULTY OF MATHEMATICS AND PHYSICS
 
 \pagestyle{empty}
 \begin{center}
+	
+\includegraphics[trim={0 0 0 2cm},clip]{logo}
 
 {\large UNIVERSITY OF LJUBLJANA\\
 FACULTY OF MATHEMATICS AND PHYSICS\\
 DEPARTMENT OF PHYSICS\\}
 
-\vspace{4cm}
+\vspace{5cm}
 
 {\Large Matic Lubej\\}
 
 \vspace{10mm}
 
-{\bf \Large Measurement of the Decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with the Belle Detector\\}
+{\bf \Large Measurement of the $\bm{B^+ \to K^+K^-\ell^+\nu_\ell}$ Decay with the Belle Detector\\}
 \vspace{5mm}
 {\large Doctoral thesis}\\
 
@@ -115,18 +136,19 @@ DEPARTMENT OF PHYSICS\\}
 \begin{otherlanguage}{slovene}
 \begin{center}
 
+\includegraphics[trim={0 0 0 2cm},clip]{logo}
 
 {\large UNIVERZA V LJUBLJANI\\
 FAKULTETA ZA MATEMATIKO IN FIZIKO\\
 ODDELEK ZA FIZIKO\\}
 
-\vspace{4cm}
+\vspace{5cm}
 
 {\Large Matic Lubej\\}
 
 \vspace{10mm}
 
-{\bf \Large Meritev razpada $B^+ \to K^+K^-\ell^+\nu_\ell$ z detektorjem Belle\\}
+{\bf \Large Meritev razpada $\bm{B^+ \to K^+K^-\ell^+\nu_\ell}$ z detektorjem Belle\\}
 \vspace{5mm}
 {\large Doktorska disertacija}\\
 
@@ -137,21 +159,26 @@ ODDELEK ZA FIZIKO\\}
 }
 
 
+
 \vspace{2cm}
 
 {\large Ljubljana, 2018}
 
 \end{center}
 
+
 %%% ZAHVALA (NEOBVEZNO)
 
 \cleardoublepage
+\setcounter{page}{0}
+\pagenumbering{Roman}
+
 \mbox{}
 \vfill
 {\Large \bf Zahvala}
 \vspace{1cm}\\
 Na tem mestu zapi"site, komu se zahvaljujete za pomo"c 
-pri nastanku doktorske di- sertacije.
+pri nastanku doktorske disertacije.
 
 %%% IZVLECEK
 
@@ -174,22 +201,30 @@ Kratek izvle"cek v angle"skem jeziku.
 {\bf PACS:}
 
 %%% KAZALO
-
+\setcounter{page}{0}
+\pagenumbering{Roman}
 \tableofcontents
 
 %%% SEZNAM SLIK (NEOBVEZNO)
 
-\cleardoublepage\phantomsection
-\renewcommand\listfigurename{List of figures}
+%\cleardoublepage\phantomsection
+\renewcommand\listfigurename{List of Figures}
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
 %%% SEZNAM TABEL (NEOBVEZNO)
-
-\cleardoublepage\phantomsection
-\renewcommand\listtablename{List of tables}
+%\cleardoublepage\phantomsection
+\renewcommand\listtablename{List of Tables}
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
+
+\cleardoublepage
+
+%\chapter*{List of Acronyms}
+
+
+
+
 
 \cleardoublepage
 

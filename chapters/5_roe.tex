@@ -38,7 +38,7 @@ The input variables used in this MVA are
 
 The classifier output variable is shown in Figure \ref{fig:ROE_pi0}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_pi0}
@@ -77,7 +77,7 @@ The input variables used in this MVA are
 
 The classifier output variable is shown in Figure \ref{fig:ROE_gamma}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_gamma}
@@ -96,7 +96,7 @@ Figure \ref{fig:ROE_gamma_opt} (right) shows the LAB frame momentum of the photo
 	\item Background rejection: $1-\epsilon_{BKG} = 81.2~\%$.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_gamma_opt}
@@ -120,7 +120,7 @@ Most of the quality (good) tracks, which come from physics event of interest, co
 
 Schematics of all the cases mentioned above are shown in Figure \ref{fig:track_cleanup}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\subfigure[]{
 		\includegraphics[width=0.49\linewidth]{texfig/V0}}%
@@ -142,7 +142,7 @@ The first step in tracks clean-up is taking care of tracks from long-lived parti
 
 We use the converted $K_S^0$ candidates from the existing Belle particle list and use a pre-trained Neural Network classifier in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut. The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_V0}
@@ -168,7 +168,7 @@ and proceed with the clean-up of track duplicates.
 
 In this step, we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two tracks in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_initial}
@@ -178,7 +178,7 @@ In this step, we wish to find a handle on secondary tracks from low momentum cur
 
 If the particle decayed mid-flight or produced multiple tracks due to being a low-momentum curler, then, as the name suggests, these particles most likely had low momentum in the transverse direction, $p_T$. Since both tracks originate from the same initial particle, the momentum difference should also peak at small values. Figure \ref{fig:ROE_dupPt} shows the momentum and momentum difference of tracks which belong to a random or a duplicate track pair.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_dup_pt}
@@ -194,7 +194,7 @@ We impose a cut of
 
 in order to cut down the number of random track pairs, while retaining a high percentage of duplicate track pairs. After all the cuts defined in this chapter, the final distribution of the angle between two tracks is shown in Figure \ref{fig:ROE_dupAngleFinal}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_dup_angle_final}
@@ -227,7 +227,7 @@ The input variables used in this MVA are
 
 The classifier is able to distinguish between random and duplicate track pairs in a very efficient manner, as shown in Figure \ref{fig:ROE_dupBDT}.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_dup}
@@ -248,7 +248,7 @@ The signal efficiency and background rejection for duplicate pair candidates aft
 where signal and background represent duplicate and random track pairs, respectively.
 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_dup_opt}
@@ -328,7 +328,7 @@ The weights from this training are applied to the tracks, where now each track h
 \end{equation}
 which is again applied to all track pairs and overwritten for tracks which are more duplicate-like. The classifier output and the classifier output difference for each track are shown in Figure \ref{fig:ROE_curl}. 
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/ROECleanup_curl}
@@ -343,7 +343,7 @@ Finally, we select all duplicate tracks which survive the cut
 
 and discard them from our ROE. We can check the performance of our duplicate track classifier by applying the procedure on a validation sample of duplicate track pairs and compare the predicted result with the truth, based on Eq. (\ref{eq:chi2}). Table \ref{tab:rat} shows the performance of the duplicate track recognition in the form of percentages of correctly and incorrectly identified duplicate and original tracks. The model seems to perform well and the event is now considered to be clean of duplicate tracks.
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
@@ -362,7 +362,7 @@ and discard them from our ROE. We can check the performance of our duplicate tra
 
 The clean-up, used standardly at Belle, is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. In case of photons, a single cut on photon energy is applied, depending on the region where the photon hit the relevant part of the detector. The photon cuts are summarized in Table \ref{tab:bellegamma}.
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
@@ -389,7 +389,7 @@ Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:bellefo
 \left(\gamma\vert d_0 \vert \right)^2 + \vert z_0 \vert^2, \quad \gamma = 5.
 \end{equation}
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
@@ -413,7 +413,7 @@ In this section, the results of the ROE clean-up are shown. It is obvious that c
 
 We compare the clean-up setup, defined in this analysis, to the standard clean-up used by Belle, and to a default case, where no clean-up was applied at all. We apply the clean-up procedure to our signal MC sample with all the applied cuts, defined in section \ref{s:ss}, except for the signal categorization cuts. Figure \ref{fig:roeopt} (left) shows signal candidate distributions of \vars~for various clean-up setups. Focusing on the ROE clean-up, we see an improvement in resolution in both observed variables and an overall decrease in efficiency. The efficiency decrease is expected since the cleaned-up variables are able to better isolate the perfectly reconstructed candidates and discard the non-perfect candidates. In fact, the efficiency of the perfectly reconstructed candidates increases after the ROE clean-up, as shown in Figure \ref{fig:roeopt} (right). The signal MC sample after in case of the Belle clean-up also shows a slight improvement in the resolution, but looking at the perfectly reconstructed candidates we see that this clean-up procedure is not optimal. Table \ref{tab:roeeff} shows ratios of efficiencies and $FWHM$'s of the clean-up procedures for the perfect signal with respect to the default case, based on the $\Delta E$ distribution. While both the Belle and ROE clean-up improve the resolution, ROE clean-up performs significantly better and also increases the amount of the perfectly reconstructed candidates in the final sample.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_opt}
@@ -421,7 +421,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 	\label{fig:roeopt}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
@@ -438,7 +438,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 
 Another variable which heavily depends on the clean-up is the charge product of the signal and companion $B$ meson candidate, already defined in Eq. (\ref{eq:chargeprod}), shown in Figure \ref{fig:roe_chargeproduct} for various clean-up procedures. The figure shows an improved resolution of the distribution, which means that candidates migrate to the correct value of the charge product after the clean-up. Looking at the perfectly reconstructed candidates we again see the increase in the bin corresponding to the correct charge product. As a cross-check, we can also look at \vars~variables for each value of the charge product. These plots are shown for the full signal MC sample in Figure \ref{fig:roe_split} and they show a clear resolution improvement for the correct value of the charge product in the case of the ROE clean-up. For other values of the charge product, there also seems to be a small improvement for both cases of clean-up, but it is negligible compared to the plots in the second column. This supports our choice of signal categorization, defined in section \ref{sec:event-categorization}, where we select only candidates with the correct value of the charge product.
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_chargeprod}
@@ -446,7 +446,7 @@ Another variable which heavily depends on the clean-up is the charge product of 
 	\label{fig:roe_chargeproduct}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_split}
@@ -462,7 +462,7 @@ which was already defined in section \ref{sec:control-decay}. The control candid
 1.849\e{GeV}/c^2 < m_{KK} < 1.879\e{GeV}/c^2
 \end{equation}
 as shown in Figure \ref{fig:roe_mKK}.
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_mKK_cut}
@@ -473,7 +473,7 @@ as shown in Figure \ref{fig:roe_mKK}.
 With the control sample selection determined, we now run the reconstruction with and without the ROE clean-up procedure on MC and data. For the purpose of this validation, we only run the reconstruction over 1 stream of the full available generated MC. 
 
 The effects of the ROE clean-up are shown in Figure \ref{fig:roe_val}. We see that data and MC agree well, and evidently even better after the clean-up procedure. The control sample resolution seems very poor in the case without the clean-up, but it improves significantly if the clean-up procedure is applied, as expected. The simulated background also seems to gain an improvement in the resolution, but this is likely due to the background consisting of similar candidates as the control sample. This means that the clean-up performs as expected due to the nature of the decays and does not arbitrarily shape the background to be more signal like. Additionally, it should be pointed out that, after the clean-up, the simulated background resolution is worse compared to the control decay resolution, while this is not the case if the clean-up procedure is not performed.
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_val}
@@ -482,7 +482,7 @@ The effects of the ROE clean-up are shown in Figure \ref{fig:roe_val}. We see th
 \end{figure}
 
 To perform the clean-up validation in greater detail we also compare the data and MC agreement in bins of the charge product of the two $B$ mesons. Figure \ref{fig:roe_val_split} shows the cleaned-up versions of \vars~for each charge product bin in the same manner as shown in the previous section. We see that the MC and data agreement persists in all cases. 
-\begin{figure}[H]
+\begin{figure}[!htb]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_val_split}
