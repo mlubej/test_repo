@@ -9,7 +9,7 @@ The central values were obtained with a weighted average over all experiments, w
 
 The final PID efficiency systematic error on the full MC sample is determined to be
 \begin{equation}
-\sigma_{\mathrm{sys}}^{\mathrm{PID}} = 10,\quad \delta_{\mathrm{sys}}^{\mathrm{PID}} = 2\%,
+\sigma_{\mathrm{sys}}^{\mathrm{PID}} = 10,\quad \delta_{\mathrm{sys}}^{\mathrm{PID}} = 2.0\%,
 \end{equation}
 for the signal as well as the control decay.
 
@@ -51,7 +51,7 @@ f_{\mathrm{max}}(N_b) &= 5.06 + \sigma_{f_{\mathrm{max}}}(N_b), \\
 \end{align}
 where $x$ represents the signal yield fraction of the data fit and $N_b$ represents the binning choice of the fit. Values of $1\sigma$ intervals have been added to the bias functions in order to be more conservative. The extracted signal yield on data  with the fit setup of $N_b=19$ bins was determined to be $N_{sig} = 487$, which leads to $x = N_{sig} / N_{sig}^{MC} = 487 / 250 \approx 2$. The bias interval is therefore
 \begin{equation}
-\sigma_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+6}_{-10},\quad \delta_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+1.23\%}_{-2.05\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+6}_{-10},\quad \delta_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+1.2\%}_{-2.1\%}.
 \end{equation}
 
 \section{Gaussian Constraints}
@@ -59,7 +59,7 @@ As mentioned in section \ref{sec:final-results-from-data}, it is possible to est
 \begin{align}
 \bar N {}_{sig} &= 487 \pm 86, \\
 \bar N {}_{sig}^{fix} &= 485 \pm 81, \\
-\sigma_{stat} &= 81,\quad \sigma_{sys}^{GC} = 29,\quad \delta_{sys}^{GC} = 5.95\%,
+\sigma_{stat} &= 81,\quad \sigma_{sys}^{GC} = 29,\quad \delta_{sys}^{GC} = 6.0\%,
 \end{align}
 where GC stands for Gaussian constraint. We see that the constrained channels are very well defined and introduce little to none additional uncertainty.
 
@@ -79,14 +79,14 @@ Since the two parameters are largely uncorrelated, we are able to perform the st
 \end{itemize}
 which results in the following estimate of systematic uncertainties for smearing and offset parameters
 \begin{align}
-\sigma_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+53}_{-39},&\quad \delta_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+10.90\%}_{-8.06\%}, \\
-\sigma_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+62}_{-46},&\quad \delta_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+12.82\%}_{-9.45\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+53}_{-39},&\quad \delta_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+10.9\%}_{-8.1\%}, \\
+\sigma_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+62}_{-46},&\quad \delta_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+12.8\%}_{-9.5\%}.
 \end{align}
 
 \section{Effects of a Finite MC sample}
 The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated 500 times and the width of the fit yield distribution is taken as the uncertainty estimate. The resulting finite MC sample contribution of the systematic uncertainty is
 \begin{equation}
-\sigma_{\mathrm{sys}}^{MC} = 27,\quad \delta_{\mathrm{sys}}^{MC} = 5.54\%.
+\sigma_{\mathrm{sys}}^{MC} = 27,\quad \delta_{\mathrm{sys}}^{MC} = 5.5\%.
 \end{equation}
 
 
@@ -103,7 +103,7 @@ The results for control fit yields, their ratios, and double ratios are shown in
 
 We estimate the systematic error due to the MVA selection steps as the standard deviation of double ratio entries around the nominal value for each step in the MVA selection, except for the final two values for $e$ and $\mu$ modes, since we are performing the inclusive lepton measurement. The systematic error estimate for this contribution is 
 \begin{equation}
-\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 5,\quad\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 1.03\%.
+\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 5,\quad\sigma_{\mathrm{sys.}}^{\mathrm{MVA}} = 1.0\%.
 \end{equation}
 
 \begin{figure}[h]
@@ -137,7 +137,7 @@ The resulting average signal yields for the three model choices are
 
 Any kind of different signal model will likely result in a worse resolution of the 2D distribution in \vars, which results in a larger yield, so the increase of the yields obtained with different models is expected. The systematic uncertainty due to model dependence is therefore estimated to be asymmetric with a value of 
 \begin{equation}
-\sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+47}_{-0},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+9.65\%}_{-0\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+47}_{-0},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+9.7\%}_{-0.9\%}.
 \end{equation}
 
 \section{Summary of Systematics}
@@ -154,22 +154,22 @@ The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summa
 		\hline
 		PID & $10$ & $2$ \\
 		\hline
-		Fit Bias & $ {}^{+6}_{-10}$ & ${}^{+1.23}_{-2.05}$ \\
+		Fit Bias & $ {}^{+6}_{-10}$ & ${}^{+1.2}_{-2.1}$ \\
 		\hline
-		Gaussian Constraints & $29$ & $5.95$ \\
+		Gaussian Constraints & $29$ & $6.0$ \\
 		\hline
-		Template Smearing & ${}^{+53}_{-39}$ & ${}^{+10.90}_{-8.06}$ \\
+		Template Smearing & ${}^{+53}_{-39}$ & ${}^{+10.9}_{-8.1}$ \\
 		\hline
-		Template Offset & ${}^{+62}_{-46}$ & ${}^{+12.82}_{-9.45}$ \\
+		Template Offset & ${}^{+62}_{-46}$ & ${}^{+12.8}_{-9.5}$ \\
 		\hline
-		Finite MC Effects & $27$ & $5.54$ \\
+		Finite MC Effects & $27$ & $5.5$ \\
 		\hline
-		MVA Selection & $5$ & $1.03$\\
+		MVA Selection & $5$ & $1.0$\\
 		\hline
-		Model Dependence & ${}^{+47}_{-0}$ & ${}^{+9.65}_{-0}$ \\
+		Model Dependence & ${}^{+47}_{-0}$ & ${}^{+9.7}_{-0.0}$ \\
 		\hline
 		\hline
-		Total & ${} ^{+103}_{-73}$ & ${}^{+21.30}_{-15.08}$ \\
+		Total & ${} ^{+103}_{-73}$ & ${}^{+21.3}_{-15.1}$ \\
 		\hline
 	\end{tabular}
 	\caption{Summary of systematic uncertainties in this analysis.}
