@@ -11,9 +11,10 @@
  
 \usepackage[slovene,english]{babel}% Recommended
 \usepackage{csquotes}% Recommended
-\usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
+\usepackage[
+	backend=bibtex
+	]{biblatex}
 \addbibresource{mybib.bib}% Syntax for version >= 1.2
-
 \usepackage{paralist}
 \usepackage{caption}
 \usepackage{cancel}
@@ -57,6 +58,8 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 \makeatother
 
+\usepackage{icomma}
+
 %
 \begin{document}
 \nocite{*}
@@ -65,6 +68,7 @@
 %%% Platnica
 
 \pagestyle{empty}
+\begin{otherlanguage}{slovene}
 \begin{center}
 
 {\large UNIVERZA V LJUBLJANI\\
@@ -96,7 +100,7 @@ outer color=transparent!0]
 \cleardoublepage
 
 \end{center}
-
+\end{otherlanguage}
 
 %%% NASLOVNA STRAN V ANGLESKEM JEZIKU
 
@@ -205,6 +209,30 @@ Kratek izvle"cek v angle"skem jeziku.
 \pagenumbering{Roman}
 \tableofcontents
 
+
+%%% OSREDNJI DEL
+
+\pagestyle{fancy}
+\fancyhead[CE,RE]{}
+\fancyhead[LO,CO]{}
+\fancyhead[LE]{\textbf{\nouppercase{\leftmark}}}
+\fancyhead[RO]{\textbf{\nouppercase{\rightmark}}}
+
+\include{chapters/1_intro}
+\include{chapters/2_data}
+\include{chapters/detector}
+\include{chapters/3_b2bii}
+\include{chapters/4_evt}
+\include{chapters/5_roe}
+\include{chapters/6_bkg}
+\include{chapters/7_fit}
+\include{chapters/8_sys}
+\include{chapters/si_summary}
+
+\printbibliography
+
+\include{chapters/A_mva}
+
 %%% SEZNAM SLIK (NEOBVEZNO)
 
 %\cleardoublepage\phantomsection
@@ -219,37 +247,6 @@ Kratek izvle"cek v angle"skem jeziku.
 \listoftables
 
 \cleardoublepage
-
-%\chapter*{List of Acronyms}
-
-
-
-
-
-\cleardoublepage
-
-%%% OSREDNJI DEL
-
-\pagestyle{fancy}
-\fancyhead[CE,RE]{}
-\fancyhead[LO,CO]{}
-\fancyhead[LE]{\textbf{\nouppercase{\leftmark}}}
-\fancyhead[RO]{\textbf{\nouppercase{\rightmark}}}
-
-\include{chapters/1_intro}
-\include{chapters/2_data}
-\include{detector}
-\include{chapters/3_b2bii}
-\include{chapters/4_evt}
-\include{chapters/5_roe}
-\include{chapters/6_bkg}
-\include{chapters/7_fit}
-\include{chapters/8_sys}
-\include{si_summary}
-
-\printbibliography
-
-\include{chapters/A_mva}
 
 
 \end{document}
