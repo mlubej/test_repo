@@ -65,7 +65,7 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 \tau_{B^+/B^0} = 1.076 \pm 0.004.
 \end{equation}
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -79,16 +79,17 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 		& $N_{11}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $186\pm16$\\
 		\hline
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{Well defined decay channels used for constraining the control fits.}
 	\label{tab:cs_constraint_table}
 \end{table}
 
 In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching ratio measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
-		$\mathcal{B}$ ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Reference \\
+	    ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Ref. \\
 		\hline
 		0 & $B^0 \to D {}^{-} \ell^+ \nu$ & $2.13\E{-2}$ & $(2.13 \pm 0.09)\E{-2}$ & $1.00 \pm 0.04$ & \multirow{2}{*}{\cite{Amhis:2016xyh}} \\ 
 		\cline{1-5}
@@ -101,6 +102,7 @@ In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}
 		4 & $D^0 \to K^-K^+$ & $3.90\E{-3}$ & $(3.97\pm0.07)\E{-3}$ & $1.02 \pm 0.02$ & \cite{tanabashi2018review} \\
 		\hline
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{MC and measured values of branching ratios along with the calculated correction factors used for constraining the control fit.}
 	\label{tab:cs_br_constraint_table}
 \end{table}
@@ -120,7 +122,7 @@ where for each parameter pair the likelihood ratio test is performed to estimate
 \end{itemize}
 We apply this transformation to our MC samples in all cases when fitting real data.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/smearing_offset}
@@ -160,7 +162,7 @@ where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yield
 In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
 
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -236,15 +238,16 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 		\hline
 		
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{}
 	\label{tab:sig_constraint_table}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|c|l|l|l|c|c|}
 		\hline
-		$\mathcal{B}$ ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Reference \\ 
+		ID & Decay & $\mathcal{B}_{GEN}$ & $\mathcal{B}_{PDG}$ & $\rho$ & Ref. \\ 
 		\hline
 		5 &	$D^0 \to K^-\pi^+$ & $3.82\E{-2}$ & $(3.89\pm0.04)\E{-2}$ & $1.02 \pm 0.01$ & \multirow{7}{*}{ \cite{tanabashi2018review}} \\
 		\cline{1-5}
@@ -261,6 +264,7 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 		11 & $D^+ \to K^-\pi^+\pi^+$ & $9.51\E{-2}$ & $(8.98\pm0.28)\E{-2}$ & $0.94 \pm 0.03$ &  \\
 		\hline
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{Additional MC and measured values of $D$ meson branching ratios along with the calculated correction factors used for constraining the signal fit.}
 	\label{tab:sig_br_constraint_table}
 \end{table}
@@ -284,7 +288,7 @@ We have devised an algorithm, which compares the templates and the fitted sample
 	\end{enumerate}
 \end{enumerate}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.49\linewidth]{fig/adaptive_1}
@@ -305,13 +309,13 @@ With toy MC experiments in this section, we study the yields, errors and the pul
 
 We constructed $3\E{3}$ pseudo data sets, where each data set was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $19 \times 19$ bins in \vars.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.11\pm0.02)$ and standard deviation of $(1.01\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated as \cite{ahn2003standard}
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.11\pm0.02)$ and standard deviation of $(1.01\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated~as~\cite{ahn2003standard}
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
 where $N$ is the number of performed measurements.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/toyMC}
@@ -327,7 +331,7 @@ The pseudo data sets are generated in the same way as in the previous subsection
 
 Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show no significant bias with respect to the signal fraction, while the pulls seem to be described by the normal distributions throughout the fraction range. At expected value, we are at about $3.58\sigma$ significance.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/lin_test}
@@ -343,7 +347,7 @@ In this section, we present the first results of signal and control fits on MC a
 
 With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1.  While both fit results seem to have no significant bias with respect to the binning choice, the pull distribution seems to be closer to the normal distribution. The uBDT classifier fit setup outperforms the standard BDT fit setup in terms of significance by $1\sigma$. This determines our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_binning}
@@ -353,7 +357,7 @@ With the signal fit setup described in section \ref{sec:templates-in-signal-fits
 
 For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.98$, while the average significance of the fits is around $3.56 \sigma$.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_fit_mc}
@@ -361,7 +365,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 	\label{fig:sig_streamfit}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_global_mc}
@@ -371,7 +375,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 
 \subsection{Control Fit Result}
 With the control fit setup described in section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a 0th degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -384,11 +388,12 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 		$\ell = \mu$ & $591 \pm 7$ & $610 \pm 30$\\
 		\hline
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{Control sample fit results for MC and data for various lepton final state modes.}
 	\label{tab:cs_fit_yield}
 \end{table}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_fit_mc}
@@ -396,7 +401,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_fit_mc}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_fit_data}
@@ -404,7 +409,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_fit_data}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_global}
@@ -412,10 +417,10 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_global}
 \end{figure}
 
-
 \subsubsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
 
 After acquiring the fit results on MC and data, we are able to determine the branching ratio of the control decay, which is defined as
+
 \begin{align}
 \mathcal{B}^{MC}_{\mathrm{control}} &= \frac{N^{\mathrm{MC}}_\mathrm{control} \times \epsilon_{MC}}{2N_{B\bar B}^{MC}},\\
 \mathcal{B}_{\mathrm{control}} &= \frac{N_\mathrm{control} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
@@ -449,7 +454,7 @@ The number of $B\bar B$ meson pairs can be counted on MC and has been measured f
 
 Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure \ref{fig:br_plot}, along with the MC generated value and the current PDG world average. Both MC and measured determinations of the control decay branching ratio are in agreement with the expected and the world average values. One should note that the black error bars correspond to statistical uncertainty. Of all the systematic uncertainties, only the PID systematics are included in this results. Other contributions of systematics are not included since this measurement is not the goal of our analysis.
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -466,11 +471,12 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 		$\ell = \mu$ & $(8.85\pm0.12)\E{-5}$ & $(9.12\pm0.50)\E{-5}$\\
 		\hline
 	\end{tabular}
+\captionsetup{width=.8\linewidth}
 	\caption{Control sample fit results for MC and data for various lepton final state modes.}
 	\label{tab:br_result}
 \end{table}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/br_plot}
@@ -480,8 +486,8 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 \subsection{Signal Fit to Data}\label{sec:final-results-from-data}
 Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
-
-\begin{figure}[!htb]
+\clearpage
+\begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_fit_data}
@@ -489,7 +495,7 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\label{fig:sig_fit_data}
 \end{figure} 
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
@@ -516,11 +522,12 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 		Other $B \bar B$ background & $ 16399 \pm 246 $ \\
      	\hline
 	\end{tabular}
+\captionsetup{width=.8\linewidth}
 	\caption{Yields of all signal fit contributions on data.}
 	\label{tab:sig_yields}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l||l|l|}
 		\hline
@@ -567,6 +574,7 @@ $N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
 $N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
 \hline
 	\end{tabular}
+\captionsetup{width=.8\linewidth}
 \caption{Mean values and standard deviations of constraints after the fit.}
 \label{tab:constraints}
 \end{table}
@@ -603,7 +611,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 With the statistical significance of about $6\sigma$ this is the first observation of the charmless semileptonic decay $B^+ \to K^+ K^- \ell^+ \nu$. It indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|c|c|}
 		\hline
@@ -614,6 +622,7 @@ With the statistical significance of about $6\sigma$ this is the first observati
 		$\ell = e$ or $\mu$ & $(1.60 \pm 0.14)\E{-5}$ & $(3.09 \pm 0.52 \pm {}^{+0.66}_{-0.47})\E{-5}$\\
 		\hline
 	\end{tabular}
+\captionsetup{width=.8\linewidth}
 	\caption{Signal decay fit results for MC and data.}
 	\label{tab:br_result_sig}
 \end{table}
@@ -621,3 +630,5 @@ With the statistical significance of about $6\sigma$ this is the first observati
 \subsubsection{Signal Distribution in $m_{KK}$}
 
 \section{Conclusion}
+
+X

@@ -18,9 +18,10 @@ Unitarnost matrike CKM nam omogo"ca, da iz nje izlu"s"cimo matemati"cne identite
 V_{ud}V_{ub}^* + V_{cd}V_{cb}^* + V_{td}V_{tb}^* = 0,
 \end{equation}
 poznana pod imenom unitarni trikotnik, saj predstavlja zaklju"cen vektor treh to"ck v kompleksni ravnini, kot prikazuje Slika \ref{fig:ut_si}. Parametri matrike CKM niso dolo"cljivi s strani teorije, temve"c jih moramo dolo"citi z eksperimentalnimi meritvami tako, da najdemo procese, ki so tesno povezani s stranicami in koti unitarnega trikotnika. Na tak na"cin lahko preverimo, "ce je oblika trikotnika konsistentna, kar predstavlja dober test Standardnega modela. V primeru, da opisana enačba ne bi opisala trikotnika, bi to nakazovalo na potencialne nove procese, ki jih "se ne poznamo, in jih kolektivno imenujemo "nova fizika". 
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=1]{texfig/UT_Triangle}
+	\captionsetup{width=0.8\linewidth}
 \caption{Unitarni trikotnik s parametri $\lambda,~\eta,~\rho$ and $A$ (slednji ni prikazan), ki predstavljajo proste parametre matrike CKM. Trikotnik je prikazan v Wolfensteinovi parametrizaciji \cite{PhysRevLett.51.1945}.}
 \label{fig:ut_si}
 \end{figure}
@@ -42,14 +43,15 @@ Meritev elementa $V_{ub}$ je mo"zna na ekskluziven in inkluziven na"cin, kjer pr
 \end{align}
 kjer prva in druga napaka predstavljata eksperimentalno in teoretsko napako. Rezultati inkluzivnih meritev so praviloma ve"cjih vrednosti kot rezultati ekskluzivnih. Razlogov za neujemanje je lahko ve"c, od nepoznanih napak pri eksperimentu ali teoriji, do prispevkov nove fizike.
 
-V tej analizi se osredoto"camo na enega od mo"znih razlogov za zgoraj omenjeno neujemanje, konkretneje za razpad \decayb, ki je strukturno precej podoben razpadu $B \to \pi \ell \nu$ za razliko produkcije para kvarkov $s \bar s$ ki se potem hadronizira v nove delce, kot prikazuje Slika \ref{feynman}. V inkluzivnih meritvah ne"carobnih semi-leptonskih razpadov mezonov $B$ se standardno uporablja $K$-veto, t.j. selekcija, kjer zahtevamo, da v kon"cnem stanju nimamo mezonov $K$ (sestava $q \bar s,~q \in [u,d]$), poznanih tudi pod imenom kaoni. Kaoni v kon"cnem stanju nakazujejo na pogost prehod kvarkov $b \to c \to s$, ki pa jih ho"cemo v analizah prehodov $b \to u$ zatreti. V primeru na"se analize imamo v kon"cnem stanju 2 kaona s prehodom $b \to u$, kar pomeni, da tak"sni razpadi niso upo"stevani v inkluzivnih meritvah, "ceprav bi morali biti. Cilj "studije je dolo"citi pogostost razpadov \decayb~s prehodom $b\to u$ in s tem oceniti, kak"sen potencialen efekt ima lahko neupo"stevanje teh razpadov na inkluzivno meritev elementa $V_{ub}$. V nadaljevanju bo razpad \decayb~zaradi enostavnosti zapisan kot \decaya.
-\begin{figure}[!htb]
+V tej analizi se osredoto"camo na enega od mo"znih razlogov za zgoraj omenjeno neujemanje, konkretneje za razpad \decayb, ki je strukturno precej podoben razpadu $B \to \pi \ell \nu$ za razliko produkcije para kvarkov $s \bar s$ ki se potem hadronizira v nove delce, kot prikazuje Slika \ref{feynman_si}. V inkluzivnih meritvah ne"carobnih semi-leptonskih razpadov mezonov $B$ se standardno uporablja $K$-veto, t.j. selekcija, kjer zahtevamo, da v kon"cnem stanju nimamo mezonov $K$ (sestava $q \bar s,~q \in [u,d]$), poznanih tudi pod imenom kaoni. Kaoni v kon"cnem stanju nakazujejo na pogost prehod kvarkov $b \to c \to s$, ki pa jih ho"cemo v analizah prehodov $b \to u$ zatreti. V primeru na"se analize imamo v kon"cnem stanju 2 kaona s prehodom $b \to u$, kar pomeni, da tak"sni razpadi niso upo"stevani v inkluzivnih meritvah, "ceprav bi morali biti. Cilj "studije je dolo"citi pogostost razpadov \decayb~s prehodom $b\to u$ in s tem oceniti, kak"sen potencialen efekt ima lahko neupo"stevanje teh razpadov na inkluzivno meritev elementa $V_{ub}$. V nadaljevanju bo razpad \decayb~zaradi enostavnosti zapisan kot \decaya.
+\begin{figure}[H]
 \centering
 \includegraphics{texfig/B2pilnu}
 \hspace{1cm}
 \includegraphics{texfig/B2KKlnu}
+	\captionsetup{width=0.8\linewidth}
 \caption{Feynmanovi diagrami za razpada $B^+ \to \pi^0 \ell^+ \nu_\ell$ (levo) in $B^+ \to K^- K^+ \ell^+ \nu_\ell$ (desno).}
-\label{feynman}
+\label{feynman_si}
 \end{figure}
 
 \section{Experimentalna postavitev}
@@ -121,8 +123,16 @@ Iz izbranih kandidatov nato naredimo kombinacije $Y = KKe,~KK\mu$, ki slu"zijo k
 kjer $\mathrm{p}$ predstavlja "cetverec gibalne koli"cine, indeks $i$ te"ce po vseh delcih znotraj mno"zice, ROE (ang. \textit{rest of event}) pa predstavlja podmno"zico celotnega dogodka trka $e^+e^-$, ki vsebuje vse delce, ki niso bili uporabljeni v rekonstrukciji kandidata $Y$.
 
 Tudi na tej stopnji je prisotnih veliko napa"cnih kombinacij kandidatov $Y$, zato po enakem postopku optimiziramo nadaljnjo selekcijo
+
 \begin{itemize}
-\item mezoni $B$: $P(\chi^2, NDF) > 6,0\E{-3}$, $\vert \cos \theta_{BY} \vert < 1,05$, $m_{miss}^2 < 0,975\e{GeV}/c^2$, $5,1\e{GeV}/c^2 < M_{BC} < 5,295\e{GeV}/c^2$, $-1,0\e{GeV} < \Delta E < 1,3\e{GeV},$
+\item mezoni $B$: 
+\begin{itemize}
+	\item $P(\chi^2, NDF) > 6,0\E{-3}$, 
+	\item $\vert \cos \theta_{BY} \vert < 1,05$,  
+	\item $m_{miss}^2 < 0,975\e{GeV}/c^2$, 
+	\item $5,1\e{GeV}/c^2 < M_{BC} < 5,295\e{GeV}/c^2$, 
+	\item $-1,0\e{GeV} < \Delta E < 1,3\e{GeV},$
+\end{itemize} 
 \end{itemize}
 kjer $P(\chi^2, NDF)$ predstavlja kvaliteto rekonstrukcije verteksa mezona $B$, $m_{miss}^2$ pa invariantno maso "cetverca manjkajo"ce gibalne koli"cine v dogodku. Ostali izrazi za $\cos \theta_{BY}$, $M_{BC}$ in $\Delta E$ so
 \begin{align}
@@ -280,7 +290,7 @@ Sistematska negotovost ima le zgornjo oceno, saj različni modeli kvečjemu povz
 
 Tabela \ref{tab:sys_summary_si} prikazuje posamezne prispevke sistematskih negotovosti in njihovo skupno vrednost, ki je bila uporabljena pri določitvi končnega rezultata.
 
-\begin{table}[!htb]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|}
 		\hline
@@ -307,6 +317,7 @@ Tabela \ref{tab:sys_summary_si} prikazuje posamezne prispevke sistematskih negot
 		Skupaj & ${} ^{+103}_{-73}$ & ${}^{+21.3}_{-15.1}$ \\
 		\hline
 	\end{tabular}
+	\captionsetup{width=0.8\linewidth}
 	\caption{Povzetek sistematskih negotovosti te analize.}
 	\label{tab:sys_summary_si}
 \end{table}

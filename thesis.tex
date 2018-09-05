@@ -1,4 +1,4 @@
-\documentclass[longbibliography,a4paper,12pt]{book}
+\documentclass[a4paper,12pt]{book}
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 \newcommand {\vars}{$\Delta E$ and $M_{BC}$}
@@ -8,31 +8,21 @@
 \newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
 
 \usepackage{fancyhdr}
- 
-\usepackage[slovene,english]{babel}% Recommended
-\usepackage{csquotes}% Recommended
-\usepackage[
-	backend=bibtex
-	]{biblatex}
-\addbibresource{mybib.bib}% Syntax for version >= 1.2
+
+\usepackage[slovene,english]{babel}
+\usepackage{csquotes}
 \usepackage{paralist}
 \usepackage{caption}
 \usepackage{cancel}
-
 \usepackage{longtable}
 \usepackage{multirow}
-
-%\setlength{\parskip}{1em}%
-%\setlength{\parindent}{0cm}
-
 \usepackage{titling}
 \usepackage{amsmath,amssymb,amsfonts,nicefrac}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{float}
 \usepackage{mathtools}
-%\allowdisplaybreaks
-\usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
 \usepackage{dictsym}
 \usepackage{braket}
 \usepackage{slashed}
@@ -40,184 +30,63 @@
 \usepackage{enumerate}
 \usepackage{array}
 \usepackage{tikz}
-\usetikzlibrary{fadings}
-%\setlength{\extrarowheight}{.5ex}
-
-
-%\usepackage{lineno}
-%\linenumbers
-
 \usepackage{subfigure}
 \usepackage{bm}
-
 \usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
 \usepackage[titletoc,title]{appendix}
-%
+\usepackage{icomma}
 
+\usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
+\addbibresource{bib/mybib}
+
+\usetikzlibrary{fadings}
+\raggedbottom
+\pdfsuppresswarningpagegroup=1
+
+% supress longtable bug warning
+\makeatletter
+\def\LT@start{%
+	\let\LT@start\endgraf
+	\endgraf\penalty\z@\vskip\LTpre
+	\dimen@\pagetotal
+	\advance\dimen@ \ht\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \dp\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \ht\LT@foot
+	\edef\restore@vbadness{\vbadness\the\vbadness\relax}% (added)
+	\vbadness=\@M % (added)
+	\dimen@ii\vfuzz
+	\vfuzz\maxdimen
+	\setbox\tw@\copy\z@
+	\setbox\tw@\vsplit\tw@ to \ht\@arstrutbox
+	\setbox\tw@\vbox{\unvbox\tw@}%
+	\vfuzz\dimen@ii
+	\restore@vbadness % (added)
+	\advance\dimen@ \ht
+	\ifdim\ht\@arstrutbox>\ht\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@\dp
+	\ifdim\dp\@arstrutbox>\dp\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@ -\pagegoal
+	\ifdim \dimen@>\z@\vfil\break\fi
+	\global\@colroom\@colht
+	\ifvoid\LT@foot\else
+	\advance\vsize-\ht\LT@foot
+	\global\advance\@colroom-\ht\LT@foot
+	\dimen@\pagegoal\advance\dimen@-\ht\LT@foot\pagegoal\dimen@
+	\maxdepth\z@
+	\fi
+	\ifvoid\LT@firsthead\copy\LT@head\else\box\LT@firsthead\fi\nobreak
+	\output{\LT@output}%
+}
+\makeatother
+
+% more space at list of figures
 \makeatletter
 \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 \makeatother
 
-\usepackage{icomma}
-
-%
 \begin{document}
-\nocite{*}
-\renewcommand{\arraystretch}{1.5}
 
-%%% Platnica
-
-\pagestyle{empty}
-\begin{otherlanguage}{slovene}
-\begin{center}
-
-{\large UNIVERZA V LJUBLJANI\\
-FAKULTETA ZA MATEMATIKO IN FIZIKO
-}
-
-\vspace{7cm}
-
-{\huge DOKTORSKA DISERTACIJA}
-
-\vspace{5cm}
-
-\tikzfading[name=fade out,
-inner color=transparent!0,
-outer color=transparent!0]
-% Now we use the fading in another picture:
-\begin{tikzpicture}[remember picture, overlay]
-\node[opacity=1.0,inner sep=0pt, scope fading=fade out] at (0,-2)
-{\includegraphics[width=0.6\linewidth]{bc_1}};
-\end{tikzpicture}
-
-\vfill
-
-{\hfill \large Matic Lubej}
-
-\vspace{1cm}
-{\large 2018}
-
-\cleardoublepage
-
-\end{center}
-\end{otherlanguage}
-
-%%% NASLOVNA STRAN V ANGLESKEM JEZIKU
-
-\pagestyle{empty}
-\begin{center}
-	
-\includegraphics[trim={0 0 0 2cm},clip]{logo}
-
-{\large UNIVERSITY OF LJUBLJANA\\
-FACULTY OF MATHEMATICS AND PHYSICS\\
-DEPARTMENT OF PHYSICS\\}
-
-\vspace{5cm}
-
-{\Large Matic Lubej\\}
-
-\vspace{10mm}
-
-{\bf \Large Measurement of the $\bm{B^+ \to K^+K^-\ell^+\nu_\ell}$ Decay with the Belle Detector\\}
-\vspace{5mm}
-{\large Doctoral thesis}\\
-
-\vfill
-
-{\large ADVISER: Assist. Prof. Dr. An\v ze Zupanc\\
-%COADVISER: Ime in priimek\\
-}
-
-\vspace{2cm}
-{\large Ljubljana, 2018}
-
-\end{center}
-
-%%% NASLOVNA STRAN V SLOVENSKEM JEZIKU
-
-\cleardoublepage
-\begin{otherlanguage}{slovene}
-\begin{center}
-
-\includegraphics[trim={0 0 0 2cm},clip]{logo}
-
-{\large UNIVERZA V LJUBLJANI\\
-FAKULTETA ZA MATEMATIKO IN FIZIKO\\
-ODDELEK ZA FIZIKO\\}
-
-\vspace{5cm}
-
-{\Large Matic Lubej\\}
-
-\vspace{10mm}
-
-{\bf \Large Meritev razpada $\bm{B^+ \to K^+K^-\ell^+\nu_\ell}$ z detektorjem Belle\\}
-\vspace{5mm}
-{\large Doktorska disertacija}\\
-
-\vfill
-
-{\large MENTOR: doc. dr. An\v ze Zupanc\\
-%SOMENTOR$\backslash$-ICA: naziv, Ime in priimek\\
-}
-
-
-
-\vspace{2cm}
-
-{\large Ljubljana, 2018}
-
-\end{center}
-
-
-%%% ZAHVALA (NEOBVEZNO)
-
-\cleardoublepage
-\setcounter{page}{0}
-\pagenumbering{Roman}
-
-\mbox{}
-\vfill
-{\Large \bf Zahvala}
-\vspace{1cm}\\
-Na tem mestu zapi"site, komu se zahvaljujete za pomo"c 
-pri nastanku doktorske disertacije.
-
-%%% IZVLECEK
-
-\cleardoublepage
-{\Large\bf Izvle\v cek}
-\vspace{1cm}\\
-Kratek izvle"cek v slovenskem jeziku.\\
-\vspace{1cm}\\
-{\bf Klju"cne besede:}\\
-{\bf PACS:}
-\end{otherlanguage}
-%%% ABSTRACT
-
-\cleardoublepage
-{\Large \bf Abstract}
-\vspace{1cm}\\
-Kratek izvle"cek v angle"skem jeziku.
-\vspace{1cm}\\
-{\bf Keywords:}\\
-{\bf PACS:}
-
-%%% KAZALO
-\setcounter{page}{0}
-\pagenumbering{Roman}
-\tableofcontents
-
-
-%%% OSREDNJI DEL
-
-\pagestyle{fancy}
-\fancyhead[CE,RE]{}
-\fancyhead[LO,CO]{}
-\fancyhead[LE]{\textbf{\nouppercase{\leftmark}}}
-\fancyhead[RO]{\textbf{\nouppercase{\rightmark}}}
-
+\include{chapters/0_preface}
 \include{chapters/1_intro}
 \include{chapters/2_data}
 \include{chapters/detector}
@@ -229,9 +98,12 @@ Kratek izvle"cek v angle"skem jeziku.
 \include{chapters/8_sys}
 \include{chapters/si_summary}
 
+\setlength{\emergencystretch}{10pt}
 \printbibliography
 
+\begin{appendices}
 \include{chapters/A_mva}
+\end{appendices}
 
 %%% SEZNAM SLIK (NEOBVEZNO)
 
@@ -247,7 +119,6 @@ Kratek izvle"cek v angle"skem jeziku.
 \listoftables
 
 \cleardoublepage
-
 
 \end{document}
 
