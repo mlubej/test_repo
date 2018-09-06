@@ -313,7 +313,7 @@ Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pul
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
-where $N$ is the number of performed measurements.
+where $N$ is the number of performed measurements. It seems that there is a small bias present in the pseudo fits. A decision has been made to put this difference as one of the contributions to the overall systematic uncertainty.
 
 \begin{figure}[H]
 	\centering
@@ -329,7 +329,7 @@ Linearity test is used for determining the sensitivity of the fit to the amount 
 
 The pseudo data sets are generated in the same way as in the previous subsection, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo data sets according to Poisson statistics.
 
-Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show no significant bias with respect to the signal fraction, while the pulls seem to be described by the normal distributions throughout the fraction range. At expected value, we are at about $3.58\sigma$ significance.
+Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.58\sigma$ significance.
 
 \begin{figure}[H]
 	\centering
@@ -345,7 +345,7 @@ In this section, we present the first results of signal and control fits on MC a
 
 \subsection{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
-With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1.  While both fit results seem to have no significant bias with respect to the binning choice, the pull distribution seems to be closer to the normal distribution. The uBDT classifier fit setup outperforms the standard BDT fit setup in terms of significance by $1\sigma$. This determines our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
+With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1. It can be seen from the plots that this is not exactly the case, as a slight offset is present in the other direction as in the case of the pseudo experiments. This difference is also accounted for as a contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the uBDT classifier, as well as the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the uBDT classifier fit setup outperforms the standard BDT fit setup, which determines our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
 \begin{figure}[H]
 	\centering
@@ -440,7 +440,7 @@ where the efficiency error was estimated based on a formula from \cite{paterno20
 \end{equation*}
 where $n$ is a subset of the full set $N$.
 
-The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in {sec:pid-efficiency-correction} and is determined to be
+The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in section \ref{sec:pid-efficiency-correction} and is determined to be
 \begin{equation*}
 \rho_{PID} = 0.99\pm 0.02
 \end{equation*}

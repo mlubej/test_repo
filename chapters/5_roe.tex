@@ -5,6 +5,8 @@ Continuing from section \ref{sec:loose-neutrino-reconstruction}, the description
 
 Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step, we run $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be signal-side dependent and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed $B$ candidates are chosen here, to prevent leaks of information from the signal side to the ROE side.
 
+More information about the MVA training, feature importance and hyper-parameter optimization for each MVA step can be found in the appendix \ref{sec:mva-control-plots}.
+
 \section{Clusters Clean-up}
 
 Photons originate from the IP region, travel to the ECL part of the detector in a straight line and produce a cluster. The direction of the photon is determined via the location of the cluster hit in the ECL and the energy of the photon is directly measured via the deposited energy. This way the four-momentum of photons is determined and used in Eq. (\ref{eq:ROEloop}).
@@ -139,7 +141,7 @@ It is obvious that tracks from the same momentum source should only be taken int
 
 \subsection{Tracks from Long-lived Particles}
 
-The first step in tracks clean-up is taking care of tracks from long-lived particles. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
+The first step in tracks clean-up is taking care of tracks from long-lived particles, such as $K_S^0 \to \pi^+\pi^-$, $\gamma \to e^+ e^-$ and decays of $\Lambda$ baryons. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
 We use the converted $K_S^0$ candidates from the existing Belle particle list and use a pre-trained Neural Network classifier in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut. The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
@@ -167,7 +169,7 @@ and proceed with the clean-up of track duplicates.
 
 \subsubsection{Defining a duplicate track pair}
 
-In this step, we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two tracks in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
+In this step, we wish to find a handle on secondary tracks from low momentum curlers and decays in flight. The main property for these cases is that the 3D opening angle between such two tracks is very close to $0^\circ$ or $180^\circ$, since tracks deviate only slightly from the initial direction, but can also be reconstructed in the opposite way. Figure \ref{fig:ROE_dupAngleInit} shows the distribution of the angle between two tracks in a single pair for random track pairs and duplicate track pairs, where the latter were reconstructed as two same-sign or opposite-sign tracks.
 
 \begin{figure}[H]
 	\centering
@@ -362,7 +364,9 @@ and discard them from our ROE. We can check the performance of our duplicate tra
 
 \section{Belle Clean-up}
 
-The clean-up, used standardly at Belle, is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. In case of photons, a single cut on photon energy is applied, depending on the region where the photon hit the relevant part of the detector. The photon cuts are summarized in Table \ref{tab:bellegamma}.
+For comparison we define the Belle clean-up, used standardly at Belle, which is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. This clean-up procedure is not applied in addition to our ROE clean-up, but separately, only for comparison. 
+
+In case of photons, a single cut on photon energy is applied, depending on the region where the photon hit the relevant part of the detector. The photon cuts are summarized in Table \ref{tab:bellegamma}.
 
 \begin{table}[H]
 	\centering

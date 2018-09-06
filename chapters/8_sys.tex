@@ -3,7 +3,7 @@ In this chapter, the systematic errors of the analysis are discussed. These unce
 
 \section{PID Efficiency Correction}\label{sec:pid-efficiency-correction}
 
-The PID selection efficiency for the three charged particles in our signal decay needs to be corrected on MC due to various differences when comparing to data. The Belle PID group has prepared correction factors and systematics tables for PID efficiencies for all charged particles. In case of kaon ID and lepton ID, the tables are binned in experiment numbers, particle momentum and in $\cos\theta$ of the particle direction, where, for each bin, a ratio of efficiencies between MC and data is provided, as well as the systematic errors. Each particle's correction factor and error is shown in Table \ref{tab:PID}, as well as the corresponding entry for all 3 particles. The entries are shown for both signal and control region.
+The PID selection efficiency for the three charged particles in our signal decay needs to be corrected on MC due to various differences when comparing to data. The Belle PID group has prepared correction factors and systematics tables for PID efficiencies for all charged particles. In case of kaon ID and lepton ID, the tables are binned in experiment numbers, particle momentum and in $\cos\theta$ of the particle direction, where, for each bin, a ratio of efficiencies between MC and data is provided, as well as the systematic errors. Each particle's correction factor and error is shown in Table \ref{tab:PID}, as well as the corresponding entry for all 3 particles. The entries are shown for both signal and control region, where the differences are related to the kinematic variations between the signal and control modes.
 
 The central values were obtained with a weighted average over all experiments, where $100\%$ correlation for error calculation was assumed. A full correlation was also assumed when calculating the $KK$ correction, as both $K$ use the same PID information.
 
@@ -42,7 +42,7 @@ for the signal as well as the control decay.
 	\label{tab:PID}
 \end{table}
 
-\section{Fit Bias}
+\section{Fit Bias and Binning Effects}
 Signal and background templates in our analysis are not perfectly distinct from one another and may potentially cause some over- or underestimation of the signal fit yield. In order to study this problem, we estimate the bias from the binning study performed in section \ref{sec:signal-mc-fit-results} as well as the linearity test toy MC study in section \ref{sec:pseudo-experiment-linearity-test}. The two bias functions describe a bias in each direction and are approximated as
 \begin{align}
 f_{\mathrm{min}}(x) &= -7.25-1.12x - \sigma_{f_{\mathrm{min}}}(x), \\
