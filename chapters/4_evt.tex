@@ -11,7 +11,7 @@ At this point in the analysis, we do not apply any intelligent cuts yet, which r
 
 \subsubsection{Leptons}
 
-Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake electrons and muons from any source, where an extra category for true electrons/muons from the signal $B$ meson decay is shown. The difference between the true leptopns from any source and those from signal decays is due to the distinct kinematics of the parent's decay to the electron.
+Figures \ref{fig:evars} and \ref{fig:muvars} show the impact parameters $d_0$ and $z_0$, the momentum in  $\Upsilon(4S)$ center-of-mass system (CMS), and the PID information for true and fake electrons and muons from any source, where an extra category for true electrons/muons from the signal $B$ meson decay is shown. The difference between the true leptons from any source and those from signal decays is due to the distinct kinematics of the parent's decay to the electron.
 
 \begin{figure}[H]
 	\centering
@@ -138,7 +138,7 @@ With the neutrino being the only missing particle on the reconstructed side, it 
 \cos \left(\theta_{BY}\right) &= \frac{2E_BE_Y - m_B^2 - m_Y^2}{2\vert \vec{p}_B \vert \vert \vec{p}_Y\vert},
 \end{align} 
 
-where all the energy and momenta above are calculated in the CMS frame. The mass of the neutrino is equal to 0 to a very good precision, so we use it in Eq. (\ref{eq:massnu}). In addition, we substitute the unknown energy and momentum magnitude, $E_B$ and $\vert \vec{p}_B \vert$, of the $B$ meson in Eq. (\ref{eq:cosby}), with quantities from the well known initial conditions
+where $p$ denotes a scalar, $\vec{p}$ a vector, and $\mathrm{p}$ a 4-vector. All the energy and momenta above are calculated in the CMS frame. The mass of the neutrino is equal to 0 to a very good precision, so we use it in Eq. (\ref{eq:massnu}). In addition, we substitute the unknown energy and momentum magnitude, $E_B$ and $\vert \vec{p}_B \vert$, of the $B$ meson in Eq. (\ref{eq:cosby}), with quantities from the well known initial conditions
 \begin{align}
 E_B &= E_{CMS} / 2,\\
 \vert \vec{p}_B \vert = p_B &= \sqrt{E_B^2 - m_B^2},
@@ -199,7 +199,7 @@ We define the square of the missing mass, $m_{miss}^2$, which is consistent with
 m_{miss}^2 &= \mathrm{p}_{miss}^2 = \mathrm{p}_{\nu}^2 = m_\nu^2 \approx 0.
 \end{align}
 
-Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, peak at zero. If this is not the case, candidates are shifted to larger values of this variable, even if the event in question is a signal event. For this purpose, we define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of its particles were taken into account correctly. We only allow for missing photons, since they are frequently radiated due to bremsstrahlung effects from final-state electrons and they do not have such a big impact on the 4-momentum of the final candidate. We denote this subset as \textit{perfect} signal. This subset is used to correctly define the clean-up parameters and is not used in any reconstruction steps, since we cannot know in data which neutral particles are actually missing.
+Since the detector is not perfect, the distribution of the $m_{miss}^2$ variable has a non-zero width. Additionally, a tail is introduced due to missing particles like neutrinos, other neutral undetected particles such as $K_L^0$, or simply missing tracks due to detection failure. Figure \ref{fig:missm2} shows the distribution of $m_{miss}^2$ as defined with the missing four-momentum in Eq. (\ref{eq:nuold}). Correctly reconstructed candidates, which come from events where the other $B$ meson decayed via a hadronic decay mode, peak at zero. If this is not the case, candidates are shifted to larger values of this variable, even if the event in question is a signal event. For this purpose, we define a subset of all signal candidates, which come from events where the companion $B$ meson decayed hadronically and all of its particles were taken into account correctly. We only allow for missing photons, since they are frequently radiated due to bremsstrahlung effects from final-state electrons and they do not have such a big impact on the 4-momentum of the final candidate. We denote this subset as \textit{perfect} signal. This subset is used to correctly define the clean-up parameters and is not used in any reconstruction steps since we cannot know in data which neutral particles are actually missing.
 
 Due to this fact, we impose a cut on the $m_{miss}^2$ variable in order to partially discard candidates with spoiled properties, even if it was in principle a correct combination of FSP particles on the signal side. The cut was chosen based on the optimization of FOM, where in this case the definition of $S$ were perfectly reconstructed signal candidates. The chosen cut value is 
 \begin{itemize}
@@ -227,7 +227,7 @@ The newly defined neutrino four-momentum can be added to the four-momentum of th
 \begin{align}
 \label{eq:de}
 \Delta E &= E_B - E_{CMS}/2,\\
-M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p} \vert^2}.
+M_{BC} &= \sqrt{\left(E_{CMS}/2\right)^2 - \vert \vec{p}_B \vert^2}.
 \end{align}
 
 Since the final fit will be performed over \vars, we define the fit region
@@ -249,7 +249,7 @@ Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_
 
 \section{Final Stage Optimization}
 
-With the charge particle selection and a rough selection of the $B$ meson particles in place, we can now afford to run the reconstruction procedure over all $10$ streams of the full available Belle generic MC. After obtaining the full reconstructed sample, the first task is to optimize the under-optimized cuts from the pre-selection stage. Repeating the procedure on the full sample results in the FOM shapes shown in Figure \ref{fig:preciseFOM}, while the optimal cut values are
+With the charge particle selection and a rough selection of the $B$ meson particles in place, we can now afford to run the reconstruction procedure over all of the $10$ streams of the full available Belle generic MC. After obtaining the full reconstructed sample, the first task is to optimize the under-optimized cuts from the pre-selection stage. Repeating the procedure on the full sample results in the FOM shapes shown in Figure \ref{fig:preciseFOM}, while the optimal cut values are
 
 \begin{itemize}
 	\item $P(\chi^2,NDF) > 6.0\E{-3}$,

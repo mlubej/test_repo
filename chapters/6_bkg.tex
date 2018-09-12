@@ -1,6 +1,6 @@
 \chapter{Background Suppression}\label{sec:background-suppression}
 
-This chapter shows the procedure in suppressing various kinds of background by applying cuts on MVA classifier outputs. 
+This chapter shows the procedure in suppressing various kinds of backgrounds by applying cuts on MVA classifier outputs. More information about the MVA training, feature importance and hyper-parameter optimization for each MVA step in this chapter can be found in the Appendix \ref{sec:mva-control-plots}.
 
 \section{Resonant Background}
 
@@ -21,14 +21,12 @@ where $m_{KK}$ is the $KK$ invariant mass and $m_{K\pi}$ is the invariant mass o
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|c|c|c|}
-		\hline
+	\begin{tabular}{l|c|c|c}
 		& $\epsilon$(Signal cand.)& $\epsilon$(Control cand.) & $\epsilon$($\phi$ resonance cand.)\\
-		\hline
+		\toprule
 		Signal cut & $95.4\%$ & $4.0\%$ & $13.6\%$ \\
-		\hline
 		Control cut & $1.9\%$ & $96.0\%$ & $0.0\%$ \\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\caption{Various subset efficiencies after imposing the signal or control cut on the $KK$ invariant mass.}
 	\label{tab:cut_eff}
@@ -57,9 +55,9 @@ Information on the phase-space distribution of decay particles is obtained in a 
 %Two $B$ mesons, coming from a spin-1 $\Upsilon(4S)$ meson, both have 0 spin, which results in a $\sin^2\theta_B$ angular distribution of the $B$ meson direction with respect to the beam axis. On the other hand, $q \bar q$ final states are represented by two half-spin fermions, which results in two jets, following a $1+\cos^2\theta_B$ distribution. The variable $\vert \cos \theta_B \vert$ allows one to discriminate between $B$ candidates from $B \bar B$ decays and continuum background. Figure X shows the distribution of $\vert \cos \theta_B \vert$ for different $B$ meson candidates.
 
 \subsubsection{Thrust and Related Variables}
-It is possible to define a thrust axis $\mathbf{T}$ for a collection of $N$ momenta $p_i$ as a unit vector along which their total projection is maximal. Thrust axis $\mathbf T$ can be obtained by maximizing the expression
+It is possible to define a thrust axis $\vec{T}$ for a collection of $N$ momenta $p_i$ as a unit vector along which their total projection is maximal. Thrust axis $\vec T$ can be obtained by maximizing the expression
 \begin{equation}
-\mathbf{T} = \frac{\sum_{i}\vert \mathbf{T} \cdot \mathbf{p}_i\vert}{\sum_{i}\vert \mathbf{p}_i\vert}.
+\vec{T} = \frac{\sum_{i}\vert \vec{T} \cdot \vec{p}_i\vert}{\sum_{i}\vert \vec{p}_i\vert}.
 \end{equation}
 In this case, a related variable is $\vert \cos\theta_T\vert$, where $\theta_T$ is the angle between the thrust axis of the momenta from $B$ meson decay particles and the thrust axis of all particles in the ROE. Since both $B$ mesons in $B \bar B$ events are produced at rest, their decay particles, and consequentially their thrust axes, are uniformly distributed in the range $[0,~1]$. On the other hand, decay particles from continuum events follow the direction of the jets in the event. As a consequence, the thrusts of both the $B$ meson and the ROE are strongly directional and collimated, which results in a large peak at $\vert \cos\theta_T\vert \approx 1$. Additionally, one can also use the variable $\vert \cos\theta_{TB}\vert $, which is the thrust axis between the $B$ candidate and the beam axis. For $B$ candidates from $B \bar B$ events, this distributions is again uniformly distributed, while for candidates from continuum events this distribution follows the distribution of the jets with the function $1+\cos^2\theta_{T,B}$. Figure \ref{fig:cosplots} shows the distributions of $\vert \cos\theta_T\vert$ (left) and $\vert \cos\theta_{T,B}\vert$ (right) for different $B$ meson candidates.
 
@@ -78,7 +76,7 @@ CLEO cones have been introduced by the CLEO collaboration \cite{asner1996search}
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[scale=1]{texfig/CCones}
-	\caption{Concept of CLEO cones. $\mathbf{T}$ denotes the thrust axis of the $B$ meson candidates in the event. Each variable corresponds to a momentum flow around the thrust axis in steps of $10^\circ$.}
+	\caption{Concept of CLEO cones. $\vec{T}$ denotes the thrust axis of the $B$ meson candidates in the event. Each variable corresponds to a momentum flow around the thrust axis in steps of $10^\circ$.}
 	\label{fig:ccones}
 \end{figure}
 
@@ -176,7 +174,7 @@ where distant tracks are all tracks in ROE which satisfy the condition of $\vert
 When the training is finished and the hyper-parameters of the classifier are optimized, the classifier output, as shown in Figure \ref{fig:bbmva} (left), can be used for background suppression. $B$ meson candidates from $B \bar B$ background are dominant at lower values, while candidates from $B \bar B$ events populate the region with higher values. Since the differences between signal and background $B \bar B$ events are smaller than $B \bar B$ and $q \bar q$ events, the resulting classifier has a smaller separation power than in the previous section.
 
 \subsection{Boosting to Uniformity}
-The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of  signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated $\mathrm{FOM}$ under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection \cite{stevens2013uboost}.
+The selection approach with standard classifiers is optimal for counting experiments, as it by construction produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated $\mathrm{FOM}$ under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection \cite{stevens2013uboost}.
 
 The training set used in this training is the same as described at the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ picture, therefore we train the uBDT classifier with a uniformity constraint in the $M_{BC}$ variable for background candidates with the uBoost algorithm. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds differ significantly, which greatly affects the performance of signal extraction.
 
@@ -272,7 +270,7 @@ With the final selection in place, we can check the data and MC agreement by che
 
 \subsection{Off-resonance Data}
 
-The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It, therefore, offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to 6 streams of MC. Figures show good data and MC agreement of the off-resonance sample. More importantly than the normalization, the shape of data and MC also seems to be the same, so further corrections of \vars~on MC are not necessary. This is also consistent by the flatness of the ratio function for \vars, shown in the same Figure. There seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
+The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the non-$B\bar B$ background. It, therefore, offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and stacked MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to 6 streams of MC. These figures do not show a fit to data, but merely an overlay of data and stacked MC distributions, and show good data and MC agreement of the off-resonance sample already before the fit. More importantly than the normalization, the shape of data and MC also seems to be the same, so further corrections of \vars~on MC are not necessary. This is also consistent by the flatness of the ratio function for \vars, shown in the same Figure. There seems to be a difference in the classifier performance for the continuum background suppression on data and MC. This leads to further differences between data and MC in the $q \bar q$ sample after the classifier cut, but we estimate that these differences are negligible, since a relatively small amount of continuum background passes the selection, compared to other background types.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
@@ -283,7 +281,7 @@ The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ re
 
 \subsection{On-resonance Data}
 
-We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and MC on the lower spectrum, where continuum background is dominant. We see that MC is over-estimated in this region, most likely due to additional disagreements from other sources. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. Overall, data and MC seem to agree well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
+We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$ and $BDT_{q \bar q}$, where one can see inconsistencies between data and stacked MC on the lower spectrum, where continuum background is dominant. These figures again do not show the fit, but merely an overlay of data to the stacked MC distributions, where we see that the MC is over-estimated in the lower region of the continuum suppression MVA output, most likely due to additional disagreements from other sources. On the other hand, data and MC seem to agree well in the upper part of the spectrum, where $B \bar B$ events are dominant. Overall, data and MC seem to agree well already off-the-shelf after all the pre-cuts and without any corrections. This means that the modeling of this MC sample is very precise in this particular region of data and that there are no significant differences between data an MC for the control sample and the signal sample.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}

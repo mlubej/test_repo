@@ -35,6 +35,7 @@
 \usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
 \usepackage[titletoc,title]{appendix}
 \usepackage{icomma}
+\usepackage{booktabs}
 
 \usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
 \addbibresource{bib/mybib}
@@ -42,6 +43,7 @@
 \usetikzlibrary{fadings}
 \raggedbottom
 \pdfsuppresswarningpagegroup=1
+\setlength{\extrarowheight}{.8ex}
 
 % supress longtable bug warning
 \makeatletter
@@ -102,7 +104,9 @@
 \printbibliography
 
 \begin{appendices}
-\include{chapters/A_mva}
+\include{chapters/A_roe}
+\include{chapters/B_mva}
+\include{chapters/C_mKK}
 \end{appendices}
 
 %%% SEZNAM SLIK (NEOBVEZNO)

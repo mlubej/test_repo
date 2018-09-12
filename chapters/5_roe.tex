@@ -5,7 +5,7 @@ Continuing from section \ref{sec:loose-neutrino-reconstruction}, the description
 
 Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step, we run $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. This way the produced weight files are less likely to be signal-side dependent and can be used also for untagged analyses of other decays. For every correctly reconstructed signal $B$ meson we save the necessary information for each MVA step (i.e. properties of ROE clusters). Only correctly reconstructed $B$ candidates are chosen here, to prevent leaks of information from the signal side to the ROE side.
 
-More information about the MVA training, feature importance and hyper-parameter optimization for each MVA step can be found in the appendix \ref{sec:mva-control-plots}.
+More information about the MVA training, hyper-parameter optimization and feature importance for each MVA step in this chapter can be found in the Appendix \ref{sec:roe-control-plots}.
 
 \section{Clusters Clean-up}
 
@@ -141,7 +141,7 @@ It is obvious that tracks from the same momentum source should only be taken int
 
 \subsection{Tracks from Long-lived Particles}
 
-The first step in tracks clean-up is taking care of tracks from long-lived particles, such as $K_S^0 \to \pi^+\pi^-$, $\gamma \to e^+ e^-$ and decays of $\Lambda$ baryons. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
+The first step in tracks clean-up is taking care of tracks from long-lived particles, such as $K_S^0 \to \pi^+\pi^-$, $\gamma \to e^+ e^-$ and decays of $\Lambda$ baryons. Here we only focus on $K_S^0$, since they are the most abundant. This step is necessary because of the $\pi^\pm$ particles, coming from the $K_S^0$ decays, have large impact parameters, which is usually a trait of background particles. In order to minimize confusion from the MVA point-of-view, these tracks are taken into account separately.
 
 We use the converted $K_S^0$ candidates from the existing Belle particle list and use a pre-trained Neural Network classifier in order to select only the good $K_S^0$ candidates. Figure \ref{fig:ROE_V0} shows the distribution of the $K_S^0$ invariant mass for signal and background candidates, before and after the classifier cut. The momentum of selected $K_S^0$ candidates is added to the ROE, while the daughter tracks are discarded from our set.
 
@@ -348,14 +348,12 @@ and discard them from our ROE. We can check the performance of our duplicate tra
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
+	\begin{tabular}{c|c|c}
 		& Predicted duplicate track & Predicted good track \\
-		\hline 
+		\toprule
 		Duplicate track & $83.07~\%$  & $22.62~\%$  \\
-		\hline
 		Good track & $16.93~\%$ & $77.38\%$ \\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
 	\caption{Ratios of correctly classified and misclassified tracks.}
@@ -364,18 +362,17 @@ and discard them from our ROE. We can check the performance of our duplicate tra
 
 \section{Belle Clean-up}
 
-For comparison we define the Belle clean-up, used standardly at Belle, which is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. This clean-up procedure is not applied in addition to our ROE clean-up, but separately, only for comparison. 
+For comparison, we define the Belle clean-up, used standardly at Belle, which is much simpler and relies only on a set of rectangular cuts for neutral particles as well as charged ones. This clean-up procedure is not applied in addition to our ROE clean-up, but separately, only for comparison. 
 
 In case of photons, a single cut on photon energy is applied, depending on the region where the photon hit the relevant part of the detector. The photon cuts are summarized in Table \ref{tab:bellegamma}.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
+	\begin{tabular}{c|c|c|c}
 		& $17^\circ < \theta < 32^\circ$ & $32^\circ < \theta < 130^\circ$ & $130^\circ < \theta < 150^\circ$ \\
-		\hline 
+		\toprule
 		$E_\gamma$ & $> 100\e{MeV}$  & $> 50\e{MeV}$ & $> 150\e{MeV}$  \\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
 	\caption{Photon selection for the Belle clean-up procedure. Different cuts are applied on photons in different parts of the detector}
@@ -385,9 +382,9 @@ In case of photons, a single cut on photon energy is applied, depending on the r
 In case of tracks, pairs are selected which satisfy the following criteria:
 \begin{itemize}
 	\item $p_T < 275\e{MeV}/c$,
-	\item $\Delta p = \vert \textbf{p}_1 - \textbf{p}_2\vert  < 100\e{MeV}/c$,
-	\item $\cos \theta (\textbf{p}_1,\textbf{p}_2) < 15^\circ$ for same sign,
-	\item $\cos\theta(\textbf{p}_1,\textbf{p}_2) > 165^\circ$ for opposite sign.
+	\item $\Delta p = \vert \vec{p}_1 - \vec{p}_2\vert  < 100\e{MeV}/c$,
+	\item $\cos \theta (\vec{p}_1,\vec{p}_2) < 15^\circ$ for same sign,
+	\item $\cos\theta(\vec{p}_1,\vec{p}_2) > 165^\circ$ for opposite sign.
 \end{itemize}
 
 Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:belleformula} is discarded. The remaining tracks in the event then need to satisfy the conditions described in Table \ref{tab:belletrack}.
@@ -398,22 +395,18 @@ Of the two tracks, the one with a larger value of formula in Eq. \ref{eq:bellefo
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
+	\begin{tabular}{c|c|c|c}
 		& $p_T < 250\e{MeV}/c$ & $250\e{MeV}/c < p_T < 500\e{MeV}/c$ & $p_T > 500\e{MeV}/c$ \\
-		\hline 
+		\toprule
 		$\vert d_0 \vert$ & $< 20\e{cm}$  & $< 15\e{cm}$ & $< 10\e{cm}$  \\
-		\hline
 		$\vert z_0 \vert$ & $< 100\e{cm}$  & $< 50\e{cm}$ & $< 20\e{cm}$  \\
-		\hline
+		\bottomrule
 		
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
 	\caption{Photon selection for the Belle clean-up procedure. Different cuts are applied on photons in different parts of the detector}
 	\label{tab:belletrack}
 \end{table}
-
-%TODO: preveri vektorje ce so vedno bold
 
 \section{Clean-up Results}
 
@@ -431,14 +424,12 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
+	\begin{tabular}{c|c|c}
 		& Efficiency ratio & FWHM ratio \\
-		\hline 
+		\toprule
 		Belle clean-up & $28.5~\%$  & $75.0~\%$  \\
-		\hline
 		ROE clean-up & $140.1~\%$ & $35.0~\%$ \\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
 	\caption{Comparison of efficiencies and $FWHM$'s of ROE and Belle clean-up setups with respect to the default case (no clean-up).}
@@ -466,7 +457,7 @@ Another variable which heavily depends on the clean-up is the charge product of 
 \section{ROE Clean-up Validation}
 
 The ROE clean-up seems to perform well on signal MC based on the results in the previous section. However, it is necessary to make sure that this procedure performs as well on other simulated and measured data, which is done in this section. The clean-up procedure is validated on the control sample, $$B^+ \to \bar D {}^0 \ell^+ \nu,\quad D^0 \to K^+K^-,$$
-which was already defined in section \ref{sec:control-decay}. The control candidates are reconstructed in the same manner as the signal candidates. In addition to the same cuts applied as in the previous section we also apply a selection to make the control sample more significant. We discard all candidates which fail to pass the cut on invariant mass of the two kaons
+which was already defined in section \ref{sec:control-decay}. The control candidates are reconstructed in the same manner as the signal candidates. In addition to the same cuts applied as in the previous section, we also apply a selection to make the control sample more significant. We discard all candidates which fail to pass the cut on invariant mass of the two kaons
 \begin{equation}
 1.849\e{GeV}/c^2 < m_{KK} < 1.879\e{GeV}/c^2
 \end{equation}
@@ -500,5 +491,3 @@ To perform the clean-up validation in greater detail we also compare the data an
 \end{figure}
 
 The ROE clean-up procedure seems to perform well. It significantly improves the resolution of the signal/control candidates and increases the amount of perfectly clean events. The clean-up procedure was also applied to data and no disagreement with respect to the simulated MC samples was found. This means that the procedure does not differ between MC and data and does not affect them differently. The procedure was therefore validated in great detail and is suitable to be used in this analysis.
-
-%TODO: update
