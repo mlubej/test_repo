@@ -466,13 +466,13 @@ as shown in Figure \ref{fig:roe_mKK}.
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_mKK_cut}
-	\caption{Distributions of $m_{KK}$ for the full MC dataset. The black lines represent the cut on region in the $m_{KK}$ distribution where the control sample is enhanced.}
+	\caption{Normalized distributions of $m_{KK}$ for the full MC dataset. The red lines represent the cut on region in the $m_{KK}$ distribution where the control sample is enhanced. The $m_KK$ distribution drops quickly for the case of the control decay, while staying uniform for other contributions.}
 	\label{fig:roe_mKK}
 \end{figure}
 
 With the control sample selection determined, we now run the reconstruction with and without the ROE clean-up procedure on MC and data. For the purpose of this validation, we only run the reconstruction over 1 stream of the full available generated MC. 
 
-The effects of the ROE clean-up are shown in Figure \ref{fig:roe_val}. We see that data and MC agree well, and evidently even better after the clean-up procedure. The control sample resolution seems very poor in the case without the clean-up, but it improves significantly if the clean-up procedure is applied, as expected. The simulated background also seems to gain an improvement in the resolution, but this is likely due to the background consisting of similar candidates as the control sample. This means that the clean-up performs as expected due to the nature of the decays and does not arbitrarily shape the background to be more signal like. Additionally, it should be pointed out that, after the clean-up, the simulated background resolution is worse compared to the control decay resolution, while this is not the case if the clean-up procedure is not performed.
+The effects of the ROE clean-up are shown in Figure \ref{fig:roe_val}, where we overlay the data points to a stacked histogram of MC contributions for \vars. We see that data and MC agree well. A slight systematic trend can be seen in the $\Delta E$ variable, which is addressed in Section \ref{sec:smearing-and-offset-parameters}. The control sample resolution seems very poor in the case without the clean-up, but it improves significantly if the clean-up procedure is applied, as expected. The simulated background also seems to gain an improvement in the resolution, but this is likely due to the background consisting of similar candidates as the control sample. This means that the clean-up performs as expected due to the nature of the decays and does not arbitrarily shape the background to be more signal like. Additionally, it should be pointed out that, after the clean-up, the simulated background resolution is worse compared to the control decay resolution, while this is not the case if the clean-up procedure is not performed.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
