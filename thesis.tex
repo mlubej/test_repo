@@ -1,11 +1,13 @@
 \documentclass[a4paper,12pt]{book}
+\pdfminorversion=6
+
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 \newcommand {\vars}{$\Delta E$ and $M_{BC}$}
 \newcommand {\varss}{$\Delta E$ in $M_{BC}$}
 \newcommand {\btbii}{\texttt{B2BII}}
 \newcommand {\decaya}{$B \to K K \ell \nu$}
-\newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
+\newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu_\ell$}
 
 \usepackage{fancyhdr}
 
@@ -22,7 +24,11 @@
 \usepackage{color}
 \usepackage{float}
 \usepackage{mathtools}
-\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage{xmpincl}
+\usepackage[a-1b]{pdfx}
+%\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage{hyperref}
+\usepackage{url}
 \usepackage{dictsym}
 \usepackage{braket}
 \usepackage{slashed}
@@ -36,7 +42,13 @@
 \usepackage[titletoc,title]{appendix}
 \usepackage{icomma}
 \usepackage{booktabs}
+\usepackage{inputenc}
+\usepackage{csquotes}
+\hypersetup{pdfencoding=unicode}
+\inputencoding{utf8}
+\makeatother
 
+\usepackage{epstopdf}
 \usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
 \addbibresource{bib/mybib}
 
@@ -44,6 +56,7 @@
 \raggedbottom
 \pdfsuppresswarningpagegroup=1
 \setlength{\extrarowheight}{.8ex}
+
 
 % supress longtable bug warning
 \makeatletter
@@ -86,8 +99,10 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 \makeatother
 
-\begin{document}
 
+
+\begin{document}
+	
 \include{chapters/0_preface}
 \include{chapters/1_intro}
 \include{chapters/2_data}
@@ -103,11 +118,11 @@
 \setlength{\emergencystretch}{10pt}
 \printbibliography
 
-\begin{appendices}
+\appendix
 \include{chapters/A_roe}
 \include{chapters/B_mva}
 \include{chapters/C_mKK}
-\end{appendices}
+
 
 %%% SEZNAM SLIK (NEOBVEZNO)
 
