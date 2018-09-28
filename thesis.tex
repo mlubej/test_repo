@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{book}
-\pdfminorversion=6
-
+%\usepackage{pdfathesis}
+\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage{pdfathesis} 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 \newcommand {\vars}{$\Delta E$ and $M_{BC}$}
@@ -24,10 +25,6 @@
 \usepackage{color}
 \usepackage{float}
 \usepackage{mathtools}
-\usepackage{xmpincl}
-\usepackage[a-1b]{pdfx}
-%\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
-\usepackage{hyperref}
 \usepackage{url}
 \usepackage{dictsym}
 \usepackage{braket}
@@ -42,13 +39,7 @@
 \usepackage[titletoc,title]{appendix}
 \usepackage{icomma}
 \usepackage{booktabs}
-\usepackage{inputenc}
-\usepackage{csquotes}
-\hypersetup{pdfencoding=unicode}
-\inputencoding{utf8}
-\makeatother
 
-\usepackage{epstopdf}
 \usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
 \addbibresource{bib/mybib}
 
@@ -99,10 +90,59 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 \makeatother
 
-
+%%%%%%%%%%%%%%%% thesispdfa definitions
+%%%%
+%%%%
+%% '\Title{}' and '\Author{}' are mandatory
+%% while '\title' and '\author' are optional
+%
+\Title{Measurement of the B+ to K+ K- l+ nu Decay with the Belle Detector} %% it shall not include LaTeX macros
+\Author{Matic Lubej}        %% ibidem
+%
+%%   If '\title' and '\author' are not defined the front page will
+%%   be composed with the values of '\Title' and '\Author'
+%
+%\title{Title as used in front page $B \to a$} % it may include LaTeX macros
+%\author{Name as used in fronpage}   % ibidem
+%
+\DocumentType{Thesis}      % for research based degrees
+%\DocumentType{practicum}   % for MAS programme
+%\DocumentType{project}     % for Maths course based programme
+%\DocumentType{dissertation}
+%
+\University{Faculty of Mathematics and Physics}
+\AcademicUnit{University of Ljubljana}
+%
+\Degree{Doctor of Philosophy}
+%\Degree{Master of Science}
+%\Degree{Master of Applied Statistics}
+%\Degree{Master of Arts}
+%\Degree{Master of Business Administration}
+%
+%% Please, no too many keywords, it looks ugly. 
+%% Use `\sep' as keyword separator
+\Keywords{Belle detector\sep
+	B mesons\sep
+	semileptonic decays\sep
+	branching fraction\sep
+	inclusive tagging\sep
+	untagged\sep
+	rest of event} 
+%
+\Subject{We present the branching fraction measurement of the charmless semileptonic decay B+ to K+ K- l+ nu. The measurement has been performed on a data sample corresponding to 710 fb-1 of integrated luminosity, collected with the Belle detector at the KEKB asymmetric-energy e+ e- collider in Tsukuba, Japan. We present the results obtained with the B2BII data format converter. This is the first measurement of the decay, where we obtain the branching fraction of Br(B+ to K+ K- l+ nu) = (3.09 +- 0.52 +- [+0.66, -0.47]) x 10-5. With the fit significance of 5.9 sigma, this measurement counts as the first discovery of the decay.}
+%
+%\DateSubmitted{}    % default: current month and year
+%\ConvocationYear{}  % default: the nearest coming convocation year
+%
+\Supervisor{doc. dr. Anže Zupanc}    % default: undefined
+%\Cosupervisor{Name}  % default: undefined
+%%
+%% If you do not know what a colorspace profile is, leave next macro alone
+%\ColorspaceProfile{file}{profile description}{number of components}
+%
 
 \begin{document}
-	
+
 \include{chapters/0_preface}
 \include{chapters/1_intro}
 \include{chapters/2_data}
@@ -125,20 +165,12 @@
 
 
 %%% SEZNAM SLIK (NEOBVEZNO)
-
-%\cleardoublepage\phantomsection
-%\renewcommand\listfigurename{List of Figures}
-%\addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
 %%% SEZNAM TABEL (NEOBVEZNO)
-%\cleardoublepage\phantomsection
-%\renewcommand\listtablename{List of Tables}
-%\addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 
 \cleardoublepage
 
+
 \end{document}
-
-

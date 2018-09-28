@@ -1,0 +1,230 @@
+%%
+%% This is file `pdfathesis.sty',
+%%
+%%  Copyright (c) 2015, JC Loredo-Osti <jcloredoosti@mun.ca>
+%%
+%%
+%%  This package toghether with 'ghotscript' may be useful to produce
+%%  theses compliant with the PDF/A-1b ISO-19005-1:2005 specification.
+%%
+%%
+%%  This file may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.2 of this
+%%  license or (at your option) any later version.  The latest version
+%%  of this license is in:
+%%
+%%    http://www.latex-project.org/lppl.txt
+%%
+%%  and version 1.2 or later is part of all distributions of LaTeX
+%%  version 1999/12/01 or later.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pdfathesis}
+  [2016/03/21 v0.1 PDF/A-1b 2005 support via 'Ghostscript']
+%%
+%% By default 'hyperref' is not loaded, this gives more chance that the 
+%% document is going to be PDA/A compliant.
+%%
+\newif\if@withhyppo  \@withhyppofalse
+\DeclareOption{withhyperref}{
+\@withhyppotrue
+\typeout{'pdfathesis' with 'hyperref' enabled}
+}
+\ProcessOptions\relax
+%%
+\typeout{}
+\typeout{DISCLAMER:}%
+\typeout{ The use of 'pdfathesis' by no means guarantees that the produced PDF}
+\typeout{ file complies with the PDF/A-1b 2005 specification. Compliance depends}
+\typeout{ on many other factors, like quality of embedded fonts, graphs properties}
+\typeout{ and so on. You need to check the produced file meets the specification}
+\typeout{ before claiming that it does it.}
+\typeout{ You can use applications like 'jhove' and 'preflight' to do the checking.}%
+\typeout{}%
+%%
+\RequirePackage{ifpdf}
+\RequirePackage{ifxetex}
+%%
+\newif\if@dvioutput \@dvioutputfalse
+%%
+\RequirePackage{inputenc}%
+%\ifpdf
+%\input glyphtounicode.tex
+%\input glyphtounicode-cmr.tex
+%\fi
+\newif\ifz@bookma \z@bookmafalse
+\if@withhyppo
+\RequirePackage[pdfa,unicode,hidelinks]{hyperref}
+\ifpdf
+\inputencoding{utf8}
+\fi
+\else
+\def\texorpdfstring#1#2{\ifz@bookma#2\else#1\fi}
+\fi
+\ifpdf%
+\def\@creatortool{pdfLaTeX with pdfathesis}
+\else%
+\ifxetex%
+\def\@creatortool{XeLaTeX with pdfathesis}
+\else
+\def\@creatortool{LaTeX with pdfathesis}
+\@dvioutputtrue
+\fi
+\fi
+\def\sep{\noexpand\sep}
+\def\Author#1{\gdef\z@author{#1}}
+\def\Title#1{\gdef\z@title{#1}}
+\def\Degree#1{\gdef\@degree{#1}}
+\def\DateSubmitted#1{\gdef\@datesubmitted{#1}}
+\def\ConvocationYear#1{\gdef\@convocationyear{#1}}
+\def\DocumentType#1{\gdef\@documenttype{#1}}
+\def\Subject#1{\gdef\@subject{#1}}
+\def\Keywords#1{\gdef\@keywords{#1}}
+\def\CopyrightHolder#1{\gdef\@copyright{#1}}
+\def\University#1{\gdef\@university{#1}}
+\def\AcademicUnit#1{\gdef\@academicunit{#1}}
+\def\Supervisor#1{\gdef\@supervisor{#1}}
+\def\Cosupervisor#1{\gdef\@cosupervisor{#1}}
+\def\ColorspaceProfile#1#2#3{\gdef\@srgb{#1}\gdef\@srgbid{#2}\gdef\@srgbnumcomp{#3}}
+
+\newif\if@zeromarks  \@zeromarksfalse
+% defaults:
+\def\@srgb{sRGB_IEC61966-2-1_black_scaled.icc}
+\def\@srgbid{sRGB IEC61966-2-1 black scaled}
+\def\@srgbnumcomp{3}
+\def\z@title{<<\textbackslash Title\{\} in preamble>>}
+\def\z@author{<<\textbackslash Author\{\} in preamble>>}
+\def\@university{<<\textbackslash University\{\} in preamble>>}
+\def\@degree{<<\textbackslash Degree\{\} in preamble>>}
+\def\@documenttype {<<\textbackslash {D}ocumnet{T}ype\{\} in preamble>>}
+\xdef\@datesubmitted {\ifcase\the\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space \the\year}
+\newcount \convaa \convaa=\year \ifnum\month > 9 \advance\convaa by 1\fi
+\xdef\@convocationyear {\number\the\convaa}
+\def\@subject{<<MSC-code The subject descriptor of this document (see
+  http://www.ams.org/msc/msc2010.html) set by \textbackslash Subject\{\} in preamble>>}
+\def\@copyrightholder {Copyright ©\space \@convocationyear\space \z@author}
+\def\@keywords {<<\textbackslash Keyword\{\} in preamble\sep keyword2\sep keyword3\sep (use macro '\textbackslash sep' as separarator)>>}
+\def\@academicunit {<<\textbackslash AcadeicUnit\{\} in preamble>>}
+\def\@documentdescription{\@degree\space \@documenttype}
+\global\let\@supervisor\@empty
+\global\let\@cosupervisor\@empty
+%
+\let\@praefationes\@empty
+%
+\InputIfFileExists{\jobname.metadata}{
+\typeout{=== Loading existig metadata file ===}}{}
+%
+\begingroup
+\catcode`\<=13
+\catcode`\>=13
+\catcode`\&=13
+\gdef\p@actives{
+  \def&{\p@amp}
+  \def<{\p@lt}
+  \def>{\p@gt}
+}
+\endgroup
+% 
+\def\p@xmpmarkup{
+  \p@actives
+  \def\@amp{\expandafter\@gobble\string\&}
+  \def\@hash{\expandafter\@gobble\string\#}
+  \def\ {\expandafter\@gobble\string\ }
+  \def\{{\expandafter\@gobble\string\{}
+  \def\}{\expandafter\@gobble\string\}}
+  \def\backslash{\expandafter\@gobble\string\\}
+  \def\@unicode##1{\@amp\@hash x##1;}
+  \def\p@amp{\@unicode{0026}}
+  \def\p@lt{\@unicode{003c}}
+  \def\p@gt{\@unicode{003e}}
+  \def\copyright{\@unicode{00A9}}
+  \let\&\p@amp  % for backward compatibility
+}
+%
+\def\makeGSorSH#1#2{%
+  \IfFileExists{#1}{
+    \begingroup
+    \def\sep{, }
+    \newwrite\xxWrite
+    \newread\xxRead
+    \immediate\openin\xxRead #1
+    \immediate\openout\xxWrite #2
+    \catcode`\#=12
+    \catcode`\~=12
+    \catcode`\&=12
+    \loop%
+    \immediate\read\xxRead to\xxReadln%
+    \if\par\xxReadln\else%
+    \immediate\write\xxWrite{\xxReadln}%
+    \fi%
+    \ifeof\xxRead\else%
+    \repeat
+    \immediate\closein\xxRead
+    \immediate\closeout\xxWrite
+    \endgroup
+  }
+  {\edef\xx@filename{#1}
+    \PackageError{pdfathesis}%
+    {The file \xx@filename\space was not found}
+    {The file \xx@filename\space The metadata file
+      wasn't found.\MessageBreak Oops.}
+  }
+}
+%
+\def\@makeGSandSHfiles{
+  \if@withhyppo\@zeromarksfalse
+  \Hy@pdfstringtrue
+  \let\@praefationes\@empty\fi
+  \begingroup
+  \z@bookmatrue
+  \p@xmpmarkup
+  \inputencoding{8bit}
+  \makeatletter
+  \makeGSorSH{pdfathesis.gs}{\jobname.gs}
+  \makeGSorSH{pdfathesis.sh}{\jobname.sh}
+  \makeatother
+  \endgroup
+ \z@bookmafalse
+ \if@withhyppo
+ \Hy@pdfstringfalse
+ \fi
+}
+
+\AtBeginDocument{\@makeGSandSHfiles
+  \ifpdf
+  \begingroup
+  \def\sep{, }
+  \pdfinfo{%
+    /Title(\z@title)%
+    /Author(\z@author)%
+    /Subject(\@subject)%
+    /Keywords(\@keywords)%
+    /Creator(\@creatortool)%
+    /Trapped /False%
+    /University(\@university)
+    /AcademicUnit (\@academicunit)
+    /DateSubmitted (\@datesubmitted)
+    /DocumentDescription (\@documentdescription)
+  }
+  \endgroup
+  \fi
+}
+%
+\def\endoffrontmatter{\xdef\@praefationes{\the\value{page}}\@makeGSandSHfiles}
+%
+% This runs only whenever 'hyperref' has been loaded
+\def\PDF@FinishDoc{%
+  \Hy@DisableOption{pdfauthor}%
+  \Hy@DisableOption{pdftitle}%
+  \Hy@DisableOption{pdfsubject}%
+  \Hy@DisableOption{pdfcreator}%
+  \Hy@DisableOption{pdfkeywords}%
+}
+%%
+\endinput
+%%
+%% End of file 'pdfathesis.sty'
+%%
