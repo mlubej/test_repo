@@ -3,6 +3,7 @@
 This chapter shows the procedure in suppressing various kinds of backgrounds by applying cuts on MVA classifier outputs. More information about the MVA training, feature importance and hyper-parameter optimization for each MVA step in this chapter can be found in the Appendix \ref{sec:mva-control-plots}.
 
 \section{Resonant Background}
+\label{sec:res_bkg}
 
 In this analysis we study decays with kaons in the final state. This means that standard procedures in $b \to u$ analyses in order to suppress $b \to c$ backgrounds, such as $K$-veto, are not possible. As a consequence, our final sample consists of combinations of $K$ pairs coming also from $b \to c$  sources, such as $D^0 \to K^+ K^-$. Such candidates usually have resonance-like properties in the two-kaon invariant mass spectrum. Figure \ref{fig:res_bkg} shows this invariant mass spectrum of two kaons, $m_{KK}$, where obvious resonant structures are present from sources like
 \begin{itemize}
@@ -235,7 +236,7 @@ The majority of background candidates after the final selection is represented b
 
 In order to suppress these candidates, a lepton veto can be applied to both kaons, stating that neither of the kaons should exhibit lepton-like properties. On the candidates passing the final selection, we optimize the $eID$ and $\mu ID$ PID cuts, where $S$ and $B$ in Eq. \ref{eq:fom} are represented by perfect signal candidates and by background candidates, respectively, whereas in the latter case a lepton has been misidentified as a kaon. 2D FOM plots for both kaons are shown in Figure \ref{fig:lepVeto}, where it can be seen that in the majority of the cases, an electron is misidentified as the kaon with the opposite charge to the $B$ meson. With the optimal cuts of 
 \begin{itemize}
-	\item $K_0:~eID < 0.7,$
+	\item $K_0:~eID < 0.8,$
 	\item $K_1:~eID < 0.1,~\mu ID < 0.8,$
 \end{itemize}
 we reject $77.5\%$ of candidates from the double semileptonic decays, while efficiency loss of signal and other types of $B \bar B$ background is about $5-6\%$. The $B \bar B$ background after the lepton veto cuts is shown in Figure \ref{fig:sig_bkg_all_after} for the signal cut region, and in Figure \ref{fig:cs_bkg_after} for the control cut region.

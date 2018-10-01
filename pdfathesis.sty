@@ -54,7 +54,8 @@
 %\fi
 \newif\ifz@bookma \z@bookmafalse
 \if@withhyppo
-\RequirePackage[pdfa,unicode,hidelinks]{hyperref}
+%hidelinks
+\RequirePackage[pdfa,unicode,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue]{hyperref}
 \ifpdf
 \inputencoding{utf8}
 \fi
