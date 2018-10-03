@@ -1,4 +1,4 @@
-\chapter{Signal Extraction}
+\chapter{Extraction of Physical Parameters}
 In this chapter, the procedure for signal yield extraction is presented. We use the framework of \texttt{RooFit} \cite{verkerke2006roofit} where we define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with the binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poisson nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure, we attempt to find the parameter values that maximize the likelihood function, given the observations.
 
 If $P(n\vert\vec \alpha)$ is the probability of measuring $n$ candidates, where $\vec \alpha$ is a set of parameters on which $P$ depends, we can define the likelihood function $L$ for a series of such measurements (i.e., bins in histogram) $n_i$ based on Poisson statistics as
@@ -299,10 +299,10 @@ Figure \ref{fig:lin_test} shows the difference between mean fit yield and the ex
 \end{figure}
 
 
-\section{Fit Results}
+\chapter{Results}
 In this section, we present the first results of signal and control fits on MC as well as data, along with the control decay branching ratio measurement. We also show results of the signal fit on MC and data.
 
-\subsection{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
+\section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
 With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each initial binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the expected yield differences, pulls and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value at 0, with a width of 1. It can be seen from the plots that this is not exactly the case, as a slight offset is present in the other direction as in the case of the pseudo-experiments. This difference is also accounted for as a contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the uBDT classifier, as well as the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the uBDT classifier fit setup outperforms the standard BDT fit setup, which determines our choice of the final selection. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
@@ -332,7 +332,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 	\label{fig:sig_global}
 \end{figure}
 
-\subsection{Control Fit Result}
+\section{Control Fit Result}
 With the control fit setup described in section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. An average MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a $0^{\mathrm{th}}$ degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
 \begin{table}[H]
 	\centering
@@ -374,7 +374,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\label{fig:cs_global}
 \end{figure}
 
-\subsubsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
+\subsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
 
 After acquiring the fit results on MC and data, we are able to determine the branching ratio of the control decay, which is defined as
 
@@ -434,9 +434,9 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\label{fig:br_plot}
 \end{figure}
 
-\subsection{Signal Fit to Data}\label{sec:final-results-from-data}
+\section{Signal Fit Results to Data}\label{sec:final-results-from-data}
 
-\subsubsection{Signal Yield}
+\subsection{Signal Yield}
 
 Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
@@ -514,7 +514,7 @@ It is possible to estimate the contribution of the systematic uncertainty to the
 \end{equation}
 where GC stands for Gaussian constraint. Further details about systematic uncertainties can be found in chapter \ref{sec:systematic-uncertainty}.
 
-\subsubsection{Branching Ratio}\label{sec:branching-ratio-calculation-for-signal-decay}
+\subsection{Branching Ratio}\label{sec:branching-ratio-calculation-for-signal-decay}
 
 Similarly as for the control decay, we are able to calculate the branching ratio of the signal decay via the formulas
 \begin{align}
@@ -547,24 +547,23 @@ With the statistical significance of about $5.9\sigma$ this is the first observa
 	\label{tab:br_result_sig}
 \end{table}
 
-\subsubsection{Signal Distribution in \texorpdfstring{$m_{KK}$}{mKK}}
+\subsection{Signal Distribution in bins of \texorpdfstring{$m_{KK}$}{mKK}}
 
-It is possible to take a deeper look in the signal decay distribution over the $m_{KK}$ variable by performing the signal fit in windows over the $m_{KK}$ distribution instead of a single fit over the whole region. This offers deeper insight into the real $m_{KK}$ distribution and provides more detail about the reliability of our MC samples. Table \ref{tab:mKK_windows} shows the selected regions in $m_{KK}$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:mKK_windows}. Figures for each $m_{KK}$ window fit can be found in Appendix \ref{sec:other_plots}.
+It is possible to take a deeper look in the signal distribution over the $m_{KK}$ variable by performing the signal fit in bins of the $m_{KK}$ distribution instead of a single fit over the whole region. This offers deeper insight into the real $m_{KK}$ distribution and provides more detail about the reliability of our MC samples. Results can be used to check theoretical predictions or to update existing MC generators. Table \ref{tab:mKK_windows} shows the selected regions in $m_{KK}$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:mKK_windows}. Figures for each $m_{KK}$ window fit can be found in Appendix \ref{sec:mKK_plots}. In the given results, the $m_{KK}$ regions around the $\phi$ and the $D^0$ resonances has been excluded (see section \ref{sec:res_bkg}).
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{c|c|c|c|c}
-		Region & Expected & MC fit & Data fit & Note \\
+	\begin{tabular}{c|c|c|c}
+		Region & Expected & MC fit & Data fit \\
 		\toprule
-		$0.980  < m_{KK} < 1.011$ & $8$ & $7 \pm 2$ & $21 \pm 7$ & --\\
-		$1.011  < m_{KK} < 1.027$ & $4$ & $2 \pm 2$ & $33 \pm 11$ & $\phi$ resonance\\
-		$1.027  < m_{KK} < 1.187$ & $28$ & $24 \pm 8$ & $103 \pm 25$ & --\\
-		$1.187  < m_{KK} < 1.342$ & $39$ & $41 \pm 6$ & $102 \pm 29$ & --\\
-		$1.342  < m_{KK} < 1.497$ & $39$ & $34 \pm 10$ & $76 \pm 32$ & --\\
-		$1.497  < m_{KK} < 1.647$ & $39$ & $38 \pm 15$ & $79 \pm 35$ & --\\
-		$1.647  < m_{KK} < 1.850$ & $45$ & $44 \pm 8$ & $165 \pm 46$ & --\\
-		$1.850  < m_{KK} < 1.880$ & $5$ & $2 \pm 19$ & $-23 \pm 81$ & $D^0$ resonance\\
-		$1.880  < m_{KK} < 3.660$ & $53$ & $53 \pm 12$ & $2 \pm 41$ & -- \\
+		$0.980  < m_{KK} < 1.357$ & $79$ & $81 \pm 10$ & $216 \pm 40$ \\
+		$1.357  < m_{KK} < 1.735$ & $96$ & $95 \pm 22$ & $234 \pm 55$ \\
+		$1.735  < m_{KK} < 2.112$ & $51$ & $51 \pm 7$ & $89 \pm 50$ \\
+		$2.112  < m_{KK} < 2.490$ & $19$ & $19 \pm 5$ & $4 \pm 19$ \\
+		$2.490  < m_{KK} < 2.867$ & $5$ & $16 \pm 4$ & $-6 \pm 8$ \\
+		$2.867  < m_{KK} < 3.245$ & $1$ & $-3 \pm 2$ & $-8 \pm 5$ \\
+		$3.245  < m_{KK} < 3.623$ & $1$ & $-1 \pm 1$ & $-2 \pm 5$ \\
+		$3.623  < m_{KK} < 4.000$ & $0$ & $-1 \pm 1$ & $-1 \pm 3$ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -578,4 +577,36 @@ It is possible to take a deeper look in the signal decay distribution over the $
 	\includegraphics[width=\linewidth]{fig/sig_mKK_all}
 	\caption{Signal yield distribution as a function of bins in $m_{KK}$.}
 	\label{fig:mKK_windows}
+\end{figure} 
+
+\subsection{Signal Distribution in bins of \texorpdfstring{$q^2$}{q2}}
+
+Similarly as above we look at the signal distribution over the square momentum transfer to the lepton pair, $q^2$, by performing the signal fit in bins of the $q^2$ distribution instead of a single fit over the whole region. In addition to the results offering insight for updating the MC generators, we are able to extract the $V_{ub}$ parameter of the CKM matrix, provided that the appropriate form factors of the decay are available. This was not performed in this analysis. Table \ref{tab:q2_windows} shows the selected regions in $q^2$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:q2_windows}. Figures for each $q^2$ window fit can be found in Appendix \ref{sec:q2_plots}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		Region & Expected & MC fit & Data fit \\
+		\toprule
+		$0.000  < q^2 < 2.250$ & $41$ & $35 \pm 13$ & $2 \pm 39$  \\
+		$2.250  < q^2 < 4.500$ & $49$ & $46 \pm 5$ & $98 \pm 37$  \\
+		$4.500  < q^2 < 6.750$ & $46$ & $44 \pm 7$ & $196 \pm 37$  \\
+		$6.750  < q^2 < 9.000$ & $41$ & $40 \pm 8$ & $114 \pm 37$  \\
+		$9.000  < q^2 < 11.250$ & $36$ & $35 \pm 7$ & $61 \pm 32$  \\
+		$11.250  < q^2 < 13.500$ & $26$ & $25 \pm 6$ & $44 \pm 25$  \\
+		$13.500  < q^2 < 15.750$ & $13$ & $10 \pm 4$ & $23 \pm 16$  \\
+		$15.750  < q^2 < 18.000$ & $2$ & $1 \pm 1$ & $10 \pm 9$  \\
+		\bottomrule
+	\end{tabular}
+	\captionsetup{width=.8\linewidth}
+	\caption{Various signal fit yields for for each of the defined $q^2$ windows.}
+	\label{tab:q2_windows}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_q2_all}
+	\caption{Signal yield distribution as a function of bins in $q^2$.}
+	\label{fig:q2_windows}
 \end{figure} 

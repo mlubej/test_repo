@@ -13,7 +13,7 @@ Photons originate from the IP region, travel to the ECL part of the detector in 
 
 Most of the photons in events with $B$ mesons come from $\pi^0 \to \gamma \gamma$ decays. However, a lot of hits in the ECL are also created by photons coming from the beam-induced background or secondary interactions with the detector material. Photons of the first kind should be taken into account when calculating the missing 4-momentum, while the latter kind adds extra energy and momentum which spoils our measured quantities. In the first step of the clusters clean-up, we train an MVA which recognizes good $\pi^0$ candidates and apply this information to the daughter photons. This represents a sort of a $\pi^0$ origin probability, which peaks at or is equal to 0 for photons not coming from $\pi^0$ particles, and peaks at 1 otherwise. This information is used as an additional classifier variable in the next step of the clean-up, where we train to recognize good photons in an event.
 
-\subsection{\texorpdfstring{$\pi^0$}{Pi0} MVA Training}
+\subsection{\texorpdfstring{$\pi^0$}{π0} MVA Training}
 
 The training dataset of $\pi^0$ candidates contains
 \begin{itemize}
@@ -51,7 +51,7 @@ The classifier output variable is shown in Figure \ref{fig:ROE_pi0}.
 The distributions for all input variables and their correlations for signal and background candidates can be found in Appendix A for all steps of the ROE clean-up.
 
 
-\subsection{\texorpdfstring{$\gamma$}{Photon} MVA Training}
+\subsection{\texorpdfstring{$\gamma$}{γ} MVA Training}
 
 In this MVA training, we take the $\pi^0$ classifier output of the previous training as an input in order to train a classifier to distinguish between good and bad photons. The $\pi^0$ probability information from the previous step is applied to all photon pairs which pass the same $\pi^0$ cuts as defined in the previous step. Since it's possible to have overlapping pairs of photons, the $\pi^0$ probability is overwritten in the case of a larger value, since this points to a greater probability of a correct photon combination. On the other hand, some photon candidates fail to pass the $\pi^0$ selection, these candidates have a fixed value of $\pi^0$ probability equal to zero.
 

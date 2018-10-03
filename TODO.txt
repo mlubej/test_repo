@@ -1,3 +1,11 @@
-ROE cleanup validation plots fix
-
 additional references
+
+fix existing references
+
+check references
+
+update systematics
+
+thrust axis acceptance (pg.12 https://arxiv.org/pdf/hep-ex/0703042.pdf)
+
+add sideband plot
