@@ -46,7 +46,7 @@ $B \bar B$ background composition in control region is shown in Figure \ref{fig:
 	\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$,
 	\item other $B \bar B$ BKG template.
 \end{itemize}
-In control fits, all template shapes are fixed and the yields of all templates are floated, except for the signal template, which is expected to be very close to zero and is fixed to the expected MC yield. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit and constrained to the measured value in case of fits to real data. The ratio is implemented based on the decay channels shown in Table \ref{tab:cs_constraint_table} and is defined as
+In control fits, all template shapes are fixed and the yields of all templates are floated, except for the $q \bar q$ template in cases after the $BDT_{q \bar q}$ cuts and signal template in all cases, where both are expected to be very close to zero and are instead fixed to the expected MC yield. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit and constrained to the measured value in case of fits to real data. The ratio is implemented based on the decay channels shown in Table \ref{tab:cs_constraint_table} and is defined as
 \begin{equation}
 r_1 = \frac{\left(\sum_j N_{1j}\times \rho_{1j} \right)}{N_{00} \times \rho_{00}},
 \label{eq:cs_fix}
@@ -70,9 +70,9 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 	\begin{tabular}{l|l|l|l|l}
 		Category & Channel & $B$ Decay Mode & $D$ Decay Mode & $N_{MC}$ \\
 		\toprule
-		$C_0$ & $N_{00}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $1182 \pm 34$\\
+		$C_0$ & $N_{00}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $1184 \pm 34$\\
 		\midrule
-		\multirow{2}{*}{$C_1$} & $N_{10}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $1455\pm38$\\
+		\multirow{2}{*}{$C_1$} & $N_{10}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $1458\pm38$\\
 		& $N_{11}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-K^+$ & $186\pm16$\\
 		\bottomrule
 	\end{tabular}
@@ -107,7 +107,7 @@ With simulated data, we are able to perform detailed studies prior to looking at
 f_{\mathrm{offset}}&: x \mapsto x + a, \\
 f_{\mathrm{smearing}}&: x \mapsto \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
 \end{align}
-where $x$ goes over all entries in the $\Delta E$ distribution, $a$ is the energy offset and $f_{\mathrm{smearing}}$ corresponds to the normal distribution with mean $\mu$ and standard deviation $\sigma$. In case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
+where $x$ goes over all entries in the $\Delta E$ distribution, $a$ is the energy offset and $f_{\mathrm{smearing}}$ corresponds to the normal distribution with mean $\mu$ and standard deviation $\sigma$. In the case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
 
 The following parameter phase space is scanned in order to determine the best parameter values
 \begin{itemize}
@@ -178,29 +178,29 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 		& $N_{21}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$  & $D^0 \to K^-\pi^+$ & $41\pm6$\\
 		& $N_{22}$ & $B^0 \to D {}^{*-} \ell^+ \nu$  & $D^0 \to K^-\pi^+$ & $6\pm2$\\
 		\midrule
-		\multirow{6}{*}{$C_3$} & $N_{30}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-K^+\pi^0$ & $103\pm10$\\
-		& $N_{31}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $211\pm15$\\
+		\multirow{6}{*}{$C_3$} & $N_{30}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-K^+\pi^0$ & $102\pm10$\\
+		& $N_{31}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $210\pm15$\\
 		& $N_{32}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-K^+\pi^0$ & $135\pm12$\\
-		& $N_{33}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $267\pm16$\\
+		& $N_{33}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $266\pm16$\\
 		& $N_{34}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-K^+\pi^0$ & $19\pm4$\\
-		& $N_{35}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $36\pm6$\\
+		& $N_{35}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-\pi^+\pi^0$ & $35\pm6$\\
 		\midrule
-		\multirow{6}{*}{$C_4$} & $N_{40}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-e^+\nu$ & $48\pm7$\\
+		\multirow{6}{*}{$C_4$} & $N_{40}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-e^+\nu$ & $47\pm7$\\
 		& $N_{41}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & $D^0 \to K^-\mu^+\nu$ & $7\pm3$\\
 		& $N_{42}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-e^+\nu$ & $98\pm10$\\
 		& $N_{43}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & $D^0 \to K^-\mu^+\nu$ & $10\pm3$\\
 		& $N_{44}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-e^+\nu$ & $14\pm4$\\
 		& $N_{45}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^0 \to K^-\mu^+\nu$ & $3\pm2$\\
 		\midrule
-		\multirow{4}{*}{$C_5$} & $N_{50}$ & $B^0 \to D {}^{-} \ell^+ \nu$ & $D^+ \to K^-K^+\pi^+$ & $103\pm10$\\
+		\multirow{4}{*}{$C_5$} & $N_{50}$ & $B^0 \to D {}^{-} \ell^+ \nu$ & $D^+ \to K^-K^+\pi^+$ & $102\pm10$\\
 		& $N_{51}$ & $B^0 \to D {}^{-} \ell^+ \nu$ & $D^+ \to K^-\pi^+\pi^+$ & $63\pm8$\\
 		& $N_{52}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^+ \to K^-K^+\pi^+$ & $31\pm6$\\
 		& $N_{53}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ & $D^+ \to K^-\pi^+\pi^+$ & $21\pm5$\\
 		\midrule
 		\multirow{4}{*}{$C_6$} & $N_{60}$ & $B^+ \to \bar D {}^{0} \ell^+ \nu$ & \multirow{4}{*}{} & $69\pm8$\\
-		& $N_{61}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & Other $D^0$ and $D^+$ & $95\pm10$\\
+		& $N_{61}$ & $B^+ \to \bar D {}^{*0} \ell^+ \nu$ & Other $D^0$ and $D^+$ & $94\pm10$\\
 		& $N_{62}$ & $B^0 \to D {}^{-} \ell^+ \nu$ & decays & $63\pm8$\\
-		& $N_{63}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ &  & $36\pm6$\\
+		& $N_{63}$ & $B^0 \to D {}^{*-} \ell^+ \nu$ &  & $35\pm6$\\
 		\bottomrule
 		
 	\end{tabular}
@@ -268,7 +268,7 @@ With toy MC experiments in this section, we study the yields, errors and the pul
 
 We constructed $3\E{3}$ pseudo-datasets, where each dataset was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $19 \times 19$ bins in \vars.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo-fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.11\pm0.02)$ and standard deviation of $(1.01\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated~as~\cite{ahn2003standard}
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo-fits. The fits seem to be under control, although there is a slight bias present in the negative direction, which can also be seen in the pull distribution plot. The latter follows a normal distribution with a mean of $(-0.11\pm0.02)$ and a standard deviation of $(1.01\pm0.01)$. The mean ($\bar X$) and the standard deviation $(S)$ were calculated in the usual way, while their errors $\sigma_{\bar X}$ and $\sigma_S$ were calculated~as~\cite{ahn2003standard}
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
@@ -288,7 +288,7 @@ Linearity test is used for determining the sensitivity of the fit to the amount 
 
 The pseudo-datasets are generated in the same way as in the previous subsection, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo-datasets according to Poisson statistics.
 
-Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.58\sigma$ significance.
+Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.6\sigma$ significance.
 
 \begin{figure}[H]
 	\centering
@@ -314,7 +314,7 @@ With the signal fit setup described in section \ref{sec:templates-in-signal-fits
 	\label{fig:sig_binning}
 \end{figure}
 
-For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 0.98$, while the average significance of the fits is around $3.56 \sigma$.
+For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value in a precise manner, with the bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom of the global fit is $\chi^2_9 = 1.23$, while the average significance of the fits is around $3.5 \sigma$.
 
 \begin{figure}[H]
 	\centering
@@ -328,7 +328,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_global_mc}
-	\caption{Fits to all 10 streams of MC and the global fit with a zero degree polynomial. The red line shows the mean value of the global fit and the gray band shows the $1\sigma$ confidence interval.}
+	\caption{Fits to all 10 streams of MC and the global fit with a zero-th degree polynomial. The red line shows the mean value of the global fit and the gray band shows the $1\sigma$ confidence interval.}
 	\label{fig:sig_global}
 \end{figure}
 
@@ -340,9 +340,9 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 		
 		& $N^{MC}$ & $N^{\mathrm{data}}$ \\
 		\toprule
-		$\ell = e$ or $\mu$ & $1180 \pm 11$ & $1192 \pm 44$\\
-		$\ell = e$ & $590 \pm 9$ & $588 \pm 28$ \\
-		$\ell = \mu$ & $591 \pm 7$ & $610 \pm 30$\\
+		$\ell = e$ or $\mu$ & $1182 \pm 11$ & $1187 \pm 44$\\
+		$\ell = e$ & $591 \pm 8$ & $583 \pm 28$ \\
+		$\ell = \mu$ & $592 \pm 7$ & $613 \pm 30$\\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=0.8\linewidth}
@@ -387,9 +387,9 @@ where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of 
 
 The control sample efficiency was determined on a separate signal MC sample of the control decay, where we generated $5\E{6}$ $B^+ \bar B^-$ pairs, with one $B$ always decaying via $B^+ \to \bar D {}^0 \ell^+ \nu,~D^0 \to K^+K^-$. After applying the final selection, the full and split efficiencies with regard to the lepton final state were determined to be 
 \begin{align*}
-\epsilon_{MC} &= (8.89\pm 0.04)\E{-3},\\
-\epsilon_{MC}^e &= (4.40\pm 0.03)\E{-3},\\
-\epsilon_{MC}^\mu &= (4.49\pm 0.03)\E{-3},
+\epsilon_{MC} &= (8.61\pm 0.04)\E{-3},\\
+\epsilon_{MC}^e &= (4.25\pm 0.03)\E{-3},\\
+\epsilon_{MC}^\mu &= (4.35\pm 0.03)\E{-3},
 \end{align*}
 where the efficiency error was estimated based on a formula from \cite{paterno2004calculating}.
 \begin{equation*}
@@ -416,9 +416,9 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\begin{tabular}{l|c|c|c|c}
 		& $\mathcal{B}_{GEN}~[\times 10^{-5}]$ & $\mathcal{B}_{PDG}~[\times 10^{-5}]$ & $\mathcal{B}^{MC}~[\times 10^{-5}]$ & $\mathcal{B}^{\mathrm{data}}~[\times 10^{-5}]$ \\
 		\toprule
-		$\ell = e$ or $\mu$ & \multirow{3}{*}{$9.01$} & \multirow{3}{*}{$9.10\pm0.42$} & $8.94\pm0.09$ & $9.06\pm0.40$\\
-		$\ell = e$ & & & $9.04\pm0.15$ & $9.07\pm0.49$ \\
-		$\ell = \mu$  & & & $8.85\pm0.12$ & $9.12\pm0.50$\\
+		$\ell = e$ or $\mu$ & \multirow{3}{*}{$9.01$} & \multirow{3}{*}{$9.10\pm0.42$} & $8.97\pm0.09$ & $9.03\pm0.40$\\
+		$\ell = e$ & & & $9.07\pm0.14$ & $9.02\pm0.49$ \\
+		$\ell = \mu$  & & & $8.88\pm0.12$ & $9.18\pm0.50$\\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -453,16 +453,16 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\begin{tabular}{l|l}
 		Category & Fit Yield \\
 		\toprule
-		Signal & $476 \pm 86$ \\
-		$q \bar q$ background & $ 2315 \pm 179 $ \\
+		Signal & $489 \pm 86$ \\
+		$q \bar q$ background & $ 2307 \pm 178 $ \\
 		$C_0$ & $ 45 \pm 7 $ \\
 		$C_1$ & $ 57 \pm 8 $\\
 		$C_2$ & $ 69 \pm 9 $ \\
-		$C_3$ & $ 910 \pm 57 $ \\
-		$C_4$ & $ 180 \pm 16 $ \\
-		$C_5$ & $ 223 \pm 18 $ \\
-		$C_6$ & $ 341 \pm 107 $ \\
-		Other $B \bar B$ background & $ 16399 \pm 246 $ \\
+		$C_3$ & $ 909 \pm 57 $ \\
+		$C_4$ & $ 179 \pm 16 $ \\
+		$C_5$ & $ 222 \pm 18 $ \\
+		$C_6$ & $ 320 \pm 108 $ \\
+		Other $B \bar B$ background & $ 16462 \pm 245 $ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -476,25 +476,26 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 		Constraint & Value & Constraint & Value \\
 		\toprule
 		$\mathcal{B}_{0}$ & $0.049 \pm 0.001$ & $N_{30}$ & $103 \pm 10$\\
-		$\mathcal{B}_{1}$ & $1.076 \pm 0.004$ & $N_{31}$ & $211 \pm 14$\\
+		$\mathcal{B}_{1}$ & $1.076 \pm 0.004$ & $N_{31}$ & $212 \pm 14$\\
 		$\mathcal{B}_{2}$ & $0.021 \pm 0.001$ & $N_{32}$ & $136 \pm 12$\\
-		$\mathcal{B}_{3}$ & $1.014 \pm 0.018$ & $N_{33}$ & $267 \pm 16$\\
-		$\mathcal{B}_{4}$ & $1.018 \pm 0.010$ & $N_{34}$ & $19 \pm 4$\\
+		$\mathcal{B}_{3}$ & $1.014 \pm 0.018$ & $N_{33}$ & $268 \pm 16$\\
+		$\mathcal{B}_{4}$ & $1.018 \pm 0.010$ & $N_{34}$ & $20 \pm 4$\\
 		$\mathcal{B}_{5}$ & $1.439 \pm 0.063$ & $N_{35}$ & $35 \pm 6$\\
 		$\mathcal{B}_{6}$ & $1.092 \pm 0.038$ & $N_{40}$ & $48 \pm 7$\\
 		$\mathcal{B}_{7}$ & $1.035 \pm 0.008$ & $N_{41}$ & $7 \pm 3$\\
 		$\mathcal{B}_{8}$ & $0.971 \pm 0.038$ & $N_{42}$ & $99 \pm 10$\\
 		$\mathcal{B}_{9}$ & $1.052 \pm 0.038$ & $N_{43}$ & $10 \pm 3$\\
 		$\mathcal{B}_{10}$ & $0.945 \pm 0.029$ & $N_{44}$ & $14 \pm 4$\\
-		$\mathcal{B}_{11}$ & $1.331 \pm 0.441$ & $N_{45}$ & $3 \pm 2$\\
-		$N_{\mathrm{control}}^{MC}$ & $1179 \pm 11$ & $N_{50}$ & $103 \pm 10$\\
-		$N_{\mathrm{control}}$ & $1215 \pm 43$ & $N_{51}$ & $63 \pm 8$\\
+		$\mathcal{B}_{11}$ & $1.253 \pm 0.443$ & $N_{45}$ & $3 \pm 2$\\
+		$N_{\mathrm{control}}^{MC}$ & $1181 \pm 11$ & $N_{50}$ & $103 \pm 10$\\
+		$N_{\mathrm{control}}^{Data}$ & $1214 \pm 43$ & $N_{51}$ & $64 \pm 8$\\
 		$N_{00}$ & $44 \pm 7$ & $N_{52}$ & $31 \pm 6$\\
-		$N_{10}$ & $54 \pm 7$ & $N_{53}$ & $21 \pm 5$\\
+		$N_{10}$ & $54 \pm 7$ & $N_{53}$ & $22 \pm 5$\\
 		$N_{11}$ & $6 \pm 2$ & $N_{60}$ & $69 \pm 8$\\
 		$N_{20}$ & $23 \pm 5$ & $N_{61}$ & $94 \pm 10$\\
 		$N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
 		$N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
+		
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -504,13 +505,13 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 
 In this fit setup, we perform a random smearing of the $\Delta E$ variable according to the Poisson distribution. The result is similar to a convolution with a Gaussian function, but the application is different in the sense that it returns a slightly different result after each fit. We perform 500 data fits in order to obtain the mean values of the signal yield and fit error. The averaged result is
 \begin{equation*}
-\bar N {}_{sig} = 487 \pm 86,\quad \mathrm{fit~significance} = 5.9\sigma,
+\bar N {}_{sig} = 489 \pm 85,\quad \mathrm{fit~significance} = 5.9\sigma,
 \end{equation*}
-where the error represents the joint value of the statistical error as well as the systematic error of the Gaussian constraints used in the fit. This means that our initial fit is a good representation of the average fit result. 
+where the error represents the joint value of the statistical error and the systematic error of the Gaussian constraints used in the fit. This means that our initial fit is a good representation of the average fit result. 
 
 It is possible to estimate the contribution of the systematic uncertainty to the fit error above, which is found to be
 \begin{equation}
-\sigma_{stat} = 81,\quad \sigma_{sys}^{GC} = 29,\quad \delta_{sys}^{GC} = 6\%,
+\sigma_{\mathrm{stat}} = 81,\quad \sigma_{\mathrm{sys}}^{GC} = 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.3\%,
 \end{equation}
 where GC stands for Gaussian constraint. Further details about systematic uncertainties can be found in chapter \ref{sec:systematic-uncertainty}.
 
@@ -526,7 +527,7 @@ where $N^{\mathrm{MC}}_\mathrm{sig}$ and $N_\mathrm{sig}$ are yields of the sign
 
 The signal efficiency was determined on the same signal MC sample as was used throughout the analysis. The full signal efficiency is determined to be
 \begin{equation*}
-\epsilon_{MC} = (1.030 \pm 0.007)\E{-2},
+\epsilon_{MC} = (1.052 \pm 0.003)\E{-2},
 \end{equation*}
 where the efficiency error was calculated in the same manner as in section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement
 
@@ -539,7 +540,7 @@ With the statistical significance of about $5.9\sigma$ this is the first observa
 	\begin{tabular}{l|c|c|c}
 		& $\mathcal{B}_{GEN}~[\times 10^{-5}]$ & $\mathcal{B}^{MC}~[\times 10^{-5}]$ & $\mathcal{B}^{\mathrm{data}}~[\times 10^{-5}]$ \\
 		\toprule
-		$\ell = e$ or $\mu$ & $1.57$ & $1.60 \pm 0.14$ & $3.09 \pm 0.52 \pm {}^{+0.66}_{-0.47}$\\
+		$\ell = e$ or $\mu$ & $1.57$ & $1.55 \pm 0.15$ & $3.04 \pm 0.54 {}^{+0.74}_{-0.71}$\\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -556,14 +557,14 @@ It is possible to take a deeper look in the signal distribution over the $m_{KK}
 	\begin{tabular}{c|c|c|c}
 		Region & Expected & MC fit & Data fit \\
 		\toprule
-		$0.980  < m_{KK} < 1.357$ & $79$ & $81 \pm 10$ & $216 \pm 40$ \\
-		$1.357  < m_{KK} < 1.735$ & $96$ & $95 \pm 22$ & $234 \pm 55$ \\
-		$1.735  < m_{KK} < 2.112$ & $51$ & $51 \pm 7$ & $89 \pm 50$ \\
-		$2.112  < m_{KK} < 2.490$ & $19$ & $19 \pm 5$ & $4 \pm 19$ \\
-		$2.490  < m_{KK} < 2.867$ & $5$ & $16 \pm 4$ & $-6 \pm 8$ \\
-		$2.867  < m_{KK} < 3.245$ & $1$ & $-3 \pm 2$ & $-8 \pm 5$ \\
-		$3.245  < m_{KK} < 3.623$ & $1$ & $-1 \pm 1$ & $-2 \pm 5$ \\
-		$3.623  < m_{KK} < 4.000$ & $0$ & $-1 \pm 1$ & $-1 \pm 3$ \\
+		$0.980  < m_{KK} < 1.357$ & $80$ & $77 \pm 12$ & $220 \pm 40$ \\
+		$1.357  < m_{KK} < 1.735$ & $96$ & $94 \pm 19$ & $234 \pm 55$ \\
+		$1.735  < m_{KK} < 2.112$ & $50$ & $49 \pm 8$ & $81 \pm 51$ \\
+		$2.112  < m_{KK} < 2.490$ & $18$ & $18 \pm 6$ & $1 \pm 20$ \\
+		$2.490  < m_{KK} < 2.867$ & $5$ & $12 \pm 4$ & $-11 \pm 8$ \\
+		$2.867  < m_{KK} < 3.245$ & $1$ & $-3 \pm 2$ & $-7 \pm 6$ \\
+		$3.245  < m_{KK} < 3.623$ & $1$ & $-2 \pm 1$ & $-7 \pm 5$ \\
+		$3.623  < m_{KK} < 4.000$ & $0$ & $-1 \pm 1$ & $-4 \pm 4$ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -581,21 +582,21 @@ It is possible to take a deeper look in the signal distribution over the $m_{KK}
 
 \subsection{Signal Distribution in bins of \texorpdfstring{$q^2$}{q2}}
 
-Similarly as above we look at the signal distribution over the square momentum transfer to the lepton pair, $q^2$, by performing the signal fit in bins of the $q^2$ distribution instead of a single fit over the whole region. In addition to the results offering insight for updating the MC generators, we are able to extract the $V_{ub}$ parameter of the CKM matrix, provided that the appropriate form factors of the decay are available. This was not performed in this analysis. Table \ref{tab:q2_windows} shows the selected regions in $q^2$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:q2_windows}. Figures for each $q^2$ window fit can be found in Appendix \ref{sec:q2_plots}.
+Similarly, we look at the signal distribution over the square momentum transfer to the lepton pair, $q^2$, by performing the signal fit in bins of the $q^2$ distribution instead of a single fit over the whole region. In addition to the results offering insight for updating the MC generators, we are able to extract the $V_{ub}$ parameter of the CKM matrix, provided that the appropriate form factors of the decay are available. This was not performed in this analysis. Table \ref{tab:q2_windows} shows the selected regions in $q^2$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:q2_windows}. Figures for each $q^2$ window fit can be found in Appendix \ref{sec:q2_plots}.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|c|c|c}
 		Region & Expected & MC fit & Data fit \\
 		\toprule
-		$0.000  < q^2 < 2.250$ & $41$ & $35 \pm 13$ & $2 \pm 39$  \\
-		$2.250  < q^2 < 4.500$ & $49$ & $46 \pm 5$ & $98 \pm 37$  \\
-		$4.500  < q^2 < 6.750$ & $46$ & $44 \pm 7$ & $196 \pm 37$  \\
-		$6.750  < q^2 < 9.000$ & $41$ & $40 \pm 8$ & $114 \pm 37$  \\
-		$9.000  < q^2 < 11.250$ & $36$ & $35 \pm 7$ & $61 \pm 32$  \\
-		$11.250  < q^2 < 13.500$ & $26$ & $25 \pm 6$ & $44 \pm 25$  \\
-		$13.500  < q^2 < 15.750$ & $13$ & $10 \pm 4$ & $23 \pm 16$  \\
-		$15.750  < q^2 < 18.000$ & $2$ & $1 \pm 1$ & $10 \pm 9$  \\
+		$0.000  < q^2 < 2.250$ & $41$ & $37 \pm 14$ & $-9 \pm 39$ \\
+		$2.250  < q^2 < 4.500$ & $49$ & $44 \pm 6$ & $92 \pm 38$ \\
+		$4.500  < q^2 < 6.750$ & $46$ & $44 \pm 7$ & $192 \pm 38$ \\
+		$6.750  < q^2 < 9.000$ & $40$ & $40 \pm 8$ & $103 \pm 36$ \\
+		$9.000  < q^2 < 11.250$ & $35$ & $35 \pm 7$ & $59 \pm 33$ \\
+		$11.250  < q^2 < 13.500$ & $25$ & $25 \pm 6$ & $44 \pm 25$ \\
+		$13.500  < q^2 < 15.750$ & $13$ & $11 \pm 3$ & $18 \pm 16$ \\
+		$15.750  < q^2 < 18.000$ & $2$ & $-0 \pm 2$ & $10 \pm 22$ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}

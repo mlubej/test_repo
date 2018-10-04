@@ -89,6 +89,11 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 \makeatother
 
+\newcommand{\changelocaltocdepth}[1]{%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+	\setcounter{tocdepth}{#1}%
+}
+
 
 \title{{\Large BELLE NOTE 1486}\\\huge {Measurement of the decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with B2BII}}
 \author{Matic Lubej}
@@ -124,6 +129,15 @@
 		\item Adding sources of systematics
 		\item Ready for box opening
 	\end{itemize}
+\item 5. October:
+\begin{itemize}
+	\item Added fits to data
+	\item Added all sources of systematics
+	\item New model for uncertainty study
+	\item $q^2$ calculation description
+	\item efficiency as a function of $m_{KK}$ and $q^2$
+	\item Fit yields in bins of $m_{KK}$ and $q^2$
+\end{itemize}
 \end{itemize}
 
 \tableofcontents
@@ -140,8 +154,11 @@
 
 \printbibliography
 
+\appendix
+\changelocaltocdepth{1}
 \include{chapters/A_roe}
 \include{chapters/B_mva}
+\include{chapters/C_other}
 
 
 \end{document}

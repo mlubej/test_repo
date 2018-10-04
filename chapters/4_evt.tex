@@ -161,7 +161,7 @@ We again impose an under-optimized cut on this variable from Figure \ref{fig:cos
 \end{itemize}
 
 \section{Loose Neutrino Reconstruction}\label{sec:loose-neutrino-reconstruction}
-The signal-side neutrino escapes detection, so we cannot directly determine it's four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the missing neutrino via indirectly reconstructing the companion $B$ meson by summing up the four-momenta of all the FSP particles in the event which were not used in the reconstruction of the signal side $B$ meson. This is known as the \textit{untagged} method since we are not using any kind of tagging method to reconstruct the companion $B$ meson. The particles used in the indirect companion $B$ meson reconstruction are also said to belong to the \textit{rest of the event} (ROE).
+The signal-side neutrino escapes detection, so we cannot directly determine its four-momentum. However, due to the detectors geometry, which almost completely covers the full solid angle, and due to well known initial conditions of the $\Upsilon(4S)$ meson, it is possible to determine the kinematics of the missing neutrino via indirectly reconstructing the companion $B$ meson by summing up the four-momenta of all the FSP particles in the event which were not used in the reconstruction of the signal side $B$ meson. This is known as the \textit{untagged} method since we are not using any kind of tagging method to reconstruct the companion $B$ meson. The particles used in the indirect companion $B$ meson reconstruction are also said to belong to the \textit{rest of the event} (ROE).
 
 Due to the beam background in the detector, material interactions, or other processes, random tracks and clusters enter our event and get reconstructed as part of the physics process we want to study. These tracks and clusters are not interesting and further spoil the data we measure. In order to remedy this, we perform an extensive clean-up of the tracks and clusters in the ROE side before calculating the four-momentum of the missing part of the event. Here we see the motivation for the ROE clean-up since our signal candidate reconstruction depends on tracks and clusters in the ROE side. The clean-up procedure is performed separately on tracks and clusters and uses multiple steps with multivariate analysis (MVA) algorithms in order to separate good tracks and clusters from the bad ones, which populate the ROE. Then, for each ROE object, a ROE mask is created for tracks and clusters, which narrates the use of this object in the final calculations of the ROE four-momentum. From this point on we assume the ROE to be efficiently cleansed of extra tracks and clusters. A more detailed description of the ROE clean-up can be found in Chapter \ref{sec:roe}. 
 
@@ -241,7 +241,7 @@ Figure \ref{fig:mbc_de_pre} shows the distributions of $\Delta E$ (left) and $M_
 \end{figure}
 
 \subsection{\texorpdfstring{$q^2$}{q2} calculation}
-$q^2$ is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson, also known as "momentum transfer squared". There are several possible calculations of this variable which offer different resolution. In this analysis we follow the calculation procedure of $q^2$ from \cite{VubCLEO} which yields the best resolution.
+$q^2$ is the squared Lorentz invariant of the four-momentum which is transferred from the $B$ meson to the $W$ boson, also known as "momentum transfer squared". There are several possible calculations of this variable which offer a different resolution. In this analysis, we follow the calculation procedure of $q^2$ from \cite{VubCLEO} which yields the best resolution.
 
 For correctly reconstructed events Eq. (\ref{eq:de}) satisfies the condition $\Delta E \approx 0$ within precision. It is possible to rescale the neutrino energy in such way that we fix $\Delta E$ to zero, meaning 
 \begin{equation}
@@ -264,14 +264,14 @@ q^2 = \mathrm{q}^2 = \left(\mathrm{p}_\ell + \mathrm{p}_\nu \right)^2.
 
 The $q^2$ distributions and the corresponding resolutions are shown in Figure \ref{fig:q2}, along with additional versions of $q^2$.
 \begin{figure}[H]
-\centering
-\captionsetup{width=0.8\linewidth}
-\includegraphics[width=\linewidth]{fig/q2}
-\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in \cite{VubCLEO}, whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
-\label{fig:q2}
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/q2}
+	\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The blue distribution follows the procedure in \cite{VubCLEO}, whereas the red and the orange ones are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum from Eq. (\ref{eq:nuold}).}
+	\label{fig:q2}
 \end{figure}
 
-One must bare in mind that even though this calculation yields a precise result, this says nothing about the correctness of the $q^2$ model which was used (\texttt{ISGW2} \cite{Scora:1995ty}). Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
+One must bear in mind that even though this calculation yields a precise result, this says nothing about the correctness of the $q^2$ model which was used (\texttt{ISGW2} \cite{Scora:1995ty}). Since this decay has not been observed yet, we do not have a good description of the decay model, which is also a source of systematics in this analysis.
 
 \section{Final Stage Optimization}
 
