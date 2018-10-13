@@ -141,7 +141,7 @@ The motivation for the choice of signal fit templates comes from Figure \ref{fig
 		\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$,
 		\item $C_2:~B \to \bar{D} {}^{(*)} \ell^+ \nu,~D^0 \to K^-\pi^+$,
 		\item $C_3:~B \to \bar{D} {}^{(*)} \ell^+ \nu,~D^0 \to K^-K^+\pi^0,~K^-\pi^+\pi^0$,
-		\item $C_4:~B \to \bar{D} {}{(*)} \ell^+ \nu,~D^0 \to K^-\ell^+\nu$,
+		\item $C_4:~B \to \bar{D} {}^{(*)} \ell^+ \nu,~D^0 \to K^-\ell^+\nu$,
 		\item $C_5:~B^0 \to D^{(*)-} \ell^+ \nu,~D^+ \to K^-K^+\pi^+,~K^-\pi^+\pi^+$,
 		\item $C_6:~$ other $B \to \bar D {}^{(*)} \ell^+ \nu$ decays,
 	\end{itemize}
@@ -299,7 +299,7 @@ Figure \ref{fig:lin_test} shows the difference between mean fit yield and the ex
 \end{figure}
 
 
-\chapter{Results}
+\chapter{Fit Results}
 In this section, we present the first results of signal and control fits on MC as well as data, along with the control decay branching ratio measurement. We also show results of the signal fit on MC and data.
 
 \section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
@@ -370,7 +370,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_global}
-	\caption{Control fit to data and to all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\caption{Control fit to data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
 	\label{fig:cs_global}
 \end{figure}
 
@@ -438,7 +438,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 \subsection{Signal Yield}
 
-Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~ for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
+Finally, after making sure that the analysis procedure makes sense on the control MC, control data and signal MC sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
 
 \begin{figure}[H]
 	\centering
@@ -448,21 +448,29 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\label{fig:sig_fit_data}
 \end{figure} 
 
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{fig/sig_global}
+	\caption{Signal fit to data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\label{fig:sig_all_global}
+\end{figure}
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|l}
 		Category & Fit Yield \\
 		\toprule
-		Signal & $489 \pm 86$ \\
-		$q \bar q$ background & $ 2307 \pm 178 $ \\
+		Signal & $491 \pm 86$ \\
+		$q \bar q$ background & $ 2385 \pm 181 $ \\
 		$C_0$ & $ 45 \pm 7 $ \\
 		$C_1$ & $ 57 \pm 8 $\\
 		$C_2$ & $ 69 \pm 9 $ \\
-		$C_3$ & $ 909 \pm 57 $ \\
-		$C_4$ & $ 179 \pm 16 $ \\
-		$C_5$ & $ 222 \pm 18 $ \\
-		$C_6$ & $ 320 \pm 108 $ \\
-		Other $B \bar B$ background & $ 16462 \pm 245 $ \\
+		$C_3$ & $ 907 \pm 57 $ \\
+		$C_4$ & $ 178 \pm 16 $ \\
+		$C_5$ & $ 224 \pm 18 $ \\
+		$C_6$ & $ 322 \pm 108 $ \\
+		Other $B \bar B$ background & $ 16382 \pm 247 $ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -475,26 +483,27 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 	\begin{tabular}{l|l||l|l}
 		Constraint & Value & Constraint & Value \\
 		\toprule
-		$\mathcal{B}_{0}$ & $0.049 \pm 0.001$ & $N_{30}$ & $103 \pm 10$\\
-		$\mathcal{B}_{1}$ & $1.076 \pm 0.004$ & $N_{31}$ & $212 \pm 14$\\
-		$\mathcal{B}_{2}$ & $0.021 \pm 0.001$ & $N_{32}$ & $136 \pm 12$\\
-		$\mathcal{B}_{3}$ & $1.014 \pm 0.018$ & $N_{33}$ & $268 \pm 16$\\
-		$\mathcal{B}_{4}$ & $1.018 \pm 0.010$ & $N_{34}$ & $20 \pm 4$\\
-		$\mathcal{B}_{5}$ & $1.439 \pm 0.063$ & $N_{35}$ & $35 \pm 6$\\
-		$\mathcal{B}_{6}$ & $1.092 \pm 0.038$ & $N_{40}$ & $48 \pm 7$\\
-		$\mathcal{B}_{7}$ & $1.035 \pm 0.008$ & $N_{41}$ & $7 \pm 3$\\
-		$\mathcal{B}_{8}$ & $0.971 \pm 0.038$ & $N_{42}$ & $99 \pm 10$\\
-		$\mathcal{B}_{9}$ & $1.052 \pm 0.038$ & $N_{43}$ & $10 \pm 3$\\
-		$\mathcal{B}_{10}$ & $0.945 \pm 0.029$ & $N_{44}$ & $14 \pm 4$\\
-		$\mathcal{B}_{11}$ & $1.253 \pm 0.443$ & $N_{45}$ & $3 \pm 2$\\
-		$N_{\mathrm{control}}^{MC}$ & $1181 \pm 11$ & $N_{50}$ & $103 \pm 10$\\
-		$N_{\mathrm{control}}^{Data}$ & $1214 \pm 43$ & $N_{51}$ & $64 \pm 8$\\
-		$N_{00}$ & $44 \pm 7$ & $N_{52}$ & $31 \pm 6$\\
-		$N_{10}$ & $54 \pm 7$ & $N_{53}$ & $22 \pm 5$\\
-		$N_{11}$ & $6 \pm 2$ & $N_{60}$ & $69 \pm 8$\\
-		$N_{20}$ & $23 \pm 5$ & $N_{61}$ & $94 \pm 10$\\
-		$N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
-		$N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
+	$\mathcal{B}_{0}$ & $0.049 \pm 0.001$ & $N_{30}$ & $103 \pm 10$\\
+	$\mathcal{B}_{1}$ & $1.076 \pm 0.004$ & $N_{31}$ & $212 \pm 14$\\
+	$\mathcal{B}_{2}$ & $0.021 \pm 0.001$ & $N_{32}$ & $136 \pm 12$\\
+	$\mathcal{B}_{3}$ & $1.014 \pm 0.018$ & $N_{33}$ & $268 \pm 16$\\
+	$\mathcal{B}_{4}$ & $1.018 \pm 0.010$ & $N_{34}$ & $20 \pm 4$\\
+	$\mathcal{B}_{5}$ & $1.439 \pm 0.063$ & $N_{35}$ & $35 \pm 6$\\
+	$\mathcal{B}_{6}$ & $1.092 \pm 0.038$ & $N_{40}$ & $48 \pm 7$\\
+	$\mathcal{B}_{7}$ & $1.035 \pm 0.008$ & $N_{41}$ & $7 \pm 3$\\
+	$\mathcal{B}_{8}$ & $0.971 \pm 0.038$ & $N_{42}$ & $99 \pm 10$\\
+	$\mathcal{B}_{9}$ & $1.053 \pm 0.038$ & $N_{43}$ & $10 \pm 3$\\
+	$\mathcal{B}_{10}$ & $0.946 \pm 0.029$ & $N_{44}$ & $14 \pm 4$\\
+	$\mathcal{B}_{11}$ & $1.264 \pm 0.446$ & $N_{45}$ & $3 \pm 2$\\
+	$N_{\mathrm{control}}^{MC}$ & $1181 \pm 11$ & $N_{50}$ & $104 \pm 10$\\
+	$N_{\mathrm{control}}^{Data}$ & $1210 \pm 43$ & $N_{51}$ & $64 \pm 8$\\
+	$N_{00}$ & $44 \pm 7$ & $N_{52}$ & $31 \pm 6$\\
+	$N_{10}$ & $54 \pm 7$ & $N_{53}$ & $22 \pm 5$\\
+	$N_{11}$ & $6 \pm 2$ & $N_{60}$ & $69 \pm 8$\\
+	$N_{20}$ & $23 \pm 5$ & $N_{61}$ & $94 \pm 10$\\
+	$N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
+	$N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
+	
 		
 		\bottomrule
 	\end{tabular}
@@ -505,13 +514,13 @@ Finally, after making sure that the analysis procedure makes sense on the contro
 
 In this fit setup, we perform a random smearing of the $\Delta E$ variable according to the Poisson distribution. The result is similar to a convolution with a Gaussian function, but the application is different in the sense that it returns a slightly different result after each fit. We perform 500 data fits in order to obtain the mean values of the signal yield and fit error. The averaged result is
 \begin{equation*}
-\bar N {}_{sig} = 489 \pm 85,\quad \mathrm{fit~significance} = 5.9\sigma,
+\bar N {}_{sig} = 491 \pm 86,\quad \mathrm{fit~significance} = 6.0\sigma,
 \end{equation*}
 where the error represents the joint value of the statistical error and the systematic error of the Gaussian constraints used in the fit. This means that our initial fit is a good representation of the average fit result. 
 
 It is possible to estimate the contribution of the systematic uncertainty to the fit error above, which is found to be
 \begin{equation}
-\sigma_{\mathrm{stat}} = 81,\quad \sigma_{\mathrm{sys}}^{GC} = 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.3\%,
+\sigma_{\mathrm{stat}} = 81,\quad \sigma_{\mathrm{sys}}^{GC} = 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.4\%,
 \end{equation}
 where GC stands for Gaussian constraint. Further details about systematic uncertainties can be found in chapter \ref{sec:systematic-uncertainty}.
 
@@ -531,16 +540,14 @@ The signal efficiency was determined on the same signal MC sample as was used th
 \end{equation*}
 where the efficiency error was calculated in the same manner as in section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement
 
-Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. We see that the measured value is twice as large as the MC value. The error in case of the MC result is statistical only, while the first and the second error in the data result are the statistical and the systematic errors, respectively.
-
-With the statistical significance of about $5.9\sigma$ this is the first observation of the charmless semileptonic decay $B^+ \to K^+ K^- \ell^+ \nu$. It indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
+Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. We see that the measured value is twice as large as the MC value. The error in case of the MC result is statistical only, while the first and the second error in the data result are the statistical and the systematic, respectively. The result indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|c|c|c}
 		& $\mathcal{B}_{GEN}~[\times 10^{-5}]$ & $\mathcal{B}^{MC}~[\times 10^{-5}]$ & $\mathcal{B}^{\mathrm{data}}~[\times 10^{-5}]$ \\
 		\toprule
-		$\ell = e$ or $\mu$ & $1.57$ & $1.55 \pm 0.15$ & $3.04 \pm 0.54 {}^{+0.74}_{-0.71}$\\
+		$\ell = e$ or $\mu$ & $1.57$ & $1.55 \pm 0.15$ & $3.04 \pm 0.51 {}^{+0.67}_{-0.66}$\\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}

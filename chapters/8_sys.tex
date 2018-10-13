@@ -51,13 +51,13 @@ where $x$ represents the signal yield fraction of the data fit and $N_b$ represe
 \end{equation}
 
 \subsection{Gaussian Constraints}
-As mentioned in section \ref{sec:final-results-from-data}, it is possible to estimate the size of the systematic error of the Gaussian constraints. By fixing the constraints to the nominal values, determined by the data fit, we obtain the pure statistical error, which can then be subtracted from the average fit error in order to determine the systematic uncertainty contribution due to using Gaussian constraints. For the fixed and non-fixed case we perform 500 fits and calculate with the mean values. The split errors are then
+As mentioned in section \ref{sec:final-results-from-data}, it is possible to estimate the size of the systematic error of the Gaussian constraints. By fixing the constraints to the nominal values, determined by the data fit, we obtain the pure statistical error, which can then be subtracted from the average fit error in order to determine the systematic uncertainty contribution due to using Gaussian constraints. Due to the nature of implementing smearing of the $\Delta E$ variable there is some randomness involved in our fits, so we perform 500 fits for the fixed and non-fixed case in order to determine the uncertainties. The split errors in this case are then
 \begin{align}
-\bar N {}_{sig} &= 489 \pm 85, \\
-\bar N {}_{sig}^{fix} &= 489 \pm 81, \\
-\sigma_{\mathrm{stat}} &= 81,\quad \sigma_{\mathrm{sys}}^{GC} = 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.0\%,
+\bar \sigma_{\mathrm{fit}} &= 86, \\
+\bar \sigma_{\mathrm{stat}} &= 81, \\
+\sigma_{\mathrm{sys}}^{GC} &= 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.0\%,
 \end{align}
-where GC stands for Gaussian constraint. We see that the constrained channels are very well defined and introduce little to none additional uncertainty.
+where GC stands for Gaussian constraint. We see that the constrained channels are very well defined and introduce a relatively small level of uncertainty.
 
 
 \subsection{Fit Template Smearing and Offset}
@@ -66,23 +66,23 @@ The smearing and offset of the $\Delta E$ variable was discussed in section \ref
 	\item Smearing: $40_{-17}^{+15}\e{MeV}$,
 	\item Offset: $6_{-6}^{+4.6}\e{MeV}$.
 \end{itemize}
-Since the two parameters are largely uncorrelated, we are able to perform the study in the form of signal fits with four different combinations of parameters in the given range. For each parameter setting 500 fits are performed and the following results are obtained
+Since the two parameters are largely uncorrelated, we are able to perform the study in the form of signal fits with four different combinations of parameters in the given range. For each parameter setting the Gaussian constraints are fixed and 500 fits are performed to obtain the following results
 \begin{itemize}
-	\item Set: [smearing, offset]: $[23\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 448 $,
-	\item Set: [smearing, offset]: $[55\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 540 $,
-	\item Set: [smearing, offset]: $[40\e{MeV},0\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 550 $,
-	\item Set: [smearing, offset]: $[40\e{MeV},12.6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 439 $,
+	\item Set: [smearing, offset]: $[23\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 458 $,
+	\item Set: [smearing, offset]: $[55\e{MeV},6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 532 $,
+	\item Set: [smearing, offset]: $[40\e{MeV},0\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 532 $,
+	\item Set: [smearing, offset]: $[40\e{MeV},12.6\e{MeV}],\quad$ Result: $ \bar N {}_{sig} = 460 $,
 \end{itemize}
 which results in the following estimate of systematic uncertainties for smearing and offset parameters
 \begin{align}
-\sigma_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+51}_{-41},&\quad \delta_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+10.4\%}_{-8.3\%}, \\
-\sigma_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+61}_{-48},&\quad \delta_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+12.4\%}_{-9.9\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+41}_{-33},&\quad \delta_{\mathrm{sys}}^{\mathrm{sm.}} = {}^{+8.3\%}_{-6.7\%}, \\
+\sigma_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+41}_{-31},&\quad \delta_{\mathrm{sys}}^{\mathrm{off.}} = {}^{+8.4\%}_{-6.3\%}.
 \end{align}
 
 \subsection{Effects of a Finite MC sample}
-The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated 500 times and the width of the fit yield distribution is taken as the uncertainty estimate. Since the systematic effects of the Gaussian constraints are included in the obtained distribution, we appropriately discard them to evaluate this systematic contribution. The resulting finite MC sample contribution of the systematic uncertainty is
+The shape of signal and backgrounds templates in our analysis is fixed and only their normalization is considered as a floating parameter in the fit. Due to the finite size of the MC sample, the template shape introduces an additional source of uncertainty, as it may differ if produced in a separate, equal-sized MC sample. Since the bins in these 2D histogram templates are statistically independent, we take the content of each bin and vary the value according to the Poisson distribution. This procedure is repeated 500 times with Gaussian constraints fixed and with a fixed random seed for smearing in $\Delta E$. The width of the fit yield distribution is taken as the uncertainty estimate. Since the systematic effects of the Gaussian constraints are included in the obtained distribution, we appropriately discard them to evaluate this systematic contribution. The resulting finite MC sample contribution of the systematic uncertainty is
 \begin{equation}
-\sigma_{\mathrm{sys}}^{MC} = 11,\quad \delta_{\mathrm{sys}}^{MC} = 2.4\%.
+\sigma_{\mathrm{sys}}^{MC} = 26,\quad \delta_{\mathrm{sys}}^{MC} = 5.3\%.
 \end{equation}
 
 
@@ -115,7 +115,7 @@ The signal decay model used in the generation step is \texttt{ISGW2} \cite{Scora
 In order to test the effects of model dependency on our final result, we prepare three additional signal MC samples, produced with three extreme scenarios of decay model choice. In the first scenario we generate the signal MC sample with a generic phase-space decay mode \texttt{PHSP} \cite{lange2001evtgen}, which results in continuum-like distributions of $q^2$ and $m_{KK}$. In the other scenario, only resonant-like contributions of $m_{KK}$ are used. The third scenario is obtained by sampling the first model in a non-uniform way so that the final distribution is more dominant in the higher region of the $q^2$ distribution. These scenarios act as extreme cases of decay model choice and present a reasonable, if not a conservative measure of the model uncertainty. 
 
 \subsubsection{Shape Effects of the Model}
-The shape effect is evaluated by using signal templates, constructed from different signal MC samples. We perform 500 fits for each case. The differences between mean values of fit yields serve as an estimate of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. Figures show a good agreement of \vars for different cases of the generator model.
+The shape effect is evaluated by using signal templates, constructed from different signal MC samples. We perform 500 fits for each case with the Gaussian constraints fixed. The differences between mean values of fit yields serve as an estimate of the model uncertainty. Figure \ref{fig:model_cases} shows the generated $m_{KK}$ and $q^2$ distributions of the three mentioned decay models as well as distributions of \vars~after the final selection. Figures show a good agreement of \vars for different cases of the generator model.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
@@ -125,13 +125,14 @@ The shape effect is evaluated by using signal templates, constructed from differ
 \end{figure}
 The resulting average signal yields for the three model choices are
 \begin{align}
-\bar N {}_{sig} &= 487, \\
-\bar N {}_{sig}^{\mathtt{PHSP}} &= 532, \\
-\bar N {}_{sig}^{\mathrm{res.}} &= 490.
+\bar N {}_{sig} &= 491, \\
+\bar N {}_{sig}^{\mathrm{res.}} &= 494, \\
+\bar N {}_{sig}^{\mathtt{PHSP}} &= 536, \\
+\bar N {}_{sig}^{\mathtt{Custom}} &= 451.
 \end{align}
-We see that in general the model with a worse resolution in \vars will likely result in a larger yield, and vice versa for a model with a better resolution. Overall these models give a conservative estimation of the systematic uncertainty due to the shape effects with a value of 
+We see that in general the model with a worse resolution in \vars~will likely result in a larger yield, and vice versa for a model with a better resolution. Overall these models give a conservative estimation of the systematic uncertainty due to the shape effects with a value of 
 \begin{equation}
-\sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+45}_{-41},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+9.1\%}_{-8.5\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+45}_{-39},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+9.3\%}_{-8.0\%}.
 \end{equation}
 
 \subsubsection{Model Efficiency}
@@ -148,7 +149,7 @@ To estimate the systematic uncertainty due to model efficiency effects, we compu
 \sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+70}_{-79},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+14.3\%}_{-16.2\%}.
 \end{equation}
 
-\section{Summary of Systematics}
+\section{Summary of Systematic Uncertainties}
 
 The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summary}. The full estimate of the systematic uncertainty is summed up in quadrature and applied to the result in section \ref{sec:branching-ratio-calculation-for-signal-decay}.
 
@@ -160,15 +161,15 @@ The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summa
 		\toprule
 		PID & $10$ & $2.0$ \\
 		Fit Bias & $ {}^{+6}_{-10}$ & ${}^{+1.2}_{-2.0}$ \\
-		Gaussian Constraints & $26$ & $5.0$ \\
-		Template Smearing & ${}^{+51}_{-41}$ & ${}^{+10.4}_{-8.3}$ \\
-		Template Offset & ${}^{+61}_{-48}$ & ${}^{+12.4}_{-9.9}$ \\
-		Finite MC Effects & $11$ & $2.4$ \\
+		Gaussian Constraints & $26$ & $5.3$ \\
+		Template Smearing & ${}^{+41}_{-33}$ & ${}^{+8.3}_{-6.7}$ \\
+		Template Offset & ${}^{+41}_{-31}$ & ${}^{+8.4}_{-6.3}$ \\
+		Finite MC Effects & $26$ & $5.3$ \\
 		MVA Selection & $5$ & $1.0$\\
-		Model Shape & ${}^{+45}_{-41}$ & ${}^{+9.1}_{-8.5}$ \\
+		Model Shape & ${}^{+45}_{-39}$ & ${}^{+9.3}_{-8.0}$ \\
 		Model Efficiency & ${}^{+70}_{-79}$ & ${}^{+14.3}_{-16.2}$ \\
 		\midrule
-		Total & ${} ^{+119}_{-114}$ & ${}^{+24.3}_{-23.3}$ \\
+		Total & ${} ^{+109}_{-107}$ & ${}^{+22.2}_{-21.9}$ \\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=0.8\linewidth}
