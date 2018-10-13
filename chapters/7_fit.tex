@@ -1,4 +1,5 @@
 \chapter{Extraction of Physical Parameters}
+\label{sec:extraction-of-physical-parameters}
 In this chapter, the procedure for signal yield extraction is presented. We use the framework of \texttt{RooFit} \cite{verkerke2006roofit} where we define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with the binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poisson nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure, we attempt to find the parameter values that maximize the likelihood function, given the observations.
 
 If $P(n\vert\vec \alpha)$ is the probability of measuring $n$ candidates, where $\vec \alpha$ is a set of parameters on which $P$ depends, we can define the likelihood function $L$ for a series of such measurements (i.e., bins in histogram) $n_i$ based on Poisson statistics as
@@ -22,6 +23,7 @@ To estimate the goodness of the likelihood fit, one option is to generate toy MC
 \end{equation}
 which asymptotically behaves as the $\chi^2_q$ distribution with $q=m-n$ degrees of freedom, where $m$ and $n$ are degrees of freedom of $L(\vec \alpha_{ML})$ and $L(\vec \alpha_{H_0})$, respectively. In particle physics we usually study a specific decay and try to perform measurements of the signal yield, so the null hypothesis in this case is that we expect to observe no signal. This means that for the null hypothesis we fix the expected signal yield parameter to zero, while leaving the other parameters of $\vec\alpha_{H_0}$ the same as in $\vec\alpha_{ML}$, which results in $n = m-1$ degrees of freedom and in their difference $q = m -n = 1$. For such a simple $LR$ test of a single parameter the LR test then follows the $\chi^2$ distribution with $1$ degree of freedom. In this case we can define the fit significance from the $\chi^2$ value in units of $\sigma$ as
 \begin{equation}
+\label{eq:ss}
 \mathrm{Significance} = \sqrt{\lambda} = \sqrt{\chi^2}.
 \end{equation}
 
@@ -540,14 +542,14 @@ The signal efficiency was determined on the same signal MC sample as was used th
 \end{equation*}
 where the efficiency error was calculated in the same manner as in section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement
 
-Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. We see that the measured value is twice as large as the MC value. The error in case of the MC result is statistical only, while the first and the second error in the data result are the statistical and the systematic, respectively. The result indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
+Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. We see that the measured value is twice as large as the MC value. The errors in all cases are statistical only. The result indicates that the MC contribution to our simulated samples is underestimated. This analysis has shown that the branching fraction of the decay seems considerable enough in order to affect results in precision physics in cases where they are ignored.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|c|c|c}
 		& $\mathcal{B}_{GEN}~[\times 10^{-5}]$ & $\mathcal{B}^{MC}~[\times 10^{-5}]$ & $\mathcal{B}^{\mathrm{data}}~[\times 10^{-5}]$ \\
 		\toprule
-		$\ell = e$ or $\mu$ & $1.57$ & $1.55 \pm 0.15$ & $3.04 \pm 0.51 {}^{+0.67}_{-0.66}$\\
+		$\ell = e$ or $\mu$ & $1.57$ & $1.55 \pm 0.15$ & $3.04 \pm 0.51$\\
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
