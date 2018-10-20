@@ -312,13 +312,13 @@ In this section, we present the results of signal and control fits on MC as well
 
 \section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
-With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the fitted and the true MC matched yield differences, pulls, and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value of 0, and a width of 1. From the top plot in Figure \ref{fig:sig_binning} we see that the yield difference is consistent with 0, while exhibiting a slight and a consistent overestimation of the fitted yield. This difference is accounted for as a separate contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the $uBDT$ classifier. Also the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the uBDT classifier outperforms the standard BDT setup. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
+With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the fitted and the true MC matched yield differences, pulls, and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value of 0, and a width of 1. From the top plot in Figure \ref{fig:sig_binning} we see that the yield difference is consistent with 0, while exhibiting a slight and a consistent overestimation of the fitted yield. This difference is accounted for as a separate contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the $uBDT$ classifier. Also the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the $uBDT$ classifier outperforms the standard $BDT$ setup. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_binning}
-	\caption{Expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars~for the final sample, optimized with the standard BDT classifier (blue) and the uBDT classifier (orange).}
+	\caption{Expected yield difference (top), pulls (center) and fit significance (bottom) as a function of binning in \vars~for the final sample, optimized with the standard $BDT$ classifier (blue) and the $uBDT$ classifier (orange).}
 	\label{fig:sig_binning}
 \end{figure}
 
@@ -378,7 +378,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_global}
-	\caption{Control fit to data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\caption{Control fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
 	\label{fig:cs_global}
 \end{figure}
 
@@ -465,7 +465,7 @@ The uncertainty includes the statistical uncertainty as well as partial systemat
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_global}
-	\caption{Signal fit to data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\caption{Signal fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
 	\label{fig:sig_all_global}
 \end{figure}
 
@@ -523,7 +523,7 @@ The uncertainty includes the statistical uncertainty as well as partial systemat
 	\label{tab:constraints}
 \end{table}
 
-In this fit setup, we perform a random smearing of the $\Delta E$ (see Eq. \ref{eq:smearingoffset} and description there). Because of the randomness involved in the smearing, such a method results in small random fluctuations of the fitted central values. In order to check the consistency of the fit result because of the $\Delta E$ smearing, we perform $500$ fit repetitions. The result in Eq. (\ref{eq:main_result}) represents the average result, corresponding to the central values of the yield, uncertainty, and the significance of the signal fit to data.
+In this fit setup, we perform a random smearing of the $\Delta E$ (see Eq. \ref{eq:smearingoffset} and description there). Because of the randomness involved in the smearing, such a method results in small random fluctuations of the fitted central values. In order to check the consistency of the fit result because of the $\Delta E$ smearing, we perform $500$ fit repetitions. The result in Eq. (\ref{eq:main_result}) represents the average result, corresponding to the central values of the yield, uncertainty, and the significance of the signal fit to the data.
 
 The systematic part of the fit uncertainty can be estimated by fixing the Gaussian constraints to central values, presented in Table \ref{tab:constraints}, and repeating the fit. The resulting uncertainty and significance are purely statistical and are found to be
 \begin{equation}

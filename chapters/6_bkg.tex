@@ -191,13 +191,13 @@ When the training is finished and the hyper-parameters of the classifier are opt
 \subsection{Boosting to Uniformity}
 The selection approach with standard classifiers is optimal for counting experiments, as it, by construction, produces the optimal selection for observing an excess of signal over background events. Today's BDT algorithms, which work in this way, produce non-uniform selection efficiencies and may, as a consequence, shape background distributions to look like signal. In order to minimize such behavior, it is possible to discard variables, which are correlated with the variable of interest (in our case \vars), from the training set. This, however, decreases the classifiers discriminating power. Another approach is to use a novel boosting method, uBoost, which is trained to optimize an integrated $\mathrm{FOM}$ under the constraint that the BDT selection efficiency for the desired class must be uniform. The uBoost algorithm balances the biases to produce the optimal uniform selection \cite{stevens2013uboost}.
 
-The training set used is the same as described at the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard BDT classifier shapes the background to look like signal mostly in the $M_{BC}$ distribution, therefore we train the uBDT classifier with a uniformity constraint on the $M_{BC}$ variable of the background candidates. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds differ significantly, which greatly affects the performance of signal extraction.
+The training set used is the same as described at the beginning of this chapter, along with the same set of training variables. It will be seen later that the standard $BDT$ classifier shapes the background to look like signal mostly in the $M_{BC}$ distribution, therefore we train the $uBDT$ classifier with a uniformity constraint on the $M_{BC}$ variable of the background candidates. The resulting classifier output is shown in Figure \ref{fig:bbmva} (right). For this classifier, the separation power between signal and background seems worse, however, the shapes of backgrounds differ significantly, which greatly affects the performance of signal extraction.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/bb_BDT}
-	\caption{$B\bar B$ suppression classifier output for signal and various types of background for the standard BDT classifier (left) and the uBDT classifier (right). $B$ candidates from $B\bar B$ background events dominate the lower region, while signal and control candidates dominate in the upper region of the classifier output.}
+	\caption{$B\bar B$ suppression classifier output for signal and various types of background for the standard $BDT$ classifier (left) and the $uBDT$ classifier (right). $B$ candidates from $B\bar B$ background events dominate the lower region, while signal and control candidates dominate in the upper region of the classifier output.}
 	\label{fig:bbmva}
 \end{figure}
 
@@ -209,22 +209,22 @@ Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, 
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/mva_fom}
-	\caption{2D $\mathrm{FOM}$ optimization of continuum suppression classifier and the standard BDT (left) and uBDT (right) $B\bar B$ suppression classifier.}
+	\caption{2D $\mathrm{FOM}$ optimization of continuum suppression classifier and the standard $BDT$ (left) and $uBDT$ (right) $B\bar B$ suppression classifier.}
 	\label{fig:mvafom}
 \end{figure}
 
-We can compare signal and major background distributions of \vars~after the 2D $\mathrm{FOM}$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with uBDT classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly, meaning there is less room for correlation. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard BDT classifier than in the other case.  Additionally, the shapes are more easily constrained in the latter case, since they are present in regions where no signal is expected. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
+We can compare signal and major background distributions of \vars~after the 2D $\mathrm{FOM}$ optimization for both classifiers. Figure \ref{fig:opt01c} shows the arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard $BDT$ classifier, while Figure \ref{fig:opt1dc} shows similarly for the final sample optimized with $uBDT$ classifier. We can see that there is considerably more background in the latter case, however, also shapes of background and signal distributions differ greatly, meaning there is less room for correlation. The biggest change seems to be in the shape of the $M_{BC}$ distribution, where the background component is much more signal like in the final sample optimized with the standard $BDT$ classifier than in the other case.  Additionally, the shapes are more easily constrained in the latter case, since they are present in regions where no signal is expected. The total numbers of expected signal candidates and the signal-to-noise ratios for both classifiers are:
 \begin{itemize}
-	\item Standard BDT: $N_{sig} = 176,\quad N_{sig}/N_{bkg} = 4.83~\%$,
-	\item uBDT: $N_{sig} = 264,\quad N_{sig}/N_{bkg} = 1.33~\%$.
+	\item Standard $BDT$: $N_{sig} = 176,\quad N_{sig}/N_{bkg} = 4.83~\%$,
+	\item $uBDT$: $N_{sig} = 264,\quad N_{sig}/N_{bkg} = 1.33~\%$.
 \end{itemize}
-Due to the large difference in \vars~shape, we will continue the analysis with the uBDT classifier, although the comparison between both methods will be shown for the final fit result in the next chapter.
+Due to the large difference in \vars~shape, we will continue the analysis with the $uBDT$ classifier, although the comparison between both methods will be shown for the final fit result in the next chapter.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/opt_BB}
-	\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard BDT classifier.}
+	\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the standard $BDT$ classifier.}
 	\label{fig:opt01c}
 \end{figure} 
 
@@ -232,7 +232,7 @@ Due to the large difference in \vars~shape, we will continue the analysis with t
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/opt_uBB}
-	\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the uBDT classifier for $B \bar B$ suppression.}
+	\caption{Arbitrary (left) and normalized scale (right) for $\Delta E$ (top) and $M_{BC}$ (bottom) for the final sample optimized with the $uBDT$ classifier for $B \bar B$ suppression.}
 	\label{fig:opt1dc}
 \end{figure} 
 
