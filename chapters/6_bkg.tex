@@ -18,12 +18,12 @@ In order to suppress these resonant backgrounds, while studying signal or contro
 	\item control region:\\$\vert m_{KK} - m_{D^0} \vert \leq \Delta_{D^0}$, $\vert m_{K\pi} - m_{D^0} \vert > \Delta_{D^0}$,
 \end{itemize}
 
-where $m_{KK}$ is the $KK$ invariant mass and $m_{K\pi}$ is the invariant mass of $KK$ candidates, where the kaon with the same charge as the $B$ meson was given the mass of the $\pi^0$. $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.5\E{-2}\e{GeV}/c^2$ are symmetric cut widths around the nominal mass values for the $\phi$ and $D^0$ mesons, respectively. By selecting the signal or control region, we are able to efficiently isolate the desired subset. Table \ref{tab:cut_eff} shows the subsample efficiency after selecting either of the regions.
+where $m_{KK}$ is the $KK$ invariant mass and $m_{K\pi}$ is the invariant mass of $KK$ candidates, where the kaon with the same charge as the $B$ meson was given the mass of the $\pi^0$. $m_\phi \approx 1.019\e{GeV}/c^2$ and $m_{D^0} \approx 1.864\e{GeV}/c^2$ are nominal masses of the $\phi$ and $D^0$ mesons, and $\Delta_\phi \approx 8\E{-3}\e{GeV}/c^2$ and $\Delta_{D^0} \approx 1.5\E{-2}\e{GeV}/c^2$ are the widths around the nominal mass values for the $\phi$ and $D^0$ meson, respectively. By selecting the signal or control region, we are able to efficiently isolate the desired subset. Table \ref{tab:cut_eff} shows the subsample efficiency after selecting either of the regions.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|c|c|c}
-		Resonance cut & $\epsilon$(Signal cand.)& $\epsilon$(Control cand.) & $\epsilon$($\phi$ resonance cand.)\\
+		& $\epsilon$(Signal cand.)& $\epsilon$(Control cand.) & $\epsilon$($\phi$ resonance cand.)\\
 		\toprule
 		Signal-specific & $95.4\%$ & $4.0\%$ & $13.6\%$ \\
 		Control-specific & $1.9\%$ & $96.0\%$ & $0.0\%$ \\
@@ -203,7 +203,7 @@ The training set used is the same as described at the beginning of this chapter,
 
 \section{Selection Optimization}\label{sec:selection-optimization}
 
-Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, it is more efficient to do a simultaneous 2D $\mathrm{FOM}$ optimization, since the two classifiers are not completely uncorrelated. In the same manner as before, $\mathrm{FOM}$ is optimized for perfectly reconstructed signal candidates in the signal window, after all the pre-cuts, signal categorization, and after cutting out the background resonances and the control decay. The $\mathrm{FOM}$ plot with the optimal point for both $B \bar B$ MVA classifiers is shown in Figure \ref{fig:mvafom}.
+Instead of two separate $q \bar q$ and $B \bar B$ $\mathrm{FOM}$ optimizations, it is more efficient to do a simultaneous 2D $\mathrm{FOM}$ optimization, since the two classifiers are not completely uncorrelated. In the same manner as before, $\mathrm{FOM}$ is optimized for perfectly reconstructed signal candidates in the signal window, after the pre-selection, signal categorization, and after discarding the background resonances and the control decay. The $\mathrm{FOM}$ plot with the optimal point for both $B \bar B$ MVA classifiers is shown in Figure \ref{fig:mvafom}.
 
 \begin{figure}[H]
 	\centering
@@ -248,18 +248,18 @@ The majority of background candidates after the final selection is represented b
 	\label{fig:sig_bkg_all_before}
 \end{figure} 
 
-In order to suppress the latter source of background, a lepton veto can be applied to both kaons, requiring that neither of the kaons should exhibit lepton-like properties. On the candidates passing the final selection, we optimize the $eID$ and $\mu ID$ PID cuts, where $S$ and $B$ in Eq. \ref{eq:fom} are represented by perfect signal candidates and by background candidates, respectively. Background in this case is represented by events in which a lepton has been misidentified as a kaon. 2D FOM plots for both kaons are shown in Figure \ref{fig:lepVeto}, where $K_0$ denotes same-sign, and $K_1$ the opposite-sign kaon, with respect to the $B$ meson which they are part of. It can be seen that in the majority of cases an electron is misidentified as $K_1$. With the optimal cuts of 
+In order to suppress the latter source of background, a lepton veto can be applied to both kaons, requiring that neither of the kaons should exhibit lepton-like properties. On the candidates passing the final selection, we optimize the $eID$ and $\mu ID$ PID cuts, where $S$ and $B$ in Eq. \ref{eq:fom} are represented by perfect signal candidates and by background candidates, respectively. Background in this case is represented by events in which a lepton has been misidentified as a kaon. 2D FOM plots for both kaons are shown in Figure \ref{fig:lepVeto}, where $K_0$ denotes same-sign, and $K_1$ the opposite-sign kaon, with respect to the $B$ meson which they are part of. It can be seen that in the majority of cases an electron is misidentified as $K_1$. With the optimal selection 
 \begin{itemize}
 	\item $K_0:~eID < 0.8,$
 	\item $K_1:~eID < 0.1,~\mu ID < 0.8,$
 \end{itemize}
-we reject $77.5\%$ of candidates from the double semileptonic decays, while efficiency loss of signal and other types of $B \bar B$ background is about $5-6\%$. The $B \bar B$ background after the lepton veto cuts is shown in Figure \ref{fig:sig_bkg_all_after} for the signal region, and in Figure \ref{fig:cs_bkg_after} for the control region.
+we reject $77.5\%$ of candidates from the double semileptonic decays, while efficiency loss of signal and other types of $B \bar B$ background is about $5-6\%$. The $B \bar B$ background after the lepton veto is shown in Figure \ref{fig:sig_bkg_all_after} for the signal region, and in Figure \ref{fig:cs_bkg_after} for the control region.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/lepVeto}
-	\caption{2D FOM for optimal $eID$ and $\mu ID$ cuts on same-sign (left) and opposite-sign (right) kaons with respect to the $B$ meson charge. For double semileptonic background component, in most cases an electron is missidentified as the opposite-sign kaon in the reconstruction chain.}
+	\caption{2D FOM for optimal $eID$ and $\mu ID$ selection on same-sign (left) and opposite-sign (right) kaons with respect to the $B$ meson charge. For double semileptonic background component, in most cases an electron is missidentified as the opposite-sign kaon in the reconstruction chain.}
 	\label{fig:lepVeto}
 \end{figure} 
 
@@ -285,22 +285,22 @@ With the final selection in place, we can check the data and MC agreement by che
 
 \subsection{Off-resonance Data}
 
-The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the continuum background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and stacked MC in the control region, before any MVA cuts, where the MC sample was scaled down by a factor of $6$, due to 6 streams of MC. These figures do not show a fit to the data, but merely an overlay of data and stacked MC distributions, and show good data and MC agreement of the off-resonance sample already before the fit. More importantly than the normalization, the shape of data and MC also seems to match, so further corrections of \vars~on MC are not necessary. This is also demonstrated by the flatness of the ratio of \vars~distributions, shown in the same Figure. There seems to be a difference in the classifier performance for the continuum background suppression on data and MC in the lower region of $BDT_{q \bar q}$, where classifier efficiency on MC is overestimated. However, after the classifier cut, these differences are negligible, since a relatively small amount of continuum background passes the selection.
+The off-resonance data were collected at $60\e{MeV}$ below the $\Upsilon(4S)$ resonance peak energy in order to determine the continuum background. It therefore offers a direct view of the $q\bar q$ background data sample, which we can compare to the off-resonance MC sample. Figure \ref{fig:offres_control} shows $\Delta E$, $M_{BC}$ and the $q \bar q$ classifier output, $BDT_{q\bar q}$, for off-resonance data and stacked MC in the control region, before the MVA selection, where the MC sample was scaled down by a factor of $6$, due to 6 streams of MC. These figures do not show a fit to the data, but merely an overlay of data and stacked MC distributions, and show good data and MC agreement of the off-resonance sample already before the fit. More importantly than the normalization, the shape of data and MC also seems to match, so further corrections of \vars~on MC are not necessary. This is also demonstrated by the flatness of the ratio of \vars~distributions, shown in the same Figure. There seems to be a difference in the classifier performance for the continuum background suppression on data and MC in the lower region of $BDT_{q \bar q}$, where classifier efficiency on MC is overestimated. However, after the selection on classifier output, these differences are negligible, since a relatively small amount of continuum background passes the selection.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/offres_control}
-	\caption{$\Delta E$ (left), $M_{BC}$ (right) and the $q \bar q$ classifier output (bottom), for off-resonance data and MC in the control region prior to any MVA cuts.}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right) and the $q \bar q$ classifier output (bottom), for off-resonance data and MC in the control region prior to any MVA selection.}
 	\label{fig:offres_control}
 \end{figure}
 
 \subsection{On-resonance Data}
 
-We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$, $BDT_{q \bar q}$ and $uBDT_{B \bar B}$, where one can see inconsistencies between data and stacked MC on the lower parts of all $BDT$ spectra. These figures again do not show the fit, but merely an overlay of data to the stacked MC distributions. On the other hand, data and MC seem to agree well in the upper parts of the spectra. Overall, data and MC seem to agree well after all the pre-cuts and without any corrections. This means that the modeling of the MC sample is precise and that the MVA selection does not introduce any additional differences between data and MC for the control sample, and therefore the signal sample.
+We can repeat the check on on-resonance data. Figure \ref{fig:onres_control} shows $\Delta E$, $M_{BC}$, $BDT_{q \bar q}$ and $uBDT_{B \bar B}$, where one can see inconsistencies between data and stacked MC on the lower parts of all $BDT$ spectra. These figures again do not show the fit, but merely an overlay of data to the stacked MC distributions. On the other hand, data and MC seem to agree well in the upper parts of the spectra. Overall, data and MC seem to agree well after the pre-selection and without any corrections. This means that the modeling of the MC sample is precise and that the MVA selection does not introduce any additional differences between data and MC for the control sample, and therefore the signal sample.
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/onres_control}
-	\caption{$\Delta E$ (top left), $M_{BC}$ (top right), the $q \bar q$- (bottom left) and the $B \bar B$ classifier output (bottom right), for on-resonance data and MC in the control region prior to any MVA cuts.}
+	\caption{$\Delta E$ (top left), $M_{BC}$ (top right), the $q \bar q$- (bottom left) and the $B \bar B$ classifier output (bottom right), for on-resonance data and MC in the control region prior to the MVA selection.}
 	\label{fig:onres_control}
 \end{figure}
