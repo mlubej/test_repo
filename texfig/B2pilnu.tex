@@ -1,6 +1,10 @@
 \documentclass[border=1pt]{standalone}
 
 \usepackage{tikz}
+
+\usepackage{color}
+\pagecolor{white}
+
 \usetikzlibrary{arrows, decorations.markings}
 \usetikzlibrary{shapes,snakes}
 \usetikzlibrary{decorations.pathmorphing}	% For Feynman Diagrams
@@ -58,7 +62,7 @@
 \draw[fermion]  (-1,-2) -- (1,-2) ;
 \draw[fermion]  (1,-2) -- (3,-2) ;
 
-\draw[fermion]  (1.5, 1) -- (1.5+1.5, 1+0.3) ;
+\draw[fermion]  (1.5+1.5, 1+0.3) -- (1.5, 1) ;
 \draw[fermion]  (1.5, 1) -- (1.5+1.5, 1-0.3) ;
 \draw[vector]  (1,0) -- (1.5, 1) ;
 

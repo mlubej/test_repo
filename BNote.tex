@@ -3,47 +3,97 @@
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
 \newcommand {\vars}{$\Delta E$ and $M_{BC}$}
+\newcommand {\varss}{$\Delta E$ in $M_{BC}$}
 \newcommand {\btbii}{\texttt{B2BII}}
 \newcommand {\decaya}{$B \to K K \ell \nu$}
 \newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu$}
 
-%\usepackage{biblatex}
-%\bibliography{mybib.bib} 
-\usepackage[english]{babel}% Recommended
-\usepackage{csquotes}% Recommended
-\usepackage[sorting=none,firstinits=true,backend=bibtex]{biblatex}
-\addbibresource{mybib.bib}% Syntax for version >= 1.2
+\usepackage{fancyhdr}
 
+\usepackage[slovene,english]{babel}
+\usepackage{csquotes}
 \usepackage{paralist}
 \usepackage{caption}
 \usepackage{cancel}
-
 \usepackage{longtable}
 \usepackage{multirow}
-
-\setlength{\parskip}{1em}%
-\setlength{\parindent}{0cm}
-
 \usepackage{titling}
 \usepackage{amsmath,amssymb,amsfonts,nicefrac}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{float}
 \usepackage{mathtools}
-\allowdisplaybreaks
-\usepackage[pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
+\usepackage[unicode,pdftex,colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue,bookmarks=true]{hyperref}
 \usepackage{dictsym}
 \usepackage{braket}
 \usepackage{slashed}
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \usepackage{enumerate}
 \usepackage{array}
-\setlength{\extrarowheight}{.5ex}
-
+\usepackage{tikz}
+\usepackage{subfigure}
+\usepackage{bm}
+\usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
+\usepackage[titletoc,title]{appendix}
+\usepackage{icomma}
+\usepackage{booktabs}
 \usepackage{lineno}
 \linenumbers
 
-\usepackage{subfigure}
+
+\usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
+\addbibresource{bib/mybib}
+
+\usetikzlibrary{fadings}
+\raggedbottom
+\pdfsuppresswarningpagegroup=1
+
+% supress longtable bug warning
+\makeatletter
+\def\LT@start{%
+	\let\LT@start\endgraf
+	\endgraf\penalty\z@\vskip\LTpre
+	\dimen@\pagetotal
+	\advance\dimen@ \ht\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \dp\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \ht\LT@foot
+	\edef\restore@vbadness{\vbadness\the\vbadness\relax}% (added)
+	\vbadness=\@M % (added)
+	\dimen@ii\vfuzz
+	\vfuzz\maxdimen
+	\setbox\tw@\copy\z@
+	\setbox\tw@\vsplit\tw@ to \ht\@arstrutbox
+	\setbox\tw@\vbox{\unvbox\tw@}%
+	\vfuzz\dimen@ii
+	\restore@vbadness % (added)
+	\advance\dimen@ \ht
+	\ifdim\ht\@arstrutbox>\ht\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@\dp
+	\ifdim\dp\@arstrutbox>\dp\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@ -\pagegoal
+	\ifdim \dimen@>\z@\vfil\break\fi
+	\global\@colroom\@colht
+	\ifvoid\LT@foot\else
+	\advance\vsize-\ht\LT@foot
+	\global\advance\@colroom-\ht\LT@foot
+	\dimen@\pagegoal\advance\dimen@-\ht\LT@foot\pagegoal\dimen@
+	\maxdepth\z@
+	\fi
+	\ifvoid\LT@firsthead\copy\LT@head\else\box\LT@firsthead\fi\nobreak
+	\output{\LT@output}%
+}
+\makeatother
+
+% more space at list of figures
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+\makeatother
+
+\newcommand{\changelocaltocdepth}[1]{%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+	\setcounter{tocdepth}{#1}%
+}
+
 
 \title{{\Large BELLE NOTE 1486}\\\huge {Measurement of the decay $B^+ \to K^+K^-\ell^+\nu_\ell$ with B2BII}}
 \author{Matic Lubej}
@@ -79,6 +129,15 @@
 		\item Adding sources of systematics
 		\item Ready for box opening
 	\end{itemize}
+\item 5. October:
+\begin{itemize}
+	\item Added fits to data
+	\item Added all sources of systematics
+	\item New model for uncertainty study
+	\item $q^2$ calculation description
+	\item efficiency as a function of $m_{KK}$ and $q^2$
+	\item Fit yields in bins of $m_{KK}$ and $q^2$
+\end{itemize}
 \end{itemize}
 
 \tableofcontents
@@ -95,7 +154,11 @@
 
 \printbibliography
 
-\include{chapters/A_mva}
+\appendix
+\changelocaltocdepth{1}
+\include{chapters/A_roe}
+\include{chapters/B_mva}
+\include{chapters/C_other}
 
 
 \end{document}
