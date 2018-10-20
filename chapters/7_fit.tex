@@ -30,7 +30,7 @@ which asymptotically behaves as the $\chi^2_q$ distribution with $q=m-n$ degrees
 \section{Fit Setup}
 We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as fitted data. When fitting real data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
 
-The same MC samples are used for template construction as described in chapter \ref{sec:data-and-monte-carlo-samples},
+The same MC samples are used for template construction as described in Chapter \ref{sec:data-and-monte-carlo-samples},
 \begin{itemize}
 	\item signal MC,
 	\item 10 streams of \texttt{charged} and \texttt{mixed} $B \bar B$ background,
@@ -150,7 +150,7 @@ The motivation for the choice of signal fit templates comes from Figure \ref{fig
 	\end{itemize}
 	\item remaining $B \bar B$ background template.
 \end{itemize}
-As mentioned in chapter \ref{sec:background-suppression}, the majority of the background comes from $B \bar B$ events. Various processes ($C_0$ to $C_6$) contribute to this background which are well known and measured, so we make use of these measurements by fixing their yields in MC fits and appropriately constraining them in real data fits. The remaining $B \bar B$ background is merged into a single template. In this case, the shape of all templates is fixed as well, while the yields are floated for all templates except for the constrained background templates. The yield constraints are based on the channels shown in Table \ref{tab:sig_constraint_table} and defined for each template category as 
+As mentioned in Chapter \ref{sec:background-suppression}, the majority of the background comes from $B \bar B$ events. Various processes ($C_0$ to $C_6$) contribute to this background which are well known and measured, so we make use of these measurements by fixing their yields in MC fits and appropriately constraining them in real data fits. The remaining $B \bar B$ background is merged into a single template. In this case, the shape of all templates is fixed as well, while the yields are floated for all templates except for the constrained background templates. The yield constraints are based on the channels shown in Table \ref{tab:sig_constraint_table} and defined for each template category as 
 \begin{equation}
 Y_i = \eta_{\mathrm{norm.}} \times \frac{\left(\sum_j N_{ij}\times \rho_{ij} \right)}{\rho_{00}},
 \label{eq:sig_fix}
@@ -322,7 +322,7 @@ With the signal fit setup described in section \ref{sec:templates-in-signal-fits
 	\label{fig:sig_binning}
 \end{figure}
 
-For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a 0th-degree polynomial. The global result seems to describe the expected value precisely, with the residual bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom for the global fit is $\chi^2_9 = 1.23$, while the average significance of the fits is around $3.5 \sigma$.
+For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fits, where an average stream fit is shown in Figure \ref{fig:sig_streamfit}, while all fit results are shown in Figure \ref{fig:sig_global}. All stream fit results were fitted with a $0^{\mathrm{th}}$-degree polynomial. The global result seems to describe the expected value precisely, with the residual bias much smaller than the average statistical error. The normalized $\chi^2$ value with $10-1=9$ degrees of freedom for the global fit is $\chi^2_9 = 1.23$, while the average significance of the fits is around $3.5 \sigma$.
 
 \begin{figure}[H]
 	\centering
@@ -378,7 +378,7 @@ With the control fit setup described in section \ref{sec:control-fit}, we procee
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/cs_global}
-	\caption{Control fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\caption{Control fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a $0^{\mathrm{th}}$ degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
 	\label{fig:cs_global}
 \end{figure}
 
@@ -465,7 +465,7 @@ The uncertainty includes the statistical uncertainty as well as partial systemat
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/sig_global}
-	\caption{Signal fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a 0th degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
+	\caption{Signal fit to the data and all 10 streams of MC. The red line shows the mean value of the global MC fit with a $0^{\mathrm{th}}$ degree polynomial. The gray band shows the $1\sigma$ confidence interval around the global MC fit.}
 	\label{fig:sig_all_global}
 \end{figure}
 
