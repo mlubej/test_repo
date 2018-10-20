@@ -106,6 +106,7 @@ In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}
 \subsubsection{Smearing and Offset Parameters}\label{sec:smearing-and-offset-parameters}
 With simulated data, we are able to perform detailed studies prior to looking at the measured data. However, simulated data often does not describe real data perfectly. Out of variables \vars, $\Delta E$ is especially prone to a lack of precision in energy measurements. This can introduce either overestimation of resolution on MC as well as a possible shift in the measured energy in either direction. Due to this fact, we introduce a modification of the $\Delta E$ variable by applying a smearing factor and an offset. These are applied by simple transformations of 
 \begin{align}
+\label{eq:smearingoffset}
 f_{\mathrm{offset}}&: x \mapsto x + a, \\
 f_{\mathrm{smearing}}&: x \mapsto \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
 \end{align}
@@ -444,7 +445,12 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 \subsection{Signal Yield}
 
-Finally, after validating the analysis procedure using the signal MC sample, control sample MC and control data sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. 
+Finally, after validating the analysis procedure using the signal MC sample, control sample MC and control data sample, we can continue to perform the signal extraction process on the full Belle $\Upsilon(4S)$ data sample. Figure \ref{fig:sig_fit_data} shows the fit result in projections of \vars~for both fit regions. The extracted signal yield on data as well as the yields of the remaining contributions are shown in Table \ref{tab:sig_yields}. Values of all the constraints are shown in Table \ref{tab:constraints}. As the main results we obtain the signal yield of 
+\begin{equation}
+\label{eq:main_result}
+N {}_{sig} = 491 \pm 86,\quad\mathrm{fit~significance} = 6.0\sigma.
+\end{equation}
+The uncertainty includes the statistical uncertainty as well as partial systematic uncertainty due to the limited knowledge of various branching fractions, entering the fit in a form of Gaussian constraints. The significance of the result, taking into account only the mentioned uncertainties, is $6.0\sigma$. The latter is obtained via the likelihood-ratio test, as previously described in Eq. (\ref{eq:ss}).
 
 \begin{figure}[H]
 	\centering
@@ -509,8 +515,6 @@ Finally, after validating the analysis procedure using the signal MC sample, con
 	$N_{20}$ & $23 \pm 5$ & $N_{61}$ & $94 \pm 10$\\
 	$N_{21}$ & $41 \pm 6$ & $N_{62}$ & $63 \pm 8$\\
 	$N_{22}$ & $6 \pm 2$ & $N_{63}$ & $35 \pm 6$\\
-	
-		
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
@@ -518,17 +522,13 @@ Finally, after validating the analysis procedure using the signal MC sample, con
 	\label{tab:constraints}
 \end{table}
 
-In this fit setup, we perform a random smearing of the $\Delta E$ variable according to the Poisson distribution. The result is similar to a convolution with a Gaussian function, but the application is different in the sense that it returns a slightly different result after each fit. We perform 500 data fits in order to obtain the mean values of the signal yield and fit error. The averaged result is
-\begin{equation*}
-\bar N {}_{sig} = 491 \pm 86,\quad \mathrm{fit~significance} = 6.0\sigma,
-\end{equation*}
-where the error represents the joint value of the statistical error and the systematic error of the Gaussian constraints used in the fit. This means that our initial fit is a good representation of the average fit result. 
+In this fit setup, we perform a random smearing of the $\Delta E$ (see Eq. \ref{eq:smearingoffset} and description there). Because of the randomness involved in the smearing, such a method results in small random fluctuations of the fitted central values. In order to check the consistency of the fit result because of the $\Delta E$ smearing, we perform $500$ fit repetitions. The result in Eq. (\ref{eq:main_result}) represents the average result, corresponding to the central values of the yield, uncertainty, and the significance of the signal fit to data.
 
-It is possible to estimate the contribution of the systematic uncertainty to the fit error above by fixing the Gaussian constraints to the nominal values determined by the fit. The fit uncertainty in the fixed case then corresponds to statistical uncertainty only, and we obtain
+The systematic part of the fit uncertainty can be estimated by fixing the Gaussian constraints to central values, presented in Table \ref{tab:constraints}, and repeating the fit. The resulting uncertainty and significance are purely statistical and are found to be
 \begin{equation}
-\sigma_{\mathrm{stat}} = 81,\quad \sigma_{\mathrm{sys}}^{GC} = 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.4\%,
+\sigma_{\mathrm{stat}} = 81,\quad\mathrm{fit~significance} = 6.3\sigma.
 \end{equation}
-where GC stands for Gaussian constraint. Further details about systematic uncertainties can be found in chapter \ref{sec:systematic-uncertainty}.
+Other sources of systematic uncertainties and their estimations are presented in details in Chapter \ref{sec:systematic-uncertainty}.
 
 \subsection{Branching Ratio}\label{sec:branching-ratio-calculation-for-signal-decay}
 
