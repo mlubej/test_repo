@@ -53,12 +53,12 @@ In control fits, all template shapes are fixed and the yields of all templates a
 r_1 = \frac{\left(\sum_j N_{1j}\times \rho_{1j} \right)}{N_{00} \times \rho_{00}},
 \label{eq:cs_fix}
 \end{equation}
-where $j$ runs over all channels in the category $C_1$ and where $\rho_{ij}$ is the branching ratio correction factor for the specific channel $N_{ij}$, which incorporates information from world measurements. It is defined as 
+where $j$ runs over all channels in the category $C_1$ and where $\rho_{ij}$ is the branching fraction correction factor for the specific channel $N_{ij}$, which incorporates information from world measurements. It is defined as 
 \begin{equation}
 \rho = \frac{\mathcal{B}^{PDG}}{\mathcal{B}^{GEN}},
 \label{eq:br_fix}
 \end{equation}
-where $\mathcal{B}^{PDG}$ is the measured branching ratio and $\mathcal{B}^{GEN}$ is the branching ratio value used in MC generation. The branching ratio correction factor has been implemented due to differences between measured and MC branching ratio values. Each branching ratio measurement serves as a constraint used in the fit. All branching ratio constraints in the control fit are shown in Table \ref{tab:cs_br_constraint_table}. The measured values are cited only for the $B^0$ decay mode, where isospin symmetry has been assumed. The corresponding $B^+$ branching ratios can be calculated as
+where $\mathcal{B}^{PDG}$ is the measured branching fraction and $\mathcal{B}^{GEN}$ is the branching fraction value used in MC generation. The branching fraction correction factor has been implemented due to differences between measured and MC branching fraction values. Each branching fraction measurement serves as a constraint used in the fit. All branching fraction constraints in the control fit are shown in Table \ref{tab:cs_br_constraint_table}. The measured values are cited only for the $B^0$ decay mode, where isospin symmetry has been assumed. The corresponding $B^+$ branching fractions can be calculated as
 \begin{equation}
 \mathcal{B}(B^+) = \mathcal{B}(B^0) \times \tau_{B^+/B^0},
 \end{equation}
@@ -83,7 +83,7 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 	\label{tab:cs_constraint_table}
 \end{table}
 
-In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching ratio measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
+In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching fraction measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|l|l|l|c|c}
@@ -99,7 +99,7 @@ In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=0.8\linewidth}
-	\caption{MC and measured values of branching ratios along with the calculated correction factors used for constraining the control fit.}
+	\caption{MC and measured values of branching fractions along with the calculated correction factors used for constraining the control fit.}
 	\label{tab:cs_br_constraint_table}
 \end{table}
 
@@ -161,7 +161,7 @@ where $j$ runs over all channels in the category $C_i$ and where $\rho_{ij}$ is 
 \end{equation}
 where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yields in the control fit for data and MC, respectively.
 
-In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching ratio can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching ratio. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
+In addition to branching fraction constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching fraction can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching fraction. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
 
 
 \begin{table}[H]
@@ -227,7 +227,7 @@ In addition to branching ratio constraints in Table \ref{tab:cs_br_constraint_ta
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=0.8\linewidth}
-	\caption{Additional MC and measured values of $D$ meson branching ratios along with the calculated correction factors used for constraining the signal fit.}
+	\caption{Additional MC and measured values of $D$ meson branching fractions along with the calculated correction factors used for constraining the signal fit.}
 	\label{tab:sig_br_constraint_table}
 \end{table}
 
@@ -308,7 +308,7 @@ Figure \ref{fig:lin_test} shows the difference between mean fit yield and the ex
 
 \chapter{Fit Results}
 \label{sec:fit-results}
-In this section, we present the results of signal and control fits on MC as well as data, along with the control decay branching ratio measurement.
+In this section, we present the results of signal and control fits on MC as well as data, along with the control decay branching fraction measurement.
 
 \section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
@@ -384,14 +384,14 @@ With the control fit setup described in Section \ref{sec:control-fit}, we procee
 
 \subsection{Branching Ratio Measurement for Control Decay}\label{sec:branching-ratio-measurement-for-control-decay}
 
-After acquiring the fit results on MC and data, we are able to determine the branching ratio of the control decay, which is defined as
+After acquiring the fit results on MC and data, we are able to determine the branching fraction of the control decay, which is defined as
 
 \begin{align}
 \mathcal{B}^{MC}_{\mathrm{control}} &= \frac{N^{\mathrm{MC}}_\mathrm{control} \times \epsilon_{MC}}{2N_{B\bar B}^{MC}},\\
 \mathcal{B}_{\mathrm{control}} &= \frac{N_\mathrm{control} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
 \label{eq:br_data}
 \end{align}
-where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of the control fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the control sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and data, respectively. The factor of 2 in the denominator comes from the fact that there are 2 $B$ mesons in each $B$ meson pair $(\times 1/2)$, where only about $50\%$ of the $B$ meson pairs are charged $B^+B^-$ meson pairs $(\times 2)$, and from the fact that we are interested in the branching ratio to the lepton final state of either $e$ or $\mu$, and not their sum $(\times 1/2)$.
+where $N^{\mathrm{MC}}_\mathrm{control}$ and $N_\mathrm{control}$ are yields of the control fit on MC and data, $\epsilon_{MC}$ is the MC efficiency of the control sample, $\rho_{PID}$ the PID correction factor, and $N_{B\bar B}^{MC}$ and $N_{B\bar B}$ are the numbers of $B \bar B$ meson pairs on MC and data, respectively. The factor of 2 in the denominator comes from the fact that there are 2 $B$ mesons in each $B$ meson pair $(\times 1/2)$, where only about $50\%$ of the $B$ meson pairs are charged $B^+B^-$ meson pairs $(\times 2)$, and from the fact that we are interested in the branching fraction to the lepton final state of either $e$ or $\mu$, and not their sum $(\times 1/2)$.
 
 The control sample efficiency was determined on a separate signal MC sample of the control decay, where we generated $5\E{6}$ $B^+ \bar B^-$ pairs, with one $B$ always decaying via $B^+ \to \bar D {}^0 \ell^+ \nu,~D^0 \to K^+K^-$. After applying the final selection, the full and split efficiencies with respect to the lepton final state were determined to be 
 \begin{align*}
@@ -417,7 +417,7 @@ The number of $B\bar B$ meson pairs can be counted on MC and has been measured f
 &N_{B\bar B} = (771.58 \pm 10.56)\E{6}.
 \end{align*}
 
-Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure \ref{fig:br_plot}, along with the MC generated value and the current PDG world average. Both MC and data results for the control decay branching ratio are in agreement with the expected and the world average values. One should note that the error bars correspond to statistical uncertainty and the PID systematic uncertainty only. Other systematic uncertainties are not included since this measurement is not the goal of our analysis.
+Finally, we can determine the branching fractions based on the calculations in Eq. (\ref{eq:br_data}). The obtained values are shown in Table \ref{tab:br_result} and graphically shown in Figure \ref{fig:br_plot}, along with the MC generated value and the current PDG world average. Both MC and data results for the control decay branching fraction are in agreement with the expected and the world average values. One should note that the error bars correspond to statistical uncertainty and the PID systematic uncertainty only. Other systematic uncertainties are not included since this measurement is not the goal of our analysis.
 
 \begin{table}[H]
 	\centering
@@ -438,7 +438,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/br_plot}
-	\caption{Various branching ratio determinations for the control decay of our analysis.}
+	\caption{Various branching fraction determinations for the control decay of our analysis.}
 	\label{fig:br_plot}
 \end{figure}
 
@@ -533,7 +533,7 @@ Other sources of systematic uncertainties and their estimations are presented in
 
 \subsection{Branching Ratio}\label{sec:branching-ratio-calculation-for-signal-decay}
 
-Similarly as for the control decay, we are able to calculate the branching ratio of the signal decay via the formulas
+Similarly as for the control decay, we are able to calculate the branching fraction of the signal decay via the formulas
 \begin{align}
 \mathcal{B}^{MC}_{\mathrm{sig}} &= \frac{N^{\mathrm{MC}}_\mathrm{sig} \times \epsilon_{MC}}{2N_{B\bar B}^{MC}},\\
 \mathcal{B}_{\mathrm{sig}} &= \frac{N_\mathrm{sig} \times \epsilon_{MC} \times \rho_{PID}}{2N_{B\bar B}},
@@ -545,9 +545,9 @@ The signal efficiency was determined on the same signal MC sample as was used th
 \begin{equation*}
 \epsilon_{MC} = (1.052 \pm 0.003)\E{-2},
 \end{equation*}
-where the efficiency error was calculated in the same manner as in Section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement.
+where the efficiency error was calculated in the same manner as in Section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching fractionn measurement.
 
-Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. The measured value is almost twice as large as the MC value. The errors in all cases are statistical only. The result indicates that the MC contribution to our simulated samples is underestimated. The result shows that the branching fraction of the decay may be large enough to affect results in precision physics, in cases where it is ignored.
+Finally, we can determine the branching fractions based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. The measured value is almost twice as large as the MC value. The errors in all cases are statistical only. The result indicates that the MC contribution to our simulated samples is underestimated. The result shows that the branching fraction of the decay may be large enough to affect results in precision physics, in cases where it is ignored.
 
 \begin{table}[H]
 	\centering
@@ -558,7 +558,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
-	\caption{Signal decay branching ratio results for MC and data.}
+	\caption{Signal decay branching fraction results for MC and data.}
 	\label{tab:br_result_sig}
 \end{table}
 
