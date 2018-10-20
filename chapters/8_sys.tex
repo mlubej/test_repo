@@ -42,12 +42,12 @@ Signal and background templates in our analysis are not perfectly distinct from 
 \begin{align}
 f_{\mathrm{min}}(x) &= -7.25-1.12x - \sigma_{f_{\mathrm{min}}}(x), \\
 \sigma_{f_{\mathrm{min}}}(x) &= \sqrt{0.050 x^2 - 0.175 x + 0.410}, \\
-f_{\mathrm{max}}(N_b) &= 5.06 + \sigma_{f_{\mathrm{max}}}(N_b), \\
+f_{\mathrm{max}}(N_b) &= 6.86 + \sigma_{f_{\mathrm{max}}}(N_b), \\
 \sigma_{f_{\mathrm{max}}}(N_b) &= \sqrt{0.004N_b^2 - 0.113 N_b + 1.112}
 \end{align}
-where $x$ represents the signal yield fraction of the data fit and $N_b$ represents the binning choice of the fit. Values of $1\sigma$ intervals have been added to the bias functions in order to be more conservative. The extracted signal yield on data  with the fit setup of $N_b=19$ bins was determined to be $N_{sig} = 487$, which leads to $x = N_{sig} / N_{sig}^{MC} = 487 / 250 \approx 2$. The bias interval is therefore
+where $x$ represents the signal yield fraction of the data fit and $N_b$ represents the binning choice of the fit. Values of $1\sigma$ intervals have been added to the bias functions in order to be more conservative. The extracted signal yield on data  with the fit setup of $N_b=19$ bins was determined to be $N_{sig} = 491$, which leads to $x = N_{sig} / N_{sig}^{MC} = 491 / 249 \approx 2$. The bias interval is therefore
 \begin{equation}
-\sigma_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+6}_{-10},\quad \delta_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+1.2\%}_{-2.0\%}.
+\sigma_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+7}_{-10},\quad \delta_{\mathrm{sys}}^{\mathrm{bias}} = {}^{+1.5\%}_{-2.0\%}.
 \end{equation}
 
 \subsection{Gaussian Constraints}
@@ -55,7 +55,7 @@ As mentioned in section \ref{sec:final-results-from-data}, it is possible to est
 \begin{align}
 \bar \sigma_{\mathrm{fit}} &= 86, \\
 \bar \sigma_{\mathrm{stat}} &= 81, \\
-\sigma_{\mathrm{sys}}^{GC} &= 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.0\%,
+\sigma_{\mathrm{sys}}^{GC} &= 26,\quad \delta_{\mathrm{sys}}^{GC} = 5.4\%,
 \end{align}
 where GC stands for the Gaussian constraints. We see that the constrained channels are very well defined and introduce a relatively small level of uncertainty.
 
@@ -149,6 +149,8 @@ To estimate the systematic uncertainty due to model efficiency effects, we compu
 \sigma_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+70}_{-79},\quad \delta_{\mathrm{sys}}^{\mathrm{mod.}} = {}^{+14.3\%}_{-16.2\%}.
 \end{equation}
 
+As mentioned in Section \ref{sec:signal-distribution-in-bins-of-texorpdfstringq2q2}, measured $q^2$ and $m_{KK}$ distributions differ to some extent from the simulated ones. Since the reconstruction efficiency is not constant as a function of these variables, this could represent an additional source of systematic uncertainty. However, in $m_{KK}$, the measured signal is concentrated in the region $m_{KK}<2\e{GeV}/c^2$, where the efficiency is relatively constant in this interval and within the range of already estimated systematic uncertainty of around $\pm15\%$. In $q^2$, the data distribution is wider and encompasses the region of a more pronounced efficiency dependence. We estimated the branching ratio using the signal yield as obtained in bins of $q^2$ (see Table \ref{tab:q2_windows}) and the efficiency as a function of $q^2$. The result, although with a larger statistical uncertainty, due to low statistics in $q^2$ bins, is within the assigned systematic uncertainty due to the model dependency, and therefore consistent with the branching ratio found using the average reconstruction efficiency.
+
 \section{Summary of Systematic Uncertainties}
 
 The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summary}. The full estimate of the systematic uncertainty is summed up in quadrature and applied to the result in section \ref{sec:branching-ratio-calculation-for-signal-decay}.
@@ -160,8 +162,8 @@ The summary of all systematic uncertainties is shown in Table \ref{tab:sys_summa
 		Source & $\sigma$ & $\delta~[\%]$ \\
 		\toprule
 		PID & $10$ & $2.0$ \\
-		Fit Bias & $ {}^{+6}_{-10}$ & ${}^{+1.2}_{-2.0}$ \\
-		Gaussian Constraints & $26$ & $5.3$ \\
+		Fit Bias & $ {}^{+7}_{-10}$ & ${}^{+1.5}_{-2.0}$ \\
+		Gaussian Constraints & $26$ & $5.4$ \\
 		Template Smearing & ${}^{+41}_{-33}$ & ${}^{+8.3}_{-6.7}$ \\
 		Template Offset & ${}^{+41}_{-31}$ & ${}^{+8.4}_{-6.3}$ \\
 		Finite MC Effects & $26$ & $5.3$ \\
