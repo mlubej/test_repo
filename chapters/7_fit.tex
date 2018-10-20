@@ -293,7 +293,7 @@ where $N$ is the number of performed measurements. It seems that there is a smal
 \label{sec:pseudo-experiment-linearity-test}
 Linearity test is used for determining the sensitivity of the fit to the amount of signal in the fitted sample. Since this is the first measurement of this decay channel, MC modeling is not reliable and could be very different from reality, so we need to perform this test in order to determine our sensitivity to smaller, as well as larger amounts of expected signal.
 
-The pseudo-datasets are generated in the same way as in the previous subsection, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo-datasets according to Poisson statistics.
+The pseudo-datasets are generated in the same way as in the previous section, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo-datasets according to Poisson statistics.
 
 Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.6\sigma$ significance.
 
@@ -312,7 +312,7 @@ In this section, we present the results of signal and control fits on MC as well
 
 \section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
-With the signal fit setup described in section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the fitted and the true MC matched yield differences, pulls, and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value of 0, and a width of 1. From the top plot in Figure \ref{fig:sig_binning} we see that the yield difference is consistent with 0, while exhibiting a slight and a consistent overestimation of the fitted yield. This difference is accounted for as a separate contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the $uBDT$ classifier. Also the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the $uBDT$ classifier outperforms the standard $BDT$ setup. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
+With the signal fit setup described in Section \ref{sec:templates-in-signal-fits}, we proceed to fit the 10 streams of MC. To compare both methods of $B \bar B$ bar suppression, two different samples were prepared and used in the fit. Since the choice of initial uniform binning is not obvious, we perform fits to all streams of MC for each binning choice in the range $N\times N,~N\in[4,30]$. Figure \ref{fig:sig_binning} shows the fitted and the true MC matched yield differences, pulls, and fit significances for both final samples for each binning case. The difference between fitted an expected signal yield should be equal to 0 to ensure no bias is present in the fit, while the average pull distribution for each bin case should have a central value of 0, and a width of 1. From the top plot in Figure \ref{fig:sig_binning} we see that the yield difference is consistent with 0, while exhibiting a slight and a consistent overestimation of the fitted yield. This difference is accounted for as a separate contribution to the overall systematic uncertainty. The pull distribution seems to be closer to the normal distribution for the case of the $uBDT$ classifier. Also the fit significance appears to be larger by approximately $1\sigma$, so we conclude that the $uBDT$ classifier outperforms the standard $BDT$ setup. The binning in \vars~is chosen at the plateau of the significance, where no significant bias is present and is somewhere in the region of $20$ bins in each dimension.
 
 \begin{figure}[H]
 	\centering
@@ -341,7 +341,7 @@ For the chosen binning of $19 \times 19$ in \vars~we perform the 10 stream MC fi
 \end{figure}
 
 \section{Control Fit Result}
-With the control fit setup described in section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. A typical MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and in Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a $0^{\mathrm{th}}$ degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
+With the control fit setup described in Section \ref{sec:control-fit}, we proceed to fit the control sample after the final selection for 10 streams of MC and 1 stream of data. A typical MC stream fit is shown in Figure \ref{fig:cs_fit_mc} for MC and in Figure \ref{fig:cs_fit_data} for data, while all fit results are shown in Figure \ref{fig:cs_global}, where all streams of MC are fitted with a $0^{\mathrm{th}}$ degree polynomial. The control fit results for split and joined lepton modes are shown in Table \ref{tab:cs_fit_yield}.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|c|c}
@@ -405,7 +405,7 @@ The efficiency error was estimated according to the binomial distribution
 \end{equation*}
 where $n$ is a subset of the full set $N$.
 
-The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in section \ref{sec:pid-efficiency-correction} and is determined to be
+The PID correction factor is obtained by taking into account the known PID efficiency differences between data and MC. It is described in detail in Section \ref{sec:pid-efficiency-correction} and is determined to be
 \begin{equation*}
 \rho_{PID} = 0.99\pm 0.02
 \end{equation*}
@@ -545,7 +545,7 @@ The signal efficiency was determined on the same signal MC sample as was used th
 \begin{equation*}
 \epsilon_{MC} = (1.052 \pm 0.003)\E{-2},
 \end{equation*}
-where the efficiency error was calculated in the same manner as in section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement.
+where the efficiency error was calculated in the same manner as in Section \ref{sec:branching-ratio-measurement-for-control-decay}. The PID correction factors for signal and the numbers of $B\bar B$ meson pairs on MC and data are the same as in the case of control decay branching ration measurement.
 
 Finally, we can determine the branching ratios based on the calculations in Eq. (\ref{eq:br_data_sig}). The obtained values are shown in Table \ref{tab:br_result_sig}. The measured value is almost twice as large as the MC value. The errors in all cases are statistical only. The result indicates that the MC contribution to our simulated samples is underestimated. The result shows that the branching fraction of the decay may be large enough to affect results in precision physics, in cases where it is ignored.
 
@@ -564,7 +564,7 @@ Finally, we can determine the branching ratios based on the calculations in Eq. 
 
 \subsection{Signal Distribution in bins of \texorpdfstring{$m_{KK}$}{mKK}}
 
-It is possible to take a deeper look in the signal distribution over the $m_{KK}$ variable by performing the signal fit in bins of the $m_{KK}$ distribution instead of a single fit over the whole region. This offers a deeper insight into the decay process and provides more details about the reliability of our MC samples. Results can be used to check theoretical predictions or to update existing MC generators. Table \ref{tab:mKK_windows} shows the selected regions in $m_{KK}$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:mKK_windows}. Figures for each $m_{KK}$ window fit can be found in Appendix \ref{sec:mKK_plots}. In the given results, the $m_{KK}$ regions around the $\phi$ and the $D^0$ resonances have been excluded (see section \ref{sec:res_bkg}).
+It is possible to take a deeper look in the signal distribution over the $m_{KK}$ variable by performing the signal fit in bins of the $m_{KK}$ distribution instead of a single fit over the whole region. This offers a deeper insight into the decay process and provides more details about the reliability of our MC samples. Results can be used to check theoretical predictions or to update existing MC generators. Table \ref{tab:mKK_windows} shows the selected regions in $m_{KK}$, along with the corresponding signal yields on MC and data. The results are graphically shown in Figure \ref{fig:mKK_windows}. Figures for each $m_{KK}$ window fit can be found in Appendix \ref{sec:mKK_plots}. In the given results, the $m_{KK}$ regions around the $\phi$ and the $D^0$ resonances have been excluded (see Section \ref{sec:res_bkg}).
 
 \begin{table}[H]
 	\centering
