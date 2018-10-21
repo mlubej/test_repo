@@ -1,6 +1,6 @@
 \chapter{Extraction of Physical Parameters}
 \label{sec:extraction-of-physical-parameters}
-In this chapter, the procedure for signal yield extraction is presented. We use the framework of \texttt{RooFit} \cite{verkerke2006roofit} where we define 2D histogram templates in \vars, based on MC, for signal and several types of background. Using these templates, the independent full sample is fitted with the binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poisson nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure, we attempt to find the parameter values that maximize the likelihood function, given the observations.
+In this chapter, the procedure for signal yield extraction is presented. We use the framework of \texttt{RooFit} \cite{verkerke2006roofit}, where we define 2D histogram templates in \vars, for signal and several types of background, based on MC. Using these templates, the independent full sample is fitted with the binned extended maximum likelihood (ML) fit, so that the individual template ratios and their sum describe the fitted sample as best as possible. In particle physics we are often dealing with low numbers of events and need to account for the Poissonian nature of the data, therefore we use the likelihood fit, since it takes the Poisson errors into account, unlike the $\chi^2$ fit, where the errors are assumed to be Gaussian. In this procedure, we attempt to find the parameter values that maximize the likelihood function, given the observations.
 
 If $P(n\vert\vec \alpha)$ is the probability of measuring $n$ candidates, where $\vec \alpha$ is a set of parameters on which $P$ depends, we can define the likelihood function $L$ for a series of such measurements (i.e., bins in histogram) $n_i$ based on Poisson statistics as
 \begin{equation}
@@ -16,19 +16,19 @@ Maximizing $L$ or minimizing $\mathcal{L}$ gives us a maximum likelihood estimat
 
 The ML method provides a method to estimate the fit uncertainty. This is especially useful if the log-likelihood has a non-parabolic shape, which leads to asymmetric errors. We calculate the errors using the \texttt{MINOS} algorithm from the \texttt{MINUIT} package \cite{James:1994vla}, which is implemented in RooFit. The algorithm follows the log-likelihood function out of the minimum to find the appropriate intervals of confidence for each parameter, taking the parameter correlations into account. 
 
-To estimate the goodness of the likelihood fit, one option is to generate toy MC experiments and obtain the expected log-likelihood distribution. Likelihood fits, however, also offer another way to test the goodness of fit via the likelihood ratio (LR), where we compare the likelihood obtained under the ML parameters $\vec\alpha_{ML}$, to the likelihood obtained under the null hypothesis parameters $\vec\alpha_{H_0}$. This determines how likely the data is under one model than the other. We define the LR test as
+To estimate the goodness of the likelihood fit, one option is to generate toy MC experiments and obtain the expected log-likelihood distribution. Likelihood fits, however, also offer another way to test the goodness of the fit via the likelihood ratio (LR), where we compare the likelihood obtained under the ML parameters $\vec\alpha_{ML}$, to the likelihood obtained under the null hypothesis parameters $\vec\alpha_{H_0}$. This determines how likely the data is under one model than the other. We define the LR test as
 \begin{equation}
 \label{eq:lr}
 \lambda = -2\ln\left(\frac{L(\vec \alpha_{ML})}{L(\vec \alpha_{H_0})}\right) = -2 \left[ \ln L(\vec \alpha_{ML}) - L(\vec \alpha_{H_0})\right] \sim \chi^2_q,
 \end{equation}
-which asymptotically behaves as the $\chi^2_q$ distribution with $q=m-n$ degrees of freedom, where $m$ and $n$ are degrees of freedom of $L(\vec \alpha_{ML})$ and $L(\vec \alpha_{H_0})$, respectively. In particle physics we usually study a specific decay and try to perform measurements of the signal yield, so the null hypothesis in this case is that we expect to observe no signal. This means that for the null hypothesis we fix the expected signal yield parameter to zero, while leaving the other parameters of $\vec\alpha_{H_0}$ the same as in $\vec\alpha_{ML}$, which results in $n = m-1$ degrees of freedom and in their difference $q = m -n = 1$. For such a simple $LR$ test of a single parameter the LR test then follows the $\chi^2$ distribution with $1$ degree of freedom. In this case we can define the fit significance from the $\chi^2$ value in units of $\sigma$ as
+which asymptotically behaves as the $\chi^2_q$ distribution with $q=m-n$ degrees of freedom, where $m$ and $n$ are degrees of freedom of $L(\vec \alpha_{ML})$ and $L(\vec \alpha_{H_0})$, respectively. In particle physics we usually study a specific decay and try to perform measurements of the signal yield, so the null hypothesis in this case is that we expect to observe no signal. This means that, for the null hypothesis, we fix the expected signal yield parameter to zero, while leaving the other parameters of $\vec\alpha_{H_0}$ the same as in $\vec\alpha_{ML}$, which results in $n = m-1$ degrees of freedom and in their difference $q = m -n = 1$. For such a simple $LR$ test of a single parameter, the LR test then follows the $\chi^2$ distribution with $1$ degree of freedom. In this case we can define the fit significance from the $\chi^2$ value in units of $\sigma$ as
 \begin{equation}
 \label{eq:ss}
 \mathrm{Significance} = \sqrt{\lambda} = \sqrt{\chi^2}.
 \end{equation}
 
 \section{Fit Setup}
-We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as fitted data. When fitting real data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC as well as data fits. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
+We perform 10 fits to each stream of MC, where 9 streams were used for the creation of the templates and the remaining stream was used as the fitted data. When fitting the measured data, all available MC was used for creating the templates. The full signal MC sample was used for the signal template definition in case of MC, as well as the data fit. The signal part of the \texttt{ulnu} sample was not used in template construction, it was only used as a part of the fitted sample. 
 
 The same MC samples are used for template construction as described in Chapter \ref{sec:data-and-monte-carlo-samples},
 \begin{itemize}
@@ -48,7 +48,7 @@ $B \bar B$ background composition in control region is shown in Figure \ref{fig:
 	\item $C_1:~B \to \bar{D} {}^* \ell^+ \nu,~D^0 \to K^-K^+$,
 	\item other $B \bar B$ BKG template.
 \end{itemize}
-In control fits, all template shapes are fixed and the yields of all templates are floated, except for the $q \bar q$ template in cases after the $BDT_{q \bar q}$ cut and signal template in all cases, where both are expected to be very close to zero and are instead fixed to the expected MC yield. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit. In case of fits to the data, we constrain the ratio to the measured value in the form of a Gaussian function with the width corresponding to the measurement uncertainty. These constraints are implemented in the fit, so the systematic effects are taken into account in the fit error. The ratio is implemented based on the decay channels shown in Table \ref{tab:cs_constraint_table} and is defined as
+In control fits, all template shapes are fixed and the yields of all templates are floated, except for the $q \bar q$ template in cases after the $BDT_{q \bar q}$ cut, and the signal template in all cases, since they both have expected yields close to zero and are instead fixed to the expected MC values. Additionally, since the $C_0$ and $C_1$ decays are well known and measured, we make use of this fact in the form of a ratio $N_{C_1}/N_{C_0}$, which is fixed to the MC value in case of the MC fit. In case of fits to the data, we constrain the ratio to the measured value in the form of a Gaussian function with the width corresponding to the measurement uncertainty. These constraints are implemented in the fit, so the systematic effects are taken into account in the fit error. The ratio is implemented based on the decay channels shown in Table \ref{tab:cs_constraint_table} and is defined as
 \begin{equation}
 r_1 = \frac{\left(\sum_j N_{1j}\times \rho_{1j} \right)}{N_{00} \times \rho_{00}},
 \label{eq:cs_fix}
@@ -58,7 +58,7 @@ where $j$ runs over all channels in the category $C_1$ and where $\rho_{ij}$ is 
 \rho = \frac{\mathcal{B}^{PDG}}{\mathcal{B}^{GEN}},
 \label{eq:br_fix}
 \end{equation}
-where $\mathcal{B}^{PDG}$ is the measured branching fraction and $\mathcal{B}^{GEN}$ is the branching fraction value used in MC generation. The branching fraction correction factor has been implemented due to differences between measured and MC branching fraction values. Each branching fraction measurement serves as a constraint used in the fit. All branching fraction constraints in the control fit are shown in Table \ref{tab:cs_br_constraint_table}. The measured values are cited only for the $B^0$ decay mode, where isospin symmetry has been assumed. The corresponding $B^+$ branching fractions can be calculated as
+where $\mathcal{B}^{PDG}$ is the measured branching fraction and $\mathcal{B}^{GEN}$ is the branching fraction value used in MC generation. The branching fraction correction factor has been implemented due to differences between measured and MC branching fraction values. Each branching fraction measurement serves as a constraint used in the fit. All branching fraction constraints in the control fit are shown in Table \ref{tab:cs_br_constraint_table}. The measured values are cited only for the $B^0$ decay mode, where isospin symmetry has been assumed. The corresponding $B^+$ branching fractions were calculated as
 \begin{equation}
 \mathcal{B}(B^+) = \mathcal{B}(B^0) \times \tau_{B^+/B^0},
 \end{equation}
@@ -83,7 +83,7 @@ where $\tau_{B^+/B^0}$ is the ratio of $B$-meson decay times, which is measured 
 	\label{tab:cs_constraint_table}
 \end{table}
 
-In case of MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$ and Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching fraction measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
+In case of the MC fits, the fitted sample is also generated with MC, so $\mathcal{B}_{i}^{PDG} = \mathcal{B}_{i}^{GEN}$, therefore Eq. (\ref{eq:cs_fix}) simplifies to a simple MC yield ratio. On fits to real data, expected MC yields and branching fraction measurements are implemented as independent Gaussian constraints in order to properly account for correlations in Eq. (\ref{eq:cs_fix}).
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|l|l|l|c|c}
@@ -114,15 +114,15 @@ where $x$ goes over all entries in the $\Delta E$ distribution, $a$ is the energ
 
 The following parameter phase-space is scanned in order to determine the best parameter values
 \begin{itemize}
-	\item smearing factor in range $[0.0 ,0.08]\e{GeV}$ in steps of $8\E{-3}$,
+	\item smearing factor in range $[0.0, 0.08]\e{GeV}$ in steps of $8\E{-3}$,
 	\item offset in range $[0.0, 0.003]\e{GeV}$ in steps of $1.5\E{-4}$,
 \end{itemize}
-where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase-space where neither smearing nor offset are applied. In the case of data, we see that we obtain a better fit by introducing some level of smearing and offset. In both cases, the two parameters have shown no sign of significant correlation, so we treat them independently. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
+where, for each parameter pair, the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 degrees of freedom, for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase-space where neither smearing nor offset are applied. In the case of data, we see that we obtain a better fit by introducing some level of smearing and offset. In both cases, the two parameters have shown no sign of significant correlation, so we treat them independently. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
 \begin{itemize}
 	\item Smearing: $40_{-17}^{+15}\e{MeV}$,
 	\item Offset: $6_{-6}^{+4.6}\e{MeV}$.
 \end{itemize}
-We apply this transformation to our MC samples in all cases when fitting real data.
+We apply this transformation to our MC samples in all cases when fitting to the real data.
 
 \begin{figure}[H]
 	\centering
@@ -134,7 +134,7 @@ We apply this transformation to our MC samples in all cases when fitting real da
 
 
 \subsection{Signal Fit}\label{sec:templates-in-signal-fits}
-The motivation for the choice of signal fit templates comes from Figure \ref{fig:sig_bkg_all_after}. The following histogram templates were defined
+The motivation for the choice of the signal fit templates comes from Figure \ref{fig:sig_bkg_all_after}. The following histogram templates were defined
 \begin{itemize}
 	\item signal template,
 	\item $q \bar q$ template,
@@ -150,7 +150,7 @@ The motivation for the choice of signal fit templates comes from Figure \ref{fig
 	\end{itemize}
 	\item remaining $B \bar B$ background template.
 \end{itemize}
-As mentioned in Chapter \ref{sec:background-suppression}, the majority of the background comes from $B \bar B$ events. Various processes ($C_0$ to $C_6$) contribute to this background which are well known and measured, so we make use of these measurements by fixing their yields in MC fits and appropriately constraining them in the data fits. Similarly as described in the control fits, these constraints are implemented in the fit process. The remaining $B \bar B$ background is merged into a single template. In this case, the shape of all templates is fixed as well, while the yields are floated for all templates except for the constrained background templates. The yield constraints are based on the channels shown in Table \ref{tab:sig_constraint_table} and defined for each template category as 
+As mentioned in Chapter \ref{sec:background-suppression}, the majority of the background comes from $B \bar B$ events. Various processes ($C_0$ to $C_6$) contribute to this background, which are well known and measured, so we make use of these measurements by fixing their yields in MC fits and appropriately constraining them in the data fits. Similarly, as described in the control fits, these constraints are implemented in the fit process. The remaining $B \bar B$ background is merged into a single template. The shape of all templates is fixed, while the yields are floated for all templates except for the constrained background templates. The yield constraints are based on the channels shown in Table \ref{tab:sig_constraint_table} and defined for each template category as 
 \begin{equation}
 Y_i = \eta_{\mathrm{norm.}} \times \frac{\left(\sum_j N_{ij}\times \rho_{ij} \right)}{\rho_{00}},
 \label{eq:sig_fix}
@@ -159,9 +159,9 @@ where $j$ runs over all channels in the category $C_i$ and where $\rho_{ij}$ is 
 \begin{equation}
 \eta_{\mathrm{norm.}} = \frac{N_{\mathrm{control}}^D}{N_{\mathrm{control}}^{MC}},
 \end{equation}
-where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yields in the control fit for data and MC, respectively.
+where $N_{\mathrm{control}}^D$ and $N_{\mathrm{control}}^{MC}$ are control yields in the control fit for the data and MC, respectively.
 
-In addition to branching fraction constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table} due to more decay channels. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching fraction can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching fraction. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$ this value is very conservative.
+In addition to the branching fraction constraints in Table \ref{tab:cs_br_constraint_table}, further constraints are defined in Table \ref{tab:sig_br_constraint_table}. In case of the category $C_6$, we have no firm handle on the $D$ meson decay, therefore no correction for this branching fraction can be introduced, so we set a correction factor of $1$ with a $100\%$ error for the $D$ meson decay branching fraction. As most of the correction factors used for constraints have deviations (including the errors) from nominal values well below $100\%$, this value is very conservative.
 
 
 \begin{table}[H]
@@ -233,15 +233,15 @@ In addition to branching fraction constraints in Table \ref{tab:cs_br_constraint
 
 \section{Adaptive Binning Algorithm}\label{sec:adaptive-binning-algorithm}
 
-The fit templates contain areas of low statistics, which are populated with bins with zero content. This is a direct consequence of having a finite MC sample and represent a liability in ML fits. Due to low statistics in the edge regions, the locations of these empty bins can vary for the templates and the fitted sample. A problem occurs if all templates have an empty bin where the fitted sample does not. In the scope of ML fits, this effectively means that there are entries in bins where the probability of having them is $0$. We will call such bins \textit{problematic} because in these cases the fit does not converge.
+The fit templates contain areas of low statistics, which are populated with bins with zero content. This is a direct consequence of having a finite MC sample and represent a liability in ML fits. Due to the low statistics in the edge regions, the locations of these empty bins can vary for the templates and the fitted sample. A problem occurs if all templates have an empty bin where the fitted sample does not. In the scope of ML fits, this effectively means that there are entries in bins, where the probability of having them is $0$. We will call such bins \textit{problematic}, because in these cases the fit does not converge.
 
-The ideal solution for this problem would be to increase the MC statistics. Since this is not an option, we pursue other solutions, such as decreasing the number of bins. While this solves the problem, the drawback of it is a decrease in the template resolution in densely populated regions, where good resolution is most needed. The optimal solution here seems to be a choice of variable bins, with fine binning in the densely populated regions and larger bins in the regions with low statistics.
+The ideal solution for this problem would be to increase the MC statistics. Since this is not an option, we pursue other solutions, such as decreasing the number of bins. While this solves the problem, the drawback of it is a decrease in the template resolution in densely populated regions, where good resolution is most needed. The compromise solution seems to be a choice of variable bins, with fine binning in the densely populated regions and larger bins in the regions with low statistics.
 
-We have devised an algorithm, which compares the templates and the fitted sample, and defines a variable binning so that there are no more problematic bins in the end. Figure \ref{fig:adapt} shows an example of how the procedure works. The algorithm takes an argument for the initial number of uniform bins in each dimension and does the following
+We have devised an algorithm, which compares the templates and the fitted sample, and defines a variable binning so that there are no more problematic bins in the end. Figure \ref{fig:adapt} shows an example of how the procedure works. The algorithm does the following
 \begin{enumerate}
-	\item define uniform binning in both dimensions with the provided argument,
+	\item define uniform binning in both dimensions,
 	\item create a 2D histogram from MC templates with expected yields,
-	\item define an \textit{optimal} region, where most of the 2D integral is contained and where all bins have a non-zero content (this region does not change throughout the process),
+	\item define an \textit{optimal} region, where most of the 2D integral is contained and where all bins have non-zero content (this region does not change throughout the process),
 	\item compare the histograms for the expected and the fitted sample, find the problematic bins,
 	\item loop until all problematic bins disappear
 	\begin{enumerate}
@@ -259,19 +259,19 @@ We have devised an algorithm, which compares the templates and the fitted sample
 	\label{fig:adapt}
 \end{figure}
 
-An additional problem occurs in the plotting of the fitted templates and the sample with variable binning. It would seem that RooFit does not take the bin widths into account when plotting, while everything works as expected for the fit itself. This was bypassed by extracting the fitted yields and applying them to templates and samples with uniform binning, which were then used for drawing.
+An additional problem occurs in the plotting of the fitted templates with variable binning. It would seem that RooFit does not take the bin widths into account when plotting, while everything works as expected for the fit itself. This was bypassed by extracting the fitted yields and applying them to the templates, defined with uniform binning.
 
 \section{Toy MC Experiments}
 
 For the chosen final selection and fit procedure, toy MC pseudo-experiments were performed in order to confirm the behavior of the fit setup. The fit behavior is also checked as a function of the signal yield in the form of a linearity test. A detailed description of toy MC experiments is written in this section.
 
-With toy MC experiments in this section, we study the yields, errors and the pulls of the signal fit by generating our own pseudo-datasets, according to the MC. This significantly reduces the time we would need to produce the datasets in the standard way, while still reliably describing the underlying physics behind the pseudo-dataset. All available MC was used for pseudo-dataset generation as well as creating templates. 
+With toy MC experiments we study the yields, errors and the pulls of the signal fit by generating our own pseudo-datasets, according to the MC. This significantly reduces the time we would need to produce the datasets in the standard way, while still reliably describing the underlying physics behind the pseudo-dataset. All available MC was used for pseudo-dataset generation as well as creating the templates. 
 
 \subsection{Pseudo-Experiment: Expected Signal Yield}
 
-We constructed $3\E{3}$ pseudo-datasets, where each dataset was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $19 \times 19$ bins in \vars.
+We constructed $3\E{3}$ pseudo-datasets, where each dataset was generated with the expected amount of each template category, distributed according to the Poisson distribution. All fits were performed with the optimal initial uniform binning of $19 \times 19$ bins in \vars. The optimal choice of binning is based on the binning test in Section \ref{sec:signal-mc-fit-results}.
 
-Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo-fits. The pull distribution $g$ \cite{demortier2002everything} of a normally distributed variable $x$ with a mean $\mu$ and a width $\sigma$ is defined as 
+Figure \ref{fig:toyMC} shows distributions of the fit yields, errors and the pull distribution of all pseudo-fits. The pull distribution $g$ of a normally distributed variable $x$ with a mean $\mu$ and a width $\sigma$ is defined as 
 \begin{equation}
 g = \frac{x-\mu}{\sigma},
 \end{equation}
@@ -279,13 +279,13 @@ and is also distributed normally, with mean zero and unit width. The fits in Fig
 \begin{equation}
 \sigma_{\bar X} = \frac{S}{\sqrt{N}},\quad \sigma_{S} = \frac{S}{\sqrt{2(N-1)}},
 \end{equation}
-where $N$ is the number of performed measurements. It seems that there is a small bias present in the pseudo-fits. A decision has been made to put this difference as one of the contributions to the overall systematic uncertainty.
+where $N$ is the number of performed measurements. A decision has been made to put this yield difference as one of the contributions to the overall systematic uncertainty.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/toyMC}
-	\caption{Toy MC fits of pseudo-data showing the fit yield (top), fit errors (center) and the pull distribution of the fits (bottom).}
+	\caption{Toy MC fits of pseudo-data showing the fit yield (top), the fit errors (center) and the pull distribution of the fits (bottom).}
 	\label{fig:toyMC}
 \end{figure}
 
@@ -293,15 +293,15 @@ where $N$ is the number of performed measurements. It seems that there is a smal
 \label{sec:pseudo-experiment-linearity-test}
 Linearity test is used for determining the sensitivity of the fit to the amount of signal in the fitted sample. Since this is the first measurement of this decay channel, MC modeling is not reliable and could be very different from reality, so we need to perform this test in order to determine our sensitivity to smaller, as well as larger amounts of expected signal.
 
-The pseudo-datasets are generated in the same way as in the previous section, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount and for each fraction we generate 500 pseudo-datasets according to Poisson statistics.
+The pseudo-datasets are generated in the same way as in the previous section, with the exception of signal, which is generated in various amounts. $50$ steps from $[0.1,~10]$ in the logarithmic scale are taken for fractions of signal amount, where, for each fraction, we generate 500 pseudo-datasets according to Poisson statistics.
 
-Figure \ref{fig:lin_test} shows the difference between mean fit yield and the expected yield, mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.6\sigma$ significance.
+Figure \ref{fig:lin_test} shows the difference between the mean fit yield and the expected yield, the mean pull and the mean significance at each signal fraction value. The expected MC result lies at the fraction value $10^0 = 1$. The plots show a small bias with respect to the expected signal yield, while the pulls seem to be described by the normal distributions throughout the fraction range with a slight offset, which will be incorporated as a contribution to the overall systematic uncertainty. At expected value, we are at about $3.6\sigma$ statistical significance.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/lin_test}
-	\caption{Mean fit yield and expected yield difference (top), mean pull (center) and mean significance (bottom) as a function of signal fraction.}
+	\caption{The mean fit yield and expected yield difference (top), the mean pull (center) and the mean significance (bottom) as a function of the signal fraction.}
 	\label{fig:lin_test}
 \end{figure}
 
