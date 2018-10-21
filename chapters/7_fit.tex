@@ -112,12 +112,12 @@ f_{\mathrm{smearing}}&: x \mapsto \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{-\f
 \end{align}
 where $x$ goes over all entries in the $\Delta E$ distribution, $a$ is the energy offset and $f_{\mathrm{smearing}}$ corresponds to the normal distribution with mean $\mu$ and standard deviation $\sigma$. Since this operation is applied on the candidate level, the smearing introduces some randomness to the fit procedure, which is the reason why we repeat the fit procedure several times in order to reliably extract the parameters of interest. In the case of the $M_{BC}$ variable the mentioned effects are not as prominent, so the smearing and offset for the latter variable are omitted. 
 
-The following parameter phase space is scanned in order to determine the best parameter values
+The following parameter phase-space is scanned in order to determine the best parameter values
 \begin{itemize}
 	\item smearing factor in range $[0.0 ,0.08]\e{GeV}$ in steps of $8\E{-3}$,
 	\item offset in range $[0.0, 0.003]\e{GeV}$ in steps of $1.5\E{-4}$,
 \end{itemize}
-where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase space where neither smearing nor offset are applied. In the case of data, we see that we obtain a better fit by introducing some level of smearing and offset. In both cases, the two parameters have shown no sign of significant correlation, so we treat them independently. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
+where for each parameter pair the likelihood ratio test is performed to estimate the goodness of the fit. Figure \ref{fig:smearing_offset} shows the contour plot of the likelihood ratio $\lambda$, as defined in Eq. (\ref{eq:lr}), for 2 d.o.f., for MC (left) and data (right). The scan over MC serves the purpose of a consistency check, where we expect the best fit to occur in the phase-space where neither smearing nor offset are applied. In the case of data, we see that we obtain a better fit by introducing some level of smearing and offset. In both cases, the two parameters have shown no sign of significant correlation, so we treat them independently. The likelihood ratio test allows us to estimate the parameter values in the $1\sigma$ confidence interval, where we obtain the optimal parameter set
 \begin{itemize}
 	\item Smearing: $40_{-17}^{+15}\e{MeV}$,
 	\item Offset: $6_{-6}^{+4.6}\e{MeV}$.
