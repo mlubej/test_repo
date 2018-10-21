@@ -104,7 +104,7 @@ In case of the MC fits, the fitted sample is also generated with MC, so $\mathca
 \end{table}
 
 \subsubsection{Smearing and Offset Parameters}\label{sec:smearing-and-offset-parameters}
-With simulated data, we are able to perform detailed studies prior to looking at the measured data. However, simulated data often does not describe real data perfectly. Out of variables \vars, $\Delta E$ is especially prone to a lack of precision in energy measurements. This can introduce either overestimation of resolution on MC as well as a possible shift in the measured energy in either direction. Due to this fact, we introduce a modification of the $\Delta E$ variable by applying a smearing factor and an offset. These are applied by simple transformations of 
+With simulated data, we are able to perform detailed studies prior to looking at the measured data. However, simulated data often does not describe real data perfectly. Out of variables \vars, $\Delta E$ is especially prone to a lack of precision in energy measurements. This can introduce either overestimation of resolution on MC, as well as a possible shift in the measured energy in either direction. Due to this fact, we introduce a modification of the $\Delta E$ variable by applying a smearing factor and an offset. These are applied by simple transformations of 
 \begin{align}
 \label{eq:smearingoffset}
 f_{\mathrm{offset}}&: x \mapsto x + a, \\
@@ -265,7 +265,7 @@ An additional problem occurs in the plotting of the fitted templates with variab
 
 For the chosen final selection and fit procedure, toy MC pseudo-experiments were performed in order to confirm the behavior of the fit setup. The fit behavior is also checked as a function of the signal yield in the form of a linearity test. A detailed description of toy MC experiments is written in this section.
 
-With toy MC experiments we study the yields, errors and the pulls of the signal fit by generating our own pseudo-datasets, according to the MC. This significantly reduces the time we would need to produce the datasets in the standard way, while still reliably describing the underlying physics behind the pseudo-dataset. All available MC was used for pseudo-dataset generation as well as creating the templates. 
+With toy MC experiments we study the yields, errors and the pulls of the signal fit by generating our own pseudo-datasets, according to the MC. This significantly reduces the time we would need to produce the datasets in the standard way, while still reliably describing the underlying physics behind the pseudo-dataset. All available MC was used for pseudo-dataset generation, as well as creating the templates. 
 
 \subsection{Pseudo-Experiment: Expected Signal Yield}
 
@@ -308,7 +308,7 @@ Figure \ref{fig:lin_test} shows the difference between the mean fit yield and th
 
 \chapter{Fit Results}
 \label{sec:fit-results}
-In this chapter, we present the results of signal and control fits to MC as well as to data, along with the control decay branching fraction measurement.
+In this chapter, we present the results of signal and control fits on MC, as well as in data, along with the control decay branching fraction measurement.
 
 \section{Signal MC Fit Results}\label{sec:signal-mc-fit-results}
 
@@ -451,7 +451,7 @@ Finally, after validating the analysis procedure using the signal MC sample, con
 \label{eq:main_result}
 N_{\mathrm{sig}} = 491 \pm 86,\quad\mathrm{fit~significance} = 6.0\sigma.
 \end{equation}
-The uncertainty includes the statistical uncertainty as well as the partial systematic uncertainty, due to the limited knowledge of various branching fractions, entering the fit in a form of Gaussian constraints. The significance of the result, taking into account only the mentioned uncertainties, is $6.0\sigma$. The latter is obtained via the likelihood-ratio test, as previously described in Eq. (\ref{eq:ss}).
+The uncertainty includes the statistical uncertainty, as well as the partial systematic uncertainty, due to the limited knowledge of various branching fractions, entering the fit in a form of Gaussian constraints. The significance of the result, taking into account only the mentioned uncertainties, is $6.0\sigma$. The latter is obtained via the likelihood-ratio test, as previously described in Eq. (\ref{eq:ss}).
 
 \begin{figure}[H]
 	\centering
@@ -487,7 +487,7 @@ The uncertainty includes the statistical uncertainty as well as the partial syst
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
-	\caption{Yields of all signal fit contributions on data.}
+	\caption{Yields of all signal fit contributions in data.}
 	\label{tab:sig_yields}
 \end{table}
 
@@ -523,7 +523,7 @@ The uncertainty includes the statistical uncertainty as well as the partial syst
 	\label{tab:constraints}
 \end{table}
 
-In this fit setup, we perform a random smearing of the $\Delta E$ (see Eq. \ref{eq:smearingoffset} and description there). Because of the randomness involved in the smearing, such a method results in small random fluctuations of the fitted central values. In order to check the consistency of the fit result because of the $\Delta E$ smearing, we perform $500$ fit repetitions. The result in Eq. (\ref{eq:main_result}) represents the average result, corresponding to the central values of the yield, uncertainty, and the significance of the signal fit to the data.
+In this fit setup, we perform a random smearing of the $\Delta E$ (see Eq. \ref{eq:smearingoffset} and description there). Because of the randomness involved in the smearing, such a method results in small random fluctuations of the fitted central values. In order to check the consistency of the fit result because of the $\Delta E$ smearing, we perform $500$ fit repetitions. The result in Eq. (\ref{eq:main_result}) represents the average result, corresponding to the central values of the yield, uncertainty, and the significance of the signal fit in data.
 
 The systematic part of the fit uncertainty can be estimated by fixing the Gaussian constraints to central values, presented in Table \ref{tab:constraints}, and repeating the fit. The resulting uncertainty and significance are purely statistical and are found to be
 \begin{equation}
@@ -586,7 +586,7 @@ It is possible to take a deeper look in the signal distribution over the $m_{KK}
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
-	\caption{Various signal fit yields for for each of the defined $m_{KK}$ windows.}
+	\caption{Various signal fit yields for each of the defined $m_{KK}$ windows.}
 	\label{tab:mKK_windows}
 \end{table}
 
@@ -623,7 +623,7 @@ Similarly, we look at the signal distribution over the square momentum transfer 
 		\bottomrule
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
-	\caption{Various signal fit yields for for each of the defined $q^2$ windows.}
+	\caption{Various signal fit yields for each of the defined $q^2$ windows.}
 	\label{tab:q2_windows}
 \end{table}
 

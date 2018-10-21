@@ -5,7 +5,21 @@ Continuing from Section \ref{sec:loose-neutrino-reconstruction}, the description
 
 Training the MVA classifiers follows the same recipe for all the steps in this chapter. For each step, we run the $B$ meson reconstruction on Signal MC with a generic companion $B$ meson. For every correctly reconstructed signal $B$ meson candidate we save the necessary information for each MVA step (e.g. properties of ROE clusters). Only correctly reconstructed $B$ candidates are chosen here, to prevent leaks of information from the signal side to the ROE side.
 
-More information about the MVA training, hyper-parameter optimization and feature importance for each MVA step in this chapter can be found in Appendix \ref{sec:roe-control-plots}.
+
+\section{Machine Learning Setup}
+
+Throughout the analysis we use the Fast-BDT algorithm as the main machine learning model, in order to perform the multivariate analysis steps. The Fast-BDT algorithm \cite{Keck2017} is an optimized version of the \textit{boosted decision trees} (BDT) algorithm, which is one of the most commonly used algorithms used in the world of machine learning today. As the name suggests, it is based on the method of decision trees. The decision tree algorithm generates decision trees from the data to solve classification and regression problems, where each decision tree splits the data in at least two groups. A schematic of such a \textit{decision forest} is shown in Figure \ref{fig:BDT_forest}, where the forest consists of several trees, each with a certain depth.
+
+The number of trees in the classifier and the depth level of a single tree are two of many hyper-parameters of the machine learning classifier, which we optimize in each case of applying the MVA step. More information about the MVA training, hyper-parameter optimization and feature importance for each MVA step in this chapter can be found in Appendix \ref{sec:roe-control-plots}.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[scale=1]{texfig/BDT_forest}
+	\caption{A schematic representation of decision trees in a decision forest.}
+	\label{fig:BDT_forest}
+\end{figure}
+
 
 \section{Clusters Clean-up}
 
@@ -278,7 +292,7 @@ Additionally we define an MC truth variable
 \end{equation}
 where we compare all components of track momentum to the true values. If the condition $\Delta \chi^2 > 0$ is satisfied, then \textit{this} track is probably a duplicate track and should be discarded.
 
-However, it turns out that solving this problem is not as simple as discarding one track and keeping the other one. An additional complication here is that we can have more than one extra track from the same initial particle, which leads to track pairs, where both tracks are track duplicates. For example, if we have the following case
+However, it turns out that solving this problem is not as simple as discarding one track and keeping the other one. An additional complication is that we can have more than one extra track from the same initial particle, which leads to track pairs, where both tracks are track duplicates. For example, if we have the following case
 \begin{align*}
 t_1&: \mathrm{good~track},\\
 t_2&: \mathrm{extra~track},\\
@@ -416,7 +430,7 @@ We compare the clean-up setup, defined in this analysis, to the standard clean-u
 	\centering
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=\linewidth]{fig/roe_opt}
-	\caption{\vars~distributions for various types of clean-up procedures. The figures on the left are shown for the full signal sample after the stated selection criteria, while the figures on the right are shown for the perfectly reconstructed signal candidates. For ROE clean-up, the procedure seems to improve resolution as well as increase the amount of perfectly reconstructed candidates, relative to the default case.}
+	\caption{\vars~distributions for various types of clean-up procedures. The figures on the left are shown for the full signal sample after the stated selection criteria, while the figures on the right are shown for the perfectly reconstructed signal candidates. For ROE clean-up, the procedure seems to improve resolution, as well as increase the amount of perfectly reconstructed candidates, relative to the default case.}
 	\label{fig:roeopt}
 \end{figure}
 
