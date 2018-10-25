@@ -8,14 +8,14 @@ Training the MVA classifiers follows the same recipe for all the steps in this c
 
 \section{Machine Learning Setup}
 
-Throughout the analysis we use the Fast-BDT algorithm as the main machine learning model, in order to perform the multivariate analysis steps. The Fast-BDT algorithm \cite{Keck2017} is an optimized version of the \textit{boosted decision trees} (BDT) algorithm, which is one of the most commonly used algorithms used in the world of machine learning today. As the name suggests, it is based on the method of decision trees. The decision tree algorithm generates decision trees from the data to solve classification and regression problems, where each decision tree splits the data in at least two groups. A schematic of such a \textit{decision forest} is shown in Figure \ref{fig:BDT_forest}, where the forest consists of several trees, each with a certain depth.
+Throughout the analysis we use the Fast-BDT algorithm as the main machine learning model, in order to perform the multivariate analysis steps, unless explicitly stated otherwise. The Fast-BDT algorithm \cite{Keck2017} is an optimized version of the \textit{boosted decision trees} (BDT) algorithm, which is one of the most commonly used in the world of machine learning. As the name suggests, it is based on the method of decision trees. The decision tree algorithm generates decision trees from the data to solve classification and regression problems, where each decision tree splits the data in at least two groups. A schematic of such a \textit{decision forest} is shown in Figure \ref{fig:BDT_forest}, where the forest consists of several trees, each with a certain depth.
 
-The number of trees in the classifier and the depth level of a single tree are two of many hyper-parameters of the machine learning classifier, which we optimize in each case of applying the MVA step. More information about the MVA training, hyper-parameter optimization and feature importance for each MVA step in this chapter can be found in Appendix \ref{sec:roe-control-plots}.
+The number of trees in the classifier and the depth level of a single tree are two hyper-parameters of the machine learning classifier, which we optimize in each case of applying the MVA step. More information about the MVA training, hyper-parameter optimization and feature importance for each MVA step in this chapter can be found in Appendix \ref{sec:roe-control-plots}.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[scale=1]{texfig/BDT_forest}
+	\includegraphics[scale=1.25]{texfig/BDT_forest}
 	\caption{A schematic representation of decision trees in a decision forest.}
 	\label{fig:BDT_forest}
 \end{figure}
@@ -27,6 +27,7 @@ Photons originate from the IP region, travel to the ECL part of the detector in 
 
 Most of the photons in events with $B$ mesons come from processes such as $\pi^0 \to \gamma \gamma$ decays, which are interesting for physics. However, a lot of hits in the ECL are also created by photons coming from the beam-induced background or secondary interactions with the detector material, which we are usually not interested in, except in cases involving material studies. Photons of the first kind should be taken into account when calculating the missing four-momentum, while photons, which are not directly related to the collision, add extra energy and momentum to the event. In the first step of the clusters clean-up, we train an MVA which recognizes good $\pi^0$ candidates and apply this information to the daughter photons. This represents a sort of a $\pi^0$ origin probability, which peaks at or is equal to 0 for photons not coming from $\pi^0$ particles, and peaks at 1 otherwise. This information is used as an additional classifier variable in the next step of the clean-up, where we train to recognize good photons in an event.
 
+\newpage
 \subsection{\texorpdfstring{$\pi^0$}{π0} MVA Training}
 
 The training dataset of $\pi^0$ candidates contains

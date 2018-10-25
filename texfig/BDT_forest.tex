@@ -35,9 +35,9 @@ to organize pieces of comparable data, such as text fragments or numbers.
 }
 
 \begin{document}
-\begin{tikzpicture}[scale=0.5,-latex,level/.style={sibling distance = 3cm/#1,
-  level distance = 2.5cm}] 
-\node [arn_n] at (8,0) {1} 
+\begin{tikzpicture}[scale=1,-latex,level/.style={sibling distance = 1.5cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] at (4,0) {1} 
     child{ node [arn_r] {2} 
             child{ node [arn_n] {3} 
 							child{}
@@ -60,7 +60,7 @@ to organize pieces of comparable data, such as text fragments or numbers.
 		}
 ; 
 
-\node at (0,-9) {
+\node at (0,-4.5) {
 \begin{tabular}{c}
 $\vdots$\\
 $\texttt{nLevels}$
@@ -90,14 +90,14 @@ $\texttt{nLevels}$
 		}
 ; 
 
-\node at (8,-9) {
+\node at (4,-4.5) {
 \begin{tabular}{c}
 $\vdots$\\
 $\texttt{nLevels}$
 \end{tabular}
 };
 
-\node at (13,-4) {$\cdots$ \texttt{nTrees}};
+\node at (13/2,-4/2) {$\cdots$ \texttt{nTrees}};
 
 \end{tikzpicture}
 \end{document}

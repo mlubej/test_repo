@@ -18,7 +18,7 @@ The following samples were used in analysis
 		\item other rare $B$ meson decays (denoted as \texttt{rare}), not included in previous MC samples, equal to an amount of $50 \times L_0$.
 	\end{itemize}
 \end{itemize}
-
+\newpage
 \section{Signal MC Production}
 
 The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$, including the charge conjugated $B^-$ mesons, was produced using the \texttt{mcproduzh} \cite{lange2001evtgen,agostinelli2003geant4} package for producing Belle MC. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the \texttt{ulnu} sample, since it includes the decays of interest. An additional MC skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same $B$ meson. This decreases the CPU consumption during the detector simulation and reconstruction.
@@ -71,6 +71,7 @@ We generate about $1.3\E{9}$ events of the form $B\to X_u \ell \nu$, which corre
 \end{equation}
 where $\ell$ is $e$ or $\mu$. During the analysis, the abundant signal MC sample is scaled down to correspond to the amount of data taken with the Belle detector.
 
+\newpage
 \section{Control Decay}\label{sec:control-decay}
 
 In this analysis we are also define another $B$ meson decay which occupies almost the same phase-space as our signal decay. This process can be used for the monitoring of our analysis steps, which are applied to both measured and simulated data. Any kind of difference between the two might indicate our procedure to be fine-tuned to simulated data, or some other similar problem. 
