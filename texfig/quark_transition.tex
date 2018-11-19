@@ -1,0 +1,69 @@
+\documentclass[border=1pt]{standalone}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.markings}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{decorations.pathmorphing}	% For Feynman Diagrams
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.text}
+
+%Some nicer color definitions
+\definecolor{crimsonred}{RGB}{153,0,0}		% Neurtal red, good for dark or light bg
+\definecolor{darkcharcoal}{RGB}{25,25,25}		% Darker gray
+\definecolor{charcoal}{RGB}{51,51,51}		% Darker gray
+\definecolor{ash}{RGB}{100,100,100}			% medium gray
+\definecolor{paleblue}{RGB}{0,102,102}		% More of an `ocean' color
+\definecolor{turtlegreen}{RGB}{51,153,0}	% A more neutral green
+\definecolor{paleale}{RGB}{204,204,102}		% Only for dark BG
+\definecolor{lager}{RGB}{140,110,10}		% Use instead of pale ale for white BG
+\definecolor{regal}{RGB}{90,0,120}			% A more neutral purple
+\definecolor{jeans}{RGB}{20,30,150}			% A more neutral blue
+\definecolor{Alert}{RGB}{51,153,0}	
+
+%Definitions for drawing feynman diagrams
+\tikzset{
+    vector/.style={decorate, decoration={snake}, draw=Alert},
+	provector/.style={decorate, decoration={snake,amplitude=2.5pt}, draw},
+	antivector/.style={decorate, decoration={snake,amplitude=-2.5pt}, draw},
+    fermion/.style={draw=jeans, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=jeans]{>}}}},
+    fermionbar/.style={draw=jeans, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=jeans]{<}}}},
+    fermionnoarrow/.style={draw=black},
+    gluon/.style={decorate, draw=lager,
+        decoration={coil,amplitude=4pt, segment length=5pt}},
+    scalar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    scalarbar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    scalarnoarrow/.style={dashed,draw=black},
+    electron/.style={draw=jeans, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+     bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
+     line/.style={decorate, draw=black},
+}
+
+\begin{document}
+
+\begin{tikzpicture}[line width=1.25 pt, scale=1]
+\draw[fermion]  (-1,0) -- (1,0) ;
+\draw[fermion]  (1,0) -- (2.87939, -0.68404) ;
+\draw[vector]  (1,0) -- (2.28558, 1.53209) ;
+\draw (1,0) node[circle,inner sep=0pt,minimum size=5pt,fill=crimsonred]{};
+\node at (-1, -0.3) {$q = d, s, b$};
+\node at (2.85, -1) {$p = u, c, t$};
+\node at (1, -0.4) {$V_{pq}$};
+\node at (1, 0.5) {$W^{-}$};
+\node at (0, 1) {Quark interaction};
+%\node at (2.8, 1.5) {$Y_{S=0,1}^{+}$};
+%\node at (2.8, 0.25) {$\overline{D}{}^{(*)0}$};
+\end{tikzpicture} 
+
+\end{document}	
+
+
+\end{document}
