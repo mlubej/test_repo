@@ -1,0 +1,181 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[withhyperref]{pdfathesis} 
+\newcommand {\e}[1]{\mathrm{~#1}}
+\newcommand {\E}[1]{\times 10^{#1}}
+\newcommand {\vars}{$\Delta E$ and $M_{BC}$}
+\newcommand {\varss}{$\Delta E$ in $M_{BC}$}
+\newcommand {\btbii}{\texttt{B2BII}}
+\newcommand {\decaya}{$B \to K K \ell \nu$}
+\newcommand {\decayb}{$B^+ \to K^+ K^- \ell^+ \nu_\ell$}
+
+\usepackage{fancyhdr}
+
+\usepackage[slovene,english]{babel}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage{caption}
+\usepackage{cancel}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{titling}
+\usepackage{amsmath,amssymb,amsfonts,nicefrac}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{dictsym}
+\usepackage{braket}
+\usepackage{slashed}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{subfigure}
+\usepackage{bm}
+\usepackage[a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry}
+\usepackage[titletoc,title]{appendix}
+\usepackage{icomma}
+\usepackage{booktabs}
+
+\usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
+\addbibresource{bib/mybib}
+
+\usetikzlibrary{fadings}
+\raggedbottom
+\pdfsuppresswarningpagegroup=1
+\setlength{\extrarowheight}{.8ex}
+
+
+% supress longtable bug warning
+\makeatletter
+\def\LT@start{%
+	\let\LT@start\endgraf
+	\endgraf\penalty\z@\vskip\LTpre
+	\dimen@\pagetotal
+	\advance\dimen@ \ht\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \dp\ifvoid\LT@firsthead\LT@head\else\LT@firsthead\fi
+	\advance\dimen@ \ht\LT@foot
+	\edef\restore@vbadness{\vbadness\the\vbadness\relax}% (added)
+	\vbadness=\@M % (added)
+	\dimen@ii\vfuzz
+	\vfuzz\maxdimen
+	\setbox\tw@\copy\z@
+	\setbox\tw@\vsplit\tw@ to \ht\@arstrutbox
+	\setbox\tw@\vbox{\unvbox\tw@}%
+	\vfuzz\dimen@ii
+	\restore@vbadness % (added)
+	\advance\dimen@ \ht
+	\ifdim\ht\@arstrutbox>\ht\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@\dp
+	\ifdim\dp\@arstrutbox>\dp\tw@\@arstrutbox\else\tw@\fi
+	\advance\dimen@ -\pagegoal
+	\ifdim \dimen@>\z@\vfil\break\fi
+	\global\@colroom\@colht
+	\ifvoid\LT@foot\else
+	\advance\vsize-\ht\LT@foot
+	\global\advance\@colroom-\ht\LT@foot
+	\dimen@\pagegoal\advance\dimen@-\ht\LT@foot\pagegoal\dimen@
+	\maxdepth\z@
+	\fi
+	\ifvoid\LT@firsthead\copy\LT@head\else\box\LT@firsthead\fi\nobreak
+	\output{\LT@output}%
+}
+\makeatother
+
+% more space at list of figures
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+\makeatother
+
+\newcommand{\changelocaltocdepth}[1]{%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+	\setcounter{tocdepth}{#1}%
+}
+
+%%%%%%%%%%%%%%%% thesispdfa definitions
+%%%%
+%%%%
+%% '\Title{}' and '\Author{}' are mandatory
+%% while '\title' and '\author' are optional
+%
+\Title{Measurement of the B+ to K+ K- l+ nu Decay with the Belle Detector} %% it shall not include LaTeX macros
+\Author{Matic Lubej}        %% ibidem
+%
+%%   If '\title' and '\author' are not defined the front page will
+%%   be composed with the values of '\Title' and '\Author'
+%
+%\title{Title as used in front page $B \to a$} % it may include LaTeX macros
+%\author{Name as used in fronpage}   % ibidem
+%
+\DocumentType{Thesis}      % for research based degrees
+%\DocumentType{practicum}   % for MAS programme
+%\DocumentType{project}     % for Maths course based programme
+%\DocumentType{dissertation}
+%
+\University{Faculty of Mathematics and Physics}
+\AcademicUnit{University of Ljubljana}
+%
+\Degree{Doctor of Philosophy}
+%\Degree{Master of Science}
+%\Degree{Master of Applied Statistics}
+%\Degree{Master of Arts}
+%\Degree{Master of Business Administration}
+%
+%% Please, no too many keywords, it looks ugly. 
+%% Use `\sep' as keyword separator
+\Keywords{Belle detector\sep
+	B mesons\sep
+	semileptonic decays\sep
+	branching fraction\sep
+	inclusive tagging\sep
+	untagged\sep
+	rest of event} 
+%
+\Subject{We present the branching fraction measurement of the charmless semileptonic decay B+ to K+ K- l+ nu. The measurement has been performed on a data sample corresponding to 710 fb-1 of integrated luminosity, collected with the Belle detector at the KEKB asymmetric-energy e+ e- collider in Tsukuba, Japan. We present the results obtained with the B2BII data format converter. This is the first measurement of the decay, where we obtain the branching fraction of Br(B+ to K+ K- l+ nu) = (3.09 +- 0.52 +- [+0.66, -0.47]) x 10-5. With the fit significance of 5.9 sigma, this measurement counts as the first discovery of the decay.}
+%
+%\DateSubmitted{}    % default: current month and year
+%\ConvocationYear{}  % default: the nearest coming convocation year
+%
+\Supervisor{doc. dr. Anže Zupanc}    % default: undefined
+%\Cosupervisor{Name}  % default: undefined
+%%
+%% If you do not know what a colorspace profile is, leave next macro alone
+%\ColorspaceProfile{file}{profile description}{number of components}
+%
+
+\begin{document}
+
+\include{chapters/0_preface_v2}
+\include{chapters/1_intro}
+\include{chapters/2_data}
+\include{chapters/detector}
+\include{chapters/3_b2bii}
+\include{chapters/4_evt}
+\include{chapters/5_roe}
+\include{chapters/6_bkg}
+\include{chapters/7_fit}
+\include{chapters/8_sys}
+\include{chapters/9_results}
+\include{chapters/si_summary}
+
+\setlength{\emergencystretch}{10pt}
+\printbibliography
+
+\appendix
+\changelocaltocdepth{1}
+\include{chapters/A_roe}
+\include{chapters/B_mva}
+\include{chapters/C_other}
+
+
+%%% SEZNAM SLIK (NEOBVEZNO)
+\listoffigures
+
+%%% SEZNAM TABEL (NEOBVEZNO)
+\listoftables
+
+\cleardoublepage
+
+
+\end{document}

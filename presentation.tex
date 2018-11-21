@@ -96,8 +96,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{palatino}
 \usepackage{colortbl}
-\usepackage{epstopdf}
-\epstopdfsetup{update}
+
+\usepackage[minnames=2,maxnames=3,style=numeric,backend=bibtex,sorting=none]{biblatex}
+\addbibresource{bib/mybib}
 
 \newcommand {\e}[1]{\mathrm{~#1}}
 \newcommand {\E}[1]{\times 10^{#1}}
@@ -109,6 +110,8 @@
 \newcommand{\backupend}{
 	\setcounter{framenumber}{\value{finalframe}}
 }
+
+\setlength{\extrarowheight}{.8ex}
 
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -132,7 +135,7 @@
 % & TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[$B^+ \to K^+K^-\ell^+\nu_\ell$ decay @ Belle]{Measurement of the $B^+ \to K^+K^-\ell^+\nu_\ell$ Decay with the Belle Detector} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[$B \to K K \ell \nu_\ell$ decays @ Belle]{Study of $B \to K K \ell \nu_\ell$ Decays at Belle} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
 \author[Matic Lubej]{Matic Lubej} % Your name
@@ -141,7 +144,7 @@
 	\medskip
 	%\textit{matic.lubej@ijs.si} % Your email address
 }
-\date[Ljubljana, November $22^{\mathrm{th}}$, 2018]{Ljubljana, November $22^{\mathrm{th}}$, 2018} % Date, can be changed to a custom date
+\date[Ljubljana, November $22^{\mathrm{nd}}$, 2018]{Ljubljana, November $22^{\mathrm{nd}}$, 2018} % Date, can be changed to a custom date
 
 
 \usebackgroundtemplate{
@@ -231,7 +234,7 @@ outer color=transparent!99]
 	\begin{itemize}
 		\item The Standard Model (SM) is a basic theory which describes elementary particles and interactions between them
 		\item Quarks: can be grouped into baryons ($q_1q_2q_3$) or mesons ($\bar q_1 q_2$)
-		\item Focus of this analysis are $B$ mesons: $B^+(\bar b u)$
+		\item Focus of this analysis are $B$ mesons: $B^+(\bar b u)$ and $B^-(b \bar u)$
 	\end{itemize}
 \end{block}
 
@@ -296,9 +299,9 @@ $CP$ symmetry? $\to$ A sort of a "physics mirror", stating that the laws of phys
 \vspace{-3mm}
 \begin{block}{}
 	\begin{itemize}
-		\item Quarks can transform to other quarks (weak nuclear interaction)
-		\item Transition probabilities are contained in the complex Cabibbo-Kobayashi-Maskawa (CKM) matrix
-		\item CKM matrix is strongly connected to $CP$ violation
+		\item $CP$ violation is described by the Cabibbo-Kobayashi-Maskawa (CKM) matrix
+		\item It is a complex and unitary matrix
+		\item Contains transition probabilities from one quark to the other (charged weak interaction)
 
 	\end{itemize}
 	$$V_{CKM} = \begin{bmatrix} V_{ud} & V_{us} & V_{ub} \\ V_{cd} & V_{cs} & V_{cb} \\ V_{td} & V_{ts} & V_{tb} \end{bmatrix}, \quad \vert V_{ij}\vert^2 \propto q_i \leftrightarrow q_j~~\mathrm{transition~probability} $$
@@ -352,24 +355,12 @@ $CP$ symmetry? $\to$ A sort of a "physics mirror", stating that the laws of phys
 \vspace{-2mm}
 
 \begin{center}
-		\includegraphics[width=0.5\textwidth]{fig/belle_rhoeta_small_global}
+		\includegraphics[width=0.9\textwidth]{fig/belle_rhoeta_small_global}
 \end{center}
 
 \vspace{-2mm}
 
-%\begin{columns}
-%	\column{0.49\textwidth}
-%	\includegraphics[width=\textwidth]{fig/rhoeta-fullfit-sm}
-%	\column{0.49\textwidth}
-	\begin{block}{}
-		\begin{itemize}
-			\item By measuring the sides and angles of the triangle, we can overconstrain it and check if all the sides meet
-			\item CKM matrix elements are not determined by theory or experiment alone, but by their joint effort
-			\item In this analysis we focus on decays involving $\textcolor{red}{V_{ub}}$
-		\end{itemize}
-	\end{block}
-	
-%\end{columns}
+In this analysis we focus on decays involving $\textcolor{red}{V_{ub}}$
 
 \end{frame}
 
@@ -424,7 +415,7 @@ $CP$ symmetry? $\to$ A sort of a "physics mirror", stating that the laws of phys
 
 \begin{exampleblock}{}
 	\begin{itemize}
-		\item We focus on the charmless semileptonic $B$ meson decays of the form $B^+ \to X_u^0 \ell^+ \nu_\ell$
+		\item We focus on the charmless semileptonic $B$ meson decays of the form $B^+ \to X_u^0 \ell^+ \nu_\ell$ (inclusion of charge conjugated $B^-$ decays is implied)
 		\item Such decays are used to determine the $\vert V_{ub}\vert$ CKM matrix element
 	\end{itemize}
 \end{exampleblock}
@@ -435,7 +426,7 @@ $CP$ symmetry? $\to$ A sort of a "physics mirror", stating that the laws of phys
 	\column{0.55\textwidth}
 	Reliable \textcolor{turtlegreen}{experimental measurements} along with precise \textcolor{blue}{theoretical calculations} enable the determination of the \textcolor{red}{$\vert  V_{ub} \vert$}
 	\begin{equation*}
-	\textcolor{turtlegreen}{\mathrm{d} \Gamma} \propto G_F^2 \vert \textcolor{red}{ V_{ub}} \vert ^2 \vert \textcolor{blue}{L^\mu \langle X_u \vert \bar u \gamma_u \frac{1}{2} (1-\gamma_5) b \vert B \rangle} \vert ^2,
+	\textcolor{turtlegreen}{\mathrm{d} \Gamma} \propto G_F^2 \vert \textcolor{red}{ V_{ub}} \vert ^2 \vert \textcolor{blue}{L^\mu \langle X_u \vert \bar u \gamma_\mu \frac{1}{2} (1-\gamma_5) b \vert B \rangle} \vert ^2,
 	\end{equation*}
 	
 $\Gamma$ is the decay width, $L^\mu$ is the leptonic current and $\langle \dots \rangle$ is the hadronic current.
@@ -490,9 +481,10 @@ Both methods require different experimental and theoretical approaches, therefor
 \vspace{-3mm}
 \begin{block}{}
 	\begin{itemize}
+		\item Primary: The decay has not been observed yet
 		\item The decay $B \rightarrow KK\ell\nu$ is similar to the $B \rightarrow \pi\ell\nu$ decay, so a similar analysis process can be applied
-		\item The decay has not been observed yet
 		\item Kaons ($K^+(u \bar s)$) are usually present in $b \to c (\to s)$ decays, so a $K$-veto is used to remove such background cases in inclusive $V_{ub}$ studies\\$\to$ \textcolor{red}{but this is a charmless process ($b \to u$) with kaons in the final state!}
+		\item Secondary: Impact of not taking these decays into account?
 	\end{itemize}
 \end{block}
 
@@ -503,12 +495,6 @@ Both methods require different experimental and theoretical approaches, therefor
 	\includegraphics[scale=0.9]{texfig/B2pilnu}
 \end{columns}
 
-\only<2>{{\Large \color{red}\begin{center}
-			Can change the value of $\vert V_{ub} \vert$ with inclusive method!
-\end{center}}}
-\only<3>{{\Large \color{red}\begin{center}
-			Impact of not taking these decays into account?
-\end{center}}}
 
 \end{frame}
 
@@ -537,7 +523,7 @@ Both methods require different experimental and theoretical approaches, therefor
 			\begin{itemize}
 				\item corresponds to $\Upsilon(4S)$ meson mass
 			\end{itemize}
-			\item B factories are known for mass production of $B$ mesons
+			\item B factories are known for abundant production of $B$ mesons
 		\end{itemize}
 	\end{block}
 	
@@ -835,17 +821,28 @@ Signal is scaled up. Correctly reconstructed candidates have $\Delta E \approx 0
 
 \begin{columns}
 	\column{0.6\textwidth}
-	\includegraphics[width=\textwidth]{fig/roe_val}
+	\includegraphics[width=\textwidth]{fig/roe_opt}
 	\column{0.4\textwidth}
 	\begin{block}{}
-	\begin{itemize}
-		\item ROE clean-up performs well, distributions are more prominent
-		\item The clean-up procedure does not introduce differences between MC and Data
-		\item The \textcolor{magenta}{control} (and therefore signal) distribution is much more significant after the cleanup
-		\item The \textcolor{blue}{charged} background more "signal" like because phase-space similar to the one for the \textcolor{magenta}{control} decay
-	\end{itemize}
+		\begin{itemize}
+			\item The procedure \textbf{improves} \textbf{the resolution} of signal distribution
+			\item It performs \textbf{better} than the standard Belle procedure
+			\item \textbf{The efficiency} of perfectly reconstructed signal \textbf{increases}
+		\end{itemize}
 	\end{block}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c|c|c}
+			& $\mathcal{E}$ & FWHM\\
+			\toprule
+			Belle & $28.5~\%$  & $75.0~\%$  \\
+			ROE & $140.1~\%$ & $35.0~\%$ \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 \end{columns}
+
+{\footnotesize Perfectly reconstructed signal candidates are signal candidates from events, where all tracks and clusters are accounted for.}
 
 
 \end{frame}
@@ -858,31 +855,21 @@ Signal is scaled up. Correctly reconstructed candidates have $\Delta E \approx 0
 
 \begin{columns}
 	\column{0.6\textwidth}
-	\includegraphics[width=\textwidth]{fig/roe_opt}
+	\includegraphics[width=\textwidth]{fig/roe_val}
 	\column{0.4\textwidth}
 	\begin{block}{}
-		\begin{itemize}
-			\item The procedure \textbf{improves} \textbf{the resolution} of signal distribution
-			\item It performs \textbf{better} than the standard Belle procedure
-			\item \textbf{The efficiency} of perfectly reconstructed signal \textbf{increases}
-		\end{itemize}
+	\begin{itemize}
+		\item We validate the ROE clean-up procedure on the \textcolor{magenta}{control mode}
+		\item ROE clean-up performs well on MC as well as on Daa
+		\item The clean-up procedure does not introduce differences between MC and Data
+	\end{itemize}
 	\end{block}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{c|c|c}
-		& $\mathcal{E}$ & FWHM\\
-		\toprule
-		Belle & $28.5~\%$  & $75.0~\%$  \\
-		ROE & $140.1~\%$ & $35.0~\%$ \\
-		\bottomrule
-	\end{tabular}
-\end{table}
 \end{columns}
-
-{\footnotesize Perfectly reconstructed signal candidates are signal candidates from events, where all tracks and clusters are accounted for.}
 
 
 \end{frame}
+
+
 
 %----------------------------------------------------------------------------------------
 
@@ -929,7 +916,7 @@ Continuum (left) and $B \bar B$ (right) suppression BDT variable. Signal is more
 \small
 
 Sample composition after background suppression:
-$$N_{\mathrm{sig}} = 264,\quad \frac{N_{\mathrm{sig}}}{N_{\mathrm{bkg}}} = 1.33$$
+$$N_{\mathrm{sig}} = 264,\quad \frac{N_{\mathrm{sig}}}{N_{\mathrm{bkg}}} = 1.33\E{-2}$$
 
 \begin{center}
 	\includegraphics[width=\textwidth]{fig/opt_uBB_si}
@@ -971,7 +958,7 @@ $$N_{\mathrm{sig}} = 264,\quad \frac{N_{\mathrm{sig}}}{N_{\mathrm{bkg}}} = 1.33$
 	\begin{itemize}
 		\item signal
 		\item continuum
-		\item well-defined sources $\to$
+		\item well-defined sources $\to$\\of background
 		\item other $B \bar B$ background
 	\end{itemize}
 	\column{0.6\textwidth}
@@ -992,30 +979,10 @@ $$N_{\mathrm{sig}} = 264,\quad \frac{N_{\mathrm{sig}}}{N_{\mathrm{bkg}}} = 1.33$
 
 \end{frame}
 
-%----------------------------------------------------------------------------------------
-
-\begin{frame}[t]{Parameter Extraction II -- Smearing and Offset}
-\vspace{-3mm}
-\small
-
-We introduced 2 additional parameters to the $\Delta E$ variable:
-$$
-f_{\mathrm{offset}}: x \mapsto x + a, \quad
-f_{\mathrm{smearing}}: x \mapsto \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
-$$
-\vspace{-5mm}
-\begin{center}
-	\includegraphics[width=0.9\textwidth]{fig/smearing_offset}
-\end{center}
-\vspace{-3.5mm}
-Consistency check on MC, data fit better with introduced parameters:\\
-Smearing: $40_{-17}^{+15}\e{MeV},$\quad Offset: $6_{-6}^{+4.6}\e{MeV}$.
-
-\end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[t]{Parameter Extraction III -- Control Fit Results}
+\begin{frame}[t]{Parameter Extraction II -- Control Fit Results}
 \vspace{-3mm}
 \small
 
@@ -1031,6 +998,8 @@ Results of the control decay fit to DATA
 	\column{0.4\textwidth}
 	\begin{block}{}
 		\begin{itemize}
+			\item Plot: White part represented by the \textcolor{magenta}{control decay}, which is drawn separately
+			\item \textcolor{blue}{Blue contribution} mostly from $B \to D^* \ell \nu$, shift in $\Delta E$ due to a missing particle ($\pi^\pm$)
 			\item Templates are appropriately summed to best fit the measurement
 			\item The fit behaves well, no strange artefacts in pulls 
 		\end{itemize}
@@ -1043,25 +1012,23 @@ Results of the control decay fit to DATA
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[t]{Parameter Extraction III -- Control Fit Results}
+\begin{frame}[t]{Parameter Extraction II -- Control Fit Results}
 \vspace{-3mm}
 \small
 
-Simulated and measured branching ratio of the control decay for joint and split lepton modes.
+Control decay branching ratio measurement
 \vspace{-2mm}
 \begin{center}
 	\includegraphics[width=0.9\textwidth]{fig/br_plot}
 \end{center}
 \vspace{-2mm}
-\only<2>{
 \textcolor{turtlegreen}{The simulated and measured values of the control decay branching ratio seems to agree well with the generated value and the world average from PDG (\url{http://pdglive.lbl.gov}).}
-}
 
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[t]{Parameter Extraction IV -- Signal Fit Results}
+\begin{frame}[t]{Parameter Extraction III -- Signal Fit Results}
 \vspace{-3mm}
 \small
 
@@ -1074,6 +1041,11 @@ Results of the signal decay fit to DATA
 	\end{center}
 	
 	\column{0.4\textwidth}
+		\vspace{-7mm}
+		\begin{block}{}
+		White part represented by the \textcolor{green}{signal decay}, which is drawn separately
+	\end{block}
+\vspace{-4mm}
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{l|l}
@@ -1099,7 +1071,7 @@ Results of the signal decay fit to DATA
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[t]{Parameter Extraction IV -- Signal Fit Results}
+\begin{frame}[t]{Parameter Extraction III -- Signal Fit Results}
 \vspace{-3mm}
 \small
 
@@ -1109,23 +1081,40 @@ Signal fit to measured data and 10 equal samples of simulated data (streams)
 	\includegraphics[width=\textwidth]{fig/sig_global}
 \end{center}
 
-\only<2>{
 \textcolor{turtlegreen}{Much more signal in measured data than expected from simulation!}	
-}
 
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[t]{Parameter Extraction V -- Signal Distributions}
+\begin{frame}[t]{Parameter Extraction IV -- Signal Distributions}
 \vspace{-3mm}
 \small
 
 \begin{columns}
-	\column{0.6\textwidth}
+	\column{0.56\textwidth}
 	\begin{center}
-		\includegraphics[width=0.9\textwidth]{fig/sig_mKK_all}\\
-		\includegraphics[width=0.9\textwidth]{fig/sig_q2_all}
+		\begin{tikzpicture}
+		\node at (0,0) {\includegraphics[width=0.9\textwidth]{fig/sig_q2_all}};
+		\node at (0,3.5){\includegraphics[width=0.9\textwidth]{fig/sig_mKK_all}};
+		
+		\node at (1.5,3.8) {
+			\begin{tabular}{l}
+			DATA\\
+			\textcolor{blue}{MC}\\
+			\end{tabular}
+		};
+		
+		
+		\draw[thick, ->] (0.9,4.05) to [out=180,in=0] (-1.2,4.5);
+		\draw[blue, thick, ->] (0.9,3.65) to [out=180,in=60] (-1.6,3.4);
+		%\draw[thick, ->] (0.3,-3.4) to [out=180,in=270] (-3.8,0);
+		%
+		%\draw[thick, turtlegreen, ->] (4,3) to [out=-90,in=0] (2.2,1);
+		%\draw[thick, turtlegreen, ->] (2.6,3.7) to [out=180,in=0] (0.2,3);
+		
+		
+		\end{tikzpicture}
 	\end{center}
 	\column{0.4\textwidth}
 	\begin{block}{}
@@ -1145,6 +1134,8 @@ Signal fit to measured data and 10 equal samples of simulated data (streams)
 \end{columns}
 
 Such measurements help improve future models and minimize difference between data and simulations. 
+
+
 
 \end{frame}
 
@@ -1196,13 +1187,12 @@ Such measurements help improve future models and minimize difference between dat
 
 \begin{frame}[t]{Systematic Uncertainties II -- All Sources}
 
-\vspace{-3mm}
-\small
+\vspace{5mm}
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{l|l|l}
-		Source & $\sigma$ & $\delta~[\%]$ \\
+	\begin{tabular}{l|c|c}
+		Source & Absolute ($\sigma$) & Relative ($\delta)~[\%]$ \\
 		\toprule
 		PID & $10$ & $2.0$ \\
 		Fit Bias & $ {}^{+7}_{-10}$ & ${}^{+1.5}_{-2.0}$ \\
@@ -1280,11 +1270,10 @@ where the first and the last error are statistical and systematic, respectively.
 \begin{frame}[t]{Summary}
 \begin{block}{}
 \begin{itemize}
-	\item We present an improvement in the untagged method with the ROE clean-up
-	\item Machine learning algorithms aid substantially in such complex analyses
-	\item The evidence for the decay mode $B^+ \to K^+ K^- \ell^+ \nu_\ell$ was found
-	\item Further insight into signal distributions helps to improve future simulation models
-	\item \textbf{Discarding decays of the form $B \to X_u \ell \nu$ with kaons in the final state might affect the inclusive measurements more than previously believed.}
+	\item Improvement in the untagged method with the ROE clean-up
+	\item Demonstration of the aid of machine learning algorithms in such analyses
+	\item Evidence for the previously unstudied decay mode $B^+ \to K^+ K^- \ell^+ \nu_\ell$ (and c.c.), with additional insight into signal distributions
+	\item Current studies underestimate the amount of charmless semileptonic $B$ meson decays with kaons in the final state. Future analyses can take such decay modes into account and produce more quantitative results.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -1301,6 +1290,7 @@ where the first and the last error are statistical and systematic, respectively.
 \url{https://xkcd.com/1403/}
 \end{frame}
 
+
 %----------------------------------------------------------------------------------------
 
 \appendix
@@ -1316,7 +1306,7 @@ where the first and the last error are statistical and systematic, respectively.
 %----------------------------------------------------------------------------------------
 
 
-\begin{frame}[t]{Analysis III -- Selection Criteria}
+\begin{frame}[t]{Backup -- Selection Criteria}
 
 \vspace{-3mm}
 \small
@@ -1338,12 +1328,190 @@ Selection:
 	\end{itemize}
 \end{itemize}
 
-\begin{block}{}
-	This way we decrease the number of combinations, where the combined particles represent a wrongly reconstructed candidate.
-\end{block}
 
 \end{frame}
 
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Generated $m_{KK}$ Distribution}
+\vspace{-3mm}
+\small
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{fig/KKlnu_src}
+	\caption{Invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structure, while $KK$ pairs from the $X_u^0$ state are more abundant and follow a wider and smoother distribution.}
+\end{figure}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Other $KK$ decays}
+\vspace{-3mm}
+\small
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|c||l|c}
+		Channel & Ratio $[\%]$ & Channel & Ratio $[\%]$ \\
+		\toprule 
+		$K^+ K^-$ & 28.14 & $K^+ K^- \rho^0$ & 1.93 \\
+		$K^+ K^- \pi^0$ & 8.94 & $K^+ \bar{K}{}^0 \rho^-$ & 1.84 \\
+		$K^+ \bar{K}{}^0 \pi^-$ & 8.71 & $K^0 K^- \rho^+$ & 1.83 \\
+		$K^0 K^- \pi^+$ & 8.70 & $K^0 \bar K {}^0 \rho^0$ & 0.00 \\
+		$K^+ K^- \pi^+ \pi^-$ & 4.15 &  $K^+ K^- \pi^0 \pi^0$ & 0.86 \\
+		$K^0 \bar K {}^0$ & 3.32  & $K^+ K^- \pi^+ \rho^-$ & 0.69 \\
+		$K^0 \bar K {}^0 \pi^0$ & 3.26 & $K^+ K^- \rho^+ \pi^-$ & 0.68 \\
+		\midrule
+		$K \bar K$ pair with $\eta$ & 7.08  & & \\
+		$K \bar K$ pair with $\omega$ & 5.33  & & \\
+		Other & 14.53  & & \\
+		\bottomrule 
+	\end{tabular}
+	\caption{Relative branching fractions of $B \to KKX\ell \nu$ decays by channel.}
+\end{table}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- B2BII Tracks}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/b2bii_tracks}
+	\caption{Some of the more important physical properties of tracks for Belle and Belle II in the conversion process. The histograms seem to overlap and the conversion is assumed to be successful.}
+	\label{fig:b2bii_tracks}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- B2BII Clusters}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{fig/b2bii_gammas}
+	\caption{Some of the more important physical properties of photons for Belle and Belle II in the conversion process. The histograms seem to overlap and the conversion is assumed to be successful.}
+	\label{fig:b2bii_gammas}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- $q^2$ Calculation}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/q2}
+	\caption{Distributions of $q^2$ (left) and $q^2$ resolution (right) for various methods of $q^2$ calculation. The green distribution follows the procedure in \cite{VubCLEO}, the blue distribution takes into account the weighted average of the $B$ meson direction \cite{Ha:2010rf}, and the red and orange distributions are straight-forward calculations with available information in the reconstruction. The $q^2$ calculation in red assumes a resting $B$ meson in the CMS frame, and the calculation in orange uses the neutrino four-momentum summed up tracks and clusters in ROE.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Signal Window Definition}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{fig/sigWin}
+	\caption{2D $FOM$ optimization of the signal region definition, where most of the perfectly reconstructed candidates are located.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- ROE Clean-up Validation (Split)}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/roe_val_split}
+	\caption{Distributions of $\Delta E$ (top) and $M_{BC}$ (bottom) split in bins of the charge product of the two $B$ mesons.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- BDT for $B \bar B$ Suppression}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/bb_BDT}
+	\caption{$B\bar B$ suppression classifier output for signal and various types of background for the standard $BDT$ classifier (left) and the $uBDT$ classifier (right). $B$ candidates from $B\bar B$ background events dominate the lower region, while signal and control candidates dominate in the upper region of the classifier output.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- $B \bar B$ BKG Composition}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.52\linewidth]{fig/sig_BKG_composition_all_after}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right) and $m_{KK}$ (bottom) for major contributions to the $B \bar B$ background in the signal region after the lepton veto. The double semileptonic background component is suppressed by a factor of $4-5$.}
+\end{figure} 
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Off Resonance Agreement}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.58\linewidth]{fig/offres_control}
+	\caption{$\Delta E$ (left), $M_{BC}$ (right), and the $q \bar q$ classifier output (bottom) for off-resonance data and MC in the control region prior to any MVA selection.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Binning Algorithm}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.49\linewidth]{fig/adaptive_1}
+	\includegraphics[width=0.49\linewidth]{fig/adaptive_15}
+	\caption{Steps taken in the adaptive binning algorithm. Left image shows the initial 2D histogram with the defined optimal region and the problematic bins, the right image shows the final binning with the unchanged optimal region, while the problematic bins are gone due to the new binning choice.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}[t]{Backup -- Linearity Test}
+\vspace{-3mm}
+\small
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/lin_test}
+	\caption{The mean fit yield and expected yield difference (top), the mean pull (center) and the mean significance (bottom) as a function of the signal fraction.}
+\end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[t]{Backup -- Smearing and Offset}
+\vspace{-3mm}
+\small
+
+We introduced 2 additional parameters to the $\Delta E$ variable:
+$$
+f_{\mathrm{offset}}: x \mapsto x + a, \quad
+f_{\mathrm{smearing}}: x \mapsto \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
+$$
+\vspace{-5mm}
+\begin{center}
+	\includegraphics[width=0.9\textwidth]{fig/smearing_offset}
+\end{center}
+\vspace{-3.5mm}
+Consistency check on MC, data fit better with introduced parameters:\\
+Smearing: $40_{-17}^{+15}\e{MeV},$\quad Offset: $6_{-6}^{+4.6}\e{MeV}$.
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[t]
+\small 
+\printbibliography
+
+\end{frame}
 
 
 \backupend
