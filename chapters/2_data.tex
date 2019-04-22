@@ -1,8 +1,8 @@
 \chapter{Data and Monte-Carlo Samples}\label{sec:data-and-monte-carlo-samples}
 
-The Belle detector acquired a dataset of about $L_0 \approx 710\e{fb^{-1}}$ of integrated luminosity in its lifetime at the $\Upsilon(4S)$ energy of $10.58\e{GeV}$, which corresponds to about $771\E{6}$ $B \bar B$ meson pairs. Additionally, several streams of Monte-Carlo (MC) samples were produced, where each stream of MC corresponds to the same amount of data that was taken with the detector. The main focus of this and other similar analyses is to study a rare signal decay, which means that the amount of such decays in the existing MC is not abundant enough. In such cases, it is a common practice to produce specific samples of signal MC, where the abundance of signal decays is much larger, enabling us to study its properties in greater detail.
+The Belle detector acquired a dataset of about $L_0 \approx 710\e{fb^{-1}}$ of integrated luminosity in its lifetime at the $\Upsilon(4S)$ energy of $10.58\e{GeV}$, which corresponds to about $771\E{6}$ $B \bar B$ meson pairs. Additionally, several streams of Monte-Carlo (MC) simulated samples were produced, where each stream of MC corresponds to the same amount of data that was recorded the detector. The main focus of this work is to study a rare signal decay that is not necessarily produced abundantly or at all in the existing MC samples. In such cases, it is a common practice to produce specific samples of signal MC, where the abundance of the signal decay is much larger, enabling us to study its properties in greater detail.
 
-The following samples were used in this analysis
+The following samples were used in analysis
 \begin{itemize}
 	\item data
 	\begin{itemize}
@@ -18,10 +18,10 @@ The following samples were used in this analysis
 		\item other rare $B$ meson decays (denoted as \texttt{rare}), not included in previous MC samples, equal to an amount of $50 \times L_0$.
 	\end{itemize}
 \end{itemize}
-
+\newpage
 \section{Signal MC Production}
 
-The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$ and the charge conjugated $B^-$ decays was produced using the \texttt{mcproduzh} \cite{lange2001evtgen,agostinelli2003geant4} package for producing Belle MC. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the \texttt{ulnu} sample since it includes the decays of interest. An additional skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same particle. This decreases the CPU consumption during the detector simulation and reconstruction.
+The signal MC sample of $B^+ \to K^+ K^- \ell \nu_\ell$, including the charge conjugated $B^-$ mesons, was produced using the \texttt{mcproduzh} \cite{lange2001evtgen,agostinelli2003geant4} package for producing Belle MC. The package accepts a decay file, which describes the decays to be generated. The decay file used for signal MC generation was the same as for the \texttt{ulnu} sample, since it includes the decays of interest. An additional MC skim was applied in order to select only events of interest with at least 2 kaons and a light lepton, all coming from the same $B$ meson. This decreases the CPU consumption during the detector simulation and reconstruction.
 
 The relevant processes which contribute to our signal decay are
 \begin{itemize}
@@ -31,17 +31,17 @@ The relevant processes which contribute to our signal decay are
 	\item $B^+ \to f_{0} \ell^+ \nu_\ell$,
 	\item $B^+ \to X_{u}^0 \ell^+ \nu_\ell$,
 \end{itemize}
-where $a_{00}$, $a_{20}$, $f_{2}$ and $f_{0}$ are light unflavored states which include further decays into a $K^+K^-$ pair, and $X_u^0$ represents a generic $u \bar u$ quark pair, which further hadronizes based on the \texttt{PYTHIA} quark hadronization model \cite{sjostrand2006pythia}. Figure \ref{fig:KKsrc} shows the invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structures, while $KK$ pairs from the $X_u^0$ state are more frequent and follow a wider and smoother distribution.
+where $a_{00}$, $a_{20}$, $f_{2}$, and $f_{0}$ are light, unflavored states which include further decays into a $K^+K^-$ pair. The $X_u^0$ state represents a generic $u \bar u$ quark pair, which further hadronizes based on the \texttt{PYTHIA} quark hadronization model \cite{sjostrand2006pythia}. Figure \ref{fig:KKsrc} shows the invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structures, while $KK$ pairs from the $X_u^0$ state are more abundant and follow a wider and smoother distribution.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{fig/KKlnu_src}
 	\captionsetup{width=.8\linewidth}
-	\caption{Invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structurer, while $KK$ pairs from the $X_u^0$ state are more frequent and follow a wider and smoother distribution.}
+	\caption{Invariant mass of the $KK$ pair from various contributions of the MC generator. The light unflavored states have small contributions with resonant structure, while $KK$ pairs from the $X_u^0$ state are more abundant and follow a wider and smoother distribution.}
 	\label{fig:KKsrc}
 \end{figure}
 
-The produced signal MC sample contains decays of the form $B \to KK\ell \nu$ as well as $B \to KKX\ell \nu$, where $X$ can be any hadron as long as it satisfies all the selection rules of the decay. It is possible to calculate the MC branching ratios for each channel by making combinations of the particles directly from the generator. Table \ref{tab:KKX} shows some of the most prominent channels, which are similar to our signal decay, as well as their relative fraction. It is clear that our signal decay is the most abundant one, with a relative contribution of about $28~\%$, while other channels contribute only up to about $8~\%$ or less. Additionally, our signal decay is the cleanest, while other decays include neutral particles like $\pi^0$, which are harder to reconstruct and suffer from a decrease in efficiency due to reconstruction effects.
+The produced signal MC sample contains decays of the form $B \to KK\ell \nu$, as well as $B \to KKX\ell \nu$, where $X$ can be any hadron as long as it satisfies all the selection rules of the decay. It is possible to calculate the MC branching fractions for each channel by making combinations of the particles directly from the generator output. Table \ref{tab:KKX} shows some of the most prominent $B \to KKX\ell \nu$ channels and their relative fractions. It is clear that our signal decay is the most abundant one, with a relative contribution of about $28~\%$, while other channels contribute only up to about $8~\%$ or less. Additionally, our signal decay is the cleanest, while other decays include neutral particles like $\pi^0$, which are harder to reconstruct and suffer from a decrease in efficiency due to reconstruction effects.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|c||l|c}
@@ -61,18 +61,19 @@ The produced signal MC sample contains decays of the form $B \to KK\ell \nu$ as 
 		\bottomrule 
 	\end{tabular}
 	\captionsetup{width=.8\linewidth}
-	\caption{Relative branching ratios of $B \to KKX\ell \nu$ decays by channel.}
+	\caption{Relative branching fractions of $B \to KKX\ell \nu$ decays by channel.}
 	\label{tab:KKX}
 \end{table}
 
-We generate about $1.3\E{9}$ events of the form $B\to X_u \ell \nu$, which corresponds to an integrated luminosity of about $L = 400\times L_0$, where this value was obtained by normalizing the signal MC to the amount of signal in the $B\to X_u \ell \nu$ MC sample. This amounts to a total of about $9.37\E{6}$ generated signal events, and to a branching ratio
+We generate about $1.3\E{9}$ events of the form $B\to X_u \ell \nu$, which corresponds to an integrated luminosity of about $L = 400\times L_0$, where this value was obtained by normalizing the signal MC to the amount of signal candidates in the \texttt{ulnu} MC sample. This amounts to a total of about $9.37\E{6}$ generated signal events, and to a branching fraction
 \begin{equation}
-\mathcal{B}\left(B^+ \to K^+ K^- \ell^+ \nu_\ell\right)_{MC} = 1.53\E{-5},
+\mathcal{B}\left(B^+ \to K^+ K^- \ell^+ \nu_\ell\right)_{GEN} = 1.53\E{-5},
 \end{equation}
-where $\ell$ is $e$ or $\mu$. During analysis, the abundant signal MC sample is scaled down to correspond to the amount of data taken with the Belle detector.
+where $\ell$ is $e$ or $\mu$. During the analysis, the abundant signal MC sample is scaled down to correspond to the amount of data taken with the Belle detector.
 
+\newpage
 \section{Control Decay}\label{sec:control-decay}
 
-In this analysis, we are also able to define another $B$ meson decay which occupies almost the same phase space as our signal decay. This process can be used for the monitoring of our analysis steps, which are applied to both measured and simulated data. Any kind of difference between the two might indicate our procedure to be fine-tuned to simulated data, or some other similar problem. 
+In this analysis we are also define another $B$ meson decay which occupies almost the same phase-space as our signal decay. This process can be used for the monitoring of our analysis steps, which are applied to both measured and simulated data. Any kind of difference between the two might indicate our procedure to be fine-tuned to simulated data, or some other similar problem. 
 
-We define a control decay of the form $$B^+ \to \bar D {}^0 \ell^+ \nu, \quad D^0 \to K^+ K^-,$$ which is much more abundant and, most importantly, easy to suppress since it only populates a very narrow region in the kaon invariant mass spectrum. Due to no extra particles in the $D^0$ decay, the kaon invariant mass is equal to $m_{KK} \approx m_{D^0}$ up to very good precision. By excluding this narrow region we discard the majority of the control candidates while discarding only a small amount of the signal candidates. A more quantitative description of suppressing control and other background candidates is written in chapter \ref{sec:background-suppression}.
+We define the control decay of the form $$B^+ \to \bar D {}^0 \ell^+ \nu, \quad D^0 \to K^+ K^-,$$ which is much more abundant and, most importantly, easy to suppress, since it only populates a very narrow region in the kaon invariant mass spectrum. Due to no extra particles in the $D^0$ decay, the kaon invariant mass is equal to $m_{KK} \approx m_{D^0}$ up to very good precision. By excluding this narrow region, we discard the majority of the control candidates, while discarding only a small amount of the signal candidates. A more quantitative description of suppressing control and other background candidates is written in Chapter \ref{sec:background-suppression}.

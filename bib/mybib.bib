@@ -9,16 +9,23 @@
   publisher={IOP Publishing}
 }
 
-@article{keck2017fastbdt,
-  title={Fast-BDT: A speed-optimized multivariate classification algorithm for the Belle {II} experiment},
-  author={Keck, Thomas},
-  journal={Computing and Software for Big Science},
-  volume={1},
-  number={1},
-  pages={2},
-  year={2017},
-  publisher={Springer}
+@Article{Keck2017,
+author="Keck, Thomas",
+title="FastBDT: A Speed-Optimized Multivariate Classification Algorithm for the Belle II Experiment",
+journal="Computing and Software for Big Science",
+year="2017",
+month="Sep",
+day="29",
+volume="1",
+number="1",
+pages="2",
+abstract="Stochastic gradient-boosted decision trees are widely employed for multivariate classification and regression tasks. This paper presents a speed-optimized and cache-friendly implementation for multivariate classification called FastBDT. The concepts used to optimize the execution time are discussed in detail in this paper. The key ideas include: an equal-frequency binning on the input data, which allows replacing expensive floating-point with integer operations, while at the same time increasing the quality of the classification; a cache-friendly linear access pattern to the input data, in contrast to usual implementations, which exhibit a random access pattern. FastBDT provides interfaces to C/C++, Python and TMVA. It is extensively used in the field of high energy physics (HEP) by the Belle II experiment.",
+issn="2510-2044",
+doi="10.1007/s41781-017-0002-8",
+url="https://doi.org/10.1007/s41781-017-0002-8"
 }
+
+
 
 @PHDTHESIS{Keck:48940,
       author       = {Keck, Thomas},
@@ -60,7 +67,7 @@
 }
 
 @article{PhysRevD.83.032007,
-  title = {Study of {$B\ensuremath{\rightarrow}\ensuremath{\pi}l\ensuremath{\nu}$} and {$B\ensuremath{\rightarrow}\ensuremath{\rho}l\ensuremath{\nu}$} decays and determination of {$|{V}_{ub}|$},
+  title = {Study of {$B\rightarrow\pi \ell \nu$} and {$B\rightarrow\rho\ell\nu$} decays and determination of {$|{V}_{ub}|$}},
   author = {del Amo Sanchez, P. and Lees, J. P. and Poireau, V. and Prencipe, E. and others},
   collaboration = {BABAR Collaboration},
   journal = {Phys. Rev. D},
@@ -287,11 +294,15 @@ author = "A. Abashian and K. Gotow and N. Morgan and L. Piilonen and others"
 }
 
 @article{Keck:b2bii2018,
-      author         = "Keck. T and others",
-      title          = "{{B2BII} Data conversion from Belle to Belle {II}}",
-      note = {To appear.}
-      
+      author         = "Gelb, Moritz and others",
+      title          = "{B2BII - Data conversion from Belle to Belle II}",
+      year           = "2018",
+      eprint         = "1810.00019",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      SLACcitation   = "%%CITATION = ARXIV:1810.00019;%%"
 }
+
 
 @article{VubCLEO,
   title = {Study of exclusive charmless semileptonic $B$ decays and extraction of $|{V}_{ub}|$ at CLEO},
@@ -359,4 +370,29 @@ author = "Sheldon L. Glashow"
   publisher = {American Physical Society},
   doi = {10.1103/PhysRevD.2.1285},
   url = {https://link.aps.org/doi/10.1103/PhysRevD.2.1285}
+}
+
+@article{Ha:2010rf,
+      author         = "Ha, H. and others",
+      title          = "{Measurement of the decay $B^0\to\pi^-\ell^+\nu$ and
+                        determination of $|V_{ub}|$}",
+      collaboration  = "Belle",
+      journal        = "Phys. Rev.",
+      volume         = "D83",
+      year           = "2011",
+      pages          = "071101",
+      doi            = "10.1103/PhysRevD.83.071101",
+      eprint         = "1012.0090",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "BELLE-PREPRINT-2010-22, KEK-PREPRINT-2010-37",
+      SLACcitation   = "%%CITATION = ARXIV:1012.0090;%%"
+}
+
+@article{demortier2002everything,
+  title={Everything you always wanted to know about pulls},
+  author={Demortier, Luc and Lyons, Louis},
+  journal={CDF note},
+  volume={43},
+  year={2002}
 }

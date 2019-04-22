@@ -1,0 +1,148 @@
+\documentclass[border=1pt]{standalone}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+
+\usepackage{tikz}
+
+%package for 3d ploting !!!! Extra file 3dplot.sty
+ \usepackage{3dplot}
+ %For additional information look at
+ % http://www.texample.net/tikz/examples/the-3dplot-package/
+
+%Some nicer color definitions
+\definecolor{crimsonred}{RGB}{153,0,0}		% Neurtal red, good for dark or light bg
+\definecolor{darkcharcoal}{RGB}{25,25,25}		% Darker gray
+\definecolor{charcoal}{RGB}{51,51,51}		% Darker gray
+\definecolor{ash}{RGB}{100,100,100}			% medium gray
+\definecolor{paleblue}{RGB}{0,102,102}		% More of an `ocean' color
+\definecolor{turtlegreen}{RGB}{51,153,0}	% A more neutral green
+\definecolor{paleale}{RGB}{204,204,102}		% Only for dark BG
+\definecolor{lager}{RGB}{140,110,10}		% Use instead of pale ale for white BG
+\definecolor{regal}{RGB}{90,0,120}			% A more neutral purple
+\definecolor{jeans}{RGB}{20,30,150}			% A more neutral blue
+\definecolor{Alert}{RGB}{51,153,0}	
+
+\definecolor{c4}{RGB}{10,10,10}
+\definecolor{c3}{RGB}{50,50,50}
+\definecolor{c2}{RGB}{100,100,100}
+\definecolor{c1}{RGB}{200,200,200}
+
+\begin{document}
+
+\tdplotsetmaincoords{70}{60}
+\begin{tikzpicture}[scale=1.2,tdplot_main_coords]
+\coordinate (O) at (0,0,0);
+\draw[ultra thin,opacity=0.5] (-0.2,-0.2,0) -- (2.9,-0.2,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (-0.2,0.8,0) -- (2.9,0.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (-0.2,1.8,0) -- (2.9,1.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (-0.2,2.8,0) -- (2.9,2.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (2.8,-0.3,0) -- (2.8,2.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (1.8,-0.3,0) -- (1.8,2.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (0.8,-0.3,0) -- (0.8,2.8,0) node[anchor=north east]{};
+\draw[ultra thin,opacity=0.5] (-0.2,-0.3,0) -- (-0.2,2.8,0) node[anchor=north east]{};
+\draw[ultra thin,->] (-0.2,-0.2) -- (-0.2,-0.2,1.2) node[anchor=south]{$\left| V_{ij}\right|$};
+\node at (-0.2, -0.2,0.5) {$-$};
+\node at (-0.2, -0.2,1) {$-$};
+\node at (-0.3, -0.5,0) {$0$};
+\node at (-0.3, -0.5,0.5) {0,5};
+\node at (-0.3, -0.5,1) {1,0};
+\node at (0.3, -0.5,0) {$u$};
+\node at (1.3, -0.5,0) {$c$};
+\node at (2.3, -0.5,0) {$t$};
+\node at (3.2, 0.3,0) {$d$};
+\node at (3.2, 1.3,0) {$s$};
+\node at (3.2, 2.3,0) {$b$};
+\newcommand{\Depth}{0.6}
+\newcommand{\Height}{1}
+\newcommand{\Width}{0.6}
+\def\dim{9}
+%The next line are the absolute values of the CKM matrix elements
+?\def\labels{{"0.97425", "0.22529", "0.00851", "0.22543", "0.97344", "0.04002", "0.003490", "0.04077", "0.999152"}}%
+?\def\collabels{{"c4", "c3", "c1", "c3", "c4", "c2", "c1", "c2", "c4"}}%
+
+
+\foreach \x in {0}
+\foreach \y in {2}
+{
+	\pgfmathsetmacro{\cx}{\x}
+	\pgfmathsetmacro{\cy}{\y}
+	\pgfmathsetmacro{\cz}{0}
+	\pgfmathparse{\labels[\x+\y*3]} 
+	\renewcommand{\Height}{\pgfmathresult}
+	\coordinate (O) at (\cx,\cy,\cz);
+	\coordinate (A) at (\cx,\Width+\cy,\cz);
+	\coordinate (B) at (\cx,\Width+\cy,\Height+\cz);
+	\coordinate (C) at (\cx,\cy,\Height+\cz);
+	\coordinate (D) at (\cx+\Depth,\cy,\cz);
+	\coordinate (E) at (\cx+\Depth,\Width+\cy,\cz);
+	\coordinate (F) at (\cx+\Depth,\Width+\cy,\Height+\cz);
+	\coordinate (G) at (\cx+\Depth,\cy,\Height+\cz);
+	\pgfmathparse{\collabels[\x+\y*3]}
+	\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+	\draw[fill=\pgfmathresult,opacity=0.5,red] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+}
+
+
+\foreach \x in {0,...,2}
+\foreach \y in {0,...,1}
+{
+\pgfmathsetmacro{\cx}{\x}
+\pgfmathsetmacro{\cy}{\y}
+\pgfmathsetmacro{\cz}{0}
+\pgfmathparse{\labels[\x+\y*3]} 
+\renewcommand{\Height}{\pgfmathresult}
+\coordinate (O) at (\cx,\cy,\cz);
+\coordinate (A) at (\cx,\Width+\cy,\cz);
+\coordinate (B) at (\cx,\Width+\cy,\Height+\cz);
+\coordinate (C) at (\cx,\cy,\Height+\cz);
+\coordinate (D) at (\cx+\Depth,\cy,\cz);
+\coordinate (E) at (\cx+\Depth,\Width+\cy,\cz);
+\coordinate (F) at (\cx+\Depth,\Width+\cy,\Height+\cz);
+\coordinate (G) at (\cx+\Depth,\cy,\Height+\cz);
+\pgfmathparse{\collabels[\x+\y*3]}
+\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+\draw[fill=\pgfmathresult,opacity=0.5] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+\draw[fill=\pgfmathresult,opacity=0.5] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+\draw[fill=\pgfmathresult,opacity=0.5] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+}
+
+\foreach \x in {1,...,2}
+\foreach \y in {2}
+{
+	\pgfmathsetmacro{\cx}{\x}
+	\pgfmathsetmacro{\cy}{\y}
+	\pgfmathsetmacro{\cz}{0}
+	\pgfmathparse{\labels[\x+\y*3]} 
+	\renewcommand{\Height}{\pgfmathresult}
+	\coordinate (O) at (\cx,\cy,\cz);
+	\coordinate (A) at (\cx,\Width+\cy,\cz);
+	\coordinate (B) at (\cx,\Width+\cy,\Height+\cz);
+	\coordinate (C) at (\cx,\cy,\Height+\cz);
+	\coordinate (D) at (\cx+\Depth,\cy,\cz);
+	\coordinate (E) at (\cx+\Depth,\Width+\cy,\cz);
+	\coordinate (F) at (\cx+\Depth,\Width+\cy,\Height+\cz);
+	\coordinate (G) at (\cx+\Depth,\cy,\Height+\cz);
+	\pgfmathparse{\collabels[\x+\y*3]}
+	\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+	\draw[fill=\pgfmathresult,opacity=0.5] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+}
+
+\node (p) at (0,4,1) {\textcolor{red}{$\vert V_{ub} \vert$}};
+\draw[thick, ->] (p) to [out=180,in=90] (0.45,2.45,0);
+
+
+\end{tikzpicture}
+
+\end{document}
